@@ -4,15 +4,79 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] float moveSpeed = 3f;
+    [SerializeField] float jumpForce = 5f;
+    Rigidbody2D myRigid;
+    Animator myAnimator;
+
+    enum PlayerState
+    {
+        NONE,
+        IDLE,
+        RUN,
+        ATTACK,
+        JUMP
+    }
+
+    PlayerState playerSate;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        myRigid = GetComponent<Rigidbody2D>();
+        myAnimator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        float inputHorizontal = Input.GetAxis("Horizontal");
+        myRigid.velocity = new Vector2(inputHorizontal * moveSpeed, myRigid.velocity.y);
+        if (Mathf.Abs(myRigid.velocity.x) > Mathf.Epsilon)
+        {
+            SetState(PlayerState.RUN);
+        }
+        else
+        {
+            SetState(PlayerState.IDLE);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SetState(PlayerState.JUMP);
+            myRigid.velocity = new Vector2(myRigid.velocity.x, jumpForce);
+        }
+    }
+
+    void SetState(PlayerState state)
+    {
+        if (playerSate == state) return;
+        playerSate = state;
+        switch (playerSate)
+        {
+            case PlayerState.NONE:
+                {
+                    break;
+                }
+            case PlayerState.IDLE:
+                {
+                    myAnimator.SetBool("isMoving", false);
+                    break;
+                }
+            case PlayerState.JUMP:
+                {
+                    myAnimator.SetTrigger("Jump");
+                    break;
+                }
+            case PlayerState.RUN:
+                {
+                    myAnimator.SetBool("isMoving", true);
+                    break;
+                }
+            case PlayerState.ATTACK:
+                {
+                    break;
+                }
+        }
     }
 }
