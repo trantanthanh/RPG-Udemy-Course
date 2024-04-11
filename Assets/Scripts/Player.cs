@@ -108,6 +108,7 @@ public class Player : MonoBehaviour
         else
         {
             isDashing = false;//if won't move, stop dash
+            myAnimator.SetBool("isDashing", false);//make sure update boolean isDashing immediately to animator
             if (isGrounded && !IsState(PlayerState.JUMP))
             {
                 SetState(PlayerState.IDLE);
