@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
         CheckJump();
 
         UpdateState();
+        myAnimator.SetFloat("yVelocity", myRigid.velocity.y);
     }
 
     private void CheckJump()
