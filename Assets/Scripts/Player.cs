@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,10 +6,18 @@ using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] float moveSpeed = 3f;
-    [SerializeField] float jumpForce = 5f;
+    [SerializeField] float moveSpeed = 8f;
+    [SerializeField] float jumpForce = 12f;
     [SerializeField] float groundCheckDistance;
     [SerializeField] LayerMask groundMask;
+
+    [Header("Dash Info")]
+    [SerializeField] float dashSpeed = 30f;
+    [SerializeField] float dashDuration = 0.3f;
+    float dashTime = 0f;
+    [SerializeField] float timeBetweenDash = 3.0f;
+    float timeNextDash = 0f;
+    bool isDashing = false;
 
     float timeBetweenJump = 0.3f;
     float timeNextJump = 0f;
@@ -41,9 +50,20 @@ public class Player : MonoBehaviour
         CheckIsOnGround();
         Movement();
         CheckJump();
+        CheckDash();
 
         UpdateState();
         myAnimator.SetFloat("yVelocity", myRigid.velocity.y);
+    }
+
+    private void CheckDash()
+    {
+        if (isGrounded && Input.GetKeyDown(KeyCode.LeftShift) && Time.time > timeNextDash)
+        {
+            isDashing = true;
+            dashTime = Time.time + dashDuration;
+            timeNextDash = Time.time + timeBetweenDash;
+        }
     }
 
     private void CheckJump()
@@ -60,7 +80,16 @@ public class Player : MonoBehaviour
     private void Movement()
     {
         float inputHorizontal = Input.GetAxis("Horizontal");
-        myRigid.velocity = new Vector2(inputHorizontal * moveSpeed, myRigid.velocity.y);
+        float _moveSpeed = moveSpeed;
+        if (isDashing)
+        {
+            _moveSpeed = dashSpeed;
+            if (Time.time > dashTime)
+            {
+                isDashing = false;
+            }
+        }
+        myRigid.velocity = new Vector2(inputHorizontal * _moveSpeed, myRigid.velocity.y);
         if (myRigid.velocity.x != 0)
         {
             if (isGrounded)
