@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
         NONE,
         IDLE,
         RUN,
+        DASH,
         ATTACK,
         JUMP
     }
@@ -61,6 +62,7 @@ public class Player : MonoBehaviour
         if (isGrounded && Input.GetKeyDown(KeyCode.LeftShift) && Time.time > timeNextDash)
         {
             isDashing = true;
+            SetState(PlayerState.DASH);
             dashTime = Time.time + dashDuration;
             timeNextDash = Time.time + timeBetweenDash;
         }
@@ -92,7 +94,7 @@ public class Player : MonoBehaviour
         myRigid.velocity = new Vector2(inputHorizontal * _moveSpeed, myRigid.velocity.y);
         if (myRigid.velocity.x != 0)
         {
-            if (isGrounded)
+            if (isGrounded && !isDashing)
             {
                 SetState(PlayerState.RUN);
             }
@@ -100,6 +102,7 @@ public class Player : MonoBehaviour
         }
         else
         {
+            isDashing = false;//if won't move, stop dash
             if (isGrounded && !IsState(PlayerState.JUMP))
             {
                 SetState(PlayerState.IDLE);
@@ -147,16 +150,25 @@ public class Player : MonoBehaviour
             case PlayerState.IDLE:
                 {
                     myAnimator.SetBool("isMoving", false);
+                    myAnimator.SetBool("isDashing", false);
                     break;
                 }
             case PlayerState.JUMP:
                 {
                     myAnimator.SetBool("isMoving", false);
+                    myAnimator.SetBool("isDashing", false);
                     break;
                 }
             case PlayerState.RUN:
                 {
                     myAnimator.SetBool("isMoving", true);
+                    myAnimator.SetBool("isDashing", false);
+                    break;
+                }
+            case PlayerState.DASH:
+                {
+                    myAnimator.SetBool("isMoving", false);
+                    myAnimator.SetBool("isDashing", true);
                     break;
                 }
             case PlayerState.ATTACK:
@@ -192,6 +204,10 @@ public class Player : MonoBehaviour
                     break;
                 }
             case PlayerState.RUN:
+                {
+                    break;
+                }
+            case PlayerState.DASH:
                 {
                     break;
                 }

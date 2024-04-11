@@ -184,7 +184,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -339,8 +339,8 @@ Transform:
   m_GameObject: {fileID: 536393215}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.9737, y: -0.68, z: 0}
-  m_LocalScale: {x: 7.2469773, y: 3.6575, z: 1}
+  m_LocalPosition: {x: 13.47, y: -0.2415, z: 0}
+  m_LocalScale: {x: 7.2469773, y: 9.554487, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -427,7 +427,7 @@ MonoBehaviour:
     m_Bits: 64
   dashSpeed: 20
   dashDuration: 0.3
-  timeBetweenDash: 3
+  timeBetweenDash: 1
 --- !u!70 &660644063
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -587,8 +587,8 @@ Transform:
   m_GameObject: {fileID: 709933143}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.8397, y: -1.756, z: 0}
-  m_LocalScale: {x: 19.345577, y: 1, z: 1}
+  m_LocalPosition: {x: -2.17, y: -4.26, z: 0}
+  m_LocalScale: {x: 26.644665, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
