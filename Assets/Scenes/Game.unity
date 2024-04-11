@@ -427,7 +427,7 @@ MonoBehaviour:
     m_Bits: 64
   dashSpeed: 20
   dashDuration: 0.3
-  timeBetweenDash: 1
+  dashCooldown: 1
 --- !u!70 &660644063
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

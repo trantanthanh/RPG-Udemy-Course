@@ -8,18 +8,18 @@ public class Player : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 8f;
     [SerializeField] float jumpForce = 12f;
-    [SerializeField] float groundCheckDistance;
+    [SerializeField] float groundCheckDistance;//Distance from raycast to ground
     [SerializeField] LayerMask groundMask;
 
     [Header("Dash Info")]
     [SerializeField] float dashSpeed = 30f;
     [SerializeField] float dashDuration = 0.3f;
     float dashTime = 0f;
-    [SerializeField] float timeBetweenDash = 3.0f;
+    [SerializeField] float dashCooldown = 3.0f;
     float timeNextDash = 0f;
     bool isDashing = false;
 
-    float timeBetweenJump = 0.3f;
+    float jumpCooldown = 0.3f;
     float timeNextJump = 0f;
     bool isGrounded = false;
 
@@ -49,6 +49,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         CheckIsOnGround();
+
         Movement();
         CheckJump();
         CheckDash();
@@ -64,7 +65,7 @@ public class Player : MonoBehaviour
             isDashing = true;
             SetState(PlayerState.DASH);
             dashTime = Time.time + dashDuration;
-            timeNextDash = Time.time + timeBetweenDash;
+            timeNextDash = Time.time + dashCooldown;
         }
     }
 
@@ -72,9 +73,10 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded && CanJump())
         {
-            timeNextJump = Time.time + timeBetweenJump;
+            timeNextJump = Time.time + jumpCooldown;
             isGrounded = false;
-            isDashing = false;
+            myAnimator.SetBool("isGrounded", isGrounded);//make sure update imediately isGrounded in animator
+            isDashing = false;//Stop dash when jump from ground
             SetState(PlayerState.JUMP);
             myRigid.velocity = new Vector2(myRigid.velocity.x, jumpForce);
         }
@@ -89,6 +91,7 @@ public class Player : MonoBehaviour
             _moveSpeed = dashSpeed;
             if (Time.time > dashTime)
             {
+                //Dash time has expired, just stop dash, state will check to change below
                 isDashing = false;
                 myAnimator.SetBool("isDashing", false);
             }
@@ -121,7 +124,7 @@ public class Player : MonoBehaviour
     {
         if (IsState(PlayerState.JUMP))
         {
-            if (!CanJump()) return;
+            if (!CanJump()) return;//Check cooldown to next jump, this condition to prevent multiple jump in many frames in short time
         }
         RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, groundMask);
         if (hitInfo.collider != null)
@@ -199,10 +202,6 @@ public class Player : MonoBehaviour
                 }
             case PlayerState.JUMP:
                 {
-                    if (isGrounded && myRigid.velocity.x == 0)
-                    {
-                        SetState(PlayerState.IDLE);
-                    }
                     break;
                 }
             case PlayerState.RUN:
