@@ -32,9 +32,10 @@ public class Player : MonoBehaviour
     {
         float inputHorizontal = Input.GetAxis("Horizontal");
         myRigid.velocity = new Vector2(inputHorizontal * moveSpeed, myRigid.velocity.y);
-        if (Mathf.Abs(myRigid.velocity.x) > Mathf.Epsilon)
+        if (myRigid.velocity.x != 0)
         {
             SetState(PlayerState.RUN);
+            CheckFlipSprite();
         }
         else
         {
@@ -46,6 +47,11 @@ public class Player : MonoBehaviour
             SetState(PlayerState.JUMP);
             myRigid.velocity = new Vector2(myRigid.velocity.x, jumpForce);
         }
+    }
+
+    void CheckFlipSprite()
+    {
+        transform.localScale = new Vector2(Mathf.Sign(myRigid.velocity.x) * Mathf.Abs(transform.localScale.x), transform.localScale.y);
     }
 
     void SetState(PlayerState state)
