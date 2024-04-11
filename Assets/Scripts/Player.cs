@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
 
     private void CheckDash()
     {
-        if (isGrounded && Input.GetKeyDown(KeyCode.LeftShift) && Time.time > timeNextDash)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && Time.time > timeNextDash)
         {
             isDashing = true;
             SetState(PlayerState.DASH);
@@ -74,6 +74,7 @@ public class Player : MonoBehaviour
         {
             timeNextJump = Time.time + timeBetweenJump;
             isGrounded = false;
+            isDashing = false;
             SetState(PlayerState.JUMP);
             myRigid.velocity = new Vector2(myRigid.velocity.x, jumpForce);
         }
@@ -89,9 +90,10 @@ public class Player : MonoBehaviour
             if (Time.time > dashTime)
             {
                 isDashing = false;
+                myAnimator.SetBool("isDashing", false);
             }
         }
-        myRigid.velocity = new Vector2(inputHorizontal * _moveSpeed, myRigid.velocity.y);
+        myRigid.velocity = new Vector2(inputHorizontal * _moveSpeed, (isDashing && !isGrounded) ? 0 : myRigid.velocity.y);
         if (myRigid.velocity.x != 0)
         {
             if (isGrounded && !isDashing)
