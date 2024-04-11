@@ -97,6 +97,7 @@ public class Player : MonoBehaviour
         {
             isGrounded = false;
         }
+        myAnimator.SetBool("isGrounded", isGrounded);
     }
     void CheckFlipSprite()
     {
@@ -121,7 +122,6 @@ public class Player : MonoBehaviour
             case PlayerState.JUMP:
                 {
                     myAnimator.SetBool("isMoving", false);
-                    myAnimator.SetTrigger("Jump");
                     break;
                 }
             case PlayerState.RUN:
@@ -157,7 +157,6 @@ public class Player : MonoBehaviour
                 {
                     if (isGrounded && myRigid.velocity.x == 0)
                     {
-                        myAnimator.SetTrigger("Landed");
                         SetState(PlayerState.IDLE);
                     }
                     break;
