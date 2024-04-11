@@ -291,6 +291,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   jumpForce: 7
+  groundCheckDistance: 1.39
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!70 &660644063
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -337,7 +341,7 @@ GameObject:
   - component: {fileID: 709933146}
   - component: {fileID: 709933145}
   - component: {fileID: 709933144}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
