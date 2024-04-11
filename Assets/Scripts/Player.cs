@@ -39,6 +39,25 @@ public class Player : MonoBehaviour
     void Update()
     {
         CheckIsOnGround();
+        Movement();
+        CheckJump();
+
+        UpdateState();
+    }
+
+    private void CheckJump()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded && CanJump())
+        {
+            timeNextJump = Time.time + timeBetweenJump;
+            isGrounded = false;
+            SetState(PlayerState.JUMP);
+            myRigid.velocity = new Vector2(myRigid.velocity.x, jumpForce);
+        }
+    }
+
+    private void Movement()
+    {
         float inputHorizontal = Input.GetAxis("Horizontal");
         myRigid.velocity = new Vector2(inputHorizontal * moveSpeed, myRigid.velocity.y);
         if (myRigid.velocity.x != 0)
@@ -56,16 +75,6 @@ public class Player : MonoBehaviour
                 SetState(PlayerState.IDLE);
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded && CanJump())
-        {
-            timeNextJump = Time.time + timeBetweenJump;
-            isGrounded = false;
-            SetState(PlayerState.JUMP);
-            myRigid.velocity = new Vector2(myRigid.velocity.x, jumpForce);
-        }
-
-        UpdateState();
     }
 
     bool CanJump()
