@@ -1,40 +1,41 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
-public class Player : MonoBehaviour
+public class Entity : MonoBehaviour
 {
-    [SerializeField] float moveSpeed = 8f;
-    [SerializeField] float jumpForce = 12f;
-    [SerializeField] float groundCheckDistance;//Distance from raycast to ground
-    [SerializeField] LayerMask groundMask;
+    [Header("Moving Info")]
+    [SerializeField] protected float moveSpeed = 8f;
+    [SerializeField] protected float jumpForce = 12f;
+    protected float jumpCooldown = 0.3f;
+    protected float timeNextJump = 0f;
+    protected float inputHorizontal = 0f;
 
     [Header("Dash Info")]
-    [SerializeField] float dashSpeed = 30f;
-    [SerializeField] float dashDuration = 0.3f;
-    float dashTime = 0f;
-    [SerializeField] float dashCooldown = 3.0f;
-    float timeNextDash = 0f;
-    bool isDashing = false;
+    [SerializeField] protected float dashSpeed = 30f;
+    [SerializeField] protected float dashDuration = 0.3f;
+    protected float dashTime = 0f;
+    [SerializeField] protected float dashCooldown = 3.0f;
+    protected float timeNextDash = 0f;
+    protected bool isDashing = false;
+
+    [Header("Collision check")]
+    [SerializeField] float groundCheckDistance;//Distance from raycast to ground
+    [SerializeField] LayerMask groundMask;
+    protected bool isGrounded = false;
 
     [Header("Attack Info")]
+    [SerializeField] protected int numOfAnimsAttack = 3;
     [Tooltip("Time between 2 times attack in row must under this value time to increase combo attack")]
-    [SerializeField] private float comboTime = 1.2f;
-    private float comboTimeCounter = 0f;
-    private bool isAttacking = false;
-    private int comboCounter = 0;
+    [SerializeField] protected private float comboTime = 1.2f;
+    protected float comboTimeCounter = 0f;
+    protected bool isAttacking = false;
+    protected int comboCounter = 0;
 
+    protected Rigidbody2D myRigid;
+    protected Animator myAnimator;
 
-    float jumpCooldown = 0.3f;
-    float timeNextJump = 0f;
-    bool isGrounded = false;
-
-    Rigidbody2D myRigid;
-    Animator myAnimator;
-
-    enum PlayerState
+    protected enum EntityState
     {
         NONE,
         IDLE,
@@ -44,73 +45,65 @@ public class Player : MonoBehaviour
         JUMP
     }
 
-    PlayerState playerSate;
+    protected EntityState entityState;
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         myRigid = GetComponent<Rigidbody2D>();
         myAnimator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         CheckIsOnGround();
+        CheckFlipSprite();
 
-        CheckAttack();
         Movement();
-        CheckJump();
-        CheckDash();
-
         UpdateState();
         myAnimator.SetFloat("yVelocity", myRigid.velocity.y);
     }
 
-    private void CheckAttack()
+    protected void Attack()
     {
-        if (!isAttacking && Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            if (isGrounded)
-            {
-                SetState(PlayerState.ATTACK);
-            }
-        }
+        if (!isGrounded || isAttacking) return;
+        SetState(EntityState.ATTACK);
     }
 
     public void AttackOver()
     {
-        SetState(PlayerState.IDLE);
+        SetState(EntityState.IDLE);
     }
 
-    private void CheckDash()
+    protected void Dash()
     {
-        if (!isAttacking && Input.GetKeyDown(KeyCode.LeftShift) && Time.time > timeNextDash)
+        if (!isAttacking && Time.time > timeNextDash)
         {
             isDashing = true;
-            SetState(PlayerState.DASH);
+            SetState(EntityState.DASH);
             dashTime = Time.time + dashDuration;
             timeNextDash = Time.time + dashCooldown;
         }
     }
 
-    private void CheckJump()
+    protected void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded && CanJump())
+        if (isGrounded && CanJump())
         {
             timeNextJump = Time.time + jumpCooldown;
             isGrounded = false;
             myAnimator.SetBool("isGrounded", isGrounded);//make sure update imediately isGrounded in animator
             isDashing = false;//Stop dash when jump from ground
-            SetState(PlayerState.JUMP);
+            SetState(EntityState.JUMP);
             myRigid.velocity = new Vector2(myRigid.velocity.x, jumpForce);
         }
     }
 
-    private void Movement()
+    protected virtual void Movement()
     {
+        //need set inputHorizontal in derived class, inputHorizontal > 0 (moving right) inputHorizontal < 0 (moving left)
         if (isAttacking) return;
-        float inputHorizontal = Input.GetAxis("Horizontal");
         float _moveSpeed = moveSpeed;
         if (isDashing)
         {
@@ -127,29 +120,31 @@ public class Player : MonoBehaviour
         {
             if (isGrounded && !isDashing)
             {
-                SetState(PlayerState.RUN);
+                SetState(EntityState.RUN);
             }
-            CheckFlipSprite();
         }
         else
         {
             isDashing = false;//if won't move, stop dash
             myAnimator.SetBool("isDashing", false);//make sure update boolean isDashing immediately to animator
-            if (isGrounded && !IsState(PlayerState.JUMP))
+            if (isGrounded && !IsState(EntityState.JUMP))
             {
-                SetState(PlayerState.IDLE);
+                SetState(EntityState.IDLE);
             }
         }
     }
 
-    bool CanJump()
+    protected void CheckFlipSprite()
     {
-        return !isAttacking && Time.time > timeNextJump;
+        if (myRigid.velocity.x != 0)
+        {
+            transform.localScale = new Vector2(Mathf.Sign(myRigid.velocity.x) * Mathf.Abs(transform.localScale.x), transform.localScale.y);
+        }
     }
 
-    void CheckIsOnGround()
+    protected void CheckIsOnGround()
     {
-        if (IsState(PlayerState.JUMP))
+        if (IsState(EntityState.JUMP))
         {
             if (!CanJump()) return;//Check cooldown to next jump, this condition to prevent multiple jump in many frames in short time
         }
@@ -164,22 +159,18 @@ public class Player : MonoBehaviour
         }
         myAnimator.SetBool("isGrounded", isGrounded);
     }
-    void CheckFlipSprite()
-    {
-        transform.localScale = new Vector2(Mathf.Sign(myRigid.velocity.x) * Mathf.Abs(transform.localScale.x), transform.localScale.y);
-    }
 
-    void SetState(PlayerState state)
+    protected void SetState(EntityState state)
     {
-        if (playerSate == state) return;
-        playerSate = state;
-        switch (playerSate)
+        if (entityState == state) return;
+        entityState = state;
+        switch (entityState)
         {
-            case PlayerState.NONE:
+            case EntityState.NONE:
                 {
                     break;
                 }
-            case PlayerState.IDLE:
+            case EntityState.IDLE:
                 {
                     myAnimator.SetBool("isMoving", false);
                     myAnimator.SetBool("isDashing", false);
@@ -187,25 +178,25 @@ public class Player : MonoBehaviour
                     myAnimator.SetBool("isAttacking", isAttacking);
                     break;
                 }
-            case PlayerState.JUMP:
+            case EntityState.JUMP:
                 {
                     myAnimator.SetBool("isMoving", false);
                     myAnimator.SetBool("isDashing", false);
                     break;
                 }
-            case PlayerState.RUN:
+            case EntityState.RUN:
                 {
                     myAnimator.SetBool("isMoving", true);
                     myAnimator.SetBool("isDashing", false);
                     break;
                 }
-            case PlayerState.DASH:
+            case EntityState.DASH:
                 {
                     myAnimator.SetBool("isMoving", false);
                     myAnimator.SetBool("isDashing", true);
                     break;
                 }
-            case PlayerState.ATTACK:
+            case EntityState.ATTACK:
                 {
                     isAttacking = true;
                     myRigid.velocity = Vector2.zero;//stop movingW
@@ -218,49 +209,55 @@ public class Player : MonoBehaviour
                     comboTimeCounter = Time.time + comboTime;
                     myAnimator.SetBool("isAttacking", isAttacking);
                     myAnimator.SetInteger("comboCounter", comboCounter);
-                    comboCounter = ++comboCounter % 3;
+                    comboCounter = ++comboCounter % numOfAnimsAttack;
                     break;
                 }
         }
-    }
-
-    bool IsState(PlayerState state)
-    {
-        return playerSate == state;
     }
 
     void UpdateState()
     {
-        switch (playerSate)
+        switch (entityState)
         {
-            case PlayerState.NONE:
+            case EntityState.NONE:
                 {
                     break;
                 }
-            case PlayerState.IDLE:
+            case EntityState.IDLE:
                 {
                     break;
                 }
-            case PlayerState.JUMP:
+            case EntityState.JUMP:
                 {
                     break;
                 }
-            case PlayerState.RUN:
+            case EntityState.RUN:
                 {
                     break;
                 }
-            case PlayerState.DASH:
+            case EntityState.DASH:
                 {
                     break;
                 }
-            case PlayerState.ATTACK:
+            case EntityState.ATTACK:
                 {
                     break;
                 }
         }
     }
 
-    private void OnDrawGizmos()
+    protected bool IsState(EntityState state)
+    {
+        return entityState == state;
+    }
+
+    protected bool CanJump()
+    {
+        return !isAttacking && Time.time > timeNextJump;
+    }
+
+
+    protected void OnDrawGizmos()
     {
         Gizmos.DrawLine(transform.position, new Vector3(transform.position.x, transform.position.y - groundCheckDistance));
     }
