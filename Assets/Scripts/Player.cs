@@ -20,10 +20,11 @@ public class Player : MonoBehaviour
     bool isDashing = false;
 
     [Header("Attack Info")]
+    [Tooltip("Time between 2 times attack in row must under this value time to increase combo attack")]
+    [SerializeField] private float comboTimeCounter = 1.2f;
+    private float comboTime = 0f;
     private bool isAttacking = false;
     private int comboCounter = 0;
-    private float timeToNextCombo = 1.2f;//must attack oder in this time to increase attack combo;
-    private float timeNextAttack = 0f;
 
 
     float jumpCooldown = 0.3f;
@@ -210,14 +211,14 @@ public class Player : MonoBehaviour
                     myRigid.velocity = Vector2.zero;//stop movingW
                     myAnimator.SetBool("isMoving", false);
                     myAnimator.SetBool("isDashing", false);
-                    if (Time.time > timeNextAttack)
+                    if (Time.time > comboTime)
                     {
                         comboCounter = 0;
                     }
-                    timeNextAttack = Time.time + timeToNextCombo;
+                    comboTime = Time.time + comboTimeCounter;
                     myAnimator.SetBool("isAttacking", isAttacking);
                     myAnimator.SetInteger("comboCounter", comboCounter);
-                    comboCounter = ++comboCounter%3;
+                    comboCounter = ++comboCounter % 3;
                     break;
                 }
         }
