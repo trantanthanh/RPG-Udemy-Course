@@ -21,8 +21,8 @@ public class Player : MonoBehaviour
 
     [Header("Attack Info")]
     [Tooltip("Time between 2 times attack in row must under this value time to increase combo attack")]
-    [SerializeField] private float comboTimeCounter = 1.2f;
-    private float comboTime = 0f;
+    [SerializeField] private float comboTime = 1.2f;
+    private float comboTimeCounter = 0f;
     private bool isAttacking = false;
     private int comboCounter = 0;
 
@@ -211,11 +211,11 @@ public class Player : MonoBehaviour
                     myRigid.velocity = Vector2.zero;//stop movingW
                     myAnimator.SetBool("isMoving", false);
                     myAnimator.SetBool("isDashing", false);
-                    if (Time.time > comboTime)
+                    if (Time.time > comboTimeCounter)
                     {
                         comboCounter = 0;
                     }
-                    comboTime = Time.time + comboTimeCounter;
+                    comboTimeCounter = Time.time + comboTime;
                     myAnimator.SetBool("isAttacking", isAttacking);
                     myAnimator.SetInteger("comboCounter", comboCounter);
                     comboCounter = ++comboCounter % 3;
