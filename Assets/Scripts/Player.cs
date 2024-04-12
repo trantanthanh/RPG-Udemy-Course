@@ -19,6 +19,13 @@ public class Player : MonoBehaviour
     float timeNextDash = 0f;
     bool isDashing = false;
 
+    [Header("Attack Info")]
+    private bool isAttacking = false;
+    private int comboCounter = 0;
+    private float timeToNextCombo = 1.2f;//must attack oder in this time to increase attack combo;
+    private float timeNextAttack = 0f;
+
+
     float jumpCooldown = 0.3f;
     float timeNextJump = 0f;
     bool isGrounded = false;
@@ -50,6 +57,7 @@ public class Player : MonoBehaviour
     {
         CheckIsOnGround();
 
+        CheckAttack();
         Movement();
         CheckJump();
         CheckDash();
@@ -58,9 +66,25 @@ public class Player : MonoBehaviour
         myAnimator.SetFloat("yVelocity", myRigid.velocity.y);
     }
 
+    private void CheckAttack()
+    {
+        if (!isAttacking && Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            if (isGrounded)
+            {
+                SetState(PlayerState.ATTACK);
+            }
+        }
+    }
+
+    public void AttackOver()
+    {
+        SetState(PlayerState.IDLE);
+    }
+
     private void CheckDash()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && Time.time > timeNextDash)
+        if (!isAttacking && Input.GetKeyDown(KeyCode.LeftShift) && Time.time > timeNextDash)
         {
             isDashing = true;
             SetState(PlayerState.DASH);
@@ -84,6 +108,7 @@ public class Player : MonoBehaviour
 
     private void Movement()
     {
+        if (isAttacking) return;
         float inputHorizontal = Input.GetAxis("Horizontal");
         float _moveSpeed = moveSpeed;
         if (isDashing)
@@ -118,7 +143,7 @@ public class Player : MonoBehaviour
 
     bool CanJump()
     {
-        return Time.time > timeNextJump;
+        return !isAttacking && Time.time > timeNextJump;
     }
 
     void CheckIsOnGround()
@@ -157,6 +182,8 @@ public class Player : MonoBehaviour
                 {
                     myAnimator.SetBool("isMoving", false);
                     myAnimator.SetBool("isDashing", false);
+                    isAttacking = false;
+                    myAnimator.SetBool("isAttacking", isAttacking);
                     break;
                 }
             case PlayerState.JUMP:
@@ -179,6 +206,18 @@ public class Player : MonoBehaviour
                 }
             case PlayerState.ATTACK:
                 {
+                    isAttacking = true;
+                    myRigid.velocity = Vector2.zero;//stop movingW
+                    myAnimator.SetBool("isMoving", false);
+                    myAnimator.SetBool("isDashing", false);
+                    if (Time.time > timeNextAttack)
+                    {
+                        comboCounter = 0;
+                    }
+                    timeNextAttack = Time.time + timeToNextCombo;
+                    myAnimator.SetBool("isAttacking", isAttacking);
+                    myAnimator.SetInteger("comboCounter", comboCounter);
+                    comboCounter = ++comboCounter%3;
                     break;
                 }
         }
