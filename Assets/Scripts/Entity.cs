@@ -20,6 +20,7 @@ public class Entity : MonoBehaviour
     protected bool isDashing = false;
 
     [Header("Collision check")]
+    [SerializeField] Transform groundCheckStartPoint;
     [SerializeField] float groundCheckDistance;//Distance from raycast to ground
     [SerializeField] LayerMask groundMask;
     protected bool isGrounded = false;
@@ -148,7 +149,7 @@ public class Entity : MonoBehaviour
         {
             if (!CanJump()) return;//Check cooldown to next jump, this condition to prevent multiple jump in many frames in short time
         }
-        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, groundMask);
+        RaycastHit2D hitInfo = Physics2D.Raycast(groundCheckStartPoint.position, Vector2.down, groundCheckDistance, groundMask);
         if (hitInfo.collider != null)
         {
             isGrounded = true;
@@ -259,6 +260,6 @@ public class Entity : MonoBehaviour
 
     protected void OnDrawGizmos()
     {
-        Gizmos.DrawLine(transform.position, new Vector3(transform.position.x, transform.position.y - groundCheckDistance));
+        Gizmos.DrawLine(groundCheckStartPoint.position, new Vector3(groundCheckStartPoint.position.x, groundCheckStartPoint.position.y - groundCheckDistance));
     }
 }
