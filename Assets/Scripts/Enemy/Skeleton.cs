@@ -38,8 +38,14 @@ public class Skeleton : Entity
             }
             else
             {
-                currentMoveSpeed = baseMoveSpeed;
+                currentMoveSpeed = 0;
+                //attack
+                //SetState(EntityState.ATTACK);
             }
+        }
+        else
+        {
+            currentMoveSpeed = baseMoveSpeed;
         }
     }
 

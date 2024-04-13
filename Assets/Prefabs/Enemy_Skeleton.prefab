@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce631539561b6f44acbdffe6b1605fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  baseMoveSpeed: 1
   jumpForce: 12
   dashSpeed: 30
   dashDuration: 0.3
@@ -64,6 +64,12 @@ MonoBehaviour:
     m_Bits: 64
   numOfAnimsAttack: 1
   comboTime: 1.2
+  playerCheckDistance: 8
+  rangeAttack: 1.57
+  multipleSpeedWhileDetectPlayer: 4
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!50 &450197283952082393
 Rigidbody2D:
   serializedVersion: 4
@@ -288,7 +294,7 @@ Transform:
   m_GameObject: {fileID: 7039219370524047730}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.47, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
