@@ -6,18 +6,20 @@ public class Skeleton : Entity
 {
     protected override void Update()
     {
+        CheckFaceWall();
         base.Update();
     }
 
     protected override void Movement()
     {
-        if (!isGrounded) Flip();
-        inputHorizontal = 1.0f * Mathf.Sign(transform.localScale.x);
+        if (!isGrounded || isFaceWall) Flip();
+        inputHorizontal = 1.0f * Mathf.Sign(transform.localScale.x);//for auto move to forward (face direction)
         base.Movement();
     }
 
-    void Flip()
-    {
-        transform.localScale = new Vector2(-1.0f * transform.localScale.x, transform.localScale.y);
+    protected override void CheckFlipSprite()
+    { 
+        //don't check Flip sprite auto follow velocity cause enemy auto move
+        //if some other object push this enemy, it will auto flip backward
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Principal;
 using UnityEngine;
 
 public class Entity : MonoBehaviour
@@ -21,9 +22,14 @@ public class Entity : MonoBehaviour
 
     [Header("Collision check")]
     [SerializeField] Transform groundCheckStartPoint;
+    [SerializeField] Transform wallCheckStartPoint;
     [SerializeField] float groundCheckDistance;//Distance from raycast to ground
+    [SerializeField] float wallCheckDistance;//Distance from raycast to wall, use same ground mask
+    [SerializeField] protected float timeFlipCooldown = 0.2f;//Prevent call flip too much in short time
+    protected float timeNextFlip = 0f;
     [SerializeField] LayerMask groundMask;
     protected bool isGrounded = false;
+    protected bool isFaceWall = false;
 
     [Header("Attack Info")]
     [SerializeField] protected int numOfAnimsAttack = 3;
@@ -135,11 +141,20 @@ public class Entity : MonoBehaviour
         }
     }
 
-    protected void CheckFlipSprite()
+    protected virtual void CheckFlipSprite()
     {
         if (myRigid.velocity.x != 0)
         {
             transform.localScale = new Vector2(Mathf.Sign(myRigid.velocity.x) * Mathf.Abs(transform.localScale.x), transform.localScale.y);
+        }
+    }
+
+    protected void Flip()
+    {
+        if (Time.time > timeNextFlip)
+        {
+            timeNextFlip = Time.time + timeFlipCooldown;
+            transform.localScale = new Vector2(-1.0f * transform.localScale.x, transform.localScale.y);
         }
     }
 
@@ -159,6 +174,19 @@ public class Entity : MonoBehaviour
             isGrounded = false;
         }
         myAnimator.SetBool("isGrounded", isGrounded);
+    }
+
+    protected void CheckFaceWall()
+    {
+        RaycastHit2D hitInfo = Physics2D.Raycast(wallCheckStartPoint.position, Mathf.Sign(transform.localScale.x) * Vector2.right, wallCheckDistance, groundMask);
+        if (hitInfo.collider != null)
+        {
+            isFaceWall = true;
+        }
+        else
+        {
+            isFaceWall = false;
+        }
     }
 
     protected void SetState(EntityState state)
@@ -261,5 +289,6 @@ public class Entity : MonoBehaviour
     protected void OnDrawGizmos()
     {
         Gizmos.DrawLine(groundCheckStartPoint.position, new Vector3(groundCheckStartPoint.position.x, groundCheckStartPoint.position.y - groundCheckDistance));
+        Gizmos.DrawLine(wallCheckStartPoint.position, new Vector3(wallCheckStartPoint.position.x + Mathf.Sign(transform.localScale.x) * wallCheckDistance, wallCheckStartPoint.position.y));
     }
 }
