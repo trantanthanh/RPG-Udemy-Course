@@ -6,7 +6,8 @@ using UnityEngine;
 public class Entity : MonoBehaviour
 {
     [Header("Moving Info")]
-    [SerializeField] protected float moveSpeed = 8f;
+    [SerializeField] protected float baseMoveSpeed = 8f;
+    protected float currentMoveSpeed = 8f;
     [SerializeField] protected float jumpForce = 12f;
     protected float jumpCooldown = 0.3f;
     protected float timeNextJump = 0f;
@@ -57,6 +58,7 @@ public class Entity : MonoBehaviour
     // Start is called before the first frame update
     protected virtual void Start()
     {
+        currentMoveSpeed = baseMoveSpeed;
         myRigid = GetComponent<Rigidbody2D>();
         myAnimator = GetComponentInChildren<Animator>();
     }
@@ -111,7 +113,7 @@ public class Entity : MonoBehaviour
     {
         //need set inputHorizontal in derived class, inputHorizontal > 0 (moving right) inputHorizontal < 0 (moving left)
         if (isAttacking) return;
-        float _moveSpeed = moveSpeed;
+        float _moveSpeed = currentMoveSpeed;
         if (isDashing)
         {
             _moveSpeed = dashSpeed;
@@ -286,7 +288,7 @@ public class Entity : MonoBehaviour
     }
 
 
-    protected void OnDrawGizmos()
+    protected virtual void OnDrawGizmos()
     {
         Gizmos.DrawLine(groundCheckStartPoint.position, new Vector3(groundCheckStartPoint.position.x, groundCheckStartPoint.position.y - groundCheckDistance));
         Gizmos.DrawLine(wallCheckStartPoint.position, new Vector3(wallCheckStartPoint.position.x + Mathf.Sign(transform.localScale.x) * wallCheckDistance, wallCheckStartPoint.position.y));

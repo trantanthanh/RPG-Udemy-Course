@@ -657,6 +657,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3924135195031788620, guid: f8f05a89dd386e245b23e59c73bebfcc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 6026845758566019660, guid: f8f05a89dd386e245b23e59c73bebfcc, type: 3}
+      propertyPath: rangeAttack
+      value: 1.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 6026845758566019660, guid: f8f05a89dd386e245b23e59c73bebfcc, type: 3}
+      propertyPath: baseMoveSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6026845758566019660, guid: f8f05a89dd386e245b23e59c73bebfcc, type: 3}
+      propertyPath: playerMask.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 6026845758566019660, guid: f8f05a89dd386e245b23e59c73bebfcc, type: 3}
+      propertyPath: playerCheckDistance
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6026845758566019660, guid: f8f05a89dd386e245b23e59c73bebfcc, type: 3}
+      propertyPath: multipleSpeedWhileDetectPlayer
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

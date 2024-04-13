@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6643882710502561163}
   - component: {fileID: 2178380802521156225}
   - component: {fileID: 2142686821023167870}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d18a8be974f2440a38b5d7bf61b258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 8
+  baseMoveSpeed: 8
   jumpForce: 12
   dashSpeed: 20
   dashDuration: 0.3
@@ -58,6 +58,7 @@ MonoBehaviour:
   wallCheckStartPoint: {fileID: 6568481392697025167}
   groundCheckDistance: 0.2
   wallCheckDistance: 0.45
+  timeFlipCooldown: 0.2
   groundMask:
     serializedVersion: 2
     m_Bits: 64
