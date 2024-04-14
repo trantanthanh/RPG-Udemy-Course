@@ -9,6 +9,7 @@ public class PlayerState
 
     private string animName;
 
+    protected float xInput;
     public PlayerState(Player _player, PlayerSateMachine _stateMachine, string _animName)
     {
         this.player = _player;
@@ -18,16 +19,16 @@ public class PlayerState
 
     public virtual void Enter()
     {
-
+        player.animator.SetBool(animName, true);
     }
 
     public virtual void Update()
     {
-
+        xInput = Input.GetAxis("Horizontal");
     }
 
     public virtual void Exit()
     {
-
+        player.animator.SetBool(animName, false);
     }
 }
