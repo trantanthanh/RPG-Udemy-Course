@@ -22,9 +22,16 @@ public class PlayerWallSlideState : PlayerState
     {
         base.Update();
 
-        if (player.IsGroundDetected() || !player.IsFaceWallDetected() || xInput != 0 && xInput != player.facingDir)
+        if (player.IsGroundDetected() || !player.IsFaceWallDetected() || xInput != player.facingDir)
         {
             stateMachine.ChangeState(player.idleState);
+            return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            stateMachine.ChangeState(player.wallJumpState);
+            return;
         }
 
         if (yInput < 0)
@@ -33,7 +40,7 @@ public class PlayerWallSlideState : PlayerState
         }
         else
         {
-            rb.velocity = new Vector2(0, rb.velocity.y * 0.7f);
+            rb.velocity = new Vector2(0, rb.velocity.y * player.VelocitySlideMulti);
         }
     }
 }

@@ -16,6 +16,40 @@ public class Player : MonoBehaviour
     [SerializeField] float dashCooldown = 2f;
     float timerDashCooldown = 0f;
 
+    [Header("Wall slide jump info")]
+    [SerializeField] float yVelocitySlideMulti = 0.7f;
+    [Tooltip("Can control after period time wall jump")]
+    [SerializeField] float timeWallJump = 0.4f;
+    [SerializeField] float xJumpForceWall = 5f;
+
+    public float X_JumpForceWall
+    {
+        get
+        {
+            return xJumpForceWall;
+        }
+    }
+    public float JumpForce
+    {
+        get
+        {
+            return jumpForce;
+        }
+    }
+    public float TimeWallJump
+    {
+        get
+        {
+            return timeWallJump;
+        }
+    }
+    public float VelocitySlideMulti
+    {
+        get
+        {
+            return yVelocitySlideMulti;
+        }
+    }
     public float MoveSpeed
     {
         get
@@ -72,7 +106,7 @@ public class Player : MonoBehaviour
         airState = new PlayerAirState(this, stateMachine, "Jump");
         dashState = new PlayerDashState(this, stateMachine, "Dash");
         wallSlideState = new PlayerWallSlideState(this, stateMachine, "WallSlide");
-        wallJumpState = new PlayerWallJumpState(this, stateMachine, "WallJump");
+        wallJumpState = new PlayerWallJumpState(this, stateMachine, "Jump");
     }
 
     // Start is called before the first frame update
