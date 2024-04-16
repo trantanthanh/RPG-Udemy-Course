@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     [Header("Move info")]
     [SerializeField] float moveSpeed = 8f;
     [SerializeField] float jumpForce = 12f;
+
+    [Header("Dash info")]
     [SerializeField] float dashSpeed = 16f;
     [SerializeField] float timeDash = 0.5f;
     [SerializeField] float dashCooldown = 2f;
@@ -120,13 +122,13 @@ public class Player : MonoBehaviour
     }
 
     public bool IsGroundDetected() => Physics2D.Raycast(groundCheckStartPoint.transform.position, Vector2.down, distanceGroundCheck, groundMask);
-    public bool IsFaceWallDetected() => Physics2D.Raycast(wallCheckStartPoint.transform.position, Vector2.right * (isFacingRight ? 1 : -1), distanceWallCheck, groundMask);
+    public bool IsFaceWallDetected() => Physics2D.Raycast(wallCheckStartPoint.transform.position, Vector2.right * facingDir, distanceWallCheck, groundMask);
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawLine(groundCheckStartPoint.transform.position, new Vector2(groundCheckStartPoint.transform.position.x, groundCheckStartPoint.transform.position.y - distanceGroundCheck));
         Gizmos.color = Color.blue;
-        Gizmos.DrawLine(wallCheckStartPoint.transform.position, new Vector2(wallCheckStartPoint.transform.position.x + (isFacingRight ? 1 : -1) * distanceWallCheck, wallCheckStartPoint.transform.position.y));
+        Gizmos.DrawLine(wallCheckStartPoint.transform.position, new Vector2(wallCheckStartPoint.transform.position.x + facingDir * distanceWallCheck, wallCheckStartPoint.transform.position.y));
     }
 }
