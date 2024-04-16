@@ -26,7 +26,8 @@ public class PlayerMoveState : PlayerGroundedState
         {
             player.SetVelocity(xInput * player.MoveSpeed, rb.velocity.y);
         }
-        else
+         
+        if (xInput == 0 || player.IsFaceWallDetected())
         {
             stateMachine.ChangeState(player.idleState);
         }
