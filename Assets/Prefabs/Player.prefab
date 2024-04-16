@@ -111,8 +111,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3fe8cd763d84946835a91ca99a3e16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMoveSpeed: 8
+  moveSpeed: 8
   jumpForce: 12
+  dashSpeed: 25
+  timeDash: 0.2
+  dashCooldown: 1
   groundCheckStartPoint: {fileID: 164313262636718043}
   wallCheckStartPoint: {fileID: 2673759763942663969}
   distanceGroundCheck: 0.22

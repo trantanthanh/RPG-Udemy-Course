@@ -7,8 +7,34 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("Move info")]
-    [SerializeField] float baseMoveSpeed = 8f;
+    [SerializeField] float moveSpeed = 8f;
     [SerializeField] float jumpForce = 12f;
+    [SerializeField] float dashSpeed = 16f;
+    [SerializeField] float timeDash = 0.5f;
+    [SerializeField] float dashCooldown = 2f;
+    float timerDashCooldown = 0f;
+
+    public float MoveSpeed
+    {
+        get
+        {
+            return moveSpeed;
+        }
+    }
+    public float DashSpeed
+    {
+        get
+        {
+            return dashSpeed;
+        }
+    }
+    public float TimeDash
+    {
+        get
+        {
+            return timeDash;
+        }
+    }
 
     [Header("Collision check")]
     [SerializeField] GameObject groundCheckStartPoint;
@@ -19,7 +45,6 @@ public class Player : MonoBehaviour
     public int facingDir { get; private set; } = 1;//-1 left, 1 right
     private bool isFacingRight = true;
 
-    public float moveSpeed { get; private set; }
     #region Components
     public Animator animator;
     public Rigidbody2D rb { get; private set; }
@@ -31,6 +56,7 @@ public class Player : MonoBehaviour
     public PlayerMoveState moveState { get; private set; }
     public PlayerJumpState jumpState { get; private set; }
     public PlayerAirState airState { get; private set; }
+    public PlayerDashState dashState { get; private set; }
     #endregion
 
     private void Awake()
@@ -40,12 +66,12 @@ public class Player : MonoBehaviour
         moveState = new PlayerMoveState(this, stateMachine, "Move");
         jumpState = new PlayerJumpState(this, stateMachine, "Jump");
         airState = new PlayerAirState(this, stateMachine, "Jump");
+        dashState = new PlayerDashState(this, stateMachine, "Dash");
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        moveSpeed = baseMoveSpeed;
         animator = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
 
@@ -58,11 +84,23 @@ public class Player : MonoBehaviour
         stateMachine.currentState.Update();
         //Debug.Log($"IsGrounded {IsGroundDetected()}");
         //Debug.Log($"IsFaceWall {IsFaceWallDetected()}");
+
+        timerDashCooldown -= Time.deltaTime;
     }
 
     public void Jump()
     {
         SetVelocity(rb.velocity.x, jumpForce);
+    }
+
+    public bool Dash()
+    {
+        if (timerDashCooldown < 0)
+        {
+            timerDashCooldown = dashCooldown;
+            return true;
+        }
+        return false;
     }
 
     public void SetVelocity(float _xVelocity, float yVelocity)
@@ -78,7 +116,7 @@ public class Player : MonoBehaviour
         transform.Rotate(0, 180, 0);
     }
 
-    private void FlipController(float _xVelocity)
+    public void FlipController(float _xVelocity)
     {
         if (_xVelocity < 0 && isFacingRight || _xVelocity > 0 && !isFacingRight)
         {

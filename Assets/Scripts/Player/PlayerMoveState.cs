@@ -24,7 +24,7 @@ public class PlayerMoveState : PlayerGroundedState
 
         if (xInput != 0)
         {
-            player.SetVelocity(xInput * player.moveSpeed, rb.velocity.y);
+            player.SetVelocity(xInput * player.MoveSpeed, rb.velocity.y);
         }
         else
         {
