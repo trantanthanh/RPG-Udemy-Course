@@ -117,6 +117,9 @@ MonoBehaviour:
   wallCheckStartPoint: {fileID: 2673759763942663969}
   distanceGroundCheck: 0.22
   distanceWallCheck: 0.48
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 64
   animator: {fileID: 0}
 --- !u!50 &3089077683226289135
 Rigidbody2D:

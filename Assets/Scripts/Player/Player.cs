@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject wallCheckStartPoint;
     [SerializeField] float distanceGroundCheck;
     [SerializeField] float distanceWallCheck;
+    [SerializeField] LayerMask groundMask;
     bool isFaceRight = true;
 
     public float moveSpeed { get; private set; }
@@ -75,6 +76,9 @@ public class Player : MonoBehaviour
             isFaceRight = transform.localScale.x < 0 ? false : true;
         }
     }
+
+    public bool IsGroundDetected() => Physics2D.Raycast(groundCheckStartPoint.transform.position, Vector2.down, distanceGroundCheck, groundMask);
+    public bool IsFaceWallDetected() => Physics2D.Raycast(wallCheckStartPoint.transform.position, Vector2.right * (isFaceRight ? 1 : -1), distanceWallCheck, groundMask);
 
     private void OnDrawGizmos()
     {
