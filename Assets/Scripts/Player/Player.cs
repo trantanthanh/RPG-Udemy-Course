@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -8,6 +9,14 @@ public class Player : MonoBehaviour
     [Header("Move info")]
     [SerializeField] float baseMoveSpeed = 8f;
     [SerializeField] float jumpForce = 12f;
+
+    [Header("Collision check")]
+    [SerializeField] GameObject groundCheckStartPoint;
+    [SerializeField] GameObject wallCheckStartPoint;
+    [SerializeField] float distanceGroundCheck;
+    [SerializeField] float distanceWallCheck;
+    bool isFaceRight = true;
+
     public float moveSpeed { get; private set; }
     #region Components
     public Animator animator;
@@ -28,7 +37,7 @@ public class Player : MonoBehaviour
         idleState = new PlayerIdleState(this, stateMachine, "Idle");
         moveState = new PlayerMoveState(this, stateMachine, "Move");
         jumpState = new PlayerJumpState(this, stateMachine, "Jump");
-        airState  = new PlayerAirState(this, stateMachine, "Jump");
+        airState = new PlayerAirState(this, stateMachine, "Jump");
     }
 
     // Start is called before the first frame update
@@ -61,6 +70,17 @@ public class Player : MonoBehaviour
     private void CheckFlipSprite()
     {
         if (rb.velocity.x != 0)
+        {
             transform.localScale = new Vector3(Mathf.Sign(rb.velocity.x) * Mathf.Abs(transform.localScale.x), transform.localScale.y);
+            isFaceRight = transform.localScale.x < 0 ? false : true;
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(groundCheckStartPoint.transform.position, new Vector2(groundCheckStartPoint.transform.position.x, groundCheckStartPoint.transform.position.y - distanceGroundCheck));
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(wallCheckStartPoint.transform.position, new Vector2(wallCheckStartPoint.transform.position.x + (isFaceRight ? 1 : -1) * distanceWallCheck, wallCheckStartPoint.transform.position.y));
     }
 }
