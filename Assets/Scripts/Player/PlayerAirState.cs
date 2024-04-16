@@ -22,6 +22,11 @@ public class PlayerAirState : PlayerState
     {
         base.Update();
 
+        if (player.IsFaceWallDetected() && xInput == player.facingDir)
+        {
+            stateMachine.ChangeState(player.wallSlideState);
+        }
+
         if (rb.velocity.y == 0)//grounded
         {
             stateMachine.ChangeState(player.idleState);

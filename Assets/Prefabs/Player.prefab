@@ -119,7 +119,7 @@ MonoBehaviour:
   groundCheckStartPoint: {fileID: 164313262636718043}
   wallCheckStartPoint: {fileID: 2673759763942663969}
   distanceGroundCheck: 0.22
-  distanceWallCheck: 0.48
+  distanceWallCheck: 0.39
   groundMask:
     serializedVersion: 2
     m_Bits: 64

@@ -12,6 +12,7 @@ public class PlayerState
     private string animName;
 
     protected float xInput;
+    protected float yInput;
     public PlayerState(Player _player, PlayerSateMachine _stateMachine, string _animName)
     {
         this.player = _player;
@@ -28,6 +29,7 @@ public class PlayerState
     public virtual void Update()
     {
         xInput = Input.GetAxis("Horizontal");
+        yInput = Input.GetAxis("Vertical");
         player.animator.SetFloat("yVelocity", rb.velocity.y);
         timerState -= Time.deltaTime;
     }
