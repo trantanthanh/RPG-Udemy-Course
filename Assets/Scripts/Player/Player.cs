@@ -7,8 +7,8 @@ public class Player : MonoBehaviour
 {
     [Header("Move info")]
     [SerializeField] float baseMoveSpeed = 8f;
+    [SerializeField] float jumpForce = 12f;
     public float moveSpeed { get; private set; }
-
     #region Components
     public Animator animator;
     public Rigidbody2D rb { get; private set; }
@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     public PlayerSateMachine stateMachine { get; private set; }
     public PlayerIdleState idleState { get; private set; }
     public PlayerMoveState moveState { get; private set; }
+    public PlayerJumpState jumpState { get; private set; }
+    public PlayerAirState airState { get; private set; }
     #endregion
 
     private void Awake()
@@ -25,6 +27,8 @@ public class Player : MonoBehaviour
         stateMachine = new PlayerSateMachine();
         idleState = new PlayerIdleState(this, stateMachine, "Idle");
         moveState = new PlayerMoveState(this, stateMachine, "Move");
+        jumpState = new PlayerJumpState(this, stateMachine, "Jump");
+        airState  = new PlayerAirState(this, stateMachine, "Jump");
     }
 
     // Start is called before the first frame update
@@ -41,6 +45,11 @@ public class Player : MonoBehaviour
     void Update()
     {
         stateMachine.currentState.Update();
+    }
+
+    public void Jump()
+    {
+        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
     }
 
     public void SetVelocity(float _xVelocity, float yVelocity)

@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMoveState : PlayerGroundedState
+public class PlayerAirState : PlayerState
 {
-    public PlayerMoveState(Player _player, PlayerSateMachine _stateMachine, string _animName) : base(_player, _stateMachine, _animName)
+    public PlayerAirState(Player _player, PlayerSateMachine _stateMachine, string _animName) : base(_player, _stateMachine, _animName)
     {
     }
 
@@ -22,11 +22,7 @@ public class PlayerMoveState : PlayerGroundedState
     {
         base.Update();
 
-        if (xInput != 0)
-        {
-            player.SetVelocity(xInput * player.moveSpeed, rb.velocity.y);
-        }
-        else
+        if (rb.velocity.y == 0)//grounded
         {
             stateMachine.ChangeState(player.idleState);
         }
