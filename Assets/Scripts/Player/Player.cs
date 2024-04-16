@@ -86,21 +86,16 @@ public class Player : MonoBehaviour
         //Debug.Log($"IsFaceWall {IsFaceWallDetected()}");
 
         timerDashCooldown -= Time.deltaTime;
+        if (Input.GetKeyDown(KeyCode.LeftShift) && timerDashCooldown < 0)
+        {
+            timerDashCooldown = dashCooldown;
+            stateMachine.ChangeState(dashState);
+        }
     }
 
     public void Jump()
     {
         SetVelocity(rb.velocity.x, jumpForce);
-    }
-
-    public bool Dash()
-    {
-        if (timerDashCooldown < 0)
-        {
-            timerDashCooldown = dashCooldown;
-            return true;
-        }
-        return false;
     }
 
     public void SetVelocity(float _xVelocity, float yVelocity)

@@ -28,10 +28,10 @@ public class PlayerGroundedState : PlayerState
             {
                 player.stateMachine.ChangeState(player.jumpState);
             }
-            else if (Input.GetKeyDown(KeyCode.LeftShift) && player.Dash())
-            {
-                player.stateMachine.ChangeState(player.dashState);
-            }
+        }
+        else
+        {
+            player.stateMachine.ChangeState(player.airState);
         }
     }
 }
