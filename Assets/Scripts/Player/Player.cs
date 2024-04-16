@@ -16,7 +16,8 @@ public class Player : MonoBehaviour
     [SerializeField] float distanceGroundCheck;
     [SerializeField] float distanceWallCheck;
     [SerializeField] LayerMask groundMask;
-    bool isFaceRight = true;
+    public int facingDir { get; private set; } = 1;//-1 left, 1 right
+    private bool isFacingRight = true;
 
     public float moveSpeed { get; private set; }
     #region Components
@@ -55,36 +56,44 @@ public class Player : MonoBehaviour
     void Update()
     {
         stateMachine.currentState.Update();
+        //Debug.Log($"IsGrounded {IsGroundDetected()}");
+        //Debug.Log($"IsFaceWall {IsFaceWallDetected()}");
     }
 
     public void Jump()
     {
-        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        SetVelocity(rb.velocity.x, jumpForce);
     }
 
     public void SetVelocity(float _xVelocity, float yVelocity)
     {
         rb.velocity = new Vector2(_xVelocity, yVelocity);
-        CheckFlipSprite();
+        FlipController(_xVelocity);
     }
 
-    private void CheckFlipSprite()
+    private void Flip()
     {
-        if (rb.velocity.x != 0)
+        facingDir = facingDir * -1;
+        isFacingRight = !isFacingRight;
+        transform.Rotate(0, 180, 0);
+    }
+
+    private void FlipController(float _xVelocity)
+    {
+        if (_xVelocity < 0 && isFacingRight || _xVelocity > 0 && !isFacingRight)
         {
-            transform.localScale = new Vector3(Mathf.Sign(rb.velocity.x) * Mathf.Abs(transform.localScale.x), transform.localScale.y);
-            isFaceRight = transform.localScale.x < 0 ? false : true;
+            Flip();
         }
     }
 
     public bool IsGroundDetected() => Physics2D.Raycast(groundCheckStartPoint.transform.position, Vector2.down, distanceGroundCheck, groundMask);
-    public bool IsFaceWallDetected() => Physics2D.Raycast(wallCheckStartPoint.transform.position, Vector2.right * (isFaceRight ? 1 : -1), distanceWallCheck, groundMask);
+    public bool IsFaceWallDetected() => Physics2D.Raycast(wallCheckStartPoint.transform.position, Vector2.right * (isFacingRight ? 1 : -1), distanceWallCheck, groundMask);
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawLine(groundCheckStartPoint.transform.position, new Vector2(groundCheckStartPoint.transform.position.x, groundCheckStartPoint.transform.position.y - distanceGroundCheck));
         Gizmos.color = Color.blue;
-        Gizmos.DrawLine(wallCheckStartPoint.transform.position, new Vector2(wallCheckStartPoint.transform.position.x + (isFaceRight ? 1 : -1) * distanceWallCheck, wallCheckStartPoint.transform.position.y));
+        Gizmos.DrawLine(wallCheckStartPoint.transform.position, new Vector2(wallCheckStartPoint.transform.position.x + (isFacingRight ? 1 : -1) * distanceWallCheck, wallCheckStartPoint.transform.position.y));
     }
 }
