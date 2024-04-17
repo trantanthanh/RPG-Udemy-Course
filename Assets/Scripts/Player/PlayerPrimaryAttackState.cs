@@ -16,7 +16,7 @@ public class PlayerPrimaryAttackState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        player.SetVelocity(0, 0);
+        timerState = 0.1f;
 
         comboCounter %= numOfCombo;
         if (Time.time > timeNextAttack)
@@ -36,6 +36,10 @@ public class PlayerPrimaryAttackState : PlayerState
     public override void Update()
     {
         base.Update();
+        if (timerState < 0)
+        {
+            player.SetVelocity(0, 0);
+        }
         if (triggerCalled)
         {
             comboCounter++;
