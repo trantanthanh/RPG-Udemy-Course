@@ -22,6 +22,9 @@ public class Player : MonoBehaviour
     [SerializeField] float timeWallJump = 0.4f;
     [SerializeField] float xJumpForceWall = 5f;
 
+    [Header("Attack info")]
+    public Vector2[] attackMovements;
+
     public bool isBusy { get; private set; } // for delay to skip block code in frame after
 
     #region Property

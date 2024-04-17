@@ -119,6 +119,10 @@ MonoBehaviour:
   yVelocitySlideMulti: 0.7
   timeWallJump: 0.5
   xJumpForceWall: 5
+  attackMovements:
+  - {x: 1, y: 1}
+  - {x: 1, y: 2}
+  - {x: 2, y: 1.5}
   groundCheckStartPoint: {fileID: 164313262636718043}
   wallCheckStartPoint: {fileID: 2673759763942663969}
   distanceGroundCheck: 0.22
