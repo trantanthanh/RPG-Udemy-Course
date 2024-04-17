@@ -26,7 +26,12 @@ public class PlayerPrimaryAttackState : PlayerState
         }
         timeNextAttack = Time.time + timeCombo;
         player.animator.SetInteger("ComboCounter", comboCounter);
-        player.SetVelocity(player.attackMovements[comboCounter].x * player.facingDir, player.attackMovements[comboCounter].y);
+
+        float attackDir = player.facingDir;
+        if (xInput != 0)
+            attackDir = xInput;
+
+        player.SetVelocity(player.attackMovements[comboCounter].x * attackDir, player.attackMovements[comboCounter].y);
     }
 
     public override void Exit()
