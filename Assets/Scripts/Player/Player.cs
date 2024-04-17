@@ -179,6 +179,8 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(_seconds);
         isBusy = false;
     }
+
+    public void ZeroVelocity() => rb.velocity = Vector2.zero;
     public bool IsGroundDetected() => Physics2D.Raycast(groundCheckStartPoint.transform.position, Vector2.down, distanceGroundCheck, groundMask);
     public bool IsFaceWallDetected() => Physics2D.Raycast(wallCheckStartPoint.transform.position, Vector2.right * facingDir, distanceWallCheck, groundMask);
     public void AnimationDoneTrigger() => stateMachine.currentState.AnimationDoneTrigger();

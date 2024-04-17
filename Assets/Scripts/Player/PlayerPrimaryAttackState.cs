@@ -40,7 +40,7 @@ public class PlayerPrimaryAttackState : PlayerState
         base.Update();
         if (timerState < 0)
         {
-            player.SetVelocity(0, 0);
+            player.ZeroVelocity();
         }
         if (triggerCalled)
         {
