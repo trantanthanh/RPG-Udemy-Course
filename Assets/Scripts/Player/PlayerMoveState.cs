@@ -21,12 +21,15 @@ public class PlayerMoveState : PlayerGroundedState
     public override void Update()
     {
         base.Update();
+        if (player.isBusy) { 
+            return;
+        }
 
         if (xInput != 0)
         {
             player.SetVelocity(xInput * player.MoveSpeed, rb.velocity.y);
         }
-         
+
         if (xInput == 0 || player.IsFaceWallDetected())
         {
             stateMachine.ChangeState(player.idleState);

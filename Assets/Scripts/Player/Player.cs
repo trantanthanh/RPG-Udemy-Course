@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
     [SerializeField] float timeWallJump = 0.4f;
     [SerializeField] float xJumpForceWall = 5f;
 
+    public bool isBusy { get; private set; } // for delay to skip block code in frame after
+
     #region Property
     public float X_JumpForceWall
     {
@@ -168,6 +170,12 @@ public class Player : MonoBehaviour
         }
     }
 
+    public IEnumerator BusyFor(float _seconds)
+    {
+        isBusy = true;
+        yield return new WaitForSeconds(_seconds);
+        isBusy = false;
+    }
     public bool IsGroundDetected() => Physics2D.Raycast(groundCheckStartPoint.transform.position, Vector2.down, distanceGroundCheck, groundMask);
     public bool IsFaceWallDetected() => Physics2D.Raycast(wallCheckStartPoint.transform.position, Vector2.right * facingDir, distanceWallCheck, groundMask);
     public void AnimationDoneTrigger() => stateMachine.currentState.AnimationDoneTrigger();
