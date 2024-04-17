@@ -8,6 +8,7 @@ public class PlayerState
     protected PlayerSateMachine stateMachine;
     protected Rigidbody2D rb;
     protected float timerState = -1f;
+    protected bool triggerCalled = false;
 
     private string animName;
 
@@ -22,6 +23,7 @@ public class PlayerState
 
     public virtual void Enter()
     {
+        triggerCalled = false;
         rb = player.rb;
         player.animator.SetBool(animName, true);
     }
@@ -37,5 +39,10 @@ public class PlayerState
     public virtual void Exit()
     {
         player.animator.SetBool(animName, false);
+    }
+
+    public virtual void AnimationDoneTrigger()
+    {
+        triggerCalled = true;
     }
 }

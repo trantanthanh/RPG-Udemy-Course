@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     [SerializeField] float timeWallJump = 0.4f;
     [SerializeField] float xJumpForceWall = 5f;
 
+    #region Property
     public float X_JumpForceWall
     {
         get
@@ -71,6 +72,7 @@ public class Player : MonoBehaviour
             return timeDash;
         }
     }
+    #endregion
 
     [Header("Collision check")]
     [SerializeField] GameObject groundCheckStartPoint;
@@ -95,6 +97,7 @@ public class Player : MonoBehaviour
     public PlayerDashState dashState { get; private set; }
     public PlayerWallSlideState wallSlideState { get; private set; }
     public PlayerWallJumpState wallJumpState { get; private set; }
+    public PlayerPrimaryAttackState primaryAttack { get; private set; }
     #endregion
 
     private void Awake()
@@ -107,6 +110,7 @@ public class Player : MonoBehaviour
         dashState = new PlayerDashState(this, stateMachine, "Dash");
         wallSlideState = new PlayerWallSlideState(this, stateMachine, "WallSlide");
         wallJumpState = new PlayerWallJumpState(this, stateMachine, "Jump");
+        primaryAttack = new PlayerPrimaryAttackState(this, stateMachine, "Attack");
     }
 
     // Start is called before the first frame update
@@ -166,7 +170,7 @@ public class Player : MonoBehaviour
 
     public bool IsGroundDetected() => Physics2D.Raycast(groundCheckStartPoint.transform.position, Vector2.down, distanceGroundCheck, groundMask);
     public bool IsFaceWallDetected() => Physics2D.Raycast(wallCheckStartPoint.transform.position, Vector2.right * facingDir, distanceWallCheck, groundMask);
-
+    public void AnimationDoneTrigger() => stateMachine.currentState.AnimationDoneTrigger();
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
