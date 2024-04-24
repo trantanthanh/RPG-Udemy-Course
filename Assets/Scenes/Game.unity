@@ -456,7 +456,7 @@ GameObject:
   - component: {fileID: 766462147}
   - component: {fileID: 766462149}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy_Skeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -510,7 +510,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.25009847, y: -0.250785}
+  m_Offset: {x: 0.02, y: -0.250785}
   m_Size: {x: 1.0001969, y: 1.5614591}
   m_Direction: 0
 --- !u!50 &766462148
@@ -780,7 +780,7 @@ Transform:
   m_GameObject: {fileID: 1123163943}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.28, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
