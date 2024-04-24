@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2648922724731339260}
   - component: {fileID: 4624601869405297934}
   - component: {fileID: 6276618465191768451}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Animator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7586897014032061344}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GroundCheckStartPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,6 +137,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7626629464300203417}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2126391129520453864
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 674214832520487903}
+  m_Layer: 8
+  m_Name: PlayerCheckStartPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &674214832520487903
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126391129520453864}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.14, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7626629464300203417}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5304158678741358152
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,7 +180,7 @@ GameObject:
   - component: {fileID: 4418421127068663342}
   - component: {fileID: 2548383018999944653}
   - component: {fileID: 2401245439556016459}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy_Skeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,6 +203,7 @@ Transform:
   - {fileID: 2648922724731339260}
   - {fileID: 7586897014032061344}
   - {fileID: 622280149641715096}
+  - {fileID: 674214832520487903}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &4418421127068663342
@@ -263,6 +295,8 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 128
+  playerCheckStartPoint: {fileID: 2126391129520453864}
+  distancePlayerCheck: 2.05
 --- !u!1 &7594854390478150654
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,7 +306,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 622280149641715096}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WallCheckStartPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
