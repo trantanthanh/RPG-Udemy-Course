@@ -23,6 +23,22 @@ public class Entity : MonoBehaviour
 
     public bool isBusy { get; private set; } // for delay to skip block code in frame after
 
+    public float MoveSpeed
+    {
+        get
+        {
+            return moveSpeed;
+        }
+    }
+
+    public float JumpForce
+    {
+        get
+        {
+            return jumpForce;
+        }
+    }
+
     #region Components
     [HideInInspector]
     public Animator animator;
@@ -45,7 +61,7 @@ public class Entity : MonoBehaviour
     {
     }
 
-    private void Flip()
+    public void Flip()
     {
         facingDir = facingDir * -1;
         isFacingRight = !isFacingRight;

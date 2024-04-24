@@ -26,13 +26,7 @@ public class Player : Entity
             return xJumpForceWall;
         }
     }
-    public float JumpForce
-    {
-        get
-        {
-            return jumpForce;
-        }
-    }
+
     public float TimeWallJump
     {
         get
@@ -47,13 +41,7 @@ public class Player : Entity
             return yVelocitySlideMulti;
         }
     }
-    public float MoveSpeed
-    {
-        get
-        {
-            return moveSpeed;
-        }
-    }
+
     public float DashSpeed
     {
         get
