@@ -7,6 +7,7 @@ public class EnemySkeleton : Enemy
     #region States
     public SkeletonIdleState idleState { get; private set; }
     public SkeletonMoveState moveState { get; private set; }
+    public SkeletonBattleState battleState { get; private set; }
     #endregion
 
     // Start is called before the first frame update
@@ -15,6 +16,7 @@ public class EnemySkeleton : Enemy
         base.Start();
         idleState = new SkeletonIdleState(this, stateMachine, "Idle", this);
         moveState = new SkeletonMoveState(this, stateMachine, "Move", this);
+        battleState = new SkeletonBattleState(this, stateMachine, "Move", this);
         stateMachine.Initialize(idleState);
     }
 
