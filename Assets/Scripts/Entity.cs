@@ -15,18 +15,6 @@ public class Entity : MonoBehaviour
     [SerializeField] protected float moveSpeed = 8f;
     [SerializeField] protected float jumpForce = 12f;
 
-    [Header("Dash info")]
-    [SerializeField] protected float dashSpeed = 16f;
-    [SerializeField] protected float timeDash = 0.5f;
-    [SerializeField] protected float dashCooldown = 2f;
-    protected float timerDashCooldown = 0f;
-
-    [Header("Wall slide jump info")]
-    [SerializeField] protected float yVelocitySlideMulti = 0.7f;
-    [Tooltip("Can control after period time wall jump")]
-    [SerializeField] protected float timeWallJump = 0.4f;
-    [SerializeField] protected float xJumpForceWall = 5f;
-
     [Header("Attack info")]
     public Vector2[] attackMovements;
 
@@ -35,61 +23,8 @@ public class Entity : MonoBehaviour
 
     public bool isBusy { get; private set; } // for delay to skip block code in frame after
 
-
-    #region Property
-    public float X_JumpForceWall
-    {
-        get
-        {
-            return xJumpForceWall;
-        }
-    }
-    public float JumpForce
-    {
-        get
-        {
-            return jumpForce;
-        }
-    }
-    public float TimeWallJump
-    {
-        get
-        {
-            return timeWallJump;
-        }
-    }
-    public float VelocitySlideMulti
-    {
-        get
-        {
-            return yVelocitySlideMulti;
-        }
-    }
-    public float MoveSpeed
-    {
-        get
-        {
-            return moveSpeed;
-        }
-    }
-    public float DashSpeed
-    {
-        get
-        {
-            return dashSpeed;
-        }
-    }
-    public float TimeDash
-    {
-        get
-        {
-            return timeDash;
-        }
-    }
-    #endregion
-
-
     #region Components
+    [HideInInspector]
     public Animator animator;
     public Rigidbody2D rb { get; private set; }
     #endregion

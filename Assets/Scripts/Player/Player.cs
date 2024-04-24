@@ -6,6 +6,69 @@ using UnityEngine;
 
 public class Player : Entity
 {
+    [Header("Dash info")]
+    [SerializeField] protected float dashSpeed = 16f;
+    [SerializeField] protected float timeDash = 0.5f;
+    [SerializeField] protected float dashCooldown = 2f;
+    protected float timerDashCooldown = 0f;
+
+    [Header("Wall slide jump info")]
+    [SerializeField] float yVelocitySlideMulti = 0.7f;
+    [Tooltip("Can control after period time wall jump")]
+    [SerializeField] float timeWallJump = 0.4f;
+    [SerializeField] float xJumpForceWall = 5f;
+
+    #region Property
+    public float X_JumpForceWall
+    {
+        get
+        {
+            return xJumpForceWall;
+        }
+    }
+    public float JumpForce
+    {
+        get
+        {
+            return jumpForce;
+        }
+    }
+    public float TimeWallJump
+    {
+        get
+        {
+            return timeWallJump;
+        }
+    }
+    public float VelocitySlideMulti
+    {
+        get
+        {
+            return yVelocitySlideMulti;
+        }
+    }
+    public float MoveSpeed
+    {
+        get
+        {
+            return moveSpeed;
+        }
+    }
+    public float DashSpeed
+    {
+        get
+        {
+            return dashSpeed;
+        }
+    }
+    public float TimeDash
+    {
+        get
+        {
+            return timeDash;
+        }
+    }
+    #endregion
 
     #region States
     public PlayerSateMachine stateMachine { get; private set; }
