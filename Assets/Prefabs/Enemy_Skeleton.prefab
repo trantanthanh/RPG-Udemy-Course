@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2648922724731339260}
   - component: {fileID: 4624601869405297934}
   - component: {fileID: 6276618465191768451}
+  - component: {fileID: 2132080349503394349}
   m_Layer: 8
   m_Name: Animator
   m_TagString: Untagged
@@ -106,6 +107,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2132080349503394349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 951973134173922707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 299555c67eecd344faa01c3afd0badb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1692305221162091437
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,8 +210,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.88, y: -1.965, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2648922724731339260}
   - {fileID: 7586897014032061344}
@@ -296,7 +309,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   playerCheckStartPoint: {fileID: 2126391129520453864}
-  distancePlayerCheck: 2.05
+  distancePlayerCheck: 3
+  distanceAttack: 1.5
 --- !u!1 &7594854390478150654
 GameObject:
   m_ObjectHideFlags: 0

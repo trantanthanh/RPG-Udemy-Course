@@ -8,6 +8,9 @@ public class Enemy : Entity
     [SerializeField] LayerMask playerMask;
     [SerializeField] protected GameObject playerCheckStartPoint;
     [SerializeField] protected float distancePlayerCheck;
+    [SerializeField] protected float distanceAttack;
+
+    public float DistanceAttack { get { return distanceAttack; } }
     public EnemyStateMachine stateMachine { get; private set; }
     protected override void Awake()
     {
@@ -35,5 +38,7 @@ public class Enemy : Entity
         base.OnDrawGizmos();
         Gizmos.color = Color.red;
         Gizmos.DrawLine(playerCheckStartPoint.transform.position, new Vector2(playerCheckStartPoint.transform.position.x + facingDir * distancePlayerCheck, playerCheckStartPoint.transform.position.y));
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine(playerCheckStartPoint.transform.position, new Vector2(playerCheckStartPoint.transform.position.x + facingDir * distanceAttack, playerCheckStartPoint.transform.position.y));
     }
 }

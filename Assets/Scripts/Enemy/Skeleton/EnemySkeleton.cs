@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySkeleton : Enemy
+public class EnemySkeleton : Enemy, IAnimationDoneTrigger
 {
     #region States
     public SkeletonIdleState idleState { get; private set; }
     public SkeletonMoveState moveState { get; private set; }
     public SkeletonBattleState battleState { get; private set; }
+    public SkeletonAttackState attackState { get; private set; }
     #endregion
 
     // Start is called before the first frame update
@@ -17,6 +18,7 @@ public class EnemySkeleton : Enemy
         idleState = new SkeletonIdleState(this, stateMachine, "Idle", this);
         moveState = new SkeletonMoveState(this, stateMachine, "Move", this);
         battleState = new SkeletonBattleState(this, stateMachine, "Move", this);
+        attackState = new SkeletonAttackState(this, stateMachine, "Attack", this);
         stateMachine.Initialize(idleState);
     }
 
@@ -25,4 +27,6 @@ public class EnemySkeleton : Enemy
     {
         base.Update();
     }
+
+    public void DoneTriggerAnim() => stateMachine.currentState.AnimationDoneTrigger();
 }
