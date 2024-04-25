@@ -10,9 +10,11 @@ public class Enemy : Entity, IAnimationDoneTrigger
     [SerializeField] protected float distancePlayerCheck;
     [SerializeField] protected float distanceAttack;
     [SerializeField] protected float attackCoolDown = 0.4f;
+    [SerializeField] protected float battleTime = 1f;
     protected float lastTimeAttack = 0.0f;
     public float LastTimeAttack { get { return lastTimeAttack; } set { lastTimeAttack = value; } }
     public float AttackCoolDown { get { return attackCoolDown; } }
+    public float BattleTime { get { return battleTime; } }
 
     public float DistanceAttack { get { return distanceAttack; } }
     public float DistancePlayerCheck { get { return distanceAttack; } }
