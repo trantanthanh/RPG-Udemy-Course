@@ -1,4 +1,4 @@
 public interface IAnimationDoneTrigger
 {
-    void DoneTriggerAnim();
+    void AnimationDoneTrigger();
 }

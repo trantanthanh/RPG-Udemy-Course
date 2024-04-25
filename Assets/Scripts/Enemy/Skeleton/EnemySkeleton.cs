@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySkeleton : Enemy, IAnimationDoneTrigger
+public class EnemySkeleton : Enemy
 {
     #region States
     public SkeletonIdleState idleState { get; private set; }
@@ -27,6 +27,4 @@ public class EnemySkeleton : Enemy, IAnimationDoneTrigger
     {
         base.Update();
     }
-
-    public void DoneTriggerAnim() => stateMachine.currentState.AnimationDoneTrigger();
 }

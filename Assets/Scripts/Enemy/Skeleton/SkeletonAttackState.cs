@@ -13,7 +13,7 @@ public class SkeletonAttackState : EnemyState
     public override void Enter()
     {
         base.Enter();
-        enemy.ZeroVelocity();
+        enemy.SetZeroVelocity();
     }
 
     public override void Exit()
@@ -27,7 +27,7 @@ public class SkeletonAttackState : EnemyState
 
         if (triggerCalled)
         {
-            stateMachine.ChangeState(enemy.idleState);
+            stateMachine.ChangeState(enemy.battleState);
         }
     }
 }

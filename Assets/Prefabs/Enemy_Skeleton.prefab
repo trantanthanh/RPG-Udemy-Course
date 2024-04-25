@@ -300,7 +300,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
-  moveSpeed: 1
+  moveSpeed: 2
   jumpForce: 12
   attackMovements: []
   animator: {fileID: 0}

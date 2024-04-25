@@ -5,5 +5,5 @@ using UnityEngine;
 public class EnemyAnimationsTrigger : MonoBehaviour
 {
     IAnimationDoneTrigger enemy => GetComponentInParent<IAnimationDoneTrigger>();
-    public void AnimationDoneTrigger() => enemy.DoneTriggerAnim();
+    public void AnimationDoneTrigger() => enemy.AnimationDoneTrigger();
 }

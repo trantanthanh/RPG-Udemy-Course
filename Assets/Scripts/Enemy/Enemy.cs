@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : Entity
+public class Enemy : Entity, IAnimationDoneTrigger
 {
     [SerializeField] public float idleTime = 1.0f;
     [SerializeField] LayerMask playerMask;
@@ -11,6 +11,7 @@ public class Enemy : Entity
     [SerializeField] protected float distanceAttack;
 
     public float DistanceAttack { get { return distanceAttack; } }
+    public float DistancePlayerCheck { get { return distanceAttack; } }
     public EnemyStateMachine stateMachine { get; private set; }
     protected override void Awake()
     {
