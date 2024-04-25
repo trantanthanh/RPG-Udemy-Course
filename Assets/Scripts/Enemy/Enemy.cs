@@ -9,6 +9,10 @@ public class Enemy : Entity, IAnimationDoneTrigger
     [SerializeField] protected GameObject playerCheckStartPoint;
     [SerializeField] protected float distancePlayerCheck;
     [SerializeField] protected float distanceAttack;
+    [SerializeField] protected float attackCoolDown = 0.4f;
+    protected float lastTimeAttack = 0.0f;
+    public float LastTimeAttack { get { return lastTimeAttack; } set { lastTimeAttack = value; } }
+    public float AttackCoolDown { get { return attackCoolDown; } }
 
     public float DistanceAttack { get { return distanceAttack; } }
     public float DistancePlayerCheck { get { return distanceAttack; } }
@@ -32,6 +36,7 @@ public class Enemy : Entity, IAnimationDoneTrigger
     }
 
     public void AnimationDoneTrigger() => stateMachine.currentState.AnimationDoneTrigger();
+    public bool CanAttack() => Time.time > lastTimeAttack + attackCoolDown;
     public RaycastHit2D IsPlayerDetected() => Physics2D.Raycast(playerCheckStartPoint.transform.position, Vector2.right * facingDir, distancePlayerCheck, playerMask);
 
     protected override void OnDrawGizmos()

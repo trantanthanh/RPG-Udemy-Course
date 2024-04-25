@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5814610243538177248}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GroundCheckStartPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 958536681722847885}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WallCheckStartPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 1800476403858977052}
   - component: {fileID: 3089077683226289135}
   - component: {fileID: 3771518612867154933}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,18 +111,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3fe8cd763d84946835a91ca99a3e16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 8
-  jumpForce: 12
-  dashSpeed: 25
-  timeDash: 0.2
-  dashCooldown: 1
-  yVelocitySlideMulti: 0.7
-  timeWallJump: 0.5
-  xJumpForceWall: 5
-  attackMovements:
-  - {x: 1, y: 1}
-  - {x: 1, y: 2}
-  - {x: 2, y: 1.5}
   groundCheckStartPoint: {fileID: 164313262636718043}
   wallCheckStartPoint: {fileID: 2673759763942663969}
   distanceGroundCheck: 0.22
@@ -130,7 +118,19 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
+  moveSpeed: 8
+  jumpForce: 12
+  attackMovements:
+  - {x: 1, y: 1}
+  - {x: 1, y: 2}
+  - {x: 2, y: 1.5}
   animator: {fileID: 0}
+  dashSpeed: 25
+  timeDash: 0.2
+  dashCooldown: 1
+  yVelocitySlideMulti: 0.7
+  timeWallJump: 0.5
+  xJumpForceWall: 5
 --- !u!50 &3089077683226289135
 Rigidbody2D:
   serializedVersion: 4
@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 5598102146308128334}
   - component: {fileID: 2298427002879536307}
   - component: {fileID: 3108921243468195765}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Animator
   m_TagString: Untagged
   m_Icon: {fileID: 0}

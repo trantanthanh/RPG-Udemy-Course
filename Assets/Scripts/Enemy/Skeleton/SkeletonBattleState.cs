@@ -40,7 +40,11 @@ public class SkeletonBattleState : EnemyState
         RaycastHit2D hit = enemy.IsPlayerDetected();
         if (hit && hit.distance < enemy.DistanceAttack)
         {
-            stateMachine.ChangeState(enemy.attackState);
+            //enemy.SetZeroVelocity();
+            if (enemy.CanAttack())
+            {
+                stateMachine.ChangeState(enemy.attackState);
+            }
         }
     }
 }

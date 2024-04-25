@@ -46601,14 +46601,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 164313262636718043, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2673759763942663969, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 3471302627653843766, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.16
@@ -46652,14 +46644,6 @@ PrefabInstance:
     - target: {fileID: 8142144263277088619, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8142144263277088619, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8171312139373004160, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
