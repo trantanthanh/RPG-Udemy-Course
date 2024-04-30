@@ -118,4 +118,11 @@ public class Player : Entity
     }
 
     public void AnimationDoneTrigger() => stateMachine.currentState.AnimationDoneTrigger();
+
+    public override void Damage()
+    {
+        base.Damage();
+
+        Debug.Log("Player has damaged");
+    }
 }

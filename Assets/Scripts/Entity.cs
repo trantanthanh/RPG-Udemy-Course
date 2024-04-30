@@ -17,6 +17,8 @@ public class Entity : MonoBehaviour
 
     [Header("Attack info")]
     public Vector2[] attackMovements;
+    public Transform attackCheck;
+    public float attackCheckRadius;
 
     public int facingDir { get; private set; } = 1;//-1 left, 1 right
     protected bool isFacingRight = true;
@@ -61,6 +63,10 @@ public class Entity : MonoBehaviour
     {
     }
 
+    public virtual void Damage()
+    { 
+    }
+
     public void Flip()
     {
         facingDir = facingDir * -1;
@@ -91,6 +97,9 @@ public class Entity : MonoBehaviour
         Gizmos.DrawLine(groundCheckStartPoint.transform.position, new Vector2(groundCheckStartPoint.transform.position.x, groundCheckStartPoint.transform.position.y - distanceGroundCheck));
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(wallCheckStartPoint.transform.position, new Vector2(wallCheckStartPoint.transform.position.x + facingDir * distanceWallCheck, wallCheckStartPoint.transform.position.y));
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackCheck.position, attackCheckRadius);
     }
     
     public IEnumerator BusyFor(float _seconds)

@@ -4,6 +4,20 @@ using UnityEngine;
 
 public class EnemyAnimationsTrigger : MonoBehaviour
 {
-    IAnimationDoneTrigger enemy => GetComponentInParent<IAnimationDoneTrigger>();
-    public void AnimationDoneTrigger() => enemy.AnimationDoneTrigger();
+    Enemy enemy => GetComponentInParent<Enemy>();
+    IAnimationDoneTrigger enemyAnimTrigger => GetComponentInParent<IAnimationDoneTrigger>();
+    private void AnimationDoneTrigger() => enemyAnimTrigger.AnimationDoneTrigger();
+
+    private void AttackTrigger()
+    {
+        Collider2D[] collders = Physics2D.OverlapCircleAll(enemy.attackCheck.position, enemy.attackCheckRadius);
+        foreach (Collider2D collider in collders)
+        {
+            Player player = collider.GetComponent<Player>();
+            if (player != null)
+            {
+                player.Damage();
+            }
+        }
+    }
 }

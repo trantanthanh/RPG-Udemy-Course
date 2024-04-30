@@ -9,6 +9,12 @@ public class EnemySkeleton : Enemy
     public SkeletonMoveState moveState { get; private set; }
     public SkeletonBattleState battleState { get; private set; }
     public SkeletonAttackState attackState { get; private set; }
+
+    public override void Damage()
+    {
+        base.Damage();
+        Debug.Log("Skeleton has damaged");
+    }
     #endregion
 
     // Start is called before the first frame update
