@@ -7,10 +7,10 @@ using UnityEngine;
 public class Player : Entity
 {
     [Header("Dash info")]
-    [SerializeField] protected float dashSpeed = 16f;
-    [SerializeField] protected float timeDash = 0.5f;
-    [SerializeField] protected float dashCooldown = 2f;
-    protected float timerDashCooldown = 0f;
+    [SerializeField] float dashSpeed = 16f;
+    [SerializeField] float timeDash = 0.5f;
+    [SerializeField] float dashCooldown = 2f;
+    float timerDashCooldown = 0f;
 
     [Header("Wall slide jump info")]
     [SerializeField] float yVelocitySlideMulti = 0.7f;
@@ -18,7 +18,17 @@ public class Player : Entity
     [SerializeField] float timeWallJump = 0.4f;
     [SerializeField] float xJumpForceWall = 5f;
 
+    [Header("Counter attack info")]
+    [SerializeField] float counterAttackDuration = 0.2f;
+
     #region Property
+    public float CounterAttackDuration
+    {
+        get
+        {
+            return counterAttackDuration;
+        }
+    }
     public float X_JumpForceWall
     {
         get
@@ -68,6 +78,7 @@ public class Player : Entity
     public PlayerWallSlideState wallSlideState { get; private set; }
     public PlayerWallJumpState wallJumpState { get; private set; }
     public PlayerPrimaryAttackState primaryAttack { get; private set; }
+    public PlayerCounterAttackState counterAttack {  get; private set; }
     #endregion
 
     protected override void Awake()
@@ -82,6 +93,7 @@ public class Player : Entity
         wallSlideState = new PlayerWallSlideState(this, stateMachine, "WallSlide");
         wallJumpState = new PlayerWallJumpState(this, stateMachine, "Jump");
         primaryAttack = new PlayerPrimaryAttackState(this, stateMachine, "Attack");
+        counterAttack = new PlayerCounterAttackState(this, stateMachine, "CounterAttack");
     }
 
     // Start is called before the first frame update

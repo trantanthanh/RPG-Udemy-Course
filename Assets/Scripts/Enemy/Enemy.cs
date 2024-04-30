@@ -7,6 +7,8 @@ public class Enemy : Entity, IAnimationDoneTrigger
     [Header("Stunned info")]
     public float stunDuration = 1.0f;
     public Vector2 stunDirection;
+    [SerializeField] GameObject counterImage;
+    protected bool canBeStunned = false;
 
     [Header("Collision info")]
     [SerializeField] public float idleTime = 1.0f;
@@ -40,6 +42,28 @@ public class Enemy : Entity, IAnimationDoneTrigger
     protected override void Update()
     {
         stateMachine.currentState.Update();
+    }
+
+    public virtual void OpenCounterAttack()
+    {
+        canBeStunned = true;
+        counterImage.SetActive(true);
+    }
+
+    public virtual void CloseCounterAttack()
+    {
+        canBeStunned = false;
+        counterImage.SetActive(false);
+    }
+
+    public virtual bool CanBeStunned()
+    {
+        if (canBeStunned)
+        {
+            CloseCounterAttack();
+            return true;
+        }
+        return false;
     }
 
     public void AnimationDoneTrigger() => stateMachine.currentState.AnimationDoneTrigger();
