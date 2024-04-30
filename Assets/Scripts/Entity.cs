@@ -20,6 +20,11 @@ public class Entity : MonoBehaviour
     public Transform attackCheck;
     public float attackCheckRadius;
 
+    [Header("Knockback info")]
+    [SerializeField] Vector2 knockBackPower;
+    [SerializeField] float knockBackDuration = 0.07f;
+    protected bool isKnocked = false;
+
     public int facingDir { get; private set; } = 1;//-1 left, 1 right
     protected bool isFacingRight = true;
 
@@ -45,7 +50,7 @@ public class Entity : MonoBehaviour
     [HideInInspector]
     public Animator animator;
     public Rigidbody2D rb { get; private set; }
-    public EntityFx fx {  get; private set; }
+    public EntityFx fx { get; private set; }
     #endregion
 
     protected virtual void Awake()
@@ -68,6 +73,15 @@ public class Entity : MonoBehaviour
     public virtual void Damage()
     {
         fx.StartCoroutine("FlashFx");
+        StartCoroutine("KnockBackHit");
+    }
+
+    protected virtual IEnumerator KnockBackHit()
+    {
+        isKnocked = true;
+        rb.velocity = new Vector2(knockBackPower.x * (-facingDir), knockBackPower.y);
+        yield return new WaitForSeconds(knockBackDuration);
+        isKnocked = false;
     }
 
     public void Flip()
@@ -86,6 +100,7 @@ public class Entity : MonoBehaviour
     }
     public void SetVelocity(float _xVelocity, float yVelocity)
     {
+        if (isKnocked) return;
         rb.velocity = new Vector2(_xVelocity, yVelocity);
         FlipController(_xVelocity);
     }
@@ -93,7 +108,7 @@ public class Entity : MonoBehaviour
     public void SetZeroVelocity() => rb.velocity = Vector2.zero;
     public bool IsGroundDetected() => Physics2D.Raycast(groundCheckStartPoint.transform.position, Vector2.down, distanceGroundCheck, groundMask);
     public bool IsFaceWallDetected() => Physics2D.Raycast(wallCheckStartPoint.transform.position, Vector2.right * facingDir, distanceWallCheck, groundMask);
-    
+
     protected virtual void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
@@ -104,7 +119,7 @@ public class Entity : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackCheck.position, attackCheckRadius);
     }
-    
+
     public IEnumerator BusyFor(float _seconds)
     {
         isBusy = true;
