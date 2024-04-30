@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Enemy : Entity, IAnimationDoneTrigger
 {
+    [Header("Stunned info")]
+    public float stunDuration = 1.0f;
+    public Vector2 stunDirection;
+
+    [Header("Collision info")]
     [SerializeField] public float idleTime = 1.0f;
     [SerializeField] LayerMask playerMask;
     [SerializeField] protected GameObject playerCheckStartPoint;

@@ -7,9 +7,9 @@ public class SkeletonBattleState : EnemyState
     EnemySkeleton enemy;
     Transform player;
     int moveDir = 1;//1 : move right, -1 move left
-    public SkeletonBattleState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animName, EnemySkeleton enemy) : base(_enemyBase, _stateMachine, _animName)
+    public SkeletonBattleState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animName, EnemySkeleton _enemy) : base(_enemyBase, _stateMachine, _animName)
     {
-        this.enemy = enemy;
+        this.enemy = _enemy;
     }
 
     public override void Enter()
