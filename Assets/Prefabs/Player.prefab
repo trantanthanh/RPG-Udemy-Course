@@ -103,6 +103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3471302627653843766}
   - component: {fileID: 1800476403858977052}
+  - component: {fileID: 6519339761462540847}
   - component: {fileID: 3089077683226289135}
   - component: {fileID: 3771518612867154933}
   m_Layer: 7
@@ -165,6 +166,20 @@ MonoBehaviour:
   yVelocitySlideMulti: 0.7
   timeWallJump: 0.5
   xJumpForceWall: 5
+--- !u!114 &6519339761462540847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8142144263277088619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 819230ae03af74a40b60d9e4f050d81c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitMat: {fileID: 2100000, guid: 2f36bd2f6603aa3469de3bf9bf30d091, type: 2}
+  flashDuration: 0.15
 --- !u!50 &3089077683226289135
 Rigidbody2D:
   serializedVersion: 4

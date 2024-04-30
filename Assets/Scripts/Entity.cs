@@ -45,6 +45,7 @@ public class Entity : MonoBehaviour
     [HideInInspector]
     public Animator animator;
     public Rigidbody2D rb { get; private set; }
+    public EntityFx fx {  get; private set; }
     #endregion
 
     protected virtual void Awake()
@@ -56,6 +57,7 @@ public class Entity : MonoBehaviour
     {
         animator = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        fx = GetComponent<EntityFx>();
     }
 
     // Update is called once per frame
@@ -64,7 +66,8 @@ public class Entity : MonoBehaviour
     }
 
     public virtual void Damage()
-    { 
+    {
+        fx.StartCoroutine("FlashFx");
     }
 
     public void Flip()
