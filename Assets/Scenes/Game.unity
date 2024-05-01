@@ -656,6 +656,7 @@ GameObject:
   - component: {fileID: 1014679307}
   - component: {fileID: 1014679308}
   - component: {fileID: 1014679309}
+  - component: {fileID: 1014679310}
   m_Layer: 0
   m_Name: SkillManager
   m_TagString: Untagged
@@ -719,6 +720,22 @@ MonoBehaviour:
   clonePrefab: {fileID: 3799389986137735871, guid: e1e4d72726223064a9c437391e0a72e6, type: 3}
   cloneDuration: 1.5
   canAtack: 1
+--- !u!114 &1014679310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014679305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f4852733937b9448bcaf5693747c01e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 0
+  swordPrefab: {fileID: 6278860631956826589, guid: e17b23fcb793f224c944ceab4b484e09, type: 3}
+  launchDir: {x: 5, y: 15}
+  swordGravity: 2
 --- !u!1 &1258903085
 GameObject:
   m_ObjectHideFlags: 0

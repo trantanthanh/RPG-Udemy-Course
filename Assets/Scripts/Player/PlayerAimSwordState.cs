@@ -21,7 +21,7 @@ public class PlayerAimSwordState : PlayerState
     public override void Update()
     {
         base.Update();
-
+        player.SetZeroVelocity();
         if (Input.GetKeyUp(KeyCode.Mouse1))//release right mouse button
         {
             stateMachine.ChangeState(player.idleState);

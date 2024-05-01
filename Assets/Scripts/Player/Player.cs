@@ -66,7 +66,9 @@ public class Player : Entity
     }
     #endregion
 
-    public SkillManager skill { get; private set; }
+    #region Components
+    public SkillManager skills { get; private set; }
+    #endregion
 
     #region States
     public PlayerSateMachine stateMachine { get; private set; }
@@ -99,7 +101,7 @@ public class Player : Entity
         catchSword = new PlayerCatchSwordState(this, stateMachine, "CatchSword");
         aimSword = new PlayerAimSwordState(this, stateMachine, "AimSword");
 
-        skill = SkillManager.Instance;
+        skills = SkillManager.Instance;
     }
 
     // Start is called before the first frame update
@@ -125,7 +127,7 @@ public class Player : Entity
         if (IsFaceWallDetected()) return;
         if (Input.GetKeyDown(KeyCode.LeftShift) && SkillManager.Instance.dash.CanUseSkil())
         {
-            skill.dash.UseSkill();
+            skills.dash.UseSkill();
             stateMachine.ChangeState(dashState);
         }
     }

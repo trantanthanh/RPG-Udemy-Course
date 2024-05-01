@@ -20,4 +20,9 @@ public class PlayerAnimEvents : MonoBehaviour
             }
         }
     }
+
+    private void ThrowSword()
+    {
+        player.skills.sword.CreatSword();
+    }
 }
