@@ -66,6 +66,8 @@ public class Player : Entity
     }
     #endregion
 
+    public SkillManager skill { get; private set; }
+
     #region States
     public PlayerSateMachine stateMachine { get; private set; }
     public PlayerIdleState idleState { get; private set; }
@@ -92,6 +94,8 @@ public class Player : Entity
         wallJumpState = new PlayerWallJumpState(this, stateMachine, "Jump");
         primaryAttack = new PlayerPrimaryAttackState(this, stateMachine, "Attack");
         counterAttack = new PlayerCounterAttackState(this, stateMachine, "CounterAttack");
+
+        skill = SkillManager.Instance;
     }
 
     // Start is called before the first frame update
@@ -117,7 +121,7 @@ public class Player : Entity
         if (IsFaceWallDetected()) return;
         if (Input.GetKeyDown(KeyCode.LeftShift) && SkillManager.Instance.dash.CanUseSkil())
         {
-            SkillManager.Instance.dash.UseSkill();
+            skill.dash.UseSkill();
             stateMachine.ChangeState(dashState);
         }
     }

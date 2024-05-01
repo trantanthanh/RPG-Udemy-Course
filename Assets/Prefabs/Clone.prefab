@@ -120,3 +120,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offsetPos: {x: 0.478, y: 0.3, z: 0}
+  cloneDuration: 1.5
+  cloneColorLosingSpeed: 10

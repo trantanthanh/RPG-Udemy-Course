@@ -13,7 +13,7 @@ public class PlayerDashState : PlayerState
     {
         base.Enter();
         timerState = player.TimeDash;
-        SkillManager.Instance.clone.CreateClone(player.transform);
+        player.skill.clone.CreateClone(player.transform);
     }
 
     public override void Exit()
