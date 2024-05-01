@@ -9,8 +9,6 @@ public class Player : Entity
     [Header("Dash info")]
     [SerializeField] float dashSpeed = 16f;
     [SerializeField] float timeDash = 0.5f;
-    [SerializeField] float dashCooldown = 2f;
-    float timerDashCooldown = 0f;
 
     [Header("Wall slide jump info")]
     [SerializeField] float yVelocitySlideMulti = 0.7f;
@@ -116,10 +114,10 @@ public class Player : Entity
 
     private void CheckDash()
     {
-        timerDashCooldown -= Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.LeftShift) && timerDashCooldown < 0 && !IsFaceWallDetected())
+        if (IsFaceWallDetected()) return;
+        if (Input.GetKeyDown(KeyCode.LeftShift) && SkillManager.Instance.dash.CanUseSkil())
         {
-            timerDashCooldown = dashCooldown;
+            SkillManager.Instance.dash.UseSkill();
             stateMachine.ChangeState(dashState);
         }
     }

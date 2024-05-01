@@ -5,6 +5,11 @@ using UnityEngine;
 public class SkillManager : MonoBehaviour
 {
     public static SkillManager Instance;
+
+    #region Skills
+    public DashSkill dash {  get; private set; }
+    #endregion
+
     private void Awake()
     {
         if (Instance == null)
@@ -13,5 +18,10 @@ public class SkillManager : MonoBehaviour
             return;
         }
         Destroy(gameObject);
+    }
+
+    private void Start()
+    {
+        dash = GetComponent<DashSkill>();
     }
 }
