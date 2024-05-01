@@ -12,6 +12,7 @@ public class CloneSkillController : MonoBehaviour
 
     [SerializeField] Transform attackCheck;
     [SerializeField] float attackRadius;
+    private Transform closestEnemy;
 
     private void Awake()
     {
@@ -26,6 +27,7 @@ public class CloneSkillController : MonoBehaviour
         {
             animator.SetInteger("AttackNumber", Random.Range(1, 4));//Random from 1 to 3
         }
+        FaceClosestEnemy();
     }
 
     private void Update()
@@ -59,6 +61,35 @@ public class CloneSkillController : MonoBehaviour
             if (enemy != null)
             {
                 enemy.Damage();
+            }
+        }
+    }
+
+    private void FaceClosestEnemy()
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 25);
+        float closestDistance = Mathf.Infinity;
+
+        foreach (Collider2D collider in colliders)
+        {
+            Enemy enemy = collider.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                float distance = Vector2.Distance(transform.position, enemy.transform.position);
+                if (closestDistance > distance)
+                {
+                    closestDistance = distance;
+                    closestEnemy = enemy.transform;
+                }
+
+            }
+        }
+
+        if (closestEnemy != null)
+        {
+            if (transform.position.x >  closestEnemy.transform.position.x)
+            {
+                transform.Rotate(0, 180, 0);
             }
         }
     }
