@@ -36,9 +36,15 @@ public class PlayerGroundedState : PlayerState
                 return;
             }
 
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (Input.GetKeyDown(KeyCode.Mouse0))//left mouse click
             {
                 player.stateMachine.ChangeState(player.primaryAttack);
+                return;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Mouse1))//right mouse click
+            {
+                player.stateMachine.ChangeState(player.aimSword);
                 return;
             }
         }
