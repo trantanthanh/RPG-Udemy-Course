@@ -734,7 +734,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 0
   swordPrefab: {fileID: 6278860631956826589, guid: e17b23fcb793f224c944ceab4b484e09, type: 3}
-  launchDir: {x: 5, y: 15}
+  launchForce: 15
   swordGravity: 2
 --- !u!1 &1258903085
 GameObject:
