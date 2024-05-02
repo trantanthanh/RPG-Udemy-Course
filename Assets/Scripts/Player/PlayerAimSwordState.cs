@@ -12,13 +12,13 @@ public class PlayerAimSwordState : PlayerState
     {
         base.Enter();
 
-        player.skills.sword.DotsActive(true);
+        player.skills.swordThrow.DotsActive(true);
     }
 
     public override void Exit()
     {
         base.Exit();
-        player.skills.sword.DotsActive(false);
+        player.skills.swordThrow.DotsActive(false);
     }
 
     public override void Update()

@@ -69,6 +69,7 @@ public class Player : Entity
     #region Components
     public SkillManager skills { get; private set; }
     #endregion
+    public GameObject sword { get; private set; }
 
     #region States
     public PlayerSateMachine stateMachine { get; private set; }
@@ -144,5 +145,15 @@ public class Player : Entity
         base.Damage();
 
         Debug.Log("Player has damaged");
+    }
+
+    public void AssignNewSword(GameObject _newSword)
+    {
+        sword = _newSword;
+    }
+
+    public void ClearTheSword()
+    {
+        Destroy(sword);
     }
 }

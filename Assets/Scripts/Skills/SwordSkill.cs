@@ -25,8 +25,9 @@ public class SwordSkill : Skill
     public void CreatSword()
     {
         GameObject newSword = Instantiate(swordPrefab, player.attackCheck.transform.position, player.transform.rotation);
+        player.AssignNewSword(newSword);
         SwordSkillController newSwordScript = newSword.GetComponent<SwordSkillController>();
-        newSwordScript.SetupSword(finalForce, swordGravity);
+        newSwordScript.SetupSword(finalForce, swordGravity, player);
         DotsActive(false);
     }
 
