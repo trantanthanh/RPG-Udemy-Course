@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2811557125303361157}
   - component: {fileID: 1176758416965497090}
   - component: {fileID: 2839927657392511414}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Animator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: -380159799
   m_SortingLayer: 3
   m_SortingOrder: -1
-  m_Sprite: {fileID: 1633007794, guid: f6b296ee51c42564abe9c05f1c502ecd, type: 3}
+  m_Sprite: {fileID: -2004053239, guid: f6b296ee51c42564abe9c05f1c502ecd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 1662776348801346361}
   - component: {fileID: 7343379895465484150}
   - component: {fileID: 3070202230284847776}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,12 +197,12 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.010208726}
   serializedVersion: 2
-  m_Radius: 0.63
+  m_Radius: 0.61979127
 --- !u!114 &3070202230284847776
 MonoBehaviour:
   m_ObjectHideFlags: 0
