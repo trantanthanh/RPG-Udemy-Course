@@ -26,7 +26,7 @@ public class PlayerGroundedState : PlayerState
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                player.stateMachine.ChangeState(player.counterAttack);
+                player.stateMachine.ChangeState(player.counterAttackState);
                 return;
             }
 
@@ -38,13 +38,13 @@ public class PlayerGroundedState : PlayerState
 
             if (Input.GetKeyDown(KeyCode.Mouse0))//left mouse click
             {
-                player.stateMachine.ChangeState(player.primaryAttack);
+                player.stateMachine.ChangeState(player.primaryAttackState);
                 return;
             }
 
             if (Input.GetKeyDown(KeyCode.Mouse1) && HasNoSword())//right mouse click
             {
-                player.stateMachine.ChangeState(player.aimSword);
+                player.stateMachine.ChangeState(player.aimSwordState);
                 return;
             }
         }

@@ -80,10 +80,10 @@ public class Player : Entity
     public PlayerDashState dashState { get; private set; }
     public PlayerWallSlideState wallSlideState { get; private set; }
     public PlayerWallJumpState wallJumpState { get; private set; }
-    public PlayerPrimaryAttackState primaryAttack { get; private set; }
-    public PlayerCounterAttackState counterAttack {  get; private set; }
-    public PlayerCatchSwordState catchSword { get; private set; }
-    public PlayerAimSwordState aimSword {  get; private set; }
+    public PlayerPrimaryAttackState primaryAttackState { get; private set; }
+    public PlayerCounterAttackState counterAttackState {  get; private set; }
+    public PlayerCatchSwordState catchSwordState { get; private set; }
+    public PlayerAimSwordState aimSwordState {  get; private set; }
     #endregion
 
     protected override void Awake()
@@ -97,10 +97,10 @@ public class Player : Entity
         dashState = new PlayerDashState(this, stateMachine, "Dash");
         wallSlideState = new PlayerWallSlideState(this, stateMachine, "WallSlide");
         wallJumpState = new PlayerWallJumpState(this, stateMachine, "Jump");
-        primaryAttack = new PlayerPrimaryAttackState(this, stateMachine, "Attack");
-        counterAttack = new PlayerCounterAttackState(this, stateMachine, "CounterAttack");
-        catchSword = new PlayerCatchSwordState(this, stateMachine, "CatchSword");
-        aimSword = new PlayerAimSwordState(this, stateMachine, "AimSword");
+        primaryAttackState = new PlayerPrimaryAttackState(this, stateMachine, "Attack");
+        counterAttackState = new PlayerCounterAttackState(this, stateMachine, "CounterAttack");
+        catchSwordState = new PlayerCatchSwordState(this, stateMachine, "CatchSword");
+        aimSwordState = new PlayerAimSwordState(this, stateMachine, "AimSword");
 
         skills = SkillManager.Instance;
     }
