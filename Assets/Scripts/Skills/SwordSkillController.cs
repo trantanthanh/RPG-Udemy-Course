@@ -66,7 +66,7 @@ public class SwordSkillController : MonoBehaviour
     public void ReturnSword()
     {
         animator.SetBool("Rotation", true);
-        rb.isKinematic = false;
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
         transform.parent = null;
         isReturning = true;
     }
