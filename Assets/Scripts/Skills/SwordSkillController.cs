@@ -17,8 +17,12 @@ public class SwordSkillController : MonoBehaviour
 
     public void SetupSword(Vector2 _dir, float _gravityScale)
     {
-        animator.SetBool("Rotation", true);
         rb.velocity = _dir;
         rb.gravityScale = _gravityScale;
+    }
+
+    private void Update()
+    {
+        transform.right = rb.velocity;
     }
 }
