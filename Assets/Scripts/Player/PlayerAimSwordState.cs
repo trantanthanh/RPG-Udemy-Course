@@ -26,5 +26,14 @@ public class PlayerAimSwordState : PlayerState
         {
             stateMachine.ChangeState(player.idleState);
         }
+        else
+        {
+            //check flip player
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            if (mousePosition.x < player.transform.position.x && player.IsFacingRight || mousePosition.x > player.transform.position.x && !player.IsFacingRight)
+            {
+                player.Flip();
+            }
+        }
     }
 }

@@ -28,6 +28,14 @@ public class Entity : MonoBehaviour
     public int facingDir { get; private set; } = 1;//-1 left, 1 right
     protected bool isFacingRight = true;
 
+    public bool IsFacingRight
+    {
+        get
+        {
+            return isFacingRight;
+        }
+    }
+
     public bool isBusy { get; private set; } // for delay to skip block code in frame after
 
     public float MoveSpeed
