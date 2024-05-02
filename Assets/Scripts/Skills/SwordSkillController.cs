@@ -46,8 +46,7 @@ public class SwordSkillController : MonoBehaviour
             {
                 animator.SetBool("Rotation", false);
                 isReturning = false;
-                player.stateMachine.ChangeState(player.catchSwordState);
-                player.ClearTheSword();
+                player.CatchTheSword();
             }
         }
     }

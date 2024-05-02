@@ -152,8 +152,9 @@ public class Player : Entity
         sword = _newSword;
     }
 
-    public void ClearTheSword()
+    public void CatchTheSword()
     {
+        stateMachine.ChangeState(catchSwordState);
         Destroy(sword);
     }
 }
