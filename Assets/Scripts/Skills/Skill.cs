@@ -14,6 +14,11 @@ public class Skill : MonoBehaviour
         player = PlayerManager.Instance.player;
     }
 
+    protected virtual void Start()
+    {
+
+    }
+
     protected virtual void Update()
     {
         cooldownTimer -= Time.deltaTime;
