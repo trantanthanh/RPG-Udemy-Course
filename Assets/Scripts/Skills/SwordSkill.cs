@@ -1,9 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+public enum SwordType
+{
+    Regular,
+    Bounce,
+    Pierce,
+    Spin
+}
 
 public class SwordSkill : Skill
 {
+    public SwordType swordType = SwordType.Regular;
+    [Header("Bouce info")]
+    [SerializeField] int amountOfBounce = 4;
+    [SerializeField] float bouceGravity;
+
     [Header("Skill info")]
     [SerializeField] GameObject swordPrefab;
     [SerializeField] float launchForce;
@@ -27,17 +38,20 @@ public class SwordSkill : Skill
         GameObject newSword = Instantiate(swordPrefab, player.attackCheck.transform.position, player.transform.rotation);
         player.AssignNewSword(newSword);
         SwordSkillController newSwordScript = newSword.GetComponent<SwordSkillController>();
-        newSwordScript.SetupSword(finalForce, swordGravity, player);
+
+        if (swordType == SwordType.Bounce)
+        {
+            newSwordScript.SetUpBouce(true, amountOfBounce);
+            newSwordScript.SetupSword(finalForce, bouceGravity, player);
+        }
+        else
+        {
+            newSwordScript.SetupSword(finalForce, swordGravity, player);
+        }
+
         DotsActive(false);
     }
 
-    public Vector2 AimDirection()
-    {
-        Vector2 playerPosition = player.transform.position;
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 direction = mousePosition - playerPosition;
-        return direction;
-    }
 
     protected override void Update()
     {
@@ -55,6 +69,15 @@ public class SwordSkill : Skill
             }
 
         }
+    }
+
+    #region Aim region
+    public Vector2 AimDirection()
+    {
+        Vector2 playerPosition = player.transform.position;
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 direction = mousePosition - playerPosition;
+        return direction;
     }
 
     private void GenerateDots()
@@ -80,4 +103,5 @@ public class SwordSkill : Skill
         Vector2 position = (Vector2)player.attackCheck.transform.position + new Vector2(AimDirection().normalized.x, AimDirection().normalized.y) * launchForce * t + 0.5f * (Physics2D.gravity * swordGravity) * (t * t);
         return position;
     }
+    #endregion
 }

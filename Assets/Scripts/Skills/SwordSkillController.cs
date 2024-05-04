@@ -11,12 +11,14 @@ public class SwordSkillController : MonoBehaviour
 
     private bool canRotate;
     private bool isReturning;
-    public bool isBouncing = true;
-    public int amountOfBounce = 4;
-    private int currentBounced = 0;
+
+    [Header("Bouce info")]
+    private bool isBouncing = false;
+    private int amountOfBounce;
+
     public float bounceSpeed = 20f;
     public float bounceRange = 10f;
-    List<Transform> enemiesTarget = new List<Transform>();
+    private List<Transform> enemiesTarget = new List<Transform>();
     private int targetIndex = 0;
 
     Player player;
@@ -37,9 +39,13 @@ public class SwordSkillController : MonoBehaviour
         rb.velocity = _dir;
         rb.gravityScale = _gravityScale;
 
-        isBouncing = true;
         targetIndex = 0;
-        currentBounced = 0;
+    }
+
+    public void SetUpBouce(bool _isBoucing, int _amountOfBounce)
+    {
+        this.isBouncing = _isBoucing;
+        this.amountOfBounce = _amountOfBounce;
     }
 
     private void Update()
@@ -61,14 +67,19 @@ public class SwordSkillController : MonoBehaviour
             }
         }
 
+        UpdateBouncingLogic();
+    }
+
+    private void UpdateBouncingLogic()
+    {
         if (isBouncing && enemiesTarget.Count > 1)
         {
             transform.position = Vector2.MoveTowards(transform.position, enemiesTarget[targetIndex].position, bounceSpeed * Time.deltaTime);
             if (Vector2.Distance(transform.position, enemiesTarget[targetIndex].position) < 0.1f)
             {
                 targetIndex++;
-                currentBounced++;
-                if (currentBounced > amountOfBounce)
+                amountOfBounce--;
+                if (amountOfBounce < 0)
                 {
                     isBouncing = false;
                     ReturnSword();
@@ -85,6 +96,12 @@ public class SwordSkillController : MonoBehaviour
     {
         if (isReturning) return;//don't trigger collision while returning to player
 
+        CheckBoundList(collision);
+        StuckInto(collision);
+    }
+
+    private void CheckBoundList(Collider2D collision)
+    {
         if (isBouncing)
         {
             Enemy enemy = collision.GetComponent<Enemy>();
@@ -104,12 +121,11 @@ public class SwordSkillController : MonoBehaviour
 
 
             }
-            if (enemiesTarget.Count < 2)
+            if (enemiesTarget.Count < 2)//if below 2 enemies, don't bounce
             {
                 isBouncing = false;
             }
         }
-        StuckInto(collision);
     }
 
     private void StuckInto(Collider2D collision)
