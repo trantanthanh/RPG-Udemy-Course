@@ -11,9 +11,14 @@ public enum SwordType
 public class SwordSkill : Skill
 {
     public SwordType swordType = SwordType.Regular;
+
     [Header("Bouce info")]
-    [SerializeField] int amountOfBounce = 4;
-    [SerializeField] float bouceGravity;
+    [SerializeField] int bounceAmount = 4;
+    [SerializeField] float bounceGravity;
+
+    [Header("Pierce info")]
+    [SerializeField] int pierceAmount;
+    [SerializeField] float pierceGravity;
 
     [Header("Skill info")]
     [SerializeField] GameObject swordPrefab;
@@ -42,7 +47,7 @@ public class SwordSkill : Skill
 
         if (swordType == SwordType.Bounce)
         {
-            newSwordScript.SetUpBouce(true, amountOfBounce);
+            newSwordScript.SetupBounce(true, bounceAmount);
         }
         newSwordScript.SetupSword(finalForce, swordGravity, player);
 
@@ -60,19 +65,35 @@ public class SwordSkill : Skill
 
         if (Input.GetKey(KeyCode.Mouse1))
         {
-            if (swordType == SwordType.Regular)
-            {
-                swordGravity = swordGravityRegular;
-            }
-            else if (swordType == SwordType.Bounce)
-            {
-                swordGravity = bouceGravity;
-            }
+            SetupGravity();
+
             for (int i = 0; i < dots.Length; i++)
             {
                 dots[i].transform.position = DotsPosition(i * spaceBetweenDots);
             }
 
+        }
+    }
+
+    private void SetupGravity()
+    {
+        switch (swordType)
+        {
+            case SwordType.Regular:
+                {
+                    swordGravity = swordGravityRegular;
+                    break;
+                }
+            case SwordType.Bounce:
+                {
+                    swordGravity = bounceGravity;
+                    break;
+                }
+            case SwordType.Pierce:
+                {
+                    swordGravity = pierceGravity;
+                    break;
+                }
         }
     }
 

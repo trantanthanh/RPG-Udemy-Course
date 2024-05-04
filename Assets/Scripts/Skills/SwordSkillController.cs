@@ -14,7 +14,11 @@ public class SwordSkillController : MonoBehaviour
 
     [Header("Bouce info")]
     private bool isBouncing = false;
-    private int amountOfBounce;
+    private int bounceAmount;
+
+    [Header("Pierce info")]
+    private bool isPiercing = false;
+    private int pierceAmount;
 
     public float bounceSpeed = 20f;
     public float bounceRange = 10f;
@@ -42,10 +46,16 @@ public class SwordSkillController : MonoBehaviour
         targetIndex = 0;
     }
 
-    public void SetUpBouce(bool _isBoucing, int _amountOfBounce)
+    public void SetupBounce(bool _isBoucing, int _amountOfBounce)
     {
         this.isBouncing = _isBoucing;
-        this.amountOfBounce = _amountOfBounce;
+        this.bounceAmount = _amountOfBounce;
+    }
+
+    public void SetupPierce(bool _isPiercing, int _amountOfPiercing)
+    {
+        this.isPiercing = _isPiercing;
+        this.pierceAmount = _amountOfPiercing;
     }
 
     private void Update()
@@ -78,8 +88,8 @@ public class SwordSkillController : MonoBehaviour
             if (Vector2.Distance(transform.position, enemiesTarget[targetIndex].position) < 0.1f)
             {
                 targetIndex++;
-                amountOfBounce--;
-                if (amountOfBounce < 0)
+                bounceAmount--;
+                if (bounceAmount < 0)
                 {
                     isBouncing = false;
                     ReturnSword();
