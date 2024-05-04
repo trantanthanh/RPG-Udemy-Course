@@ -31,6 +31,7 @@ public class SwordSkillController : MonoBehaviour
     private float spinDuration;
     private bool spinWasStopped;
     private bool isSpinning;
+    private float spinDirectionX;
 
     private float hitTimer;
     private float hitCooldown;
@@ -57,6 +58,8 @@ public class SwordSkillController : MonoBehaviour
         rb.gravityScale = _gravityScale;
 
         targetIndex = 0;
+
+        spinDirectionX = Mathf.Clamp(rb.velocity.x, -1, 1);
     }
 
     public void SetupBounce(bool _isBoucing, int _amountOfBounce)
@@ -120,6 +123,8 @@ public class SwordSkillController : MonoBehaviour
 
             if (spinWasStopped)
             {
+                transform.position = Vector2.MoveTowards(transform.position,new Vector2(transform.position.x + spinDirectionX, transform.position.y), 1.5f * Time.deltaTime);//make the sword move to direction x with speed 1.5f
+
                 spinDuration -= Time.deltaTime;
                 if (spinDuration < 0)
                 {
