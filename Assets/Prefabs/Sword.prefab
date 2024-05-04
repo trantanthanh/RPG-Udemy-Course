@@ -218,3 +218,4 @@ MonoBehaviour:
   returnSpeed: 20
   bounceSpeed: 20
   bounceRange: 10
+  damageRadius: 0.72

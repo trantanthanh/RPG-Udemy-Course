@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CloneSkillController : MonoBehaviour
 {
-    private SpriteRenderer sr;
+    private SpriteRenderer spriteRenderer;
     private Animator animator;
     [SerializeField] Vector3 offsetPos;
     [SerializeField] float cloneColorLosingSpeed;
@@ -16,7 +16,7 @@ public class CloneSkillController : MonoBehaviour
 
     private void Awake()
     {
-        sr = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
     }
     public void SetupClone(Transform _newTransform, float _cloneDuration, bool _canAttack)
@@ -35,9 +35,9 @@ public class CloneSkillController : MonoBehaviour
         cloneTimer -= Time.deltaTime;
         if (cloneTimer < 0)
         {
-            sr.color = new Color(1, 1, 1, sr.color.a - Time.deltaTime * cloneColorLosingSpeed);
+            spriteRenderer.color = new Color(1, 1, 1, spriteRenderer.color.a - Time.deltaTime * cloneColorLosingSpeed);
 
-            if (sr.color.a < 0)
+            if (spriteRenderer.color.a < 0)
             {
                 Destroy(gameObject);
             }

@@ -29,6 +29,7 @@ public class SwordSkill : Skill
     [Header("Spin info")]
     [SerializeField] float maxTravelDistance = 7f;
     [SerializeField] float spinDuration = 2f;
+    [SerializeField] float spinHitCooldown = 0.35f;
     [SerializeField] float spinGravity = 1f;
 
     [Header("Aim dot")]
@@ -60,7 +61,7 @@ public class SwordSkill : Skill
         }
         else if (swordType == SwordType.Spin)
         {
-            newSwordScript.SetupSpin(true, maxTravelDistance, spinDuration);
+            newSwordScript.SetupSpin(true, maxTravelDistance, spinDuration, spinHitCooldown);
         }
 
         newSwordScript.SetupSword(finalForce, swordGravity, player);

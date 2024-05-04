@@ -26,10 +26,14 @@ public class SwordSkillController : MonoBehaviour
     private int targetIndex = 0;
 
     [Header("Spin info")]
+    [SerializeField] float damageRadius = 1f;
     private float maxTravelDistance;
     private float spinDuration;
     private bool spinWasStopped;
     private bool isSpinning;
+
+    private float hitTimer;
+    private float hitCooldown;
 
     Player player;
 
@@ -67,12 +71,14 @@ public class SwordSkillController : MonoBehaviour
         this.pierceAmount = _amountOfPiercing;
     }
 
-    public void SetupSpin(bool _isSpinning, float _maxTravelDistance, float _spinDuration)
+    public void SetupSpin(bool _isSpinning, float _maxTravelDistance, float _spinDuration, float _hitCooldown)
     {
         spinWasStopped = false;
         this.isSpinning = _isSpinning;
         this.maxTravelDistance = _maxTravelDistance;
         this.spinDuration = _spinDuration;
+        this.hitCooldown = _hitCooldown;
+        hitTimer = 0;
     }
 
     private void Update()
@@ -111,6 +117,19 @@ public class SwordSkillController : MonoBehaviour
                 {
                     isSpinning = false;
                     ReturnSword();
+                }
+            }
+
+            hitTimer -= Time.deltaTime;
+            if (hitTimer < 0)
+            {
+                //Can check damage enemy here
+                hitTimer = hitCooldown;
+
+                Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, damageRadius);
+                foreach (Collider2D hit in hits)
+                {
+                    hit.GetComponent<Enemy>()?.Damage();
                 }
             }
         }
@@ -176,6 +195,8 @@ public class SwordSkillController : MonoBehaviour
 
     private void StuckInto(Collider2D collision)
     {
+        if (isSpinning) return;//check damage enemy by zone
+
         collision.GetComponent<Enemy>()?.Damage();
         if (isPiercing && pierceAmount > 0 && collision.GetComponent<Enemy>() != null)
         {
@@ -183,7 +204,6 @@ public class SwordSkillController : MonoBehaviour
             return;
         }
 
-        if (isSpinning) return;
 
         rb.isKinematic = true;
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
@@ -203,5 +223,10 @@ public class SwordSkillController : MonoBehaviour
         transform.parent = null;
         isReturning = true;
         isBouncing = false;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, damageRadius);
     }
 }
