@@ -26,6 +26,11 @@ public class SwordSkill : Skill
     [SerializeField] float swordGravityRegular;
     private float swordGravity;
 
+    [Header("Spin info")]
+    [SerializeField] float maxTravelDistance = 7f;
+    [SerializeField] float spinDuration = 2f;
+    [SerializeField] float spinGravity = 1f;
+
     [Header("Aim dot")]
     [SerializeField] int numOfDots;
     [SerializeField] float spaceBetweenDots;
@@ -53,6 +58,11 @@ public class SwordSkill : Skill
         {
             newSwordScript.SetupPierce(true, pierceAmount);
         }
+        else if (swordType == SwordType.Spin)
+        {
+            newSwordScript.SetupSpin(true, maxTravelDistance, spinDuration);
+        }
+
         newSwordScript.SetupSword(finalForce, swordGravity, player);
 
         DotsActive(false);
@@ -96,6 +106,11 @@ public class SwordSkill : Skill
             case SwordType.Pierce:
                 {
                     swordGravity = pierceGravity;
+                    break;
+                }
+            case SwordType.Spin:
+                {
+                    swordGravity = spinGravity;
                     break;
                 }
         }
