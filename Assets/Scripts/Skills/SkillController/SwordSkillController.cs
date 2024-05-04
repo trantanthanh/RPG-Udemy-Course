@@ -106,8 +106,7 @@ public class SwordSkillController : MonoBehaviour
         {
             if (!spinWasStopped && Vector2.Distance(transform.position, player.transform.position) > maxTravelDistance)
             {
-                spinWasStopped = true;
-                rb.constraints = RigidbodyConstraints2D.FreezePosition;
+                StopFlyToSpinning();
             }
 
             if (spinWasStopped)
@@ -133,6 +132,12 @@ public class SwordSkillController : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void StopFlyToSpinning()
+    {
+        spinWasStopped = true;
+        rb.constraints = RigidbodyConstraints2D.FreezePosition;
     }
 
     private void UpdateBouncingLogic()
@@ -195,7 +200,11 @@ public class SwordSkillController : MonoBehaviour
 
     private void StuckInto(Collider2D collision)
     {
-        if (isSpinning) return;//check damage enemy by zone
+        if (isSpinning && collision.GetComponent<Enemy>() != null)
+        {
+            StopFlyToSpinning();
+            return;//check damage enemy by zone
+        }
 
         collision.GetComponent<Enemy>()?.Damage();
         if (isPiercing && pierceAmount > 0 && collision.GetComponent<Enemy>() != null)
