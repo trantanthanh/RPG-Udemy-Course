@@ -797,10 +797,10 @@ MonoBehaviour:
   cooldown: 0
   swordType: 0
   amountOfBounce: 4
-  bouceGravity: 3
+  bouceGravity: 1
   swordPrefab: {fileID: 6278860631956826589, guid: e17b23fcb793f224c944ceab4b484e09, type: 3}
   launchForce: 25
-  swordGravity: 5
+  swordGravityRegular: 5
   numOfDots: 20
   spaceBetweenDots: 0.07
   dotPrefab: {fileID: 2039524338322597270, guid: cdcc719c339968845a08ea9f4049e86f, type: 3}

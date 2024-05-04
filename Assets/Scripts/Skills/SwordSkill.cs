@@ -18,7 +18,8 @@ public class SwordSkill : Skill
     [Header("Skill info")]
     [SerializeField] GameObject swordPrefab;
     [SerializeField] float launchForce;
-    [SerializeField] float swordGravity;
+    [SerializeField] float swordGravityRegular;
+    private float swordGravity;
 
     [Header("Aim dot")]
     [SerializeField] int numOfDots;
@@ -42,12 +43,8 @@ public class SwordSkill : Skill
         if (swordType == SwordType.Bounce)
         {
             newSwordScript.SetUpBouce(true, amountOfBounce);
-            newSwordScript.SetupSword(finalForce, bouceGravity, player);
         }
-        else
-        {
-            newSwordScript.SetupSword(finalForce, swordGravity, player);
-        }
+        newSwordScript.SetupSword(finalForce, swordGravity, player);
 
         DotsActive(false);
     }
@@ -63,6 +60,14 @@ public class SwordSkill : Skill
 
         if (Input.GetKey(KeyCode.Mouse1))
         {
+            if (swordType == SwordType.Regular)
+            {
+                swordGravity = swordGravityRegular;
+            }
+            else if (swordType == SwordType.Bounce)
+            {
+                swordGravity = bouceGravity;
+            }
             for (int i = 0; i < dots.Length; i++)
             {
                 dots[i].transform.position = DotsPosition(i * spaceBetweenDots);
