@@ -37,7 +37,10 @@ public class SwordSkillController : MonoBehaviour
     public void SetupSword(Vector2 _dir, float _gravityScale, Player _player)
     {
         this.player = _player;
-        animator.SetBool("Rotation", true);
+        if (!isPiercing)
+        {
+            animator.SetBool("Rotation", true);
+        }
         canRotate = true;
         isReturning = false;
         rb.velocity = _dir;
