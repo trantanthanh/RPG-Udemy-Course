@@ -140,6 +140,11 @@ public class SwordSkillController : MonoBehaviour
 
     private void StuckInto(Collider2D collision)
     {
+        if (isPiercing && pierceAmount > 0 && collision.GetComponent<Enemy>() != null)
+        {
+            pierceAmount--;
+            return;
+        }
         circleCollider.enabled = false;
 
         rb.isKinematic = true;

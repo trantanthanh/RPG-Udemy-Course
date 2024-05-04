@@ -49,6 +49,10 @@ public class SwordSkill : Skill
         {
             newSwordScript.SetupBounce(true, bounceAmount);
         }
+        else if (swordType == SwordType.Pierce)
+        {
+            newSwordScript.SetupPierce(true, pierceAmount);
+        }
         newSwordScript.SetupSword(finalForce, swordGravity, player);
 
         DotsActive(false);
