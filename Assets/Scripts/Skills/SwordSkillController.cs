@@ -143,17 +143,18 @@ public class SwordSkillController : MonoBehaviour
 
     private void StuckInto(Collider2D collision)
     {
+        collision.GetComponent<Enemy>()?.Damage();
         if (isPiercing && pierceAmount > 0 && collision.GetComponent<Enemy>() != null)
         {
             pierceAmount--;
             return;
         }
-        circleCollider.enabled = false;
 
         rb.isKinematic = true;
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
-
         if (isBouncing) return;
+
+        circleCollider.enabled = false;
         animator.SetBool("Rotation", false);
         canRotate = false;
         transform.parent = collision.transform;
