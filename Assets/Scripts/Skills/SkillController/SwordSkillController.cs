@@ -85,9 +85,17 @@ public class SwordSkillController : MonoBehaviour
     {
         if (canRotate)
         {
-            transform.right = rb.velocity;
+            transform.right = rb.velocity;//make the sword rotate to direction throw
         }
 
+        UpdateReturningSwordToPlayer();
+
+        UpdateBouncingLogic();
+        UpdateSpinLogic();
+    }
+
+    private void UpdateReturningSwordToPlayer()
+    {
         if (isReturning)
         {
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, returnSpeed * Time.deltaTime);
@@ -99,9 +107,10 @@ public class SwordSkillController : MonoBehaviour
                 player.CatchTheSword();
             }
         }
+    }
 
-        UpdateBouncingLogic();
-
+    private void UpdateSpinLogic()
+    {
         if (isSpinning)
         {
             if (!spinWasStopped && Vector2.Distance(transform.position, player.transform.position) > maxTravelDistance)
@@ -128,7 +137,7 @@ public class SwordSkillController : MonoBehaviour
                 Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, damageRadius);
                 foreach (Collider2D hit in hits)
                 {
-                    hit.GetComponent<Enemy>()?.Damage();
+                    hit.GetComponent<Enemy>()?.Damage();//hit enemy
                 }
             }
         }
@@ -147,6 +156,7 @@ public class SwordSkillController : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, enemiesTarget[targetIndex].position, bounceSpeed * Time.deltaTime);
             if (Vector2.Distance(transform.position, enemiesTarget[targetIndex].position) < 0.1f)
             {
+                enemiesTarget[targetIndex].GetComponent<Enemy>().Damage();//Damage when reach target
                 targetIndex++;
                 bounceAmount--;
                 if (bounceAmount < 0)
@@ -206,7 +216,7 @@ public class SwordSkillController : MonoBehaviour
             return;//check damage enemy by zone
         }
 
-        collision.GetComponent<Enemy>()?.Damage();
+        //collision.GetComponent<Enemy>()?.Damage();//temporary
         if (isPiercing && pierceAmount > 0 && collision.GetComponent<Enemy>() != null)
         {
             pierceAmount--;
