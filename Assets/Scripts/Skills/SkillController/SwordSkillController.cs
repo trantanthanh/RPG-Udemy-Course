@@ -123,7 +123,7 @@ public class SwordSkillController : MonoBehaviour
 
             if (spinWasStopped)
             {
-                transform.position = Vector2.MoveTowards(transform.position,new Vector2(transform.position.x + spinDirectionX, transform.position.y), 1.5f * Time.deltaTime);//make the sword move to direction x with speed 1.5f
+                transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x + spinDirectionX, transform.position.y), 1.5f * Time.deltaTime);//make the sword move to direction x with speed 1.5f
 
                 spinDuration -= Time.deltaTime;
                 if (spinDuration < 0)
@@ -221,11 +221,16 @@ public class SwordSkillController : MonoBehaviour
             return;//check damage enemy by zone
         }
 
-        collision.GetComponent<Enemy>()?.Damage();//temporary
-        if (isPiercing && pierceAmount > 0 && collision.GetComponent<Enemy>() != null)
+        Enemy enemy = collision.GetComponent<Enemy>();
+        if (enemy != null)
         {
-            pierceAmount--;
-            return;
+            enemy.Damage();
+            if (isPiercing && pierceAmount > 0)
+            {
+                pierceAmount--;
+                return;
+            }
+            enemy.StartCoroutine("FreezeTimerFor", 0.7f);
         }
 
 

@@ -14,6 +14,7 @@ public class Entity : MonoBehaviour
     [Header("Move info")]
     [SerializeField] protected float moveSpeed = 8f;
     [SerializeField] protected float jumpForce = 12f;
+    protected float defaultMoveSpeed = 0f;
 
     [Header("Attack info")]
     public Vector2[] attackMovements;
@@ -63,6 +64,7 @@ public class Entity : MonoBehaviour
 
     protected virtual void Awake()
     {
+        defaultMoveSpeed = moveSpeed;
     }
 
     // Start is called before the first frame update

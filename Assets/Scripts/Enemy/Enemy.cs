@@ -66,6 +66,27 @@ public class Enemy : Entity, IAnimationDoneTrigger
         return false;
     }
 
+    public virtual void FreezeTimer(bool isFrozen)
+    {
+        if (isFrozen)
+        {
+            moveSpeed = 0;
+            animator.speed = 0;
+        }
+        else
+        {
+            moveSpeed = defaultMoveSpeed;
+            animator.speed = 1;
+        }
+    }
+
+    protected virtual IEnumerator FreezeTimerFor(float _seconds)
+    {
+        FreezeTimer(true);
+        yield return new WaitForSeconds(_seconds);
+        FreezeTimer(false);
+    }
+
     public void AnimationDoneTrigger() => stateMachine.currentState.AnimationDoneTrigger();
     public bool CanAttack() => Time.time > lastTimeAttack + attackCoolDown;
     public RaycastHit2D IsPlayerDetected() => Physics2D.Raycast(playerCheckStartPoint.transform.position, Vector2.right * facingDir, distancePlayerCheck, playerMask);
