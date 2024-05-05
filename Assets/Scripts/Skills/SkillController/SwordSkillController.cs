@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class SwordSkillController : MonoBehaviour
 {
-    [SerializeField] float returnSpeed = 12f;
+    private float returnSpeed = 12f;
     private Animator animator;
     private Rigidbody2D rb;
     private CircleCollider2D circleCollider;
 
     private bool canRotate;
     private bool isReturning;
+
+    private float freeTimeDuration;
 
     [Header("Bouce info")]
     private bool isBouncing = false;
@@ -20,8 +22,8 @@ public class SwordSkillController : MonoBehaviour
     private bool isPiercing = false;
     private int pierceAmount;
 
-    public float bounceSpeed = 20f;
-    public float bounceRange = 10f;
+    private float bounceSpeed;
+    private float bounceRange;
     private List<Transform> enemiesTarget = new List<Transform>();
     private int targetIndex = 0;
 
@@ -45,9 +47,11 @@ public class SwordSkillController : MonoBehaviour
         circleCollider = GetComponent<CircleCollider2D>();
     }
 
-    public void SetupSword(Vector2 _dir, float _gravityScale, Player _player)
+    public void SetupSword(Vector2 _dir, float _gravityScale, Player _player, float _freeTimeDuration, float _returnSpeed)
     {
         this.player = _player;
+        this.freeTimeDuration = _freeTimeDuration;
+        this.returnSpeed = _returnSpeed;
         if (!isPiercing)
         {
             animator.SetBool("Rotation", true);
@@ -62,8 +66,10 @@ public class SwordSkillController : MonoBehaviour
         spinDirectionX = Mathf.Clamp(rb.velocity.x, -1, 1);
     }
 
-    public void SetupBounce(bool _isBoucing, int _amountOfBounce)
+    public void SetupBounce(bool _isBoucing, int _amountOfBounce, float _bounceSpeed, float _bounceRange)
     {
+        this.bounceSpeed = _bounceSpeed;
+        this.bounceRange = _bounceRange;
         this.isBouncing = _isBoucing;
         this.bounceAmount = _amountOfBounce;
     }
@@ -230,7 +236,7 @@ public class SwordSkillController : MonoBehaviour
                 pierceAmount--;
                 return;
             }
-            enemy.StartCoroutine("FreezeTimerFor", 0.7f);
+            enemy.StartCoroutine("FreezeTimerFor", freeTimeDuration);
         }
 
 

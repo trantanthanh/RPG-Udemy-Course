@@ -854,12 +854,16 @@ MonoBehaviour:
   cooldown: 0
   swordType: 0
   bounceAmount: 4
+  bounceSpeed: 4
+  bounceRange: 10
   bounceGravity: 2
   pierceAmount: 2
   pierceGravity: 1
   swordPrefab: {fileID: 6278860631956826589, guid: e17b23fcb793f224c944ceab4b484e09, type: 3}
   launchForce: 25
   swordGravityRegular: 5
+  freeTimeDuration: 0.7
+  returnSpeed: 12
   maxTravelDistance: 7
   spinDuration: 2
   spinHitCooldown: 0.35
