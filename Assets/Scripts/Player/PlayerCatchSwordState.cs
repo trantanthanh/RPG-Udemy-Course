@@ -14,6 +14,7 @@ public class PlayerCatchSwordState : PlayerState
         base.Enter();
         player.SetZeroVelocity();
         sword = player.sword.transform;
+        player.DestroySword();
         if (sword.position.x < player.transform.position.x && player.IsFacingRight || sword.position.x > player.transform.position.x && !player.IsFacingRight)
         {
             player.Flip();

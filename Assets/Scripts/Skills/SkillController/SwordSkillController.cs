@@ -221,7 +221,7 @@ public class SwordSkillController : MonoBehaviour
             return;//check damage enemy by zone
         }
 
-        //collision.GetComponent<Enemy>()?.Damage();//temporary
+        collision.GetComponent<Enemy>()?.Damage();//temporary
         if (isPiercing && pierceAmount > 0 && collision.GetComponent<Enemy>() != null)
         {
             pierceAmount--;

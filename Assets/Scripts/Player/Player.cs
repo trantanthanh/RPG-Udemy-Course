@@ -155,6 +155,9 @@ public class Player : Entity
     public void CatchTheSword()
     {
         stateMachine.ChangeState(catchSwordState);
+    }
+    public void DestroySword()
+    {
         Destroy(sword);
     }
 }
