@@ -19,10 +19,10 @@ public class CloneSkillController : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
     }
-    public void SetupClone(Transform _newTransform, float _cloneDuration, bool _canAttack)
+    public void SetupClone(Transform _newTransform, float _cloneDuration, bool _canAttack, Vector3 _offset)
     {
         cloneTimer = _cloneDuration;
-        transform.position = _newTransform.position + offsetPos;
+        transform.position = _newTransform.position + offsetPos + _offset;
         if (_canAttack )
         {
             animator.SetInteger("AttackNumber", Random.Range(1, 4));//Random from 1 to 3
@@ -92,5 +92,11 @@ public class CloneSkillController : MonoBehaviour
                 transform.Rotate(0, 180, 0);
             }
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackCheck.position, attackRadius);
     }
 }

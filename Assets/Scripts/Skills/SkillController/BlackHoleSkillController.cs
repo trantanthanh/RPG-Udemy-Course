@@ -11,6 +11,12 @@ public class BlackHoleSkillController : MonoBehaviour
     public float growSpeed;
     public bool canGrow;
 
+    public int amountOfAttack = 4;
+    private bool canAttack = false;
+    public float xOffsetClone = 2f;
+    public float cloneAttackCooldown = 0.3f;
+    private float cloneAttackTimer = 0f;
+
     private List<Transform> targets = new List<Transform>();
 
     private void Awake()
@@ -21,9 +27,41 @@ public class BlackHoleSkillController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CheckCreateClone();
+
         if (canGrow)
         {
             transform.localScale = Vector2.Lerp(transform.localScale, new Vector2(maxSize, maxSize), growSpeed * Time.deltaTime);
+        }
+    }
+
+    private void CheckCreateClone()
+    {
+        cloneAttackTimer -= Time.deltaTime;
+
+        if (targets.Count == 0) return;
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            if (amountOfAttack > 0)
+            {
+                canAttack = true;
+            }
+        }
+
+        if (cloneAttackTimer < 0 && canAttack)
+        {
+            cloneAttackTimer = cloneAttackCooldown;
+
+            int randomIndex = Random.Range(0, targets.Count);
+            int valueRandom = Random.Range(0, 100);
+            Vector3 offset = new Vector3(valueRandom >= 50 ? xOffsetClone : -xOffsetClone, 0, 0);
+            SkillManager.Instance.clone.CreateClone(targets[randomIndex], offset);
+            amountOfAttack--;
+            if (amountOfAttack < 0)
+            {
+                canAttack = false;
+            }
         }
     }
 
