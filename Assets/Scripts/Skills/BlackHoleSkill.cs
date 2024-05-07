@@ -21,15 +21,16 @@ public class BlackHoleSkill : Skill
         return base.CanUseSkil();
     }
 
-    public void CreateBlackHole(Transform _newTransform)
+    private void CreateBlackHole()
     {
-        GameObject newBlackHole = Instantiate(blackHolePrefab, _newTransform.position,Quaternion.identity);
-        newBlackHole.GetComponent<BlackHoleSkillController>().SetupBlackHole(maxSize, growSpeed, shrinkSpeed, amountOfAttack, cloneAttackCooldown, xOffsetClone);
+        GameObject newBlackHole = Instantiate(blackHolePrefab, player.transform.position, Quaternion.identity);
+        newBlackHole.GetComponent<BlackHoleSkillController>().SetupBlackHole(player, maxSize, growSpeed, shrinkSpeed, amountOfAttack, cloneAttackCooldown, xOffsetClone);
     }
 
     public override void UseSkill()
     {
         base.UseSkill();
+        CreateBlackHole();
     }
 
     protected override void Start()

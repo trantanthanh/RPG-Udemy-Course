@@ -27,8 +27,11 @@ public class BlackHoleSkillController : MonoBehaviour
     private bool cloneAttackRelease = false;
     private bool canCreateHotkey = true;
 
-    public void SetupBlackHole(float _maxSize, float _growSpeed, float _shrinkSpeed, int _amountOfAttack, float _cloneAttackCooldown, float _xOffsetClone)
+    private Player player;
+
+    public void SetupBlackHole(Player _player, float _maxSize, float _growSpeed, float _shrinkSpeed, int _amountOfAttack, float _cloneAttackCooldown, float _xOffsetClone)
     {
+        this.player = _player;
         this.canGrow = true;
         this.maxSize = _maxSize;
         this.growSpeed = _growSpeed;
@@ -88,9 +91,15 @@ public class BlackHoleSkillController : MonoBehaviour
         amountOfAttack--;
         if (amountOfAttack <= 0)
         {
-            cloneAttackRelease = false;
-            canShrink = true;
+            BlackHoleDone();
         }
+    }
+
+    private void BlackHoleDone()
+    {
+        player.ExitBlackHoleState();
+        cloneAttackRelease = false;
+        canShrink = true;
     }
 
     private void ReleaseCloneAttack()
@@ -103,8 +112,7 @@ public class BlackHoleSkillController : MonoBehaviour
         else
         {
             //no target to attack
-            cloneAttackRelease = false;
-            canShrink = true;
+            BlackHoleDone();
         }
         DestroyHotkeys();
     }

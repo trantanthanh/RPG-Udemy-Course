@@ -102,7 +102,7 @@ public class Player : Entity
         counterAttackState = new PlayerCounterAttackState(this, stateMachine, "CounterAttack");
         catchSwordState = new PlayerCatchSwordState(this, stateMachine, "CatchSword");
         aimSwordState = new PlayerAimSwordState(this, stateMachine, "AimSword");
-        blackHoleState = new PlayerBlackHoleState(this, stateMachine, "BlackHole");
+        blackHoleState = new PlayerBlackHoleState(this, stateMachine, "Jump");
 
         skills = SkillManager.Instance;
     }
@@ -161,5 +161,10 @@ public class Player : Entity
     public void DestroySword()
     {
         Destroy(sword);
+    }
+
+    public void ExitBlackHoleState()
+    {
+        stateMachine.ChangeState(airState);
     }
 }
