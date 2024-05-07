@@ -14,8 +14,8 @@ public class BlackHoleSkillController : MonoBehaviour
     [SerializeField] private float growSpeed;
     public bool canGrow;
     [Space]
-    public bool canShrink;
     [SerializeField] private float shrinkSpeed;
+    private bool canShrink = false;
 
     [Header("Clone attack info")]
     [SerializeField] private int amountOfAttack = 4;
@@ -23,6 +23,7 @@ public class BlackHoleSkillController : MonoBehaviour
     [SerializeField] private float cloneAttackCooldown = 0.3f;
     private float cloneAttackTimer = 0f;
     private bool cloneAttackRelease = false;
+    private bool canCreateHotkey = true;
     private List<Transform> targets = new List<Transform>();
     private List<GameObject> createdHotkeys = new List<GameObject>();
 
@@ -55,13 +56,18 @@ public class BlackHoleSkillController : MonoBehaviour
     {
         cloneAttackTimer -= Time.deltaTime;
 
-        if (targets.Count == 0) return;
-
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) && !canShrink)
         {
-            if (amountOfAttack > 0)
+            canCreateHotkey = false;
+            if (targets.Count > 0)
             {
                 cloneAttackRelease = true;
+            }
+            else
+            {
+                //no target to attack
+                cloneAttackRelease = false;
+                canShrink = true;
             }
             DestroyHotkeys();
         }
@@ -78,6 +84,7 @@ public class BlackHoleSkillController : MonoBehaviour
             if (amountOfAttack <= 0)
             {
                 cloneAttackRelease = false;
+                canShrink = true;
             }
         }
     }
@@ -94,7 +101,7 @@ public class BlackHoleSkillController : MonoBehaviour
 
     private void CreateHotkey(Enemy enemy)
     {
-        if (cloneAttackRelease) return;
+        if (!canCreateHotkey) return;
         if (keyCodeListCopied.Count <= 0)
         {
             Debug.LogWarning("Not enough hot key in list defined");

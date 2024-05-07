@@ -101,10 +101,9 @@ MonoBehaviour:
   hotKeyPrefab: {fileID: 6054362877350217404, guid: ebc199496e9c9fc4a8db8cdbbb4a57d3, type: 3}
   keyCodeList: 7100000077000000650000006100000073000000
   maxSize: 15
-  growSpeed: 3
+  growSpeed: 1
   canGrow: 0
-  canShrink: 0
-  shrinkSpeed: 6
+  shrinkSpeed: 3
   amountOfAttack: 4
   xOffsetClone: 1.5
   cloneAttackCooldown: 0.3
