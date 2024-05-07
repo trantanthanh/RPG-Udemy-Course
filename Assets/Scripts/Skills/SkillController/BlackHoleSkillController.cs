@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class BlackHoleSkillController : MonoBehaviour
 {
+    [SerializeField] private GameObject hotKeyPrefab;
+    [SerializeField] private List<KeyCode> keyCodeList = new List<KeyCode>();
+    private List<KeyCode> keyCodeListCopied;
     public float maxSize;
     public float growSpeed;
     public bool canGrow;
 
-    public List<Transform> targets = new List<Transform>();
-    // Start is called before the first frame update
-    void Start()
+    private List<Transform> targets = new List<Transform>();
+
+    private void Awake()
     {
-        
+        keyCodeListCopied = new List<KeyCode>(keyCodeList.ToArray());
     }
 
     // Update is called once per frame
@@ -20,7 +23,7 @@ public class BlackHoleSkillController : MonoBehaviour
     {
         if (canGrow)
         {
-            transform.localScale = Vector2.Lerp(transform.localScale, new Vector2(maxSize,maxSize), growSpeed * Time.deltaTime);
+            transform.localScale = Vector2.Lerp(transform.localScale, new Vector2(maxSize, maxSize), growSpeed * Time.deltaTime);
         }
     }
 
@@ -29,7 +32,26 @@ public class BlackHoleSkillController : MonoBehaviour
         Enemy enemy = collision.GetComponent<Enemy>();
         if (enemy != null)
         {
-            targets.Add(collision.transform);
+            enemy.FreezeTimer(true);
+            CreateHotkey(enemy);
         }
     }
+
+    private void CreateHotkey(Enemy enemy)
+    {
+        if (keyCodeListCopied.Count <= 0)
+        {
+            Debug.LogWarning("Not enough hot key in list defined");
+            return;
+        }
+        GameObject newHotkey = Instantiate(hotKeyPrefab, enemy.transform.position + new Vector3(0, 2), Quaternion.identity);
+
+        KeyCode chosenKey = keyCodeListCopied[Random.Range(0, keyCodeListCopied.Count)];
+        keyCodeListCopied.Remove(chosenKey);
+
+        BlackHoleHotkeyController newHotkeyScript = newHotkey.GetComponent<BlackHoleHotkeyController>();
+        newHotkeyScript.SetupHotkey(chosenKey, enemy.transform, this);
+    }
+
+    public void AddEnemyToTargetList(Transform _enemyTransform) => targets.Add(_enemyTransform);
 }

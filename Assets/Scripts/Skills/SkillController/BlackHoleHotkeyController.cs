@@ -7,20 +7,28 @@ public class BlackHoleHotkeyController : MonoBehaviour
 {
     private KeyCode myHotkey;
     private TextMeshProUGUI myText;
+    private SpriteRenderer spireRenderer => GetComponent<SpriteRenderer>();
+    private BlackHoleSkillController blackHoleSkillController;
+    private Transform myEnemy;
 
-    public void SetupHotkey(KeyCode _myHotKey)
+    public void SetupHotkey(KeyCode _myHotKey,Transform _myEnemy, BlackHoleSkillController _blackHoleSkillController)
     {
-        myText = GetComponent<TextMeshProUGUI>();
-        myText.text = myHotkey.ToString();
-
         this.myHotkey = _myHotKey;
+        this.blackHoleSkillController = _blackHoleSkillController;
+        this.myEnemy = _myEnemy;
+
+        myText = GetComponentInChildren<TextMeshProUGUI>();
+        myText.text = myHotkey.ToString();
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(myHotkey))
         {
-            Debug.Log("Hotkey is " + myHotkey.ToString());
+            //Debug.Log("Hotkey is " + myHotkey.ToString());
+            blackHoleSkillController.AddEnemyToTargetList(myEnemy);
+            myText.color = Color.clear;
+            spireRenderer.color = Color.clear;
         }
     }
 }
