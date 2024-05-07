@@ -84,6 +84,7 @@ public class Player : Entity
     public PlayerCounterAttackState counterAttackState {  get; private set; }
     public PlayerCatchSwordState catchSwordState { get; private set; }
     public PlayerAimSwordState aimSwordState {  get; private set; }
+    public PlayerBlackHoleState blackHoleState { get; private set; }
     #endregion
 
     protected override void Awake()
@@ -101,6 +102,7 @@ public class Player : Entity
         counterAttackState = new PlayerCounterAttackState(this, stateMachine, "CounterAttack");
         catchSwordState = new PlayerCatchSwordState(this, stateMachine, "CatchSword");
         aimSwordState = new PlayerAimSwordState(this, stateMachine, "AimSword");
+        blackHoleState = new PlayerBlackHoleState(this, stateMachine, "BlackHole");
 
         skills = SkillManager.Instance;
     }
