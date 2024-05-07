@@ -8,24 +8,35 @@ public class BlackHoleSkillController : MonoBehaviour
     [SerializeField] private GameObject hotKeyPrefab;
     [SerializeField] private List<KeyCode> keyCodeList = new List<KeyCode>();
     private List<KeyCode> keyCodeListCopied;
+    private List<GameObject> createdHotkeys = new List<GameObject>();
 
-    [Header("Black hole info")]
-    [SerializeField] private float maxSize;
-    [SerializeField] private float growSpeed;
-    public bool canGrow;
-    [Space]
-    [SerializeField] private float shrinkSpeed;
+    private List<Transform> targets = new List<Transform>();
+
+    private float maxSize;
+    private float growSpeed;
+    private bool canGrow;
+
+    private float shrinkSpeed;
     private bool canShrink = false;
 
-    [Header("Clone attack info")]
-    [SerializeField] private int amountOfAttack = 4;
-    [SerializeField] private float xOffsetClone = 2f;
-    [SerializeField] private float cloneAttackCooldown = 0.3f;
+    private int amountOfAttack = 4;
+    private float xOffsetClone = 2f;
+    private float cloneAttackCooldown = 0.3f;
+
     private float cloneAttackTimer = 0f;
     private bool cloneAttackRelease = false;
     private bool canCreateHotkey = true;
-    private List<Transform> targets = new List<Transform>();
-    private List<GameObject> createdHotkeys = new List<GameObject>();
+
+    public void SetupBlackHole(float _maxSize, float _growSpeed, float _shrinkSpeed, int _amountOfAttack, float _cloneAttackCooldown, float _xOffsetClone)
+    {
+        this.canGrow = true;
+        this.maxSize = _maxSize;
+        this.growSpeed = _growSpeed;
+        this.shrinkSpeed = _shrinkSpeed;
+        this.amountOfAttack = _amountOfAttack;
+        this.cloneAttackCooldown = _cloneAttackCooldown;
+        this.xOffsetClone = _xOffsetClone;
+    }
 
     private void Awake()
     {
@@ -58,35 +69,44 @@ public class BlackHoleSkillController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R) && !canShrink)
         {
-            canCreateHotkey = false;
-            if (targets.Count > 0)
-            {
-                cloneAttackRelease = true;
-            }
-            else
-            {
-                //no target to attack
-                cloneAttackRelease = false;
-                canShrink = true;
-            }
-            DestroyHotkeys();
+            ReleaseCloneAttack();
         }
 
         if (cloneAttackTimer < 0 && cloneAttackRelease)
         {
             cloneAttackTimer = cloneAttackCooldown;
-
-            int randomIndex = Random.Range(0, targets.Count);
-            int valueRandom = Random.Range(0, 100);
-            Vector3 offset = new Vector3(valueRandom >= 50 ? xOffsetClone : -xOffsetClone, 0, 0);
-            SkillManager.Instance.clone.CreateClone(targets[randomIndex], offset);
-            amountOfAttack--;
-            if (amountOfAttack <= 0)
-            {
-                cloneAttackRelease = false;
-                canShrink = true;
-            }
+            CreateCloneAttack();
         }
+    }
+
+    private void CreateCloneAttack()
+    {
+        int randomIndex = Random.Range(0, targets.Count);
+        int valueRandom = Random.Range(0, 100);
+        Vector3 offset = new Vector3(valueRandom >= 50 ? xOffsetClone : -xOffsetClone, 0, 0);
+        SkillManager.Instance.clone.CreateClone(targets[randomIndex], offset);
+        amountOfAttack--;
+        if (amountOfAttack <= 0)
+        {
+            cloneAttackRelease = false;
+            canShrink = true;
+        }
+    }
+
+    private void ReleaseCloneAttack()
+    {
+        canCreateHotkey = false;
+        if (targets.Count > 0)
+        {
+            cloneAttackRelease = true;
+        }
+        else
+        {
+            //no target to attack
+            cloneAttackRelease = false;
+            canShrink = true;
+        }
+        DestroyHotkeys();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -844,6 +844,7 @@ GameObject:
   - component: {fileID: 1014679308}
   - component: {fileID: 1014679309}
   - component: {fileID: 1014679310}
+  - component: {fileID: 1014679311}
   m_Layer: 0
   m_Name: SkillManager
   m_TagString: Untagged
@@ -940,6 +941,26 @@ MonoBehaviour:
   spaceBetweenDots: 0.07
   dotPrefab: {fileID: 2039524338322597270, guid: cdcc719c339968845a08ea9f4049e86f, type: 3}
   dotParent: {fileID: 737562777}
+--- !u!114 &1014679311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014679305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95bba59c666e4c04bbc1720ebdfbbe0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 0
+  blackHolePrefab: {fileID: 6973743126624006423, guid: ab34a4a1077a4804a8c353d7c2ddad41, type: 3}
+  maxSize: 15
+  growSpeed: 1
+  shrinkSpeed: 3
+  amountOfAttack: 4
+  xOffsetClone: 1.5
+  cloneAttackCooldown: 0.3
 --- !u!1 &1258903085
 GameObject:
   m_ObjectHideFlags: 0
@@ -47031,63 +47052,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &5231250077215639618
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 6356708796788387300, guid: ab34a4a1077a4804a8c353d7c2ddad41, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6356708796788387300, guid: ab34a4a1077a4804a8c353d7c2ddad41, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.43
-      objectReference: {fileID: 0}
-    - target: {fileID: 6356708796788387300, guid: ab34a4a1077a4804a8c353d7c2ddad41, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6356708796788387300, guid: ab34a4a1077a4804a8c353d7c2ddad41, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6356708796788387300, guid: ab34a4a1077a4804a8c353d7c2ddad41, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6356708796788387300, guid: ab34a4a1077a4804a8c353d7c2ddad41, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6356708796788387300, guid: ab34a4a1077a4804a8c353d7c2ddad41, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6356708796788387300, guid: ab34a4a1077a4804a8c353d7c2ddad41, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6356708796788387300, guid: ab34a4a1077a4804a8c353d7c2ddad41, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6356708796788387300, guid: ab34a4a1077a4804a8c353d7c2ddad41, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6973743126624006423, guid: ab34a4a1077a4804a8c353d7c2ddad41, type: 3}
-      propertyPath: m_Name
-      value: BlackHole
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ab34a4a1077a4804a8c353d7c2ddad41, type: 3}
 --- !u!1001 &6466156414483814562
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47228,5 +47192,4 @@ SceneRoots:
   - {fileID: 2055665084}
   - {fileID: 454828839}
   - {fileID: 996450255}
-  - {fileID: 5231250077215639618}
   - {fileID: 631456212}
