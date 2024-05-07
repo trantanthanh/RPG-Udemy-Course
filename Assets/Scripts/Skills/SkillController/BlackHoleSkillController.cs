@@ -98,6 +98,14 @@ public class BlackHoleSkillController : MonoBehaviour
             CreateHotkey(enemy);
         }
     }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Enemy enemy = collision.GetComponent<Enemy>();
+        if (enemy != null)
+        {
+            enemy.FreezeTimer(false);
+        }
+    }
 
     private void CreateHotkey(Enemy enemy)
     {
