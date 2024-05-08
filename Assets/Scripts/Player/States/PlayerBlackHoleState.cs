@@ -48,5 +48,7 @@ public class PlayerBlackHoleState : PlayerState
                 }
             }
         }
+
+        //Call exit black hole when done all attack in BlackHoleSkillController
     }
 }

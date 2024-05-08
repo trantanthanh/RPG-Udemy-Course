@@ -91,12 +91,13 @@ public class BlackHoleSkillController : MonoBehaviour
         amountOfAttack--;
         if (amountOfAttack <= 0)
         {
-            BlackHoleDone();
+            Invoke("BlackHoleDone", 1f);
         }
     }
 
     private void BlackHoleDone()
     {
+        player.MakeTransparent(false);
         player.ExitBlackHoleState();
         cloneAttackRelease = false;
         canShrink = true;
@@ -104,6 +105,7 @@ public class BlackHoleSkillController : MonoBehaviour
 
     private void ReleaseCloneAttack()
     {
+        player.MakeTransparent(true);
         canCreateHotkey = false;
         if (targets.Count > 0)
         {

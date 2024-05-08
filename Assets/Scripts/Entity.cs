@@ -58,6 +58,7 @@ public class Entity : MonoBehaviour
     #region Components
     [HideInInspector]
     public Animator animator;
+    public SpriteRenderer spriteRenderer { get; private set; }
     public Rigidbody2D rb { get; private set; }
     public EntityFx fx { get; private set; }
     #endregion
@@ -71,6 +72,7 @@ public class Entity : MonoBehaviour
     protected virtual void Start()
     {
         animator = GetComponentInChildren<Animator>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         fx = GetComponent<EntityFx>();
     }
@@ -135,5 +137,17 @@ public class Entity : MonoBehaviour
         isBusy = true;
         yield return new WaitForSeconds(_seconds);
         isBusy = false;
+    }
+
+    public void MakeTransparent(bool _isTransparent)
+    {
+        if (_isTransparent)
+        {
+            spriteRenderer.color = Color.clear;
+        }
+        else
+        {
+            spriteRenderer.color = Color.white;
+        }
     }
 }
