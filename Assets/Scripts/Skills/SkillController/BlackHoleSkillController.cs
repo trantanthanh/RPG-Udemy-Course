@@ -13,6 +13,7 @@ public class BlackHoleSkillController : MonoBehaviour
     private List<Transform> targets = new List<Transform>();
 
     private float maxSize;
+    private float blackHoleTimer;
     private float growSpeed;
     private bool canGrow;
 
@@ -30,12 +31,13 @@ public class BlackHoleSkillController : MonoBehaviour
     private Player player;
     public bool playerCanExitState { get; private set; } = false;
 
-    public void SetupBlackHole(Player _player, float _maxSize, float _growSpeed, float _shrinkSpeed, int _amountOfAttack, float _cloneAttackCooldown, float _xOffsetClone)
+    public void SetupBlackHole(Player _player, float _blackHoleDuration, float _maxSize, float _growSpeed, float _shrinkSpeed, int _amountOfAttack, float _cloneAttackCooldown, float _xOffsetClone)
     {
         playerCanExitState = false;
         this.player = _player;
         this.canGrow = true;
         this.maxSize = _maxSize;
+        this.blackHoleTimer = _blackHoleDuration;
         this.growSpeed = _growSpeed;
         this.shrinkSpeed = _shrinkSpeed;
         this.amountOfAttack = _amountOfAttack;
@@ -51,6 +53,8 @@ public class BlackHoleSkillController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        UpdateBlackHoleDuration();
+
         CheckCreateClone();
 
         if (canGrow && !canShrink)
@@ -68,19 +72,28 @@ public class BlackHoleSkillController : MonoBehaviour
         }
     }
 
+    private void UpdateBlackHoleDuration()
+    {
+        blackHoleTimer -= Time.deltaTime;
+
+        if (blackHoleTimer < 0 && !cloneAttackRelease)
+        {
+            ReleaseCloneAttack();
+        }
+    }
+
     private void CheckCreateClone()
     {
         cloneAttackTimer -= Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.R) && !canShrink)
-        {
-            ReleaseCloneAttack();
-        }
 
         if (cloneAttackTimer < 0 && cloneAttackRelease)
         {
             cloneAttackTimer = cloneAttackCooldown;
-            CreateCloneAttack();
+            if (amountOfAttack > 0)
+            {
+                CreateCloneAttack();
+            }
         }
     }
 
@@ -101,7 +114,6 @@ public class BlackHoleSkillController : MonoBehaviour
     {
         playerCanExitState = true;
         player.MakeTransparent(false);
-        cloneAttackRelease = false;
         canShrink = true;
     }
 

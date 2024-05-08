@@ -955,6 +955,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 0
   blackHolePrefab: {fileID: 6973743126624006423, guid: ab34a4a1077a4804a8c353d7c2ddad41, type: 3}
+  blackHoleDuration: 2
   maxSize: 15
   growSpeed: 3
   shrinkSpeed: 6
