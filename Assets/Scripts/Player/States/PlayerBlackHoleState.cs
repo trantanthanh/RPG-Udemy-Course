@@ -40,7 +40,7 @@ public class PlayerBlackHoleState : PlayerState
 
             if (!skillUsed)
             {
-                if (player.skills.blackHole.CanUseSkil())
+                if (player.skills.blackHole.CanUseSkill())
                 {
                     Debug.Log("Cast black hole");
                     player.skills.blackHole.UseSkill();

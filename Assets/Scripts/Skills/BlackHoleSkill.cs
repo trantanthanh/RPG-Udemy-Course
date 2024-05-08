@@ -19,9 +19,9 @@ public class BlackHoleSkill : Skill
 
     BlackHoleSkillController currentBlackHole;
 
-    public override bool CanUseSkil()
+    public override bool CanUseSkill()
     {
-        return base.CanUseSkil();
+        return base.CanUseSkill();
     }
 
     private void CreateBlackHole()

@@ -121,6 +121,13 @@ public class Player : Entity
         stateMachine.currentState.Update();
         //Debug.Log($"IsGrounded {IsGroundDetected()}");
         //Debug.Log($"IsFaceWall {IsFaceWallDetected()}");
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if (skills.crystal.CanUseSkill())
+            {
+                skills.crystal.UseSkill();
+            }
+        }
 
         CheckDash();
     }
@@ -128,7 +135,7 @@ public class Player : Entity
     private void CheckDash()
     {
         if (IsFaceWallDetected()) return;
-        if (Input.GetKeyDown(KeyCode.LeftShift) && SkillManager.Instance.dash.CanUseSkil())
+        if (Input.GetKeyDown(KeyCode.LeftShift) && SkillManager.Instance.dash.CanUseSkill())
         {
             skills.dash.UseSkill();
             stateMachine.ChangeState(dashState);
