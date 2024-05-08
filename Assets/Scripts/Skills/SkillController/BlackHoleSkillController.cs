@@ -28,9 +28,11 @@ public class BlackHoleSkillController : MonoBehaviour
     private bool canCreateHotkey = true;
 
     private Player player;
+    public bool playerCanExitState { get; private set; } = false;
 
     public void SetupBlackHole(Player _player, float _maxSize, float _growSpeed, float _shrinkSpeed, int _amountOfAttack, float _cloneAttackCooldown, float _xOffsetClone)
     {
+        playerCanExitState = false;
         this.player = _player;
         this.canGrow = true;
         this.maxSize = _maxSize;
@@ -97,8 +99,8 @@ public class BlackHoleSkillController : MonoBehaviour
 
     private void BlackHoleDone()
     {
+        playerCanExitState = true;
         player.MakeTransparent(false);
-        player.ExitBlackHoleState();
         cloneAttackRelease = false;
         canShrink = true;
     }

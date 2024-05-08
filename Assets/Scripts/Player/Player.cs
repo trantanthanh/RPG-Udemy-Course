@@ -162,9 +162,4 @@ public class Player : Entity
     {
         Destroy(sword);
     }
-
-    public void ExitBlackHoleState()
-    {
-        stateMachine.ChangeState(airState);
-    }
 }
