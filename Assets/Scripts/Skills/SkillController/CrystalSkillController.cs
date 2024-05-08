@@ -18,7 +18,7 @@ public class CrystalSkillController : MonoBehaviour
     {
         isDestroying = true;
         animator.SetBool("Explode", true);
-        Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).length);
+        //Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).length);
     }
 
     public void SetupCrystal(float _crystalDuration)
@@ -35,4 +35,6 @@ public class CrystalSkillController : MonoBehaviour
             Explode();
         }
     }
+
+    private void SelfDestroy() => Destroy(gameObject);
 }
