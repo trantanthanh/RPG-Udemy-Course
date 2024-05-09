@@ -11,8 +11,11 @@ public class BlackHoleHotkeyController : MonoBehaviour
     private BlackHoleSkillController blackHoleSkillController;
     private Transform myEnemy;
 
+    private bool isAddedTolist = false;
+
     public void SetupHotkey(KeyCode _myHotKey,Transform _myEnemy, BlackHoleSkillController _blackHoleSkillController)
     {
+        isAddedTolist = false;
         this.myHotkey = _myHotKey;
         this.blackHoleSkillController = _blackHoleSkillController;
         this.myEnemy = _myEnemy;
@@ -23,8 +26,9 @@ public class BlackHoleHotkeyController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(myHotkey))
+        if (Input.GetKeyDown(myHotkey) && !isAddedTolist)
         {
+            isAddedTolist = true;
             //Debug.Log("Hotkey is " + myHotkey.ToString());
             blackHoleSkillController.AddEnemyToTargetList(myEnemy);
             myText.color = Color.clear;

@@ -14,20 +14,29 @@ public class CloneSkillController : MonoBehaviour
     [SerializeField] float attackRadius;
     private Transform closestEnemy;
 
+    public Transform ClosestEnemy { get { return closestEnemy; } set { closestEnemy = value; } }
+
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
     }
-    public void SetupClone(Transform _newTransform, float _cloneDuration, bool _canAttack, Vector3 _offset)
+    public void SetupClone(Transform _newTransform, float _cloneDuration, bool _canAttack, Vector3 _offset, Transform _targetToFacing)
     {
         cloneTimer = _cloneDuration;
         transform.position = _newTransform.position + offsetPos + _offset;
-        if (_canAttack )
+        if (_canAttack)
         {
             animator.SetInteger("AttackNumber", Random.Range(1, 4));//Random from 1 to 3
         }
-        FaceClosestEnemy();
+        if (_targetToFacing != null)
+        {
+            SetFaceToEnemy(_targetToFacing);
+        }
+        else
+        {
+            FaceClosestEnemy();
+        }
     }
 
     private void Update()
@@ -53,45 +62,30 @@ public class CloneSkillController : MonoBehaviour
 
     private void AttackTrigger()
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(attackCheck.position + offsetPos, attackRadius);
-
-        foreach (Collider2D collider in colliders)
-        {
-            Enemy enemy = collider.GetComponent<Enemy>();
-            if (enemy != null)
-            {
-                enemy.Damage();
-            }
-        }
+        PlayerManager.Instance.player.DoDamageEnemiesInCircle(attackCheck.position + offsetPos, attackRadius);
     }
 
     private void FaceClosestEnemy()
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 25);
-        float closestDistance = Mathf.Infinity;
+        closestEnemy = PlayerManager.Instance.player.FindClosestEnemy(transform.position, 25);
+        CheckFlipToFacing();
+    }
 
-        foreach (Collider2D collider in colliders)
-        {
-            Enemy enemy = collider.GetComponent<Enemy>();
-            if (enemy != null)
-            {
-                float distance = Vector2.Distance(transform.position, enemy.transform.position);
-                if (closestDistance > distance)
-                {
-                    closestDistance = distance;
-                    closestEnemy = enemy.transform;
-                }
-
-            }
-        }
-
+    private void CheckFlipToFacing()
+    {
         if (closestEnemy != null)
         {
-            if (transform.position.x >  closestEnemy.transform.position.x)
+            if (transform.position.x > closestEnemy.transform.position.x)
             {
                 transform.Rotate(0, 180, 0);
             }
         }
+    }
+
+    private void SetFaceToEnemy(Transform _transform)
+    {
+        closestEnemy = _transform;
+        CheckFlipToFacing();
     }
 
     private void OnDrawGizmos()

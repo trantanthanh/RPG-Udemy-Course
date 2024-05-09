@@ -169,4 +169,43 @@ public class Player : Entity
     {
         Destroy(sword);
     }
+
+    #region Utilities
+    public Transform FindClosestEnemy(Vector3 _position, float _radius)
+    {
+        Transform _closestEnemy = null;
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(_position, _radius);
+        float _closestDistance = Mathf.Infinity;
+
+        foreach (Collider2D collider in colliders)
+        {
+            Enemy _enemy = collider.GetComponent<Enemy>();
+            if (_enemy != null)
+            {
+                float _distance = Vector2.Distance(_position, _enemy.transform.position);
+                if (_closestDistance > _distance)
+                {
+                    _closestDistance = _distance;
+                    _closestEnemy = _enemy.transform;
+                }
+
+            }
+        }
+        return _closestEnemy;
+    }
+
+    public void DoDamageEnemiesInCircle(Vector3 _position, float _radius)
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(_position, _radius);
+
+        foreach (Collider2D collider in colliders)
+        {
+            Enemy enemy = collider.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.Damage();
+            }
+        }
+    }
+    #endregion
 }

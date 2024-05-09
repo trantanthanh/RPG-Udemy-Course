@@ -99,4 +99,19 @@ public class Enemy : Entity, IAnimationDoneTrigger
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(playerCheckStartPoint.transform.position, new Vector2(playerCheckStartPoint.transform.position.x + facingDir * distanceAttack, playerCheckStartPoint.transform.position.y));
     }
+
+    #region Utilities
+    public void DoDamagePlayerInCircle(Vector3 _position, float _radius)
+    {
+        Collider2D[] collders = Physics2D.OverlapCircleAll(_position, _radius);
+        foreach (Collider2D collider in collders)
+        {
+            Player player = collider.GetComponent<Player>();
+            if (player != null)
+            {
+                player.Damage();
+            }
+        }
+    }
+    #endregion
 }

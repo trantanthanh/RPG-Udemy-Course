@@ -9,16 +9,7 @@ public class PlayerAnimEvents : MonoBehaviour
 
     private void AttackTrigger()
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(player.attackCheck.position, player.attackCheckRadius);
-
-        foreach (Collider2D collider in colliders)
-        {
-            Enemy enemy = collider.GetComponent<Enemy>();
-            if (enemy != null)
-            {
-                enemy.Damage();
-            }
-        }
+        player.DoDamageEnemiesInCircle(player.attackCheck.position, player.attackCheckRadius);
     }
 
     private void ThrowSword()
