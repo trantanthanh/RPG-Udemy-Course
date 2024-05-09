@@ -25,7 +25,9 @@ public class CrystalSkill : Skill
         {
             if (!currentCrystal.GetComponent<CrystalSkillController>().isDestroying)
             {
+                Vector2 playerPos = player.transform.position;
                 player.transform.position = currentCrystal.transform.position;//teleport to crystal
+                currentCrystal.transform.position = playerPos;//move the anim explode to player pos
                 currentCrystal.GetComponent<CrystalSkillController>().Explode();
             }
         }
