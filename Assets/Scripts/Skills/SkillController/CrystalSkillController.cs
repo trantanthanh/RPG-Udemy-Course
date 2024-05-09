@@ -10,6 +10,8 @@ public class CrystalSkillController : MonoBehaviour
 
     private float crystalExistTimer;
     private bool canExplode = true;
+    private bool canGrow = false;
+    private float growSpeed = 3f;
     private bool canMove;
     private bool moveSpeed;
     public bool isDestroying { get; private set; } = false;
@@ -23,12 +25,14 @@ public class CrystalSkillController : MonoBehaviour
     public void Explode()
     {
         isDestroying = true;
+        canGrow = true;
         animator.SetBool("Explode", true);
         //Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).length);
     }
 
     public void SetupCrystal(float _crystalDuration)
     {
+        canGrow = false;
         this.crystalExistTimer = _crystalDuration;
         isDestroying = false;
     }
@@ -47,6 +51,11 @@ public class CrystalSkillController : MonoBehaviour
                 SelfDestroy();
             }
 
+        }
+
+        if (canGrow)
+        {
+            transform.localScale = Vector2.Lerp(transform.localScale, new Vector2(3, 3), growSpeed * Time.deltaTime);
         }
     }
 
