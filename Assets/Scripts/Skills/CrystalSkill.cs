@@ -5,7 +5,13 @@ using UnityEngine;
 public class CrystalSkill : Skill
 {
     [SerializeField] GameObject crystalPrefab;
-    [SerializeField] float crystalDuration = 5f;
+    [SerializeField] private float crystalDuration = 5f;
+
+    [SerializeField] private bool canExplode;
+    [SerializeField] private float growSpeed = 3.5f;
+    [SerializeField] private bool canMove;
+    [SerializeField] private float moveSpeed;
+
     private GameObject currentCrystal;
     public override bool CanUseSkill()
     {
@@ -19,7 +25,7 @@ public class CrystalSkill : Skill
         if (currentCrystal == null)
         {
             currentCrystal = Instantiate(crystalPrefab, player.transform.position, Quaternion.identity);
-            currentCrystal.GetComponent<CrystalSkillController>().SetupCrystal(crystalDuration);
+            currentCrystal.GetComponent<CrystalSkillController>().SetupCrystal(crystalDuration, canExplode, growSpeed, canMove, moveSpeed);
         }
         else
         {

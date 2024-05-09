@@ -76,7 +76,7 @@ public class BlackHoleSkillController : MonoBehaviour
     {
         blackHoleTimer -= Time.deltaTime;
 
-        if (blackHoleTimer < 0 && !cloneAttackRelease)
+        if ((blackHoleTimer < 0 || Input.GetKeyDown(KeyCode.R)) && !cloneAttackRelease)
         {
             ReleaseCloneAttack();
         }
