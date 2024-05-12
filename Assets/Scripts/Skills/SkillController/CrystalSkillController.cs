@@ -12,7 +12,7 @@ public class CrystalSkillController : MonoBehaviour
     private bool canExplode;
     private bool canGrow = false;
     private float growSpeed;
-    private bool canMove;
+    private bool canMoveToEnemy;
     private float moveSpeed;
     private Transform closestTarget;
     public bool isDestroying { get; private set; } = false;
@@ -31,12 +31,12 @@ public class CrystalSkillController : MonoBehaviour
         //Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).length);
     }
 
-    public void SetupCrystal(float _crystalDuration, bool _canExplode, float _growSpeed, bool _canMove, float _moveSpeed)
+    public void SetupCrystal(float _crystalDuration, bool _canExplode, float _growSpeed, bool _canMoveToEnemy, float _moveSpeed)
     {
         canGrow = false;
         this.canExplode = _canExplode;
         this.growSpeed = _growSpeed;
-        this.canMove = _canMove;
+        this.canMoveToEnemy = _canMoveToEnemy;
         this.moveSpeed = _moveSpeed;
         this.crystalExistTimer = _crystalDuration;
         isDestroying = false;
@@ -60,11 +60,12 @@ public class CrystalSkillController : MonoBehaviour
 
         }
 
-        if (canMove && !isDestroying && closestTarget != null)
+        if (canMoveToEnemy && closestTarget != null)
         {
             transform.position = Vector2.MoveTowards(transform.position, closestTarget.position, moveSpeed * Time.deltaTime);
             if (Vector2.Distance(transform.position, closestTarget.position) < 1)
             {
+                canMoveToEnemy = false;
                 Explode();
             }
 

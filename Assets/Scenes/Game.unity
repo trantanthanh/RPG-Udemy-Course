@@ -980,8 +980,11 @@ MonoBehaviour:
   crystalDuration: 5
   canExplode: 1
   growSpeed: 3
-  canMove: 1
+  canMoveToEnemy: 1
   moveSpeed: 3
+  canUseMultiStacks: 1
+  amoutOfStacks: 3
+  multiStackCooldown: 4
 --- !u!1 &1258903085
 GameObject:
   m_ObjectHideFlags: 0
