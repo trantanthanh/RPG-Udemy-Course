@@ -19,10 +19,15 @@ public class CrystalSkill : Skill
     [SerializeField] private bool canUseMultiStacks;
     [SerializeField] private int amoutOfStacks;
     [SerializeField] float multiStackCooldown;
+    [SerializeField] float useTimeWindow = 2.5f;
     private List<GameObject> crystalsLeft = new List<GameObject>();
-    private float multiStackTimer;
 
     private GameObject currentCrystal;
+
+    private void Start()
+    {
+        ResetAbility();//1st times init crystalsLeft
+    }
 
     public override bool CanUseSkill()
     {
@@ -62,25 +67,23 @@ public class CrystalSkill : Skill
     {
         if (canUseMultiStacks)
         {
-            if (multiStackTimer < 0)
+            //respawnCrystal
+            if (crystalsLeft.Count > 0)
             {
-                //respawnCrystal
+                if (crystalsLeft.Count == amoutOfStacks)
+                {
+                    //if 1st crystal of multi is out but don't use all remain, it'll reset cooldown after useTimeWindow
+                    Invoke(nameof(ResetAbility), useTimeWindow);
+                }
                 UseSkillMultiStacks();
                 return true;
             }
-            return false;
-
         }
         return false;
     }
 
     private void UseSkillMultiStacks()
     {
-        if (crystalsLeft.Count <= 0)
-        {
-            RefillCrystal();//1st times
-        }
-
         GameObject crystalToSpawn = crystalsLeft[crystalsLeft.Count - 1];
         GameObject newCrystall = Instantiate(crystalToSpawn, player.transform.position, Quaternion.identity);
         crystalsLeft.Remove(crystalToSpawn);
@@ -88,13 +91,14 @@ public class CrystalSkill : Skill
 
         if (crystalsLeft.Count <= 0)
         {
-            multiStackTimer = multiStackCooldown;
+            cooldownTimer = multiStackCooldown;
             RefillCrystal();
         }
     }
 
     private void RefillCrystal()
     {
+        int amoutToAdd = amoutOfStacks - crystalsLeft.Count;
         for (int i = 0; i < amoutOfStacks; i++)
         {
             crystalsLeft.Add(crystalPrefab);
@@ -104,6 +108,17 @@ public class CrystalSkill : Skill
     protected override void Update()
     {
         base.Update();
-        multiStackTimer -= Time.deltaTime;
+    }
+
+    private void ResetAbility()
+    {
+        if (cooldownTimer > 0)
+        {
+            return;
+        }
+
+        RefillCrystal();
+
+        cooldownTimer = multiStackCooldown;
     }
 }
