@@ -45,6 +45,7 @@ public class PlayerCounterAttackState : PlayerState
                 {
                     timerState = 10f;//make sure animation SuccessfulCounterAttack can be done
                     player.animator.SetBool("SuccessfulCounterAttack", true);
+                    player.skills.clone.CreateCloneOnCounterAttack(enemy.transform);
                 }
             }
         }

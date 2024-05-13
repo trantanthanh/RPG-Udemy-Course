@@ -13,12 +13,14 @@ public class PlayerDashState : PlayerState
     {
         base.Enter();
         timerState = player.TimeDash;
-        player.skills.clone.CreateClone(player.transform, Vector3.zero);
+        //player.skills.clone.CreateClone(player.transform, Vector3.zero);
+        player.skills.clone.CreateCloneOnDashStart();
     }
 
     public override void Exit()
     {
         base.Exit();
+        player.skills.clone.CreateCloneOnDashOver();
     }
 
     public override void Update()
