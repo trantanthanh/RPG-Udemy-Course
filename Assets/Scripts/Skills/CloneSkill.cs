@@ -13,6 +13,7 @@ public class CloneSkill : Skill
     [SerializeField] private bool createCloneOnDashOver;
     [SerializeField] private bool canCreateCloneOnCounterAttack;
     [SerializeField] private bool canDuplicateClone;
+    private int cloneDuplicateFacingDir = -1;
     [SerializeField] [Range(0,100)] private int percentToDuplicateClone;
     [SerializeField] private float offSetCloneCounterAttack = 1.5f;
     [SerializeField] private float timeDelayCreateCloneCounterAttack = 0.5f;
@@ -58,6 +59,7 @@ public class CloneSkill : Skill
     IEnumerator CreateCloneWithDelay(float _seconds, Transform _enemyTransform, bool _canDuplicateClone = false, int _percentToDuplicateClone = 0)
     {
         yield return new WaitForSeconds(_seconds);
-        CreateClone(_enemyTransform, new Vector3(offSetCloneCounterAttack * player.facingDir, 0, 0), _enemyTransform, _canDuplicateClone, _percentToDuplicateClone);
+        cloneDuplicateFacingDir = -cloneDuplicateFacingDir;
+        CreateClone(_enemyTransform, new Vector3(offSetCloneCounterAttack * (canDuplicateClone ? cloneDuplicateFacingDir : player.facingDir), 0, 0), _enemyTransform, _canDuplicateClone, _percentToDuplicateClone);
     }
 }

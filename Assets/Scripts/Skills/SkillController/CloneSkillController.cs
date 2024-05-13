@@ -6,7 +6,7 @@ public class CloneSkillController : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
     private Animator animator;
-    [SerializeField] Vector3 offsetPos;
+    [SerializeField] Vector3 offsetPos;//align for anchor in sprite
     [SerializeField] float cloneColorLosingSpeed;
     private float cloneTimer;
 
