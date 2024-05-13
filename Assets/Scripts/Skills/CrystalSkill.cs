@@ -6,6 +6,7 @@ public class CrystalSkill : Skill
 {
     [SerializeField] GameObject crystalPrefab;
     [SerializeField] private float crystalDuration = 5f;
+    [SerializeField] bool cloneInsteadOfCrystal;
 
     [Header("Explode crystal")]
     [SerializeField] private bool canExplode;
@@ -24,8 +25,9 @@ public class CrystalSkill : Skill
 
     private GameObject currentCrystal;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         ResetAbility();//1st times init crystalsLeft
     }
 
@@ -48,12 +50,22 @@ public class CrystalSkill : Skill
         else
         {
             if (canMoveToEnemy) return;
+
             if (!currentCrystal.GetComponent<CrystalSkillController>().isDestroying)
             {
                 Vector2 playerPos = player.transform.position;
                 player.transform.position = currentCrystal.transform.position;//teleport to crystal
                 currentCrystal.transform.position = playerPos;//move the anim explode to player pos
-                currentCrystal.GetComponent<CrystalSkillController>().Explode();
+                if (!cloneInsteadOfCrystal)
+                {
+                    currentCrystal.GetComponent<CrystalSkillController>().Explode();
+                }
+            }
+
+            if (cloneInsteadOfCrystal)
+            {
+                player.skills.clone.CreateClone(currentCrystal.transform, Vector3.zero);
+                Destroy(currentCrystal);
             }
         }
     }
@@ -121,4 +133,5 @@ public class CrystalSkill : Skill
 
         cooldownTimer = multiStackCooldown;
     }
+
 }
