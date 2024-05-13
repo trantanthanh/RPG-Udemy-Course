@@ -12,12 +12,14 @@ public class CloneSkill : Skill
     [SerializeField] private bool createCloneOnDashStart;
     [SerializeField] private bool createCloneOnDashOver;
     [SerializeField] private bool canCreateCloneOnCounterAttack;
+    [SerializeField] private bool canDuplicateClone;
+    [SerializeField] [Range(0,100)] private int percentToDuplicateClone;
     [SerializeField] private float offSetCloneCounterAttack = 1.5f;
     [SerializeField] private float timeDelayCreateCloneCounterAttack = 0.5f;
-    public void CreateClone(Transform _newTransform, Vector3 _offset, Transform _targetToFacing = null)
+    public void CreateClone(Transform _newTransform, Vector3 _offset, Transform _targetToFacing = null, bool _canDuplicateClone = false, int _percentToDuplicateClone = 0)
     {
         GameObject newClone = Instantiate(clonePrefab);
-        newClone.GetComponent<CloneSkillController>().SetupClone(_newTransform, cloneDuration, canAtack, _offset, _targetToFacing);
+        newClone.GetComponent<CloneSkillController>().SetupClone(_newTransform, cloneDuration, canAtack, _offset, _targetToFacing, _canDuplicateClone, _percentToDuplicateClone);
     }
 
     public void CreateCloneOnDashStart()
@@ -40,13 +42,22 @@ public class CloneSkill : Skill
     {
         if (canCreateCloneOnCounterAttack)
         {
-            StartCoroutine(CreateCloneWithDelay(timeDelayCreateCloneCounterAttack, _enemyTransform));
+            //StartCoroutine(CreateCloneWithDelay(timeDelayCreateCloneCounterAttack, _enemyTransform));
+            CreateCloneCanDuplicate(_enemyTransform);
         }
     }
 
-    IEnumerator CreateCloneWithDelay(float _seconds, Transform _enemyTransform)
+    public void CreateCloneCanDuplicate(Transform _enemyTransform)
+    {
+        if (canDuplicateClone)
+        {
+            StartCoroutine(CreateCloneWithDelay(timeDelayCreateCloneCounterAttack, _enemyTransform, canDuplicateClone, percentToDuplicateClone));
+        }
+    }
+
+    IEnumerator CreateCloneWithDelay(float _seconds, Transform _enemyTransform, bool _canDuplicateClone = false, int _percentToDuplicateClone = 0)
     {
         yield return new WaitForSeconds(_seconds);
-        CreateClone(_enemyTransform, new Vector3(offSetCloneCounterAttack * player.facingDir, 0, 0), _enemyTransform);
+        CreateClone(_enemyTransform, new Vector3(offSetCloneCounterAttack * player.facingDir, 0, 0), _enemyTransform, _canDuplicateClone, _percentToDuplicateClone);
     }
 }

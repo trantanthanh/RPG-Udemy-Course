@@ -13,6 +13,8 @@ public class CloneSkillController : MonoBehaviour
     [SerializeField] Transform attackCheck;
     [SerializeField] float attackRadius;
     private Transform closestEnemy;
+    private bool canDuplicateClone;
+    private int percentToDuplicateClone;
 
     public Transform ClosestEnemy { get { return closestEnemy; } set { closestEnemy = value; } }
 
@@ -21,9 +23,11 @@ public class CloneSkillController : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
     }
-    public void SetupClone(Transform _newTransform, float _cloneDuration, bool _canAttack, Vector3 _offset, Transform _targetToFacing)
+    public void SetupClone(Transform _newTransform, float _cloneDuration, bool _canAttack, Vector3 _offset, Transform _targetToFacing, bool _canDuplicateClone, int _percentToDuplicateClone)
     {
         cloneTimer = _cloneDuration;
+        this.canDuplicateClone = _canDuplicateClone;
+        this.percentToDuplicateClone = _percentToDuplicateClone;
         transform.position = _newTransform.position + offsetPos + _offset;
         if (_canAttack)
         {
@@ -62,7 +66,16 @@ public class CloneSkillController : MonoBehaviour
 
     private void AttackTrigger()
     {
-        PlayerManager.Instance.player.DoDamageEnemiesInCircle(attackCheck.position + offsetPos, attackRadius);
+        Transform hasEnemy = null;
+        hasEnemy = PlayerManager.Instance.player.DoDamageEnemiesInCircle(attackCheck.position + offsetPos, attackRadius);
+        if (hasEnemy != null && canDuplicateClone)
+        {
+            int randomValue = Random.Range(0, 100);
+            if (randomValue < percentToDuplicateClone)
+            {
+                PlayerManager.Instance.player.skills.clone.CreateCloneCanDuplicate(hasEnemy);
+            }
+        }
     }
 
     private void FaceClosestEnemy()

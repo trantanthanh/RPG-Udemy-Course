@@ -912,6 +912,8 @@ MonoBehaviour:
   createCloneOnDashStart: 1
   createCloneOnDashOver: 1
   canCreateCloneOnCounterAttack: 1
+  canDuplicateClone: 1
+  percentToDuplicateClone: 20
   offSetCloneCounterAttack: 1.5
   timeDelayCreateCloneCounterAttack: 0.5
 --- !u!114 &1014679310

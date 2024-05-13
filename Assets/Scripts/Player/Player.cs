@@ -194,9 +194,10 @@ public class Player : Entity
         return _closestEnemy;
     }
 
-    public void DoDamageEnemiesInCircle(Vector3 _position, float _radius)
+    public Transform DoDamageEnemiesInCircle(Vector3 _position, float _radius)
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(_position, _radius);
+        Transform hasEnemy = null;
 
         foreach (Collider2D collider in colliders)
         {
@@ -204,8 +205,10 @@ public class Player : Entity
             if (enemy != null)
             {
                 enemy.Damage();
+                hasEnemy = enemy.transform;
             }
         }
+        return hasEnemy;
     }
     #endregion
 }
