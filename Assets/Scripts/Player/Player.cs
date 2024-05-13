@@ -1,8 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Player : Entity
 {
@@ -18,7 +16,7 @@ public class Player : Entity
 
     [Header("Counter attack info")]
     [SerializeField] float counterAttackDuration = 0.2f;
-
+    [SerializeField] private LayerMask enemyMask;
     #region Property
     public float CounterAttackDuration
     {
@@ -81,9 +79,9 @@ public class Player : Entity
     public PlayerWallSlideState wallSlideState { get; private set; }
     public PlayerWallJumpState wallJumpState { get; private set; }
     public PlayerPrimaryAttackState primaryAttackState { get; private set; }
-    public PlayerCounterAttackState counterAttackState {  get; private set; }
+    public PlayerCounterAttackState counterAttackState { get; private set; }
     public PlayerCatchSwordState catchSwordState { get; private set; }
-    public PlayerAimSwordState aimSwordState {  get; private set; }
+    public PlayerAimSwordState aimSwordState { get; private set; }
     public PlayerBlackHoleState blackHoleState { get; private set; }
     #endregion
 
@@ -174,7 +172,7 @@ public class Player : Entity
     public Transform FindClosestEnemy(Vector3 _position, float _radius)
     {
         Transform _closestEnemy = null;
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(_position, _radius);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(_position, _radius, enemyMask);
         float _closestDistance = Mathf.Infinity;
 
         foreach (Collider2D collider in colliders)
@@ -192,6 +190,19 @@ public class Player : Entity
             }
         }
         return _closestEnemy;
+    }
+
+    public Transform FindRandomEnemy(Vector3 _position, float _radius)
+    {
+        Transform _randomEnemy = null;
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(_position, _radius, enemyMask);
+
+        if (colliders.Length > 0)
+        {
+            _randomEnemy = colliders[Random.Range(0, colliders.Length)].transform;
+        }
+
+        return _randomEnemy;
     }
 
     public Transform DoDamageEnemiesInCircle(Vector3 _position, float _radius)

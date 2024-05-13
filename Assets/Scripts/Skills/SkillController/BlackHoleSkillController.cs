@@ -102,7 +102,15 @@ public class BlackHoleSkillController : MonoBehaviour
         int randomIndex = Random.Range(0, targets.Count);
         int valueRandom = Random.Range(0, 100);
         Vector3 offset = new Vector3(valueRandom >= 50 ? xOffsetClone : -xOffsetClone, 0, 0);
-        SkillManager.Instance.clone.CreateClone(targets[randomIndex], offset, targets[randomIndex]);
+        if (SkillManager.Instance.clone.CrystalInsteadOfClone)
+        {
+            SkillManager.Instance.crystal.CreateCrystal();
+            SkillManager.Instance.crystal.SetClosestEnemy(targets[randomIndex]);
+        }
+        else
+        {
+            SkillManager.Instance.clone.CreateClone(targets[randomIndex], offset, targets[randomIndex]);
+        }
         amountOfAttack--;
         if (amountOfAttack <= 0)
         {
@@ -119,7 +127,11 @@ public class BlackHoleSkillController : MonoBehaviour
 
     private void ReleaseCloneAttack()
     {
-        player.MakeTransparent(true);
+        if (!SkillManager.Instance.clone.CrystalInsteadOfClone)
+        {
+            player.MakeTransparent(true);
+        }
+
         canCreateHotkey = false;
         if (targets.Count > 0)
         {

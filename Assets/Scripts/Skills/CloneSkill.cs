@@ -9,16 +9,26 @@ public class CloneSkill : Skill
     [Space]
     [SerializeField] bool canAtack;
 
+    [Header("Clone features")]
     [SerializeField] private bool createCloneOnDashStart;
     [SerializeField] private bool createCloneOnDashOver;
     [SerializeField] private bool canCreateCloneOnCounterAttack;
     [SerializeField] private bool canDuplicateClone;
     private int cloneDuplicateFacingDir = -1;
-    [SerializeField] [Range(0,100)] private int percentToDuplicateClone;
+    [SerializeField][Range(0, 100)] private int percentToDuplicateClone;
     [SerializeField] private float offSetCloneCounterAttack = 1.5f;
     [SerializeField] private float timeDelayCreateCloneCounterAttack = 0.5f;
+
+    [Header("Create crystal instead of clone")]
+    [SerializeField] bool crystalInsteadOfClone;
+    public bool CrystalInsteadOfClone { get { return crystalInsteadOfClone; } }
     public void CreateClone(Transform _newTransform, Vector3 _offset, Transform _targetToFacing = null, bool _canDuplicateClone = false, int _percentToDuplicateClone = 0)
     {
+        if (crystalInsteadOfClone)
+        {
+            SkillManager.Instance.crystal.CreateCrystal();
+            return;
+        }
         GameObject newClone = Instantiate(clonePrefab);
         newClone.GetComponent<CloneSkillController>().SetupClone(_newTransform, cloneDuration, canAtack, _offset, _targetToFacing, _canDuplicateClone, _percentToDuplicateClone);
     }

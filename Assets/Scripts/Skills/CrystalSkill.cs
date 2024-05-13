@@ -6,6 +6,8 @@ public class CrystalSkill : Skill
 {
     [SerializeField] GameObject crystalPrefab;
     [SerializeField] private float crystalDuration = 5f;
+
+    [Header("create clone instead crystal")]
     [SerializeField] bool cloneInsteadOfCrystal;
 
     [Header("Explode crystal")]
@@ -44,8 +46,7 @@ public class CrystalSkill : Skill
 
         if (currentCrystal == null)
         {
-            currentCrystal = Instantiate(crystalPrefab, player.transform.position, Quaternion.identity);
-            SpawnCrystal(currentCrystal);
+            CreateCrystal();
         }
         else
         {
@@ -68,6 +69,17 @@ public class CrystalSkill : Skill
                 Destroy(currentCrystal);
             }
         }
+    }
+
+    public void CreateCrystal()
+    {
+        currentCrystal = Instantiate(crystalPrefab, player.transform.position, Quaternion.identity);
+        SpawnCrystal(currentCrystal);
+    }
+
+    public void SetClosestEnemy(Transform _enemy)
+    {
+        currentCrystal.GetComponent<CrystalSkillController>().SetClosestEnemy(_enemy);
     }
 
     private void SpawnCrystal(GameObject _crystalSpawn)

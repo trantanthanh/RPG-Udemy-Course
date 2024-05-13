@@ -73,7 +73,7 @@ public class CloneSkillController : MonoBehaviour
             int randomValue = Random.Range(0, 100);
             if (randomValue < percentToDuplicateClone)
             {
-                PlayerManager.Instance.player.skills.clone.CreateCloneCanDuplicate(hasEnemy);
+                SkillManager.Instance.clone.CreateCloneCanDuplicate(hasEnemy);
             }
         }
     }

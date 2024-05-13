@@ -40,8 +40,13 @@ public class CrystalSkillController : MonoBehaviour
         this.moveSpeed = _moveSpeed;
         this.crystalExistTimer = _crystalDuration;
         isDestroying = false;
-
+        
         closestTarget = PlayerManager.Instance.player.FindClosestEnemy(transform.position, 25);
+    }
+
+    public void SetClosestEnemy(Transform _enemy)
+    {
+        closestTarget = _enemy;
     }
 
     private void Update()

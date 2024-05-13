@@ -200,6 +200,9 @@ MonoBehaviour:
   timeWallJump: 0.5
   xJumpForceWall: 5
   counterAttackDuration: 0.2
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &6519339761462540847
 MonoBehaviour:
   m_ObjectHideFlags: 0
