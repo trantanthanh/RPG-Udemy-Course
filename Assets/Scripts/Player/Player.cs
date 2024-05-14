@@ -83,6 +83,7 @@ public class Player : Entity
     public PlayerCatchSwordState catchSwordState { get; private set; }
     public PlayerAimSwordState aimSwordState { get; private set; }
     public PlayerBlackHoleState blackHoleState { get; private set; }
+    public PlayerDeadState deadState { get; private set; }
     #endregion
 
     protected override void Awake()
@@ -101,6 +102,7 @@ public class Player : Entity
         catchSwordState = new PlayerCatchSwordState(this, stateMachine, "CatchSword");
         aimSwordState = new PlayerAimSwordState(this, stateMachine, "AimSword");
         blackHoleState = new PlayerBlackHoleState(this, stateMachine, "Jump");
+        deadState = new PlayerDeadState(this, stateMachine, "Die");
 
         skills = SkillManager.Instance;
     }
@@ -147,9 +149,9 @@ public class Player : Entity
 
     public void AnimationDoneTrigger() => stateMachine.currentState.AnimationDoneTrigger();
 
-    public override void Damage()
+    public override void DamageEffect()
     {
-        base.Damage();
+        base.DamageEffect();
 
         Debug.Log("Player has damaged");
     }

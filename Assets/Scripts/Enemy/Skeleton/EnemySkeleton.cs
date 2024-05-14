@@ -21,9 +21,9 @@ public class EnemySkeleton : Enemy
         return false;
     }
 
-    public override void Damage()
+    public override void DamageEffect()
     {
-        base.Damage();
+        base.DamageEffect();
         Debug.Log("Skeleton has damaged");
     }
     #endregion

@@ -148,7 +148,7 @@ public class SwordSkillController : MonoBehaviour
                 Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, damageRadius);
                 foreach (Collider2D hit in hits)
                 {
-                    hit.GetComponent<Enemy>()?.Damage();//hit enemy
+                    hit.GetComponent<Enemy>()?.DamageEffect();//hit enemy
                 }
             }
         }
@@ -167,7 +167,7 @@ public class SwordSkillController : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, enemiesTarget[targetIndex].position, bounceSpeed * Time.deltaTime);
             if (Vector2.Distance(transform.position, enemiesTarget[targetIndex].position) < 0.1f)
             {
-                enemiesTarget[targetIndex].GetComponent<Enemy>().Damage();//Damage when reach target
+                enemiesTarget[targetIndex].GetComponent<Enemy>().DamageEffect();//Damage when reach target
                 targetIndex++;
                 bounceAmount--;
                 if (bounceAmount < 0)
@@ -230,7 +230,7 @@ public class SwordSkillController : MonoBehaviour
         Enemy enemy = collision.GetComponent<Enemy>();
         if (enemy != null)
         {
-            enemy.Damage();
+            enemy.DamageEffect();
             if (isPiercing && pierceAmount > 0)
             {
                 pierceAmount--;

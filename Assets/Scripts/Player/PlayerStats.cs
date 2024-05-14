@@ -13,12 +13,13 @@ public class PlayerStats : CharacterStats
     protected override void TakeDamage(int damage)
     {
         base.TakeDamage(damage);
-        player.Damage();
+        player.DamageEffect();
     }
 
     protected override void Die()
     {
         base.Die();
+        player.stateMachine.ChangeState(player.deadState);
     }
 
     public override void DoDamage(CharacterStats _targetStats)
