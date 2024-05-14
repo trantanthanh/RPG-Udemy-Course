@@ -8,7 +8,7 @@ public class CharacterStats : MonoBehaviour
     public Stat damage;
     public Stat maxHealth;
 
-    private int currentHealth;
+    protected int currentHealth;
 
     // Start is called before the first frame update
     protected virtual void Start()

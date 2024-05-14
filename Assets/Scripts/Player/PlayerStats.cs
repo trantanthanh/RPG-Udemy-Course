@@ -13,7 +13,11 @@ public class PlayerStats : CharacterStats
     protected override void TakeDamage(int damage)
     {
         base.TakeDamage(damage);
-        player.DamageEffect();
+        if (currentHealth > 0)
+        {
+            player.DamageEffect();
+        }
+
     }
 
     protected override void Die()

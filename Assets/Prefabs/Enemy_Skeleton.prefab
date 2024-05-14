@@ -465,11 +465,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77ae6883c063533429903b7a3963b8b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  strength:
+    baseValue: 0
+    modifers: 
   damage:
     baseValue: 10
     modifers: 
   maxHealth:
-    baseValue: 0
+    baseValue: 100
     modifers: 
 --- !u!1 &7594854390478150654
 GameObject:
