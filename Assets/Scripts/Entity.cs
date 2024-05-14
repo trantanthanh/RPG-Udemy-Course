@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterStats))]
 public class Entity : MonoBehaviour
 {
     [Header("Collision check")]
@@ -61,6 +62,7 @@ public class Entity : MonoBehaviour
     public SpriteRenderer spriteRenderer { get; private set; }
     public Rigidbody2D rb { get; private set; }
     public EntityFx fx { get; private set; }
+    public CharacterStats stats { get; private set; }
     #endregion
 
     protected virtual void Awake()
@@ -75,6 +77,7 @@ public class Entity : MonoBehaviour
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         fx = GetComponent<EntityFx>();
+        stats = GetComponent<CharacterStats>();
     }
 
     // Update is called once per frame

@@ -110,6 +110,7 @@ public class Enemy : Entity, IAnimationDoneTrigger
             if (player != null)
             {
                 player.Damage();
+                player.stats.TakeDamage(stats.damage);
             }
         }
     }
