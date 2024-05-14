@@ -109,7 +109,7 @@ public class Enemy : Entity, IAnimationDoneTrigger
             Player player = collider.GetComponent<Player>();
             if (player != null)
             {
-                player.Damage();
+                //player.Damage();
                 stats.DoDamage(player.stats);
                 //player.stats.TakeDamage(stats.damage.GetValue());
             }

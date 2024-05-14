@@ -215,7 +215,7 @@ public class Player : Entity
             Enemy enemy = collider.GetComponent<Enemy>();
             if (enemy != null)
             {
-                enemy.Damage();
+                //enemy.Damage();
                 stats.DoDamage(enemy.stats);
                 //enemy.GetComponent<CharacterStats>().TakeDamage(stats.damage.GetValue());
                 hasEnemy = enemy.transform;
