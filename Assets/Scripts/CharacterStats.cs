@@ -4,30 +4,36 @@ using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
 {
-    public int damage;
-    public int maxHealth;
+    public Stat strength;
+    public Stat damage;
+    public Stat maxHealth;
 
     private int currentHealth;
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
-        currentHealth = maxHealth;
+        currentHealth = maxHealth.GetValue();
     }
 
-    public void TakeDamage(int damage)
+    public virtual void DoDamage(CharacterStats _targetStats)
+    {
+        int totalDamage = damage.GetValue() + strength.GetValue();
+        _targetStats.TakeDamage(totalDamage);
+    }
+
+    protected virtual void TakeDamage(int damage)
     {
         currentHealth -= damage;
         if (currentHealth < 0)
         {
             currentHealth = 0;
+            Die();
         }
     }
 
-
-    // Update is called once per frame
-    void Update()
+    protected virtual void Die()
     {
-        
+
     }
 }

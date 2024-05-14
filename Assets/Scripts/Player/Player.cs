@@ -216,7 +216,8 @@ public class Player : Entity
             if (enemy != null)
             {
                 enemy.Damage();
-                enemy.GetComponent<CharacterStats>().TakeDamage(stats.damage);
+                stats.DoDamage(enemy.stats);
+                //enemy.GetComponent<CharacterStats>().TakeDamage(stats.damage.GetValue());
                 hasEnemy = enemy.transform;
             }
         }
