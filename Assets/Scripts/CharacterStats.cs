@@ -22,6 +22,11 @@ public class CharacterStats : MonoBehaviour
         _targetStats.TakeDamage(totalDamage);
     }
 
+    public bool IsAlive()
+    {
+        return currentHealth > 0;
+    }
+
     protected virtual void TakeDamage(int damage)
     {
         currentHealth -= damage;

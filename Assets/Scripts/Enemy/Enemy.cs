@@ -66,6 +66,12 @@ public class Enemy : Entity, IAnimationDoneTrigger
         return false;
     }
 
+    public override void Die()
+    {
+        base.Die();
+        counterImage.SetActive(false);
+    }
+
     public virtual void FreezeTimer(bool isFrozen)
     {
         if (isFrozen)

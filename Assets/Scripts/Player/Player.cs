@@ -169,6 +169,11 @@ public class Player : Entity
     {
         Destroy(sword);
     }
+    public override void Die()
+    {
+        base.Die();
+        stateMachine.ChangeState(deadState);
+    }
 
     #region Utilities
     public Transform FindClosestEnemy(Vector3 _position, float _radius)

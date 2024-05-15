@@ -152,4 +152,8 @@ public class Entity : MonoBehaviour
             spriteRenderer.color = Color.white;
         }
     }
+
+    public virtual void Die()
+    {
+    }
 }
