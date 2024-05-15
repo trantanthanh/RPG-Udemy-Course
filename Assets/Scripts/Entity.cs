@@ -62,6 +62,7 @@ public class Entity : MonoBehaviour
     public Rigidbody2D rb { get; private set; }
     public EntityFx fx { get; private set; }
     public CharacterStats stats { get; private set; }
+    public CapsuleCollider2D capsuleCollider { get; private set; }
     #endregion
 
     protected virtual void Awake()
@@ -77,6 +78,7 @@ public class Entity : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         fx = GetComponent<EntityFx>();
         stats = GetComponent<CharacterStats>();
+        capsuleCollider = GetComponent<CapsuleCollider2D>();
     }
 
     // Update is called once per frame

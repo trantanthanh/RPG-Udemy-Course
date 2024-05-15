@@ -25,6 +25,9 @@ public class Enemy : Entity, IAnimationDoneTrigger
 
     public float DistanceAttack { get { return distanceAttack; } }
     public float DistancePlayerCheck { get { return distanceAttack; } }
+
+    public string lastAnimBoolName { get; private set; }
+
     public EnemyStateMachine stateMachine { get; private set; }
     protected override void Awake()
     {
@@ -64,6 +67,11 @@ public class Enemy : Entity, IAnimationDoneTrigger
             return true;
         }
         return false;
+    }
+
+    public virtual void AssignLastAnimName(string _lastAnimBoolName)
+    {
+        lastAnimBoolName = _lastAnimBoolName;
     }
 
     public override void Die()
