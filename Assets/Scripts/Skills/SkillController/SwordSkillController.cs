@@ -13,6 +13,7 @@ public class SwordSkillController : MonoBehaviour
     private bool isReturning;
 
     private float freeTimeDuration;
+    private float timeLifeOfSword = 7f;//after this time, destroy sword after thrown
 
     [Header("Bouce info")]
     private bool isBouncing = false;
@@ -64,6 +65,8 @@ public class SwordSkillController : MonoBehaviour
         targetIndex = 0;
 
         spinDirectionX = Mathf.Clamp(rb.velocity.x, -1, 1);
+
+        Destroy(gameObject, timeLifeOfSword);
     }
 
     public void SetupBounce(bool _isBoucing, int _amountOfBounce, float _bounceSpeed, float _bounceRange)
