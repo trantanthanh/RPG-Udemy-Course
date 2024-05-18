@@ -23,6 +23,7 @@ public class CharacterStats : MonoBehaviour
     private float igniteDuration = 4f;
     private float igniteDamageCoolDown = 0.3f;//interval take burn damage
     private float igniteDamageTimer;
+    private int igniteDamage;
 
     private float chillTimer;
     private float chillDuration = 2f;
@@ -79,6 +80,7 @@ public class CharacterStats : MonoBehaviour
         {
             //Take burn damage
             igniteDamageTimer = igniteDamageCoolDown;
+            TakeDamageWithoutEffect(igniteDamage);
         }
     }
 
@@ -138,6 +140,11 @@ public class CharacterStats : MonoBehaviour
             }
         }
 
+        if (_canApplyIgnite)
+        {
+            _targetStats.SetupIgniteDamage(Mathf.RoundToInt(_fireDamage * 0.2f));
+        }
+
         _targetStats.ApplyAilment(_canApplyIgnite, _canApplyChill, _canApplyShock);
     }
 
@@ -172,6 +179,8 @@ public class CharacterStats : MonoBehaviour
             shockTimer = shockDuration;
         }
     }
+
+    public void SetupIgniteDamage(int _damage) => igniteDamage = _damage;
 
     private int CheckTargetArmor(CharacterStats _targetStats, int totalDamage)
     {
@@ -225,6 +234,11 @@ public class CharacterStats : MonoBehaviour
     }
 
     protected virtual void TakeDamage(int damage)
+    {
+        TakeDamageWithoutEffect(damage);
+    }
+
+    private void TakeDamageWithoutEffect(int damage)
     {
         currentHealth -= damage;
         if (currentHealth < 0)
