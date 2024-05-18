@@ -10,6 +10,15 @@ public class CharacterStats : MonoBehaviour
     public Stat inteligence;//1 point increase magic damage by 1 and magic resistance by 3
     public Stat vitality;//1 point increase health by 3 or 5 points
 
+    [Header("Magic stats")]
+    public Stat fireDamage;
+    public Stat iceDamage;
+    public Stat lightningDamage;
+
+    public bool isIgnited;
+    public bool isChilled;
+    public bool isShocked;
+
     [Header("Offensive stats")]
     public Stat damage;
     public Stat critChance;
@@ -19,6 +28,8 @@ public class CharacterStats : MonoBehaviour
     public Stat maxHealth;
     public Stat evasion;
     public Stat armor;
+    public Stat magicResistance;
+
 
     protected int currentHealth;
 
@@ -42,6 +53,50 @@ public class CharacterStats : MonoBehaviour
         totalDamage = CheckTargetArmor(_targetStats, totalDamage);
 
         _targetStats.TakeDamage(totalDamage);//Apply damage to target
+
+        DoMagicDamage(_targetStats);
+    }
+
+    public virtual void DoMagicDamage(CharacterStats _targetStats)
+    {
+        int _fireDamage = fireDamage.GetValue();
+        int _iceDamage = iceDamage.GetValue();
+        int _lightningDamage = lightningDamage.GetValue();
+
+        int totalMagicDamage = _fireDamage + _iceDamage + _lightningDamage + inteligence.GetValue();
+        totalMagicDamage = CheckTargetMagicResist(_targetStats, totalMagicDamage);
+    }
+
+    private int CheckTargetMagicResist(CharacterStats targetStats, int totalMagicDamage)
+    {
+        totalMagicDamage -= targetStats.magicResistance.GetValue() + targetStats.inteligence.GetValue() * 3;
+        totalMagicDamage = Mathf.Clamp(totalMagicDamage, 0, int.MaxValue);
+        return totalMagicDamage;
+    }
+
+    public void ApplyAilment(bool _ignite, bool _chill, bool _shock)
+    {
+        if (isIgnited || isChilled || isShocked)
+        {
+            return;//Don't stack Ailment
+        }
+
+        isIgnited = _ignite;
+        isChilled = _chill;
+        isShocked = _shock;
+
+        if (isIgnited)
+        {
+
+        } 
+        else if (isChilled)
+        {
+
+        }
+        else if (isShocked)
+        {
+
+        }
     }
 
     private int CheckTargetArmor(CharacterStats _targetStats, int totalDamage)
