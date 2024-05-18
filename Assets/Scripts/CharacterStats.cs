@@ -24,6 +24,13 @@ public class CharacterStats : MonoBehaviour
     private float igniteDamageCoolDown = 0.3f;//interval take burn damage
     private float igniteDamageTimer;
 
+    private float chillTimer;
+    private float chillDuration = 2f;
+
+    private float shockTimer;
+    private float shockDuration = 2f;
+
+
     [Header("Offensive stats")]
     public Stat damage;
     public Stat critChance;
@@ -48,11 +55,24 @@ public class CharacterStats : MonoBehaviour
     protected virtual void Update()
     {
         igniteTimer -= Time.deltaTime;
+        chillTimer -= Time.deltaTime;
+        shockTimer -= Time.deltaTime;
+
         igniteDamageTimer -= Time.deltaTime;
 
         if (isIgnited && igniteTimer < 0)
         {
             isIgnited = false;
+        }
+
+        if (isChilled && chillTimer < 0)
+        {
+            isChilled = false;
+        }
+
+        if (isShocked && shockTimer < 0)
+        {
+            isShocked = false;
         }
 
         if (isIgnited && igniteDamageTimer < 0)
@@ -145,11 +165,11 @@ public class CharacterStats : MonoBehaviour
         }
         else if (isChilled)
         {
-
+            chillTimer = chillDuration;
         }
         else if (isShocked)
         {
-
+            shockTimer = shockDuration;
         }
     }
 
