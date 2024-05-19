@@ -45,6 +45,7 @@ public class CharacterStats : MonoBehaviour
 
 
     protected int currentHealth;
+    public int CurrentHealth { get => currentHealth;}
 
     // Start is called before the first frame update
     protected virtual void Start()
@@ -247,6 +248,8 @@ public class CharacterStats : MonoBehaviour
             Die();
         }
     }
+
+    public int GetMaxHealth() => (maxHealth.GetValue() + vitality.GetValue() * 5);
 
     protected virtual void Die()
     {
