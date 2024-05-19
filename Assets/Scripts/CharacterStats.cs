@@ -46,6 +46,7 @@ public class CharacterStats : MonoBehaviour
 
     protected int currentHealth;
     public int CurrentHealth { get => currentHealth;}
+    public System.Action onHealthChanged;
 
     // Start is called before the first frame update
     protected virtual void Start()
@@ -241,6 +242,7 @@ public class CharacterStats : MonoBehaviour
 
     private void TakeDamageWithoutEffect(int damage)
     {
+        onHealthChanged?.Invoke();
         currentHealth -= damage;
         if (currentHealth < 0)
         {

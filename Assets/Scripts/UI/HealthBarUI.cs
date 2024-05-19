@@ -14,13 +14,11 @@ public class HealthBarUI : MonoBehaviour
         entity = GetComponentInParent<Entity>();
         slider = GetComponentInChildren<Slider>();
         stats = GetComponentInParent<CharacterStats>();
-     
-        entity.onFlipped += FlipUI;
-    }
 
-    private void Update()
-    {
-        UpdateHealthBar();
+        entity.onFlipped += FlipUI;
+        stats.onHealthChanged += UpdateHealthBar;
+
+        Invoke(nameof(UpdateHealthBar), 1f);//update for 1st times
     }
 
     private void UpdateHealthBar()
@@ -31,5 +29,9 @@ public class HealthBarUI : MonoBehaviour
 
     private void FlipUI() => transform.Rotate(0, 180, 0);
 
-    private void OnDisable() => entity.onFlipped -= FlipUI;
+    private void OnDisable()
+    {
+        entity.onFlipped -= FlipUI;
+        stats.onHealthChanged -= UpdateHealthBar;
+    }
 }
