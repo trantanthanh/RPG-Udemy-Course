@@ -65,6 +65,8 @@ public class Entity : MonoBehaviour
     public CapsuleCollider2D capsuleCollider { get; private set; }
     #endregion
 
+    public System.Action onFlipped;
+
     protected virtual void Awake()
     {
         defaultMoveSpeed = moveSpeed;
@@ -105,6 +107,8 @@ public class Entity : MonoBehaviour
         facingDir = facingDir * -1;
         isFacingRight = !isFacingRight;
         transform.Rotate(0, 180, 0);
+
+        onFlipped?.Invoke();
     }
 
     public void FlipController(float _xVelocity)
