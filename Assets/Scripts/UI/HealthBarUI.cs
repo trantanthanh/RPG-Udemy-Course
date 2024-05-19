@@ -18,7 +18,7 @@ public class HealthBarUI : MonoBehaviour
         entity.onFlipped += FlipUI;
         stats.onHealthChanged += UpdateHealthBar;
 
-        Invoke(nameof(UpdateHealthBar), 1f);//update for 1st times
+        UpdateHealthBar();//update 1st times
     }
 
     private void UpdateHealthBar()
