@@ -611,8 +611,8 @@ MonoBehaviour:
   flashDuration: 0.15
   chillColor: {r: 0, g: 0, b: 0, a: 0}
   igniteColor:
-  - {r: 0.9811321, g: 0.68054944, b: 0.03147021, a: 0}
-  - {r: 0.98039216, g: 0.031372555, b: 0.08535822, a: 0}
+  - {r: 0.98039216, g: 0.36004913, b: 0.031372555, a: 1}
+  - {r: 0.94509804, g: 0.6745098, b: 0.5647059, a: 0}
   shockColor: []
 --- !u!50 &3089077683226289135
 Rigidbody2D:
@@ -701,7 +701,7 @@ MonoBehaviour:
     baseValue: 0
     modifers: 
   fireDamage:
-    baseValue: 2
+    baseValue: 20
     modifers: 
   iceDamage:
     baseValue: 0

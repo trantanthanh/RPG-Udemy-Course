@@ -45,9 +45,9 @@ public class EntityFx : MonoBehaviour
         }
     }
 
-    public void IgniteFxFor(float _second)
+    public void IgniteFxFor(float _second, float _interval)
     {
-        InvokeRepeating(nameof(IgniteColorFx),0f, 0.3f);
+        InvokeRepeating(nameof(IgniteColorFx),0f, _interval);
         Invoke(nameof(CancelColorChange), _second);
     }
 

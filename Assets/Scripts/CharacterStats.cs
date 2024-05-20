@@ -49,12 +49,15 @@ public class CharacterStats : MonoBehaviour
     public int CurrentHealth { get => currentHealth;}
     public System.Action onHealthChanged;
 
+    private bool isAlive = true;
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
         currentHealth = maxHealth.GetValue();
         fx = GetComponent<EntityFx>();
         critPower.SetDefaultValue(150);
+        isAlive = true;
     }
 
     protected virtual void Update()
@@ -173,7 +176,7 @@ public class CharacterStats : MonoBehaviour
         if (isIgnited)
         {
             igniteTimer = igniteDuration;
-            fx.IgniteFxFor(igniteDuration);
+            fx.IgniteFxFor(igniteDuration, igniteDamageCoolDown);
         }
         else if (isChilled)
         {
@@ -245,6 +248,7 @@ public class CharacterStats : MonoBehaviour
 
     private void TakeDamageWithoutEffect(int damage)
     {
+        if (!isAlive) return;//already call die()
         onHealthChanged?.Invoke();
         currentHealth -= damage;
         if (currentHealth < 0)
@@ -258,6 +262,6 @@ public class CharacterStats : MonoBehaviour
 
     protected virtual void Die()
     {
-
+        isAlive = false;
     }
 }
