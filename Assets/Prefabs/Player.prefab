@@ -609,6 +609,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitMat: {fileID: 2100000, guid: 2f36bd2f6603aa3469de3bf9bf30d091, type: 2}
   flashDuration: 0.15
+  chillColor: {r: 0, g: 0, b: 0, a: 0}
+  igniteColor:
+  - {r: 0.9811321, g: 0.68054944, b: 0.03147021, a: 0}
+  - {r: 0.98039216, g: 0.031372555, b: 0.08535822, a: 0}
+  shockColor: []
 --- !u!50 &3089077683226289135
 Rigidbody2D:
   serializedVersion: 4
@@ -696,7 +701,7 @@ MonoBehaviour:
     baseValue: 0
     modifers: 
   fireDamage:
-    baseValue: 0
+    baseValue: 2
     modifers: 
   iceDamage:
     baseValue: 0

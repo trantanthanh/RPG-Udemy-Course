@@ -15,13 +15,13 @@ public class SkeletonStunnedState : EnemyState
         base.Enter();
         stateTimer = enemy.stunDuration;
         rb.velocity = new Vector2(-enemy.facingDir * enemy.stunDirection.x, enemy.stunDirection.y);
-        enemy.fx.InvokeRepeating("RedColorBlink", 0f, 0.1f);
+        enemy.fx.RedColorBlinkWithInterval(0.1f);
     }
 
     public override void Exit()
     {
         base.Exit();
-        enemy.fx.Invoke("CancelBlink", 0f);
+        enemy.fx.Invoke(nameof(enemy.fx.CancelColorChange), 0f);
     }
 
     public override void Update()

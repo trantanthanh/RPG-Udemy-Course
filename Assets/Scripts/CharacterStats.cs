@@ -43,6 +43,7 @@ public class CharacterStats : MonoBehaviour
     public Stat armor;
     public Stat magicResistance;
 
+    private EntityFx fx;
 
     protected int currentHealth;
     public int CurrentHealth { get => currentHealth;}
@@ -52,6 +53,7 @@ public class CharacterStats : MonoBehaviour
     protected virtual void Start()
     {
         currentHealth = maxHealth.GetValue();
+        fx = GetComponent<EntityFx>();
         critPower.SetDefaultValue(150);
     }
 
@@ -171,6 +173,7 @@ public class CharacterStats : MonoBehaviour
         if (isIgnited)
         {
             igniteTimer = igniteDuration;
+            fx.IgniteFxFor(igniteDuration);
         }
         else if (isChilled)
         {

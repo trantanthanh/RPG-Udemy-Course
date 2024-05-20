@@ -361,7 +361,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: -232145583
+  m_SortingLayerID: 1225981665
   m_SortingOrder: 19
   m_TargetDisplay: 0
 --- !u!114 &1684919953152167114
@@ -680,6 +680,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitMat: {fileID: 2100000, guid: 2f36bd2f6603aa3469de3bf9bf30d091, type: 2}
   flashDuration: 0.2
+  chillColor: {r: 0, g: 0, b: 0, a: 0}
+  igniteColor:
+  - {r: 0.9811321, g: 0.68054944, b: 0.03147021, a: 1}
+  - {r: 0.98039216, g: 0.031372555, b: 0.08535822, a: 1}
+  shockColor: []
 --- !u!114 &4431665946197419970
 MonoBehaviour:
   m_ObjectHideFlags: 0

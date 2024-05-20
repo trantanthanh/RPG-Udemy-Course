@@ -10,6 +10,11 @@ public class EntityFx : MonoBehaviour
     [SerializeField] float flashDuration = 0.2f;
     private Material originalMat;
 
+    [Header("Ailment color")]
+    [SerializeField] private Color chillColor;
+    [SerializeField] private Color[] igniteColor;
+    [SerializeField] private Color[] shockColor;
+
     private void Start()
     {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
@@ -23,7 +28,12 @@ public class EntityFx : MonoBehaviour
         spriteRenderer.material = originalMat;
     }
 
-    private void RedColorBlink()
+    public void RedColorBlinkWithInterval(float _second)
+    {
+        InvokeRepeating(nameof(RedColorBlink), 0f, _second);
+    }
+
+    public void RedColorBlink()
     {
         if (spriteRenderer.color != Color.white)
         {
@@ -35,7 +45,24 @@ public class EntityFx : MonoBehaviour
         }
     }
 
-    private void CancelBlink()
+    public void IgniteFxFor(float _second)
+    {
+        InvokeRepeating(nameof(IgniteColorFx),0f, 0.3f);
+        Invoke(nameof(CancelColorChange), _second);
+    }
+
+    private void IgniteColorFx()
+    {
+        if (spriteRenderer.color != igniteColor[0])
+        {
+            spriteRenderer.color = igniteColor[0];
+        } else
+        {
+            spriteRenderer.color = igniteColor[1];
+        }
+    }
+
+    public void CancelColorChange()
     {
         CancelInvoke();
         spriteRenderer.color = Color.white;
