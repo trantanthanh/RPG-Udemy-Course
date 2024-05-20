@@ -181,10 +181,12 @@ public class CharacterStats : MonoBehaviour
         else if (isChilled)
         {
             chillTimer = chillDuration;
+            fx.ChillFxFor(chillDuration);
         }
         else if (isShocked)
         {
             shockTimer = shockDuration;
+            fx.ShockFxFor(shockDuration);
         }
     }
 

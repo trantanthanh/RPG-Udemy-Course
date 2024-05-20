@@ -80,7 +80,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.375, y: 2}
+  m_Size: {x: 1.5, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -680,11 +680,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitMat: {fileID: 2100000, guid: 2f36bd2f6603aa3469de3bf9bf30d091, type: 2}
   flashDuration: 0.2
-  chillColor: {r: 0, g: 0, b: 0, a: 0}
+  chillColor: {r: 0, g: 0.78125304, b: 0.94509804, a: 1}
   igniteColor:
   - {r: 0.98039216, g: 0.36078432, b: 0.03137255, a: 1}
   - {r: 0.9433962, g: 0.67641485, b: 0.5642577, a: 1}
-  shockColor: []
+  shockColor:
+  - {r: 1, g: 0.9529412, b: 0.38039216, a: 1}
+  - {r: 1, g: 0.97950804, b: 0.73018867, a: 1}
 --- !u!114 &4431665946197419970
 MonoBehaviour:
   m_ObjectHideFlags: 0
