@@ -23,8 +23,11 @@ public class EntityFx : MonoBehaviour
 
     private IEnumerator FlashFx()
     {
+        Color currentColor = spriteRenderer.color;
+        spriteRenderer.color = Color.white;
         spriteRenderer.material = hitMat;
         yield return new WaitForSeconds(flashDuration);
+        spriteRenderer.color = currentColor;
         spriteRenderer.material = originalMat;
     }
 
