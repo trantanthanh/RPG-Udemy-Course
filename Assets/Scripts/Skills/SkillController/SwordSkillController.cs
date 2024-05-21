@@ -154,7 +154,8 @@ public class SwordSkillController : MonoBehaviour
                     Enemy enemy = hit.GetComponent<Enemy>();
                     if (enemy != null && enemy.stats.IsAlive())
                     {
-                        enemy.DamageEffect();
+                        //enemy.DamageEffect();
+                        player.stats.DoDamage(enemy.stats);
                     }
                 }
             }
@@ -174,7 +175,8 @@ public class SwordSkillController : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, enemiesTarget[targetIndex].position, bounceSpeed * Time.deltaTime);
             if (Vector2.Distance(transform.position, enemiesTarget[targetIndex].position) < 0.1f)
             {
-                enemiesTarget[targetIndex].GetComponent<Enemy>().DamageEffect();//Damage when reach target
+                //enemiesTarget[targetIndex].GetComponent<Enemy>().DamageEffect();//Damage when reach target
+                player.stats.DoDamage(enemiesTarget[targetIndex].GetComponent<Enemy>().stats);//Damage when reach target
                 targetIndex++;
                 bounceAmount--;
                 if (bounceAmount < 0)
@@ -239,7 +241,8 @@ public class SwordSkillController : MonoBehaviour
         {
             if (!enemy.stats.IsAlive()) return;
 
-            enemy.DamageEffect();
+            //enemy.DamageEffect();
+            player.stats.DoDamage(enemy.stats);
             if (isPiercing && pierceAmount > 0)
             {
                 pierceAmount--;
