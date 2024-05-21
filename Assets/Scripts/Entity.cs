@@ -163,9 +163,9 @@ public class Entity : MonoBehaviour
 
     public virtual void SlowEntityBy(float _slowPercentage, float _duration)
     {
-        animator.speed *= _slowPercentage;
-        moveSpeed *= _slowPercentage;
-        jumpForce *= _slowPercentage;
+        animator.speed *= (1 - _slowPercentage);
+        moveSpeed *= (1 - _slowPercentage);
+        jumpForce *= (1 - _slowPercentage);
         Invoke(nameof(ReturnDefaultSpeed), _duration);
     }
 

@@ -237,7 +237,7 @@ public class Player : Entity
     public override void SlowEntityBy(float _slowPercentage, float _duration)
     {
         base.SlowEntityBy(_slowPercentage, _duration);
-        dashSpeed *= _slowPercentage;
+        dashSpeed *= (1 - _slowPercentage);
     }
 
     public override void ReturnDefaultSpeed()
