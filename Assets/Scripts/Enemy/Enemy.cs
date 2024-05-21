@@ -89,8 +89,7 @@ public class Enemy : Entity, IAnimationDoneTrigger
         }
         else
         {
-            moveSpeed = defaultMoveSpeed;
-            animator.speed = 1;
+            ReturnDefaultSpeed();
         }
     }
 
@@ -129,5 +128,6 @@ public class Enemy : Entity, IAnimationDoneTrigger
             }
         }
     }
+
     #endregion
 }

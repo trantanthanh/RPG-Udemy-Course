@@ -15,6 +15,7 @@ public class Entity : MonoBehaviour
     [SerializeField] protected float moveSpeed = 8f;
     [SerializeField] protected float jumpForce = 12f;
     protected float defaultMoveSpeed = 0f;
+    protected float defaultJumpForce = 0f;
 
     [Header("Attack info")]
     public Vector2[] attackMovements;
@@ -70,6 +71,7 @@ public class Entity : MonoBehaviour
     protected virtual void Awake()
     {
         defaultMoveSpeed = moveSpeed;
+        defaultJumpForce = jumpForce;
     }
 
     // Start is called before the first frame update
@@ -157,6 +159,21 @@ public class Entity : MonoBehaviour
         {
             spriteRenderer.color = Color.white;
         }
+    }
+
+    public virtual void SlowEntityBy(float _slowPercentage, float _duration)
+    {
+        animator.speed *= _slowPercentage;
+        moveSpeed *= _slowPercentage;
+        jumpForce *= _slowPercentage;
+        Invoke(nameof(ReturnDefaultSpeed), _duration);
+    }
+
+    public virtual void ReturnDefaultSpeed()
+    {
+        animator.speed = 1;
+        moveSpeed = defaultMoveSpeed;
+        jumpForce = defaultJumpForce;
     }
 
     public virtual void Die()

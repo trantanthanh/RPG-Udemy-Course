@@ -7,6 +7,7 @@ public class Player : Entity
     [Header("Dash info")]
     [SerializeField] float dashSpeed = 16f;
     [SerializeField] float timeDash = 0.5f;
+    private float defaultDashSpeed = 0f;
 
     [Header("Wall slide jump info")]
     [SerializeField] float yVelocitySlideMulti = 0.7f;
@@ -112,6 +113,8 @@ public class Player : Entity
     {
         base.Start();
         stateMachine.Initialize(idleState);
+
+        defaultDashSpeed = dashSpeed;
     }
 
     // Update is called once per frame
@@ -229,6 +232,19 @@ public class Player : Entity
             }
         }
         return hasEnemy;
+    }
+
+    public override void SlowEntityBy(float _slowPercentage, float _duration)
+    {
+        base.SlowEntityBy(_slowPercentage, _duration);
+        dashSpeed *= _slowPercentage;
+    }
+
+    public override void ReturnDefaultSpeed()
+    {
+        base.ReturnDefaultSpeed();
+
+        dashSpeed = defaultDashSpeed;
     }
     #endregion
 }

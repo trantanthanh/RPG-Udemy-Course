@@ -16,7 +16,7 @@ public class CharacterStats : MonoBehaviour
     public Stat lightningDamage;
 
     public bool isIgnited;//do damage overtime
-    public bool isChilled;//reduce armor by 20%
+    public bool isChilled;//reduce armor by 20%, speed by 50%
     public bool isShocked;//reduce accuracy by 20%
 
     private float igniteTimer;
@@ -43,7 +43,10 @@ public class CharacterStats : MonoBehaviour
     public Stat armor;
     public Stat magicResistance;
 
+    #region Components
+    private Entity entity;
     private EntityFx fx;
+    #endregion
 
     protected int currentHealth;
     public int CurrentHealth { get => currentHealth;}
@@ -55,7 +58,9 @@ public class CharacterStats : MonoBehaviour
     protected virtual void Start()
     {
         currentHealth = maxHealth.GetValue();
+
         fx = GetComponent<EntityFx>();
+        entity = GetComponent<Entity>();
         critPower.SetDefaultValue(150);
         isAlive = true;
     }
@@ -110,6 +115,7 @@ public class CharacterStats : MonoBehaviour
 
     public virtual void DoMagicDamage(CharacterStats _targetStats)
     {
+        if (!IsAlive()) return;
         int _fireDamage = fireDamage.GetValue();
         int _iceDamage = iceDamage.GetValue();
         int _lightningDamage = lightningDamage.GetValue();
@@ -182,6 +188,7 @@ public class CharacterStats : MonoBehaviour
         {
             chillTimer = chillDuration;
             fx.ChillFxFor(chillDuration);
+            entity.SlowEntityBy(0.5f, chillDuration);
         }
         else if (isShocked)
         {
@@ -250,7 +257,7 @@ public class CharacterStats : MonoBehaviour
 
     private void TakeDamageWithoutEffect(int damage)
     {
-        if (!isAlive) return;//already call die()
+        if (!IsAlive()) return;
         onHealthChanged?.Invoke();
         currentHealth -= damage;
         if (currentHealth < 0)
@@ -264,6 +271,5 @@ public class CharacterStats : MonoBehaviour
 
     protected virtual void Die()
     {
-        isAlive = false;
     }
 }

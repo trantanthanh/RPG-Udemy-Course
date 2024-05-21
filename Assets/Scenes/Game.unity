@@ -280,7 +280,7 @@ Transform:
   m_GameObject: {fileID: 477843564}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.010001, y: 1.9039993, z: -10}
+  m_LocalPosition: {x: -4.0100007, y: 1.9039993, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -801,6 +801,10 @@ PrefabInstance:
     - target: {fileID: 3769457940908924336, guid: 6dc9783ef0b839c4b8e75768942054df, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431665946197419970, guid: 6dc9783ef0b839c4b8e75768942054df, type: 3}
+      propertyPath: iceDamage.baseValue
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5304158678741358152, guid: 6dc9783ef0b839c4b8e75768942054df, type: 3}
       propertyPath: m_Name
@@ -46958,7 +46962,7 @@ Transform:
   m_GameObject: {fileID: 2028271758}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.010001, y: 1.9039993, z: -10}
+  m_LocalPosition: {x: -4.0100007, y: 1.9039993, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -46980,6 +46984,10 @@ PrefabInstance:
     - target: {fileID: 3769457940908924336, guid: 6dc9783ef0b839c4b8e75768942054df, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431665946197419970, guid: 6dc9783ef0b839c4b8e75768942054df, type: 3}
+      propertyPath: iceDamage.baseValue
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5304158678741358152, guid: 6dc9783ef0b839c4b8e75768942054df, type: 3}
       propertyPath: m_Name
@@ -47205,6 +47213,10 @@ PrefabInstance:
     - target: {fileID: 3769457940908924336, guid: 6dc9783ef0b839c4b8e75768942054df, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431665946197419970, guid: 6dc9783ef0b839c4b8e75768942054df, type: 3}
+      propertyPath: lightningDamage.baseValue
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5304158678741358152, guid: 6dc9783ef0b839c4b8e75768942054df, type: 3}
       propertyPath: m_Name
