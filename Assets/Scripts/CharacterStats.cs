@@ -31,6 +31,9 @@ public class CharacterStats : MonoBehaviour
     private float shockTimer;
     private float shockDuration = 2f;
 
+    [SerializeField] private GameObject shockStrikePrefab;
+    [SerializeField] private int shockDamage;
+
 
     [Header("Offensive stats")]
     public Stat damage;
@@ -49,7 +52,7 @@ public class CharacterStats : MonoBehaviour
     #endregion
 
     protected int currentHealth;
-    public int CurrentHealth { get => currentHealth;}
+    public int CurrentHealth { get => currentHealth; }
     public System.Action onHealthChanged;
 
     private bool isAlive = true;
@@ -158,7 +161,7 @@ public class CharacterStats : MonoBehaviour
             _targetStats.SetupIgniteDamage(Mathf.RoundToInt(_fireDamage * 0.2f));
         }
 
-        _targetStats.ApplyAilment(_canApplyIgnite, _canApplyChill, _canApplyShock);
+        _targetStats.ApplyAilment(_canApplyIgnite, _canApplyChill, _canApplyShock, shockDamage);
     }
 
     private int CheckTargetMagicResist(CharacterStats targetStats, int totalMagicDamage)
@@ -168,32 +171,52 @@ public class CharacterStats : MonoBehaviour
         return totalMagicDamage;
     }
 
-    public void ApplyAilment(bool _ignite, bool _chill, bool _shock)
+    public void ApplyAilment(bool _ignite, bool _chill, bool _shock, int _shockDamage)
     {
-        if (isIgnited || isChilled || isShocked)
-        {
-            return;//Don't stack Ailment
-        }
+        bool _canApplyIgnite, _canApplyChill, _canApplyShock;
+        _canApplyIgnite = _canApplyChill = !isIgnited && !isChilled && !isShocked;
+        _canApplyShock = !isIgnited && !isChilled;
 
-        isIgnited = _ignite;
-        isChilled = _chill;
-        isShocked = _shock;
-
-        if (isIgnited)
+        if (_ignite && _canApplyIgnite)
         {
+            isIgnited = _ignite;
             igniteTimer = igniteDuration;
             fx.IgniteFxFor(igniteDuration, igniteDamageCoolDown);
         }
-        else if (isChilled)
+
+        if (_chill && _canApplyChill)
         {
+            isChilled = _chill;
             chillTimer = chillDuration;
             fx.ChillFxFor(chillDuration);
             entity.SlowEntityBy(0.5f, chillDuration);
         }
-        else if (isShocked)
+
+        if (_shock && _canApplyShock)
         {
-            shockTimer = shockDuration;
-            fx.ShockFxFor(shockDuration);
+            if (!isShocked)
+            {
+                isShocked = _shock;
+                shockTimer = shockDuration;
+                fx.ShockFxFor(shockDuration);
+            }
+            else
+            {
+                if (_shockDamage > 0)
+                {
+                    //instantiate thunderstrike to nearest enemy target
+                    Transform closestEnemy = PlayerManager.Instance.player.FindClosestEnemy(transform.position, 25, 1f);
+                    if (closestEnemy == null)
+                    {
+                        closestEnemy = transform;//no enemy nearest, shock this target
+                    }
+                    if (closestEnemy != null)
+                    {
+                        GameObject newShockStrike = Instantiate(shockStrikePrefab, transform.position, Quaternion.identity);
+                        newShockStrike.GetComponent<ThunderStrikeController>().Setup(_shockDamage, closestEnemy.GetComponent<CharacterStats>());
+                    }
+                }
+            }
         }
     }
 

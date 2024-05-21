@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class ThunderStrikeController : MonoBehaviour
 {
-    [SerializeField] CharacterStats targetStats;
     [SerializeField] float speed;
+    private CharacterStats targetStats;
+    private int damage;
 
     private Animator animator;
     private bool isDone = false;
@@ -17,13 +18,25 @@ public class ThunderStrikeController : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
     }
 
+    public void Setup(int _damage, CharacterStats _targetStats)
+    {
+        damage = _damage;
+        targetStats = _targetStats;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (isDone || animator == null)
+        CheckMoveAndDamageTarget();
+    }
+
+    private void CheckMoveAndDamageTarget()
+    {
+        if (isDone || !targetStats)
         {
             return;
         }
+
         transform.position = Vector2.MoveTowards(transform.position, targetStats.transform.position, speed * Time.deltaTime);
         transform.right = (targetStats.transform.position - transform.position).normalized;
         if (Vector2.Distance(transform.position, targetStats.transform.position) < 0.1f)
@@ -40,7 +53,7 @@ public class ThunderStrikeController : MonoBehaviour
 
     private void DamageAndSelfDestroy()
     {
-        targetStats.TakeDamage(1);
+        targetStats.TakeDamage(damage);
         animator.SetTrigger("Hit");
         Destroy(gameObject, 0.4f);
     }

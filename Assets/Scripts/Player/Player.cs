@@ -179,7 +179,7 @@ public class Player : Entity
     }
 
     #region Utilities
-    public Transform FindClosestEnemy(Vector3 _position, float _radius)
+    public Transform FindClosestEnemy(Vector3 _position, float _radius, float _minRange = -1f)
     {
         Transform _closestEnemy = null;
         Collider2D[] colliders = Physics2D.OverlapCircleAll(_position, _radius, enemyMask);
@@ -191,6 +191,10 @@ public class Player : Entity
             if (_enemy != null)
             {
                 float _distance = Vector2.Distance(_position, _enemy.transform.position);
+                if (_minRange > 0 && _distance < _minRange)
+                {
+                    continue;
+                }
                 if (_closestDistance > _distance)
                 {
                     _closestDistance = _distance;
