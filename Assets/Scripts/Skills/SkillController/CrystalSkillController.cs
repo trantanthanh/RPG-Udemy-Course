@@ -84,7 +84,7 @@ public class CrystalSkillController : MonoBehaviour
 
     private void AnimationExplodeEvent()
     {
-        PlayerManager.Instance.player.DoDamageEnemiesInCircle(transform.position, circleCollider.radius);
+        PlayerManager.Instance.player.DoDamageEnemiesInCircle(transform.position, circleCollider.radius, true);//Do magical damage
     }
 
     private void SelfDestroy() => Destroy(gameObject);

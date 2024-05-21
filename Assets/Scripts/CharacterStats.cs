@@ -202,6 +202,7 @@ public class CharacterStats : MonoBehaviour
             }
             else
             {
+                if (GetComponent<Player>() != null) return;//not apply to player
                 if (_shockDamage > 0)
                 {
                     //instantiate thunderstrike to nearest enemy target
