@@ -115,7 +115,7 @@ public class CharacterStats : MonoBehaviour
 
     public virtual void DoMagicDamage(CharacterStats _targetStats)
     {
-        if (!IsAlive()) return;
+        if (!isAlive) return;
         int _fireDamage = fireDamage.GetValue();
         int _iceDamage = iceDamage.GetValue();
         int _lightningDamage = lightningDamage.GetValue();
@@ -247,17 +247,17 @@ public class CharacterStats : MonoBehaviour
 
     public bool IsAlive()
     {
-        return currentHealth > 0;
+        return isAlive;
     }
 
-    protected virtual void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
         TakeDamageWithoutEffect(damage);
     }
 
     private void TakeDamageWithoutEffect(int damage)
     {
-        if (!IsAlive()) return;
+        if (!isAlive) return;
         onHealthChanged?.Invoke();
         currentHealth -= damage;
         if (currentHealth < 0)
@@ -271,5 +271,6 @@ public class CharacterStats : MonoBehaviour
 
     protected virtual void Die()
     {
+        isAlive = false;
     }
 }

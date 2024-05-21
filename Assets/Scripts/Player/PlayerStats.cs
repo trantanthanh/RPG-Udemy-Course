@@ -10,7 +10,7 @@ public class PlayerStats : CharacterStats
         base.Start();
         player = GetComponent<Player>();
     }
-    protected override void TakeDamage(int damage)
+    public override void TakeDamage(int damage)
     {
         base.TakeDamage(damage);
         if (currentHealth > 0)

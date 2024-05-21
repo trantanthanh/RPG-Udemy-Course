@@ -10,7 +10,7 @@ public class EnemyStats : CharacterStats
         base.Start();
         enemy = GetComponent<Enemy>();
     }
-    protected override void TakeDamage(int damage)
+    public override void TakeDamage(int damage)
     {
         base.TakeDamage(damage);
         if (IsAlive())

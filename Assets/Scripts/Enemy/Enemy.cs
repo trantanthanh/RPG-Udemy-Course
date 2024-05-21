@@ -69,10 +69,7 @@ public class Enemy : Entity, IAnimationDoneTrigger
         return false;
     }
 
-    public virtual void AssignLastAnimName(string _lastAnimBoolName)
-    {
-        lastAnimBoolName = _lastAnimBoolName;
-    }
+    public virtual void AssignLastAnimName(string _lastAnimBoolName) => lastAnimBoolName = _lastAnimBoolName;
 
     public override void Die()
     {
