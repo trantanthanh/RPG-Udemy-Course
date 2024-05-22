@@ -17,7 +17,7 @@ public class ItemObject : MonoBehaviour
     {
         if (collision.GetComponent<Player>() != null)
         {
-            Debug.Log("Item collected " + itemData.itemName);
+            Inventory.Instance.AddItem(itemData);
             Destroy(gameObject);
         }
     }
