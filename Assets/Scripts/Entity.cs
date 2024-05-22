@@ -147,18 +147,6 @@ public class Entity : MonoBehaviour
         isBusy = false;
     }
 
-    public void MakeTransparent(bool _isTransparent)
-    {
-        if (_isTransparent)
-        {
-            spriteRenderer.color = Color.clear;
-        }
-        else
-        {
-            spriteRenderer.color = Color.white;
-        }
-    }
-
     public virtual void SlowEntityBy(float _slowPercentage, float _duration)
     {
         animator.speed *= (1 - _slowPercentage);

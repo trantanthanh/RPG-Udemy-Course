@@ -121,7 +121,7 @@ public class BlackHoleSkillController : MonoBehaviour
     private void BlackHoleDone()
     {
         playerCanExitState = true;
-        player.MakeTransparent(false);
+        player.fx.MakeTransparent(false);
         canShrink = true;
     }
 
@@ -129,7 +129,7 @@ public class BlackHoleSkillController : MonoBehaviour
     {
         if (!SkillManager.Instance.clone.CrystalInsteadOfClone)
         {
-            player.MakeTransparent(true);
+            player.fx.MakeTransparent(true);
         }
 
         canCreateHotkey = false;

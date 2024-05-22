@@ -131,6 +131,18 @@ public class CharacterStats : MonoBehaviour
             return;
         }
 
+        AttempToApplyAilment(_targetStats, _fireDamage, _iceDamage, _lightningDamage);
+    }
+
+    private int CheckTargetMagicResist(CharacterStats targetStats, int totalMagicDamage)
+    {
+        totalMagicDamage -= targetStats.magicResistance.GetValue() + targetStats.inteligence.GetValue() * 3;
+        totalMagicDamage = Mathf.Clamp(totalMagicDamage, 0, int.MaxValue);
+        return totalMagicDamage;
+    }
+
+    private void AttempToApplyAilment(CharacterStats _targetStats, int _fireDamage, int _iceDamage, int _lightningDamage)
+    {
         bool _canApplyIgnite = _fireDamage > _iceDamage && _fireDamage > _lightningDamage;
         bool _canApplyChill = _iceDamage > _fireDamage && _iceDamage > _lightningDamage;
         bool _canApplyShock = _lightningDamage > _fireDamage && _lightningDamage > _iceDamage;
@@ -162,13 +174,6 @@ public class CharacterStats : MonoBehaviour
         }
 
         _targetStats.ApplyAilment(_canApplyIgnite, _canApplyChill, _canApplyShock, shockDamage);
-    }
-
-    private int CheckTargetMagicResist(CharacterStats targetStats, int totalMagicDamage)
-    {
-        totalMagicDamage -= targetStats.magicResistance.GetValue() + targetStats.inteligence.GetValue() * 3;
-        totalMagicDamage = Mathf.Clamp(totalMagicDamage, 0, int.MaxValue);
-        return totalMagicDamage;
     }
 
     public void ApplyAilment(bool _ignite, bool _chill, bool _shock, int _shockDamage)

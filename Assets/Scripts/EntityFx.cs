@@ -101,6 +101,18 @@ public class EntityFx : MonoBehaviour
         }
     }
 
+    public void MakeTransparent(bool _isTransparent)
+    {
+        if (_isTransparent)
+        {
+            spriteRenderer.color = Color.clear;
+        }
+        else
+        {
+            spriteRenderer.color = Color.white;
+        }
+    }
+
     public void CancelColorChange()
     {
         CancelInvoke();
