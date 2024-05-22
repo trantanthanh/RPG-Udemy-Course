@@ -90,11 +90,9 @@ public class Entity : MonoBehaviour
     {
     }
 
-    public virtual void DamageEffect()
-    {
-        fx.StartCoroutine("FlashFx");
-        StartCoroutine("KnockBackHit");
-    }
+    public virtual void DamageImpact() => StartCoroutine("KnockBackHit");
+
+    public virtual void DamageEffect() => fx.StartCoroutine("FlashFx");
 
     protected virtual IEnumerator KnockBackHit()
     {

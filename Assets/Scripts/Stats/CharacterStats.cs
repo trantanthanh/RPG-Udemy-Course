@@ -113,7 +113,7 @@ public class CharacterStats : MonoBehaviour
 
         _targetStats.TakeDamage(totalDamage);//Apply damage to target
 
-        DoMagicDamage(_targetStats);
+        //DoMagicDamage(_targetStats);
     }
 
     public virtual void DoMagicDamage(CharacterStats _targetStats)

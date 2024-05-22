@@ -22,9 +22,9 @@ public class EnemySkeleton : Enemy
         return false;
     }
 
-    public override void DamageEffect()
+    public override void DamageImpact()
     {
-        base.DamageEffect();
+        base.DamageImpact();
         Debug.Log("Skeleton has damaged");
     }
     #endregion

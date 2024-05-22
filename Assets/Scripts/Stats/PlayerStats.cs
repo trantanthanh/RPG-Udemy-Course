@@ -2,27 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyStats : CharacterStats
+public class PlayerStats : CharacterStats
 {
-    Enemy enemy;
+    private Player player;
     protected override void Start()
     {
         base.Start();
-        enemy = GetComponent<Enemy>();
+        player = GetComponent<Player>();
     }
     public override void TakeDamage(int damage)
     {
         base.TakeDamage(damage);
-        if (IsAlive())
+        if (currentHealth > 0)
         {
-            enemy.DamageEffect();
+            player.DamageImpact();
+            player.DamageEffect();
         }
+
     }
 
     protected override void Die()
     {
         base.Die();
-        enemy.Die();
+        player.Die();
     }
 
     public override void DoDamage(CharacterStats _targetStats)
