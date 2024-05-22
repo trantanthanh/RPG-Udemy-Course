@@ -7,8 +7,12 @@ public class Inventory : MonoBehaviour
     public static Inventory Instance;
     public List<InventoryItem> inventoryItems = new List<InventoryItem>();
     public Dictionary<ItemData, InventoryItem> inventoryDictionary = new Dictionary<ItemData, InventoryItem>();
+
+    [Header("Inventory UI")]
+    [SerializeField] private Transform inventorySlotParent;//this parent (like container) hold all of item slots
+    private UI_ItemSlot[] itemSlot;
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         if (Instance == null)
         {
@@ -16,6 +20,19 @@ public class Inventory : MonoBehaviour
             return;
         }
         Destroy(gameObject);
+    }
+
+    void Start()
+    {
+        itemSlot = inventorySlotParent.GetComponentsInChildren<UI_ItemSlot>();
+    }
+
+    private void UpdateSlotUI()
+    {
+        for (int i = 0; i < inventoryItems.Count; i++)
+        {
+            itemSlot[i].UpdateSlot(inventoryItems[i]);
+        }
     }
 
     public void AddItem(ItemData _item)
@@ -30,6 +47,8 @@ public class Inventory : MonoBehaviour
             inventoryItems.Add(newItem);
             inventoryDictionary.Add(_item, newItem);
         }
+
+        UpdateSlotUI();
     }
     public void RemoveItem(ItemData _item)
     {
@@ -45,5 +64,7 @@ public class Inventory : MonoBehaviour
                 value.RemoveStack();
             }
         }
+
+        UpdateSlotUI();
     }
 }

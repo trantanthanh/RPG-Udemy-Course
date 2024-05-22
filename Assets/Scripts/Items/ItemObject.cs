@@ -5,12 +5,11 @@ using UnityEngine;
 public class ItemObject : MonoBehaviour
 {
     [SerializeField] ItemData itemData;
-    private SpriteRenderer spriteRenderer;
 
-    private void Start()
+    private void OnValidate()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = itemData.icon;
+        GetComponent<SpriteRenderer>().sprite = itemData.icon;
+        gameObject.name = "Item object - " + itemData.itemName;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
