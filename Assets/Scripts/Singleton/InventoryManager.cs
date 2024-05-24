@@ -6,18 +6,18 @@ using UnityEngine;
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
-    public List<InventoryItem> inventoryItems = new List<InventoryItem>();//list of all equiptment items
+    public List<InventoryItem> inventory = new List<InventoryItem>();//list of all equiptment items
     public Dictionary<ItemData, InventoryItem> inventoryDictionary = new Dictionary<ItemData, InventoryItem>();
 
-    public List<InventoryItem> stashItems = new List<InventoryItem>();//list of all materials items
+    public List<InventoryItem> stash = new List<InventoryItem>();//list of all materials items
     public Dictionary<ItemData, InventoryItem> stashDictionary = new Dictionary<ItemData, InventoryItem>();
 
     [Header("Inventory UI")]
     [SerializeField] private Transform inventorySlotParent;//this parent (like container) hold all of equipment item slots
     [SerializeField] private Transform stashSlotParent;//this parent (like container) hold all of material item slots
 
-    private UI_ItemSlot[] inventoryItemSlot;//for the equipment items
-    private UI_ItemSlot[] stashItemSlot;//for the material items
+    private UI_ItemSlot[] inventorySlots;//for the equipment items
+    private UI_ItemSlot[] stashSlots;//for the material items
     // Start is called before the first frame update
     private void Awake()
     {
@@ -31,20 +31,20 @@ public class InventoryManager : MonoBehaviour
 
     void Start()
     {
-        inventoryItemSlot = inventorySlotParent.GetComponentsInChildren<UI_ItemSlot>();
-        stashItemSlot = stashSlotParent.GetComponentsInChildren<UI_ItemSlot>();
+        inventorySlots = inventorySlotParent.GetComponentsInChildren<UI_ItemSlot>();
+        stashSlots = stashSlotParent.GetComponentsInChildren<UI_ItemSlot>();
     }
 
     private void UpdateSlotUI()
     {
-        for (int i = 0; i < inventoryItems.Count; i++)
+        for (int i = 0; i < inventory.Count; i++)
         {
-            inventoryItemSlot[i].UpdateSlot(inventoryItems[i]);
+            inventorySlots[i].UpdateSlot(inventory[i]);
         }
 
-        for (int i = 0; i < stashItems.Count; i++)
+        for (int i = 0; i < stash.Count; i++)
         {
-            stashItemSlot[i].UpdateSlot(stashItems[i]);
+            stashSlots[i].UpdateSlot(stash[i]);
         }
     }
 
@@ -52,11 +52,11 @@ public class InventoryManager : MonoBehaviour
     {
         if (_item.itemType == ItemType.Equipment)
         {
-            SeparateItem(_item, inventoryItems, inventoryDictionary);
+            SeparateItem(_item, inventory, inventoryDictionary);
         }
         else if (_item.itemType == ItemType.Material)
         {
-            SeparateItem(_item, stashItems, stashDictionary);
+            SeparateItem(_item, stash, stashDictionary);
         }
         UpdateSlotUI();
     }
@@ -78,11 +78,11 @@ public class InventoryManager : MonoBehaviour
     {
         if (_item.itemType == ItemType.Equipment)
         {
-            RemoveSeparateItem(_item, inventoryItems, inventoryDictionary);
+            RemoveSeparateItem(_item, inventory, inventoryDictionary);
         }
         else if (_item.itemType == ItemType.Material)
         {
-            RemoveSeparateItem(_item, stashItems, stashDictionary);
+            RemoveSeparateItem(_item, stash, stashDictionary);
         }
 
         UpdateSlotUI();

@@ -1557,8 +1557,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f20049fe40a93b46915c24ddcad427a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryItems: []
-  stashItems: []
+  inventory: []
+  stash: []
   inventorySlotParent: {fileID: 599424447}
   stashSlotParent: {fileID: 1946857827}
 --- !u!1 &599424446
