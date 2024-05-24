@@ -2,6 +2,7 @@ using System;
 
 
 //this class for item show in inventory
+//have data info of item and number stack of that item
 [Serializable]
 public class InventoryItem
 {

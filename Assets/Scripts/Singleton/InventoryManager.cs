@@ -6,6 +6,10 @@ using UnityEngine;
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
+
+    public List<InventoryItem> equipment = new List<InventoryItem>();
+    public Dictionary<ItemData, InventoryItem> equipmentDictionary = new Dictionary<ItemData, InventoryItem>();
+
     public List<InventoryItem> inventory = new List<InventoryItem>();//list of all equiptment items
     public Dictionary<ItemData, InventoryItem> inventoryDictionary = new Dictionary<ItemData, InventoryItem>();
 
@@ -48,54 +52,63 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    public void EquipItem(ItemData _item)
+    {
+        InventoryItem newItem = new InventoryItem(_item);
+        equipment.Add(newItem);
+        equipmentDictionary.Add(_item, newItem);
+    }
+
     public void AddItem(ItemData _item)
     {
         if (_item.itemType == ItemType.Equipment)
         {
-            SeparateItem(_item, inventory, inventoryDictionary);
+            AddToInventory(_item);
         }
         else if (_item.itemType == ItemType.Material)
         {
-            SeparateItem(_item, stash, stashDictionary);
+            AddToStash(_item);
         }
         UpdateSlotUI();
     }
 
-    private void SeparateItem(ItemData _item, List<InventoryItem> _kindListItems, Dictionary<ItemData, InventoryItem> _kindDictionary)
+    public void RemoveItem(ItemData _item)
     {
-        if (_kindDictionary.TryGetValue(_item, out InventoryItem value))
+        if (_item.itemType == ItemType.Equipment)
+        {
+            RemoveItemFromInventory(_item);
+        }
+        else if (_item.itemType == ItemType.Material)
+        {
+            RemoveItemFromStash(_item);
+        }
+
+
+        UpdateSlotUI();
+    }
+
+    #region Stash
+    private void AddToStash(ItemData _item)
+    {
+        if (stashDictionary.TryGetValue(_item, out InventoryItem value))
         {
             value.AddStack();
         }
         else
         {
             InventoryItem newItem = new InventoryItem(_item);
-            _kindListItems.Add(newItem);
-            _kindDictionary.Add(_item, newItem);
+            stash.Add(newItem);
+            stashDictionary.Add(_item, newItem);
         }
     }
-    public void RemoveItem(ItemData _item)
+    private void RemoveItemFromStash(ItemData _item)
     {
-        if (_item.itemType == ItemType.Equipment)
-        {
-            RemoveSeparateItem(_item, inventory, inventoryDictionary);
-        }
-        else if (_item.itemType == ItemType.Material)
-        {
-            RemoveSeparateItem(_item, stash, stashDictionary);
-        }
-
-        UpdateSlotUI();
-    }
-
-    private void RemoveSeparateItem(ItemData _item, List<InventoryItem> _kindListItems, Dictionary<ItemData, InventoryItem> _kindDictionary)
-    {
-        if (_kindDictionary.TryGetValue(_item, out InventoryItem value))
+        if (stashDictionary.TryGetValue(_item, out InventoryItem value))
         {
             if (value.stackSize <= 1)
             {
-                _kindListItems.Remove(value);
-                _kindDictionary.Remove(_item);
+                stash.Remove(value);
+                stashDictionary.Remove(_item);
             }
             else
             {
@@ -103,4 +116,37 @@ public class InventoryManager : MonoBehaviour
             }
         }
     }
+    #endregion
+
+    #region Inventory
+    private void AddToInventory(ItemData _item)
+    {
+        if (inventoryDictionary.TryGetValue(_item, out InventoryItem value))
+        {
+            value.AddStack();
+        }
+        else
+        {
+            InventoryItem newItem = new InventoryItem(_item);
+            inventory.Add(newItem);
+            inventoryDictionary.Add(_item, newItem);
+        }
+    }
+
+    private void RemoveItemFromInventory(ItemData _item)
+    {
+        if (inventoryDictionary.TryGetValue(_item, out InventoryItem value))
+        {
+            if (value.stackSize <= 1)
+            {
+                inventory.Remove(value);
+                inventoryDictionary.Remove(_item);
+            }
+            else
+            {
+                value.RemoveStack();
+            }
+        }
+    }
+    #endregion
 }

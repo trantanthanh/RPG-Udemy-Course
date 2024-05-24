@@ -1,9 +1,10 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 //update info of item to slot in inventory
-public class UI_ItemSlot : MonoBehaviour
+public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField] Image itemImage;
     [SerializeField] TextMeshProUGUI itemText;
@@ -29,6 +30,18 @@ public class UI_ItemSlot : MonoBehaviour
         else
         {
             itemText.text = "";
+        }
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        if (item != null)
+        {
+            if (item.data.itemType == ItemType.Equipment)
+            {
+                Debug.Log("Equiped new item - " + item.data.itemName);
+                InventoryManager.Instance.EquipItem(item.data);
+            }
         }
     }
 }
