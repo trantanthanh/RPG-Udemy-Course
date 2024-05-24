@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //for manager collect item and remove item in out inventory
-public class Inventory : MonoBehaviour
+public class InventoryManager : MonoBehaviour
 {
-    public static Inventory Instance;
+    public static InventoryManager Instance;
     public List<InventoryItem> inventoryItems = new List<InventoryItem>();//list of all equiptment items
     public Dictionary<ItemData, InventoryItem> inventoryDictionary = new Dictionary<ItemData, InventoryItem>();
 
