@@ -1,5 +1,7 @@
 using System;
 
+
+//this class for item show in inventory
 [Serializable]
 public class InventoryItem
 {

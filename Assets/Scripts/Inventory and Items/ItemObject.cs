@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//This class for items to collect in game scene
 public class ItemObject : MonoBehaviour
 {
     [SerializeField] ItemData itemData;

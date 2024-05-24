@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+//update info of item to slot in inventory
 public class UI_ItemSlot : MonoBehaviour
 {
     [SerializeField] Image itemImage;
