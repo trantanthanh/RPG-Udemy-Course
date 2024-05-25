@@ -1,0 +1,144 @@
+@startuml
+class Entity {
+    -GameObject groundCheckStartPoint
+    -GameObject wallCheckStartPoint
+    +Transform attackCheck
+    +float attackCheckRadius
+
+    +int facingDir { get; private set; } = 1
+    -bool isFacingRight = true
+
+    +Animator animator
+    +void DamageImpact()
+    +void DamageEffect()
+    +IEnumerator KnockBackHit()
+    +void Flip()
+    +void FlipController(float _xVelocity)
+    +void SetVelocity(float _xVelocity, float yVelocity)
+    +bool IsGroundDetected()
+    +bool IsFaceWallDetected()
+    +void SlowEntityBy(float _slowPercentage, float _duration)
+    +void ReturnDefaultSpeed()
+    +void Die()
+}
+class Player {
+
+    -LayerMask enemyMask
+    +PlayerStateMachine stateMachine
+
+    +void Jump()
+    +void AnimationDoneTrigger()
+    +void DamageImpact()
+    +Transform FindClosestEnemy(Vector3 _position, float _radius, float _minRange = -1f)
+    +Transform FindRandomEnemy(Vector3 _position, float _radius)
+    +Transform DoDamageEnemiesInCircle(Vector3 _position, float _radius, bool _isMagicalDamage = false)
+}
+
+Entity <|-- Player
+
+PlayerStateMachine --o Player:stateMachine 
+
+class PlayerState {
+    #Player player
+    #PlayerStateMachine stateMachine
+    #Rigidbody2D rb
+    #float timerState = -1f
+    #bool triggerCalled = false
+
+    -string animName
+
+    #float xInput
+    #float yInput
+
+    +PlayerState(Player _player, playerStateMachine _stateMachine, string _animName)
+    +void Enter()
+    +void Update()
+    +void Exit()
+    +void AnimationDoneTrigger()
+}
+
+class PlayerStateMachine {
+    +PlayerState currentState { get; private set; }
+
+    +void Initialize(PlayerState _startState)
+    +void ChangeState(PlayerState _newState)
+}
+
+PlayerState --> PlayerStateMachine : stateMachine
+
+class PlayerGroundedState {
+    +PlayerGroundedState(Player _player, playerStateMachine _stateMachine, string _animName)
+    +void Enter()
+    +void Update()
+    +void Exit()
+    -bool HasNoSword()
+}
+
+PlayerGroundedState --|> PlayerState
+
+class PlayerIdleState {
+}
+
+class PlayerMoveState {
+}
+
+PlayerIdleState --|> PlayerGroundedState
+PlayerMoveState --|> PlayerGroundedState
+
+class PlayerAimSwordState {
+}
+class PlayerAirState {
+}
+class PlayerBlackHoleState {
+}
+class PlayerCatchSwordState {
+}
+class PlayerCounterAttackState {
+}
+class PlayerDashState {
+}
+class PlayerDeadState {
+}
+class PlayerJumpState {
+}
+class PlayerPrimaryAttackState {
+}
+class PlayerWallJumpState {
+}
+class PlayerWallSlideState {
+}
+
+PlayerAimSwordState --|> PlayerState
+PlayerAirState --|> PlayerState
+PlayerBlackHoleState --|> PlayerState
+PlayerCatchSwordState --|> PlayerState
+PlayerCounterAttackState --|> PlayerState
+PlayerDashState --|> PlayerState
+PlayerDeadState --|> PlayerState
+PlayerJumpState --|> PlayerState
+PlayerPrimaryAttackState --|> PlayerState
+PlayerWallJumpState --|> PlayerState
+PlayerWallSlideState --|> PlayerState
+
+class Enemy {
+    +float stunDuration
+    +Vector2 stunDirection
+    -GameObject counterImage
+    -bool canBeStunned = false
+
+    +float idleTime
+    -LayerMask playerMask
+    -GameObject playerCheckStartPoint
+    -float distancePlayerCheck
+    -float distanceAttack
+
+    +void OpenCounterAttack()
+    +void CloseCounterAttack()
+    +bool CanBeStunned()
+    +bool CanAttack()
+    +RaycastHit2D IsPlayerDetected()
+    +void DoDamagePlayerInCircle(Vector3 _position, float _radius)
+}
+
+Entity <|-- Enemy
+@enduml

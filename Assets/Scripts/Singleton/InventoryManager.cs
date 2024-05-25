@@ -8,7 +8,7 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager Instance;
 
     public List<InventoryItem> equipment = new List<InventoryItem>();
-    public Dictionary<ItemData, InventoryItem> equipmentDictionary = new Dictionary<ItemData, InventoryItem>();
+    public Dictionary<ItemData_Equipment, InventoryItem> equipmentDictionary = new Dictionary<ItemData_Equipment, InventoryItem>();
 
     public List<InventoryItem> inventory = new List<InventoryItem>();//list of all equiptment items
     public Dictionary<ItemData, InventoryItem> inventoryDictionary = new Dictionary<ItemData, InventoryItem>();
@@ -54,9 +54,13 @@ public class InventoryManager : MonoBehaviour
 
     public void EquipItem(ItemData _item)
     {
+        ItemData_Equipment itemEquipment = _item as ItemData_Equipment;
         InventoryItem newItem = new InventoryItem(_item);
+
+
+
         equipment.Add(newItem);
-        equipmentDictionary.Add(_item, newItem);
+        //equipmentDictionary.Add(_item, newItem);
     }
 
     public void AddItem(ItemData _item)
