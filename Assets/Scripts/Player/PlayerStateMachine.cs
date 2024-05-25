@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class PlayerSateMachine
+public class PlayerStateMachine
 {
     public PlayerState currentState {  get; private set; }
 

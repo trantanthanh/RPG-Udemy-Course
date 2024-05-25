@@ -7,7 +7,7 @@ public class PlayerBlackHoleState : PlayerState
     private float flyTime = 0.4f;
     private bool skillUsed = false;
     private float gravityBackup;
-    public PlayerBlackHoleState(Player _player, PlayerSateMachine _stateMachine, string _animName) : base(_player, _stateMachine, _animName)
+    public PlayerBlackHoleState(Player _player, PlayerStateMachine _stateMachine, string _animName) : base(_player, _stateMachine, _animName)
     {
     }
 

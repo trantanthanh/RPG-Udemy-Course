@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerCounterAttackState : PlayerState
 {
     private bool canCreateClone;
-    public PlayerCounterAttackState(Player _player, PlayerSateMachine _stateMachine, string _animName) : base(_player, _stateMachine, _animName)
+    public PlayerCounterAttackState(Player _player, PlayerStateMachine _stateMachine, string _animName) : base(_player, _stateMachine, _animName)
     {
     }
 

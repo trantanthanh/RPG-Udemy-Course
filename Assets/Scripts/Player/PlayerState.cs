@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerState
 {
     protected Player player;
-    protected PlayerSateMachine stateMachine;
+    protected PlayerStateMachine stateMachine;
     protected Rigidbody2D rb;
     protected float timerState = -1f;
     protected bool triggerCalled = false;
@@ -14,7 +14,7 @@ public class PlayerState
 
     protected float xInput;
     protected float yInput;
-    public PlayerState(Player _player, PlayerSateMachine _stateMachine, string _animName)
+    public PlayerState(Player _player, PlayerStateMachine _stateMachine, string _animName)
     {
         this.player = _player;
         this.stateMachine = _stateMachine;

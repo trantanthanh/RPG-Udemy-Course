@@ -9,7 +9,7 @@ public class PlayerPrimaryAttackState : PlayerState
     private float timeCombo= 1f;//next attack must below this value to increase comboCounter;
     private float timeNextAttack = 0f;
 
-    public PlayerPrimaryAttackState(Player _player, PlayerSateMachine _stateMachine, string _animName) : base(_player, _stateMachine, _animName)
+    public PlayerPrimaryAttackState(Player _player, PlayerStateMachine _stateMachine, string _animName) : base(_player, _stateMachine, _animName)
     {
     }
 
