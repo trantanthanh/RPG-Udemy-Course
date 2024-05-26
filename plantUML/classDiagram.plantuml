@@ -21,10 +21,25 @@ class Entity {
     +void ReturnDefaultSpeed()
     +void Die()
 }
-class Player {
 
+class Player extends Entity {
     -LayerMask enemyMask
     +PlayerStateMachine stateMachine
+
+    +PlayerSateMachine stateMachine
+    +PlayerIdleState idleState
+    +PlayerMoveState moveState
+    +PlayerJumpState jumpState
+    +PlayerAirState airState
+    +PlayerDashState dashState
+    +PlayerWallSlideState wallSlideState
+    +PlayerWallJumpState wallJumpState
+    +PlayerPrimaryAttackState primaryAttackState
+    +PlayerCounterAttackState counterAttackState
+    +PlayerCatchSwordState catchSwordState
+    +PlayerAimSwordState aimSwordState
+    +PlayerBlackHoleState blackHoleState
+    +PlayerDeadState deadState
 
     +void Jump()
     +void AnimationDoneTrigger()
@@ -33,10 +48,6 @@ class Player {
     +Transform FindRandomEnemy(Vector3 _position, float _radius)
     +Transform DoDamageEnemiesInCircle(Vector3 _position, float _radius, bool _isMagicalDamage = false)
 }
-
-Entity <|-- Player
-
-PlayerStateMachine --o Player:stateMachine 
 
 class PlayerState {
     #Player player
@@ -64,7 +75,6 @@ class PlayerStateMachine {
     +void ChangeState(PlayerState _newState)
 }
 
-PlayerState --> PlayerStateMachine : stateMachine
 
 class PlayerGroundedState {
     +PlayerGroundedState(Player _player, playerStateMachine _stateMachine, string _animName)
@@ -74,53 +84,22 @@ class PlayerGroundedState {
     -bool HasNoSword()
 }
 
-PlayerGroundedState --|> PlayerState
+'Player states
+class PlayerIdleState extends PlayerGroundedState {}
+class PlayerMoveState extends PlayerGroundedState {}
+class PlayerAimSwordState extends PlayerState {}
+class PlayerAirState extends PlayerState {}
+class PlayerBlackHoleState extends PlayerState {}
+class PlayerCatchSwordState extends PlayerState {}
+class PlayerCounterAttackState extends PlayerState {}
+class PlayerDashState extends PlayerState {}
+class PlayerDeadState extends PlayerState {}
+class PlayerJumpState extends PlayerState {}
+class PlayerPrimaryAttackState extends PlayerState {}
+class PlayerWallJumpState extends PlayerState {}
+class PlayerWallSlideState extends PlayerState {}
 
-class PlayerIdleState {
-}
-
-class PlayerMoveState {
-}
-
-PlayerIdleState --|> PlayerGroundedState
-PlayerMoveState --|> PlayerGroundedState
-
-class PlayerAimSwordState {
-}
-class PlayerAirState {
-}
-class PlayerBlackHoleState {
-}
-class PlayerCatchSwordState {
-}
-class PlayerCounterAttackState {
-}
-class PlayerDashState {
-}
-class PlayerDeadState {
-}
-class PlayerJumpState {
-}
-class PlayerPrimaryAttackState {
-}
-class PlayerWallJumpState {
-}
-class PlayerWallSlideState {
-}
-
-PlayerAimSwordState --|> PlayerState
-PlayerAirState --|> PlayerState
-PlayerBlackHoleState --|> PlayerState
-PlayerCatchSwordState --|> PlayerState
-PlayerCounterAttackState --|> PlayerState
-PlayerDashState --|> PlayerState
-PlayerDeadState --|> PlayerState
-PlayerJumpState --|> PlayerState
-PlayerPrimaryAttackState --|> PlayerState
-PlayerWallJumpState --|> PlayerState
-PlayerWallSlideState --|> PlayerState
-
-class Enemy {
+class Enemy extends Entity {
     +float stunDuration
     +Vector2 stunDirection
     -GameObject counterImage
@@ -140,5 +119,14 @@ class Enemy {
     +void DoDamagePlayerInCircle(Vector3 _position, float _radius)
 }
 
-Entity <|-- Enemy
+note top of PlayerStateMachine:use to manager player states:Enter, Update, Exit \nand Switch between Player's states
+
+' Relations ship
+PlayerState --> PlayerStateMachine : stateMachine
+PlayerStateMachine --* Player:stateMachine
+PlayerGroundedState --|> PlayerState
+
+PlayerState --* Player
+Player --> SkillManager
+SkillManager --> Skill
 @enduml

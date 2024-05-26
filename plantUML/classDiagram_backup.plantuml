@@ -1,0 +1,90 @@
+@startuml
+
+class Player {
+    +SkillManager skills
+    +GameObject sword
+    +PlayerStateMachine stateMachine
+    +PlayerState idleState
+    +PlayerState moveState
+    +PlayerState jumpState
+    +PlayerState airState
+    +PlayerState dashState
+    +PlayerState wallSlideState
+    +PlayerState wallJumpState
+    +PlayerState primaryAttackState
+    +PlayerState counterAttackState
+    +PlayerState catchSwordState
+    +PlayerState aimSwordState
+    +PlayerState blackHoleState
+    +PlayerState deadState
+    +void Awake()
+    +void Start()
+    +void Update()
+    +void Jump()
+    +void AnimationDoneTrigger()
+    +void DamageImpact()
+    +void AssignNewSword(GameObject newSword)
+    +void CatchTheSword()
+    +void DestroySword()
+    +void Die()
+    +Transform FindClosestEnemy(Vector3 position, float radius, float minRange)
+    +Transform FindRandomEnemy(Vector3 position, float radius)
+    +Transform DoDamageEnemiesInCircle(Vector3 position, float radius, bool isMagicalDamage)
+    +void SlowEntityBy(float slowPercentage, float duration)
+    +void ReturnDefaultSpeed()
+}
+
+class PlayerStateMachine {
+    +PlayerState currentState
+    +void Initialize(PlayerState startState)
+    +void ChangeState(PlayerState newState)
+}
+
+class PlayerState {
+    +Player player
+    +PlayerStateMachine stateMachine
+    +Rigidbody2D rb
+    +float xInput
+    +float yInput
+    +void Enter()
+    +void Update()
+    +void Exit()
+    +void AnimationDoneTrigger()
+}
+
+Player --|> Entity
+PlayerStateMachine --* PlayerState
+Player --* PlayerStateMachine
+Player --* PlayerState
+
+class PlayerGroundedState {
+    +void Enter()
+    +void Exit()
+    +void Update()
+}
+
+class PlayerIdleState {
+    +void Enter()
+    +void Exit()
+    +void Update()
+}
+
+PlayerGroundedState --|> PlayerState
+PlayerIdleState --|> PlayerGroundedState
+
+Player --* PlayerGroundedState
+Player --* PlayerIdleState
+Player --* PlayerMoveState
+Player --* PlayerJumpState
+Player --* PlayerAirState
+Player --* PlayerDashState
+Player --* PlayerWallSlideState
+Player --* PlayerWallJumpState
+Player --* PlayerPrimaryAttackState
+Player --* PlayerCounterAttackState
+Player --* PlayerCatchSwordState
+Player --* PlayerAimSwordState
+Player --* PlayerBlackHoleState
+Player --* PlayerDeadState
+
+@enduml
