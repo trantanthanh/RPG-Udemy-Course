@@ -44,4 +44,12 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler
             }
         }
     }
+
+    public void CleanupSlot()
+    {
+        item = null;
+        itemImage.sprite = null;
+        itemImage.color = Color.clear;
+        itemText.text = "";
+    }
 }

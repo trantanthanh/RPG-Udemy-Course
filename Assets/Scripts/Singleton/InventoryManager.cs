@@ -41,6 +41,16 @@ public class InventoryManager : MonoBehaviour
 
     private void UpdateSlotUI()
     {
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            inventorySlots[i].CleanupSlot();
+        }
+
+        for (int i = 0; i < stashSlots.Length; i++)
+        {
+            stashSlots[i].CleanupSlot();
+        }
+
         for (int i = 0; i < inventory.Count; i++)
         {
             inventorySlots[i].UpdateSlot(inventory[i]);
