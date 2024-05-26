@@ -87,7 +87,9 @@ public class InventoryManager : MonoBehaviour
         equipment.Add(newItem);
         equipmentDictionary.Add(newItemEquipment, newItem);
 
-        RemoveItem(_item);
+        newItemEquipment.AddModifiers();//Apply modifier to player
+
+        RemoveItem(_item);//Remove out inventory
     }
 
     public void UnEquipItem(ItemData_Equipment newItemEquipment)
@@ -105,13 +107,14 @@ public class InventoryManager : MonoBehaviour
 
         if (oldEquipment != null)
         {
+            oldEquipment.RemoveModifiers();//Remove modifiers are applied
             //Remove item already have for replace new (ex: change new weapon)
             if (equipmentDictionary.TryGetValue(oldEquipment, out InventoryItem value))
             {
                 equipment.Remove(value);
                 equipmentDictionary.Remove(oldEquipment);
             }
-            AddItem(oldEquipment);
+            AddItem(oldEquipment);//Add to inventory
         }
     }
 

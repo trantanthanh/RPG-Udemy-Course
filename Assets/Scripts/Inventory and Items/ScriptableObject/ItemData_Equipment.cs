@@ -12,4 +12,59 @@ public enum EquipmentType
 public class ItemData_Equipment : ItemData
 {
     public EquipmentType equipmentType;
+
+    [Header("Major stats")]
+    public int strength;
+    public int agility;
+    public int inteligence;
+    public int vitality;
+
+    [Header("Offensive stats")]
+    public int damage;
+    public int critChance;
+    public int critPower;//default value is 150%
+
+    [Header("Defensive stats")]
+    public int health;
+    public int armor;
+    public int evasion;
+    public int magicResistance;
+
+    public void AddModifiers()
+    {
+        PlayerStats playerStats = PlayerManager.Instance.player.GetComponent<PlayerStats>();
+
+        playerStats.strength.AddModifier(this.strength);
+        playerStats.agility.AddModifier(this.agility);
+        playerStats.inteligence.AddModifier(this.inteligence);
+        playerStats.vitality.AddModifier(this.vitality);
+
+        playerStats.damage.AddModifier(this.damage);
+        playerStats.critChance.AddModifier(this.critChance);
+        playerStats.critPower.AddModifier(this.critPower);
+
+        playerStats.maxHealth.AddModifier(this.health);
+        playerStats.armor.AddModifier(this.armor);
+        playerStats.evasion.AddModifier(this.evasion);
+        playerStats.magicResistance.AddModifier(this.magicResistance);
+    }
+
+    public void RemoveModifiers()
+    {
+        PlayerStats playerStats = PlayerManager.Instance.player.GetComponent<PlayerStats>();
+
+        playerStats.strength.RemoveModifier(this.strength);
+        playerStats.agility.RemoveModifier(this.agility);
+        playerStats.inteligence.RemoveModifier(this.inteligence);
+        playerStats.vitality.RemoveModifier(this.vitality);
+
+        playerStats.damage.RemoveModifier(this.damage);
+        playerStats.critChance.RemoveModifier(this.critChance);
+        playerStats.critPower.RemoveModifier(this.critPower);
+
+        playerStats.maxHealth.RemoveModifier(this.health);
+        playerStats.armor.RemoveModifier(this.armor);
+        playerStats.evasion.RemoveModifier(this.evasion);
+        playerStats.magicResistance.RemoveModifier(this.magicResistance);
+    }
 }
