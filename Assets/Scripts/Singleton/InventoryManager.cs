@@ -54,13 +54,39 @@ public class InventoryManager : MonoBehaviour
 
     public void EquipItem(ItemData _item)
     {
-        ItemData_Equipment itemEquipment = _item as ItemData_Equipment;
+        ItemData_Equipment newItemEquipment = _item as ItemData_Equipment;
         InventoryItem newItem = new InventoryItem(_item);
 
+        ItemData_Equipment oldEquipment = null;
 
+        foreach (KeyValuePair<ItemData_Equipment, InventoryItem> item in equipmentDictionary)
+        {
+            if (item.Key.equipmentType == newItemEquipment.equipmentType)
+            {
+                oldEquipment = item.Key;
+                break;
+            }
+        }
+
+        if (oldEquipment != null)
+        {
+            UnEquipItem(oldEquipment);//Remove item already have for replace new (ex: change new weapon)
+            AddItem(oldEquipment);
+        }
 
         equipment.Add(newItem);
-        //equipmentDictionary.Add(_item, newItem);
+        equipmentDictionary.Add(newItemEquipment, newItem);
+
+        RemoveItem(_item);
+    }
+
+    private void UnEquipItem(ItemData_Equipment _oldEquipment)
+    {
+        if (equipmentDictionary.TryGetValue(_oldEquipment, out InventoryItem value))
+        {
+            equipment.Remove(value);
+            equipmentDictionary.Remove(_oldEquipment);
+        }
     }
 
     public void AddItem(ItemData _item)
