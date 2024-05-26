@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 //for manager collect item and remove item in out inventory
 public class InventoryManager : MonoBehaviour
@@ -19,9 +20,11 @@ public class InventoryManager : MonoBehaviour
     [Header("Inventory UI")]
     [SerializeField] private Transform inventorySlotParent;//this parent (like container) hold all of equipment item slots
     [SerializeField] private Transform stashSlotParent;//this parent (like container) hold all of material item slots
+    [SerializeField] private Transform equipmentSlotParent;//this parent (like container) hold all of equipped items
 
     private UI_ItemSlot[] inventorySlots;//for the equipment items
     private UI_ItemSlot[] stashSlots;//for the material items
+    private UI_EquipmentSlot[] equipmentSlots;//for items equipped 
     // Start is called before the first frame update
     private void Awake()
     {
@@ -37,25 +40,40 @@ public class InventoryManager : MonoBehaviour
     {
         inventorySlots = inventorySlotParent.GetComponentsInChildren<UI_ItemSlot>();
         stashSlots = stashSlotParent.GetComponentsInChildren<UI_ItemSlot>();
+        equipmentSlots = equipmentSlotParent.GetComponentsInChildren<UI_EquipmentSlot>();
     }
 
     private void UpdateSlotUI()
     {
+        for (int i = 0; i < equipmentSlots.Length; i++)
+        {
+            equipmentSlots[i].CleanupSlot();
+        }
+        for (int i = 0; i < equipment.Count; i++)
+        {
+            ItemData_Equipment itemEquipmentCheck = equipment[i].data as ItemData_Equipment;
+            for (int j = 0; j < equipmentSlots.Length; j++)
+            {
+                if (equipmentSlots[j].slotType == itemEquipmentCheck.equipmentType)
+                {
+                    equipmentSlots[j].UpdateSlot(equipment[i]);
+                }
+            }
+        }
+
         for (int i = 0; i < inventorySlots.Length; i++)
         {
             inventorySlots[i].CleanupSlot();
+        }
+        for (int i = 0; i < inventory.Count; i++)
+        {
+            inventorySlots[i].UpdateSlot(inventory[i]);
         }
 
         for (int i = 0; i < stashSlots.Length; i++)
         {
             stashSlots[i].CleanupSlot();
         }
-
-        for (int i = 0; i < inventory.Count; i++)
-        {
-            inventorySlots[i].UpdateSlot(inventory[i]);
-        }
-
         for (int i = 0; i < stash.Count; i++)
         {
             stashSlots[i].UpdateSlot(stash[i]);
@@ -67,6 +85,16 @@ public class InventoryManager : MonoBehaviour
         ItemData_Equipment newItemEquipment = _item as ItemData_Equipment;
         InventoryItem newItem = new InventoryItem(_item);
 
+        UnEquipItem(newItemEquipment);
+
+        equipment.Add(newItem);
+        equipmentDictionary.Add(newItemEquipment, newItem);
+
+        RemoveItem(_item);
+    }
+
+    public void UnEquipItem(ItemData_Equipment newItemEquipment)
+    {
         ItemData_Equipment oldEquipment = null;
 
         foreach (KeyValuePair<ItemData_Equipment, InventoryItem> item in equipmentDictionary)
@@ -80,22 +108,13 @@ public class InventoryManager : MonoBehaviour
 
         if (oldEquipment != null)
         {
-            UnEquipItem(oldEquipment);//Remove item already have for replace new (ex: change new weapon)
+            //Remove item already have for replace new (ex: change new weapon)
+            if (equipmentDictionary.TryGetValue(oldEquipment, out InventoryItem value))
+            {
+                equipment.Remove(value);
+                equipmentDictionary.Remove(oldEquipment);
+            }
             AddItem(oldEquipment);
-        }
-
-        equipment.Add(newItem);
-        equipmentDictionary.Add(newItemEquipment, newItem);
-
-        RemoveItem(_item);
-    }
-
-    private void UnEquipItem(ItemData_Equipment _oldEquipment)
-    {
-        if (equipmentDictionary.TryGetValue(_oldEquipment, out InventoryItem value))
-        {
-            equipment.Remove(value);
-            equipmentDictionary.Remove(_oldEquipment);
         }
     }
 
