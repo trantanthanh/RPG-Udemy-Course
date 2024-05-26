@@ -48,15 +48,12 @@ public class InventoryManager : MonoBehaviour
         for (int i = 0; i < equipmentSlots.Length; i++)
         {
             equipmentSlots[i].CleanupSlot();
-        }
-        for (int i = 0; i < equipment.Count; i++)
-        {
-            ItemData_Equipment itemEquipmentCheck = equipment[i].data as ItemData_Equipment;
-            for (int j = 0; j < equipmentSlots.Length; j++)
+
+            foreach (KeyValuePair<ItemData_Equipment, InventoryItem> item in equipmentDictionary)
             {
-                if (equipmentSlots[j].slotType == itemEquipmentCheck.equipmentType)
+                if (equipmentSlots[i].slotType == item.Key.equipmentType)
                 {
-                    equipmentSlots[j].UpdateSlot(equipment[i]);
+                    equipmentSlots[i].UpdateSlot(item.Value);
                 }
             }
         }
