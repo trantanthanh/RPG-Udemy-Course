@@ -3292,6 +3292,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4431665946197419970, guid: 6dc9783ef0b839c4b8e75768942054df, type: 3}
+      propertyPath: level
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431665946197419970, guid: 6dc9783ef0b839c4b8e75768942054df, type: 3}
       propertyPath: iceDamage.baseValue
       value: 2
       objectReference: {fileID: 0}

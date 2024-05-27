@@ -19,6 +19,11 @@ public class ItemData_Equipment : ItemData
     public int inteligence;
     public int vitality;
 
+    [Header("Magic damage stats")]
+    public int fireDamage;
+    public int iceDamage;
+    public int lightningDamage;
+
     [Header("Offensive stats")]
     public int damage;
     public int critChance;
@@ -42,6 +47,10 @@ public class ItemData_Equipment : ItemData
         playerStats.damage.AddModifier(this.damage);
         playerStats.critChance.AddModifier(this.critChance);
         playerStats.critPower.AddModifier(this.critPower);
+
+        playerStats.fireDamage.AddModifier(this.fireDamage);
+        playerStats.iceDamage.AddModifier(this.iceDamage);
+        playerStats.lightningDamage.AddModifier(this.lightningDamage);
 
         playerStats.maxHealth.AddModifier(this.health);
         playerStats.armor.AddModifier(this.armor);
