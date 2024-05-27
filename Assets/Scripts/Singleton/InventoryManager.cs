@@ -31,9 +31,11 @@ public class InventoryManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            return;
         }
-        Destroy(gameObject);
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Start()
@@ -92,13 +94,13 @@ public class InventoryManager : MonoBehaviour
         RemoveItem(_item);//Remove out inventory
     }
 
-    public void UnEquipItem(ItemData_Equipment newItemEquipment)
+    public void UnEquipItem(ItemData_Equipment itemToUnequip)
     {
         ItemData_Equipment oldEquipment = null;
 
         foreach (KeyValuePair<ItemData_Equipment, InventoryItem> item in equipmentDictionary)
         {
-            if (item.Key.equipmentType == newItemEquipment.equipmentType)
+            if (item.Key.equipmentType == itemToUnequip.equipmentType)
             {
                 oldEquipment = item.Key;
                 break;
