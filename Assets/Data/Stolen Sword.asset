@@ -30,3 +30,8 @@ MonoBehaviour:
   armor: 0
   evasion: 0
   magicResistance: 0
+  craftingMaterials:
+  - data: {fileID: 11400000, guid: 64d122e4a7d1a714e8bbb28bfbbabc96, type: 2}
+    stackSize: 1
+  - data: {fileID: 11400000, guid: 2e2824c0065710443be6ed9fe044c2c1, type: 2}
+    stackSize: 0

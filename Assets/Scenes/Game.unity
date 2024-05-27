@@ -52799,7 +52799,7 @@ MonoBehaviour:
   itemImage: {fileID: 3672509090818754730}
   itemText: {fileID: 6510754097092791967}
   item:
-    data: {fileID: 0}
+    data: {fileID: 11400000, guid: e12192ff3c7e0f741a1bba2aa56e1d83, type: 2}
     stackSize: 0
 --- !u!1001 &6466156414483814562
 PrefabInstance:
