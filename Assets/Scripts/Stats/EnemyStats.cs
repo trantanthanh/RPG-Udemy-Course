@@ -60,7 +60,7 @@ public class EnemyStats : CharacterStats
     {
         base.Die();
         enemy.Die();
-        enemy.GetComponent<ItemDrop>()?.DropItem();//Drop item if can
+        enemy.GetComponent<ItemDrop>()?.GenerateDrop();//Drop item if can
     }
 
     public override void DoDamage(CharacterStats _targetStats)

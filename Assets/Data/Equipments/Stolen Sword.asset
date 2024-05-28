@@ -15,6 +15,7 @@ MonoBehaviour:
   itemType: 1
   itemName: Stolen Sword
   icon: {fileID: -671158514, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
+  dropChance: 60
   equipmentType: 0
   strength: 0
   agility: 0
