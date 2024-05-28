@@ -3,10 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-//This class for items to collect in game scene
+//This class for items drop in game
 public class ItemObject : MonoBehaviour
 {
     [SerializeField] ItemData itemData;
+    [SerializeField] Vector2 velocity;
+    Rigidbody2D rigidbody => GetComponent<Rigidbody2D>();
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            rigidbody.velocity = velocity;
+        }
+    }
 
     private void OnValidate()
     {
@@ -14,12 +24,9 @@ public class ItemObject : MonoBehaviour
         gameObject.name = "Item object - " + itemData.itemName;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void PickupItem()
     {
-        if (collision.GetComponent<Player>() != null)
-        {
-            InventoryManager.Instance.AddItem(itemData);
-            Destroy(gameObject);
-        }
+        InventoryManager.Instance.AddItem(itemData);
+        Destroy(gameObject);
     }
 }

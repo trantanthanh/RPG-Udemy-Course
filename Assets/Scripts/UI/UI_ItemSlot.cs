@@ -35,7 +35,7 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler
 
     public virtual void OnPointerDown(PointerEventData eventData)
     {
-        if (item != null)
+        if (item.data != null)
         {
             if (item.data.itemType == ItemType.Equipment)
             {
