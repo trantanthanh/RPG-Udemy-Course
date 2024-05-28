@@ -10,7 +10,7 @@ public class InventoryManager : MonoBehaviour
 
     [SerializeField] List<ItemData> startingItems = new List<ItemData>();
 
-    public List<InventoryItem> equipment = new List<InventoryItem>();
+    public List<InventoryItem> equipment = new List<InventoryItem>();//list items are equipped
     public Dictionary<ItemData_Equipment, InventoryItem> equipmentDictionary = new Dictionary<ItemData_Equipment, InventoryItem>();
 
     public List<InventoryItem> inventory = new List<InventoryItem>();//list of all equiptment items
@@ -261,4 +261,18 @@ public class InventoryManager : MonoBehaviour
 
     public List<InventoryItem> GetEquipmentList() => equipment;
     public List<InventoryItem> GetStashList() => stash;
+
+    public ItemData_Equipment GetEquipment(EquipmentType _type)
+    {
+        ItemData_Equipment equippedItem = null;
+        foreach (KeyValuePair<ItemData_Equipment, InventoryItem> item in equipmentDictionary)
+        {
+            if (item.Key.equipmentType == _type)
+            {
+                equippedItem = item.Key;
+                break;
+            }
+        }
+        return equippedItem;
+    }
 }

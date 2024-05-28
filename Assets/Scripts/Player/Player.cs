@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -239,6 +240,9 @@ public class Player : Entity
                 }
                 //enemy.GetComponent<CharacterStats>().TakeDamage(stats.damage.GetValue());
                 hasEnemy = enemy.transform;
+
+                //inventory get weapon call item effect
+                InventoryManager.Instance.GetEquipment(EquipmentType.Weapon)?.ExecuteItemEffect();
             }
         }
         return hasEnemy;
