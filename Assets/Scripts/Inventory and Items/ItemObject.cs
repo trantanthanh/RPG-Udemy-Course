@@ -7,19 +7,23 @@ using UnityEngine;
 public class ItemObject : MonoBehaviour
 {
     [SerializeField] ItemData itemData;
-    [SerializeField] Vector2 velocity;
-    Rigidbody2D rigidbody => GetComponent<Rigidbody2D>();
+    Rigidbody2D myRigidBody => GetComponent<Rigidbody2D>();
 
-    private void Update()
+    public void SetupItem(ItemData _item, Vector2 _velocity)
     {
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            rigidbody.velocity = velocity;
-        }
+        itemData = _item;
+        myRigidBody.velocity = _velocity;
+        UpdateIconAndName();
     }
 
     private void OnValidate()
     {
+        UpdateIconAndName();
+    }
+
+    private void UpdateIconAndName()
+    {
+        if (itemData == null) return;
         GetComponent<SpriteRenderer>().sprite = itemData.icon;
         gameObject.name = "Item object - " + itemData.itemName;
     }
