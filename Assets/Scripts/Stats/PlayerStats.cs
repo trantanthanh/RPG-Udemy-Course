@@ -25,6 +25,7 @@ public class PlayerStats : CharacterStats
     {
         base.Die();
         player.Die();
+        player.GetComponent<PlayerItemDrop>()?.GenerateDrop();//Drop item if can
     }
 
     public override void DoDamage(CharacterStats _targetStats)

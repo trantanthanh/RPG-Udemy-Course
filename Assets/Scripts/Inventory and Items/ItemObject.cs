@@ -30,6 +30,7 @@ public class ItemObject : MonoBehaviour
 
     public void PickupItem()
     {
+        Debug.Log("Pickup item - " + itemData.itemName);
         InventoryManager.Instance.AddItem(itemData);
         Destroy(gameObject);
     }

@@ -12,7 +12,7 @@ public class ItemDrop : MonoBehaviour
 
     [SerializeField] private GameObject dropPrefab;
 
-    public void GenerateDrop()
+    public virtual void GenerateDrop()
     {
         //Generate drop list
         for (int i = 0; i < possibleDrop.Length; i++)
@@ -36,7 +36,7 @@ public class ItemDrop : MonoBehaviour
         }
     }
 
-    private void DropItem(ItemData _itemData)
+    protected void DropItem(ItemData _itemData)
     {
         if (_itemData != null)
         {

@@ -528,6 +528,7 @@ GameObject:
   - component: {fileID: 3089077683226289135}
   - component: {fileID: 3771518612867154933}
   - component: {fileID: 703596861239897970}
+  - component: {fileID: 2497727057847598925}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -706,10 +707,10 @@ MonoBehaviour:
     baseValue: 0
     modifers: 
   iceDamage:
-    baseValue: 2
+    baseValue: 0
     modifers: 
   lightningDamage:
-    baseValue: 0
+    baseValue: 2
     modifers: 
   isIgnited: 0
   isChilled: 0
@@ -726,7 +727,7 @@ MonoBehaviour:
     baseValue: 0
     modifers: 
   maxHealth:
-    baseValue: 100
+    baseValue: 20
     modifers: 
   evasion:
     baseValue: 0
@@ -737,6 +738,22 @@ MonoBehaviour:
   magicResistance:
     baseValue: 0
     modifers: 
+--- !u!114 &2497727057847598925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8142144263277088619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a56b573ab05555419103402f1acb1eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  possibleItemsDrop: 2
+  possibleDrop: []
+  dropPrefab: {fileID: 4148545283387419536, guid: e473808a9b8017c45ac76b36a64d4a89, type: 3}
+  chanceToLostItem: 33
 --- !u!1 &8171312139373004160
 GameObject:
   m_ObjectHideFlags: 0
@@ -810,7 +827,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -232145583
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: -3318188226485093758, guid: ae72133dacba6ec4eb33ecde48f50e56, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

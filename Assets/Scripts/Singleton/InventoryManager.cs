@@ -8,6 +8,8 @@ public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
 
+    [SerializeField] List<ItemData> startingItems = new List<ItemData>();
+
     public List<InventoryItem> equipment = new List<InventoryItem>();
     public Dictionary<ItemData_Equipment, InventoryItem> equipmentDictionary = new Dictionary<ItemData_Equipment, InventoryItem>();
 
@@ -43,6 +45,15 @@ public class InventoryManager : MonoBehaviour
         inventorySlots = inventorySlotParent.GetComponentsInChildren<UI_ItemSlot>();
         stashSlots = stashSlotParent.GetComponentsInChildren<UI_ItemSlot>();
         equipmentSlots = equipmentSlotParent.GetComponentsInChildren<UI_EquipmentSlot>();
+        AddStartingItems();
+    }
+
+    private void AddStartingItems()
+    {
+        for (int i = 0; i < startingItems.Count; i++)
+        {
+            AddItem(startingItems[i]);
+        }
     }
 
     private void UpdateSlotUI()
@@ -94,7 +105,7 @@ public class InventoryManager : MonoBehaviour
         RemoveItem(_item);//Remove out inventory
     }
 
-    public void UnEquipItem(ItemData_Equipment itemToUnequip)
+    public void UnEquipItem(ItemData_Equipment itemToUnequip, bool needReturnToInventory = true)
     {
         ItemData_Equipment oldEquipment = null;
 
@@ -116,7 +127,14 @@ public class InventoryManager : MonoBehaviour
                 equipment.Remove(value);
                 equipmentDictionary.Remove(oldEquipment);
             }
-            AddItem(oldEquipment);//Add to inventory
+            if (needReturnToInventory)
+            {
+                AddItem(oldEquipment);//Add to inventory
+            }
+            else
+            {
+                UpdateSlotUI();
+            }
         }
     }
 
@@ -240,4 +258,6 @@ public class InventoryManager : MonoBehaviour
         AddItem(_itemToCraft);
         return true;
     }
+
+    public List<InventoryItem> GetEquipmentList() => equipment;
 }
