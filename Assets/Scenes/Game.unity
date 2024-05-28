@@ -51819,7 +51819,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemImage: {fileID: 3672509090818754730}
-  itemText: {fileID: 6510754097092791967}
+  itemCountText: {fileID: 0}
   item:
     data: {fileID: 11400000, guid: e12192ff3c7e0f741a1bba2aa56e1d83, type: 2}
     stackSize: 0

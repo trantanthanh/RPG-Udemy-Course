@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemImage: {fileID: 2780567685523514367}
-  itemText: {fileID: 6540005145681088600}
+  itemCountText: {fileID: 6540005145681088600}
   item:
     data: {fileID: 0}
     stackSize: 0

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField] Image itemImage;
-    [SerializeField] TextMeshProUGUI itemText;
+    [SerializeField] TextMeshProUGUI itemCountText;
 
     public InventoryItem item;
 
@@ -20,23 +20,29 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler
             itemImage.sprite = item.data.icon;
             if (item.stackSize > 1)
             {
-                itemText.text = item.stackSize.ToString();
+                itemCountText.text = item.stackSize.ToString();
             }
             else
             {
-                itemText.text = "";
+                itemCountText.text = "";
             }
         }
         else
         {
-            itemText.text = "";
+            itemCountText.text = "";
         }
     }
 
     public virtual void OnPointerDown(PointerEventData eventData)
     {
-        if (item.data != null)
+        if (item != null && item.data != null)
         {
+            if (Input.GetKey(KeyCode.LeftControl))
+            {
+                InventoryManager.Instance.RemoveItem(item.data);
+                return;
+            }
+
             if (item.data.itemType == ItemType.Equipment)
             {
                 Debug.Log("Equipped new item - " + item.data.itemName);
@@ -50,6 +56,6 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler
         item = null;
         itemImage.sprite = null;
         itemImage.color = Color.clear;
-        itemText.text = "";
+        itemCountText.text = "";
     }
 }
