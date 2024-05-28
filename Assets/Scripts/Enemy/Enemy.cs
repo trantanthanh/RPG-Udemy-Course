@@ -73,7 +73,6 @@ public class Enemy : Entity, IAnimationDoneTrigger
 
     public override void Die()
     {
-        GetComponent<ItemDrop>()?.DropItem();//Drop item if can
         base.Die();
         counterImage.SetActive(false);
     }

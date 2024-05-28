@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 165169189374890696}
   - component: {fileID: 3275032227797409020}
   m_Layer: 11
-  m_Name: Item object - Iron
+  m_Name: Item object - No data
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c392356437b080e4fb1170d26af1d635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemData: {fileID: 11400000, guid: 64d122e4a7d1a714e8bbb28bfbbabc96, type: 2}
+  itemData: {fileID: 0}
 --- !u!61 &165169189374890696
 BoxCollider2D:
   m_ObjectHideFlags: 0
