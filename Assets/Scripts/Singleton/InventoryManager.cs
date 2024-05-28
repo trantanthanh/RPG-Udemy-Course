@@ -260,4 +260,5 @@ public class InventoryManager : MonoBehaviour
     }
 
     public List<InventoryItem> GetEquipmentList() => equipment;
+    public List<InventoryItem> GetStashList() => stash;
 }

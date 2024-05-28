@@ -7,18 +7,41 @@ public class PlayerItemDrop : ItemDrop
 {
     [Header("Player's Item drop")]
     [Range(0, 100)]
-    [SerializeField] private int chanceToLostItem;
+    [SerializeField] private int chanceToLostItemsEquipped;
+    
+    [Range(0, 100)]
+    [SerializeField] private int chanceToLostMaterials;
 
     public override void GenerateDrop()
     {
-        Debug.Log("Player drop item");
-        InventoryManager inventoryManager = InventoryManager.Instance;
-        List<InventoryItem> currentEquiptment = inventoryManager.GetEquipmentList();
-        List<InventoryItem> itemsToUnequipt = new List<InventoryItem>();
+        CheckDropEquipment();
+        CheckDropMaterials();
+    }
 
-        foreach (InventoryItem inventoryItem in currentEquiptment)
+    private void CheckDropMaterials()
+    {
+        List<InventoryItem> materialsLost = new List<InventoryItem>();
+
+        foreach (InventoryItem material in InventoryManager.Instance.GetStashList())
         {
-            if (Random.Range(0, 100) <= chanceToLostItem)
+            if (Random.Range(0, 100) <= chanceToLostMaterials)
+            {
+                DropItem(material.data);
+                materialsLost.Add(material);
+            }
+        }
+        foreach (InventoryItem material in materialsLost)
+        {
+            InventoryManager.Instance.RemoveItem(material.data);
+        }
+    }
+
+    private void CheckDropEquipment()
+    {
+        List<InventoryItem> itemsToUnequipt = new List<InventoryItem>();
+        foreach (InventoryItem inventoryItem in InventoryManager.Instance.GetEquipmentList())
+        {
+            if (Random.Range(0, 100) <= chanceToLostItemsEquipped)
             {
                 DropItem(inventoryItem.data);
                 itemsToUnequipt.Add(inventoryItem);
@@ -27,7 +50,7 @@ public class PlayerItemDrop : ItemDrop
 
         foreach (InventoryItem itemUnequipt in itemsToUnequipt)
         {
-            inventoryManager.UnEquipItem(itemUnequipt.data as ItemData_Equipment, false);
+            InventoryManager.Instance.UnEquipItem(itemUnequipt.data as ItemData_Equipment, false);
         }
     }
 }

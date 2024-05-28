@@ -750,10 +750,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a56b573ab05555419103402f1acb1eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  possibleItemsDrop: 2
+  possibleItemsDrop: 0
   possibleDrop: []
   dropPrefab: {fileID: 4148545283387419536, guid: e473808a9b8017c45ac76b36a64d4a89, type: 3}
-  chanceToLostItem: 33
+  chanceToLostItemsEquipped: 20
+  chanceToLostMaterials: 60
 --- !u!1 &8171312139373004160
 GameObject:
   m_ObjectHideFlags: 0
