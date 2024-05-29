@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3628150948026240038}
   - component: {fileID: 2219420045563670512}
   m_Layer: 0
-  m_Name: ThunderStrike
+  m_Name: ShockStrike
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

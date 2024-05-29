@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ThunderStrikeController : MonoBehaviour
+public class ShockStrikeController : MonoBehaviour
 {
     [SerializeField] float speed;
     private CharacterStats targetStats;
