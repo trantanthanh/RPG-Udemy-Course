@@ -131,6 +131,8 @@ public class CharacterStats : MonoBehaviour
             return;
         }
 
+        _targetStats.TakeDamageWithoutEffect(totalMagicDamage);//Apply magic damage to target
+
         AttempToApplyAilment(_targetStats, _fireDamage, _iceDamage, _lightningDamage);
     }
 

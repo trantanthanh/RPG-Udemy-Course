@@ -710,7 +710,7 @@ MonoBehaviour:
     baseValue: 0
     modifers: 
   lightningDamage:
-    baseValue: 2
+    baseValue: 0
     modifers: 
   isIgnited: 0
   isChilled: 0
@@ -727,7 +727,7 @@ MonoBehaviour:
     baseValue: 0
     modifers: 
   maxHealth:
-    baseValue: 20
+    baseValue: 100
     modifers: 
   evasion:
     baseValue: 0

@@ -16,9 +16,7 @@ public class ThunderStrikeController : MonoBehaviour
         Enemy enemy = collision.GetComponent<Enemy>();
         if (enemy != null)
         {
-            EnemyStats targetStats = enemy.GetComponent<EnemyStats>();
-            playerStats.DoMagicDamage(targetStats);
-
+            playerStats.DoMagicDamage(enemy.stats);
             Destroy(gameObject, 0.5f);
         }
     }
