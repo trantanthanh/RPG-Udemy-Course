@@ -242,7 +242,7 @@ public class Player : Entity
                 hasEnemy = enemy.transform;
 
                 //inventory get weapon call item effect
-                InventoryManager.Instance.GetEquipment(EquipmentType.Weapon)?.ExecuteItemEffect();
+                InventoryManager.Instance.GetEquipment(EquipmentType.Weapon)?.Effect(enemy.transform);
             }
         }
         return hasEnemy;
