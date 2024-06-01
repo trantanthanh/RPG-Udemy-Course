@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerPrimaryAttackState : PlayerState
 {
-    private int comboCounter = 0;
+    public int comboCounter { get; private set; } = 0;
     private int numOfCombo = 3;
     private float timeCombo= 1f;//next attack must below this value to increase comboCounter;
     private float timeNextAttack = 0f;

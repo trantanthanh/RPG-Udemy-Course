@@ -11,7 +11,7 @@ public class ThunderStrikeController : MonoBehaviour
         playerStats = PlayerManager.Instance.player.GetComponent<PlayerStats>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         Enemy enemy = collision.GetComponent<Enemy>();
         if (enemy != null)

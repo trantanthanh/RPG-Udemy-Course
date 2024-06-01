@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Thunder Strike", menuName = "Data/Item Effect/Thunder Strike")]
+[CreateAssetMenu(fileName = "Thunder Strike Effect", menuName = "Data/Item Effect/Thunder Strike")]
 public class ThunderStrike_Effect : ItemEffect
 {
     [SerializeField] GameObject thunderstrikePrefab;

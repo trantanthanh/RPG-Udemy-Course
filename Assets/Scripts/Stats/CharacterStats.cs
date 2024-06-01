@@ -163,7 +163,13 @@ public class CharacterStats : MonoBehaviour
                 break;
             }
 
-            if (Random.value < 0.5f && _lightningDamage > 0)
+            //if (Random.value < 0.5f && _lightningDamage > 0)
+            //{
+            //    _canApplyShock = true;
+            //    break;
+            //}
+
+            if (_lightningDamage > 0)//optimized : if both !_canApplyIgnite && !_canApplyChill then _canApplyShock = true
             {
                 _canApplyShock = true;
                 break;
