@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Ice And Fire Effect
   m_EditorClassIdentifier: 
   iceAndFirePrefab: {fileID: 4166499637049712670, guid: f592b6e2379ed1f4886b35b49ae3c3f8, type: 3}
-  velocity: {x: 15, y: 0}
+  xVelocity: 15

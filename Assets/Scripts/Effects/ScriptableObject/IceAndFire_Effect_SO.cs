@@ -6,7 +6,7 @@ using UnityEngine;
 public class IceAndFire_Effect_SO : ItemEffect_SO
 {
     [SerializeField] GameObject iceAndFirePrefab;
-    [SerializeField] Vector2 velocity;
+    [SerializeField] float xVelocity;
 
     public override void ExecuteEffect(Transform _spawnTransform)
     {
@@ -17,8 +17,7 @@ public class IceAndFire_Effect_SO : ItemEffect_SO
         if (isThirdCombo)
         {
             GameObject newIceAndFire = Instantiate(iceAndFirePrefab, _spawnTransform.position, player.transform.rotation);
-            velocity.x = player.facingDir * Mathf.Abs(velocity.x);
-            newIceAndFire.GetComponent<Rigidbody2D>().velocity = velocity;
+            newIceAndFire.GetComponent<Rigidbody2D>().velocity = new Vector2(xVelocity * player.facingDir, 0);
         }
     }
 }
