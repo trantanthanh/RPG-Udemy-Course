@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3628150948026240038}
   - component: {fileID: 2219420045563670512}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ShockStrike
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 8387039896336935562}
   - component: {fileID: 2477584095150664876}
   - component: {fileID: 5091478181486958411}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Animator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1225981665
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 10
   m_Sprite: {fileID: 1757759270, guid: 96aeec0df8d9a9c41b6ad67ce63a900a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

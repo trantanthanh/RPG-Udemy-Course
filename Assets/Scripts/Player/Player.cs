@@ -232,12 +232,7 @@ public class Player : Entity
                 if (_isMagicalDamage)
                 {
                     stats.DoMagicDamage(enemy.stats);
-
-                    ItemData_Equipment_SO amuletEquipped = InventoryManager.Instance.GetEquipment(EquipmentType.Amulet);
-                    if (amuletEquipped != null)
-                    {
-                        amuletEquipped.Effect(enemy.transform);
-                    }
+                    DoEffectFromAmulet(enemy);
                 }
                 else
                 {
@@ -251,6 +246,15 @@ public class Player : Entity
             }
         }
         return hasEnemy;
+    }
+
+    public void DoEffectFromAmulet(Enemy enemy)
+    {
+        ItemData_Equipment_SO amuletEquipped = InventoryManager.Instance.GetEquipment(EquipmentType.Amulet);
+        if (amuletEquipped != null)
+        {
+            amuletEquipped.Effect(enemy.transform);
+        }
     }
 
     public override void SlowEntityBy(float _slowPercentage, float _duration)

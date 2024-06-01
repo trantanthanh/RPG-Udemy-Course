@@ -155,7 +155,7 @@ public class SwordSkillController : MonoBehaviour
                     if (enemy != null && enemy.stats.IsAlive())
                     {
                         //enemy.DamageEffect();
-                        player.stats.DoDamage(enemy.stats);
+                        SwordDamageEnemy(enemy);
                     }
                 }
             }
@@ -176,7 +176,11 @@ public class SwordSkillController : MonoBehaviour
             if (Vector2.Distance(transform.position, enemiesTarget[targetIndex].position) < 0.1f)
             {
                 //enemiesTarget[targetIndex].GetComponent<Enemy>().DamageEffect();//Damage when reach target
-                player.stats.DoDamage(enemiesTarget[targetIndex].GetComponent<Enemy>().stats);//Damage when reach target
+                Enemy enemy = enemiesTarget[targetIndex].GetComponent<Enemy>();
+                if (enemy.stats.IsAlive())
+                {
+                    SwordDamageEnemy(enemy);//Damage when reach target
+                }
                 targetIndex++;
                 bounceAmount--;
                 if (bounceAmount < 0)
@@ -190,6 +194,12 @@ public class SwordSkillController : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void SwordDamageEnemy(Enemy enemy)
+    {
+        player.stats.DoDamage(enemy.stats);
+        player.DoEffectFromAmulet(enemy);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -242,7 +252,7 @@ public class SwordSkillController : MonoBehaviour
             if (!enemy.stats.IsAlive()) return;
 
             //enemy.DamageEffect();
-            player.stats.DoDamage(enemy.stats);
+            SwordDamageEnemy(enemy);
             if (isPiercing && pierceAmount > 0)
             {
                 pierceAmount--;

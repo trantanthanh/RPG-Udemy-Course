@@ -17,7 +17,7 @@ public class ThunderStrikeController : MonoBehaviour
         if (enemy != null)
         {
             playerStats.DoMagicDamage(enemy.stats);
-            Destroy(gameObject, 0.5f);
         }
+        Destroy(gameObject, 0.5f);
     }
 }
