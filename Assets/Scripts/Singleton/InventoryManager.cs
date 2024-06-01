@@ -8,16 +8,16 @@ public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
 
-    [SerializeField] List<ItemData> startingItems = new List<ItemData>();
+    [SerializeField] List<ItemData_SO> startingItems = new List<ItemData_SO>();
 
     public List<InventoryItem> equipment = new List<InventoryItem>();//list items are equipped
-    public Dictionary<ItemData_Equipment, InventoryItem> equipmentDictionary = new Dictionary<ItemData_Equipment, InventoryItem>();
+    public Dictionary<ItemData_Equipment_SO, InventoryItem> equipmentDictionary = new Dictionary<ItemData_Equipment_SO, InventoryItem>();
 
     public List<InventoryItem> inventory = new List<InventoryItem>();//list of all equiptment items
-    public Dictionary<ItemData, InventoryItem> inventoryDictionary = new Dictionary<ItemData, InventoryItem>();
+    public Dictionary<ItemData_SO, InventoryItem> inventoryDictionary = new Dictionary<ItemData_SO, InventoryItem>();
 
     public List<InventoryItem> stash = new List<InventoryItem>();//list of all materials items
-    public Dictionary<ItemData, InventoryItem> stashDictionary = new Dictionary<ItemData, InventoryItem>();
+    public Dictionary<ItemData_SO, InventoryItem> stashDictionary = new Dictionary<ItemData_SO, InventoryItem>();
 
     [Header("Inventory UI")]
     [SerializeField] private Transform inventorySlotParent;//this parent (like container) hold all of equipment item slots
@@ -62,7 +62,7 @@ public class InventoryManager : MonoBehaviour
         {
             equipmentSlots[i].CleanupSlot();
 
-            foreach (KeyValuePair<ItemData_Equipment, InventoryItem> item in equipmentDictionary)
+            foreach (KeyValuePair<ItemData_Equipment_SO, InventoryItem> item in equipmentDictionary)
             {
                 if (equipmentSlots[i].slotType == item.Key.equipmentType)
                 {
@@ -90,9 +90,9 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void EquipItem(ItemData _item)
+    public void EquipItem(ItemData_SO _item)
     {
-        ItemData_Equipment newItemEquipment = _item as ItemData_Equipment;
+        ItemData_Equipment_SO newItemEquipment = _item as ItemData_Equipment_SO;
         InventoryItem newItem = new InventoryItem(_item);
 
         UnEquipItem(newItemEquipment);
@@ -105,11 +105,11 @@ public class InventoryManager : MonoBehaviour
         RemoveItem(_item);//Remove out inventory
     }
 
-    public void UnEquipItem(ItemData_Equipment itemToUnequip, bool needReturnToInventory = true)
+    public void UnEquipItem(ItemData_Equipment_SO itemToUnequip, bool needReturnToInventory = true)
     {
-        ItemData_Equipment oldEquipment = null;
+        ItemData_Equipment_SO oldEquipment = null;
 
-        foreach (KeyValuePair<ItemData_Equipment, InventoryItem> item in equipmentDictionary)
+        foreach (KeyValuePair<ItemData_Equipment_SO, InventoryItem> item in equipmentDictionary)
         {
             if (item.Key.equipmentType == itemToUnequip.equipmentType)
             {
@@ -138,7 +138,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void AddItem(ItemData _item)
+    public void AddItem(ItemData_SO _item)
     {
         if (_item.itemType == ItemType.Equipment)
         {
@@ -151,7 +151,7 @@ public class InventoryManager : MonoBehaviour
         UpdateSlotUI();
     }
 
-    public void RemoveItem(ItemData _item)
+    public void RemoveItem(ItemData_SO _item)
     {
         if (_item.itemType == ItemType.Equipment)
         {
@@ -167,7 +167,7 @@ public class InventoryManager : MonoBehaviour
     }
 
     #region Stash
-    private void AddToStash(ItemData _item)
+    private void AddToStash(ItemData_SO _item)
     {
         if (stashDictionary.TryGetValue(_item, out InventoryItem value))
         {
@@ -180,7 +180,7 @@ public class InventoryManager : MonoBehaviour
             stashDictionary.Add(_item, newItem);
         }
     }
-    private void RemoveItemFromStash(ItemData _item)
+    private void RemoveItemFromStash(ItemData_SO _item)
     {
         if (stashDictionary.TryGetValue(_item, out InventoryItem value))
         {
@@ -198,7 +198,7 @@ public class InventoryManager : MonoBehaviour
     #endregion
 
     #region Inventory
-    private void AddToInventory(ItemData _item)
+    private void AddToInventory(ItemData_SO _item)
     {
         if (inventoryDictionary.TryGetValue(_item, out InventoryItem value))
         {
@@ -212,7 +212,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    private void RemoveItemFromInventory(ItemData _item)
+    private void RemoveItemFromInventory(ItemData_SO _item)
     {
         if (inventoryDictionary.TryGetValue(_item, out InventoryItem value))
         {
@@ -228,7 +228,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
     #endregion
-    public bool CanCraft(ItemData_Equipment _itemToCraft, List<InventoryItem> _requiredMaterials)
+    public bool CanCraft(ItemData_Equipment_SO _itemToCraft, List<InventoryItem> _requiredMaterials)
     {
         List<InventoryItem> materialsToRemove = new List<InventoryItem>();
         for (int i = 0; i < _requiredMaterials.Count; i++)
@@ -262,10 +262,10 @@ public class InventoryManager : MonoBehaviour
     public List<InventoryItem> GetEquipmentList() => equipment;
     public List<InventoryItem> GetStashList() => stash;
 
-    public ItemData_Equipment GetEquipment(EquipmentType _type)
+    public ItemData_Equipment_SO GetEquipment(EquipmentType _type)
     {
-        ItemData_Equipment equippedItem = null;
-        foreach (KeyValuePair<ItemData_Equipment, InventoryItem> item in equipmentDictionary)
+        ItemData_Equipment_SO equippedItem = null;
+        foreach (KeyValuePair<ItemData_Equipment_SO, InventoryItem> item in equipmentDictionary)
         {
             if (item.Key.equipmentType == _type)
             {

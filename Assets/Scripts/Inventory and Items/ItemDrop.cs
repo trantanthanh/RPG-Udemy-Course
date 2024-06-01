@@ -7,8 +7,8 @@ using UnityEngine;
 public class ItemDrop : MonoBehaviour
 {
     [SerializeField] int possibleItemsDrop;
-    [SerializeField] ItemData[] possibleDrop;
-    private List<ItemData> dropList = new List<ItemData>();
+    [SerializeField] ItemData_SO[] possibleDrop;
+    private List<ItemData_SO> dropList = new List<ItemData_SO>();
 
     [SerializeField] private GameObject dropPrefab;
 
@@ -26,7 +26,7 @@ public class ItemDrop : MonoBehaviour
         //Drop items
         for (int i = 0; i < possibleItemsDrop; i++)
         {
-            ItemData itemDrop = dropList[Random.Range(0, dropList.Count)];
+            ItemData_SO itemDrop = dropList[Random.Range(0, dropList.Count)];
             dropList.Remove(itemDrop);
             DropItem(itemDrop);
             if (dropList.Count <= 0)
@@ -36,7 +36,7 @@ public class ItemDrop : MonoBehaviour
         }
     }
 
-    protected void DropItem(ItemData _itemData)
+    protected void DropItem(ItemData_SO _itemData)
     {
         if (_itemData != null)
         {

@@ -13,7 +13,7 @@ public class UI_EquipmentSlot : UI_ItemSlot
         if (item != null)
         {
             Debug.Log("Unequip item - " + item.data.itemName);
-            InventoryManager.Instance.UnEquipItem(item.data as ItemData_Equipment);
+            InventoryManager.Instance.UnEquipItem(item.data as ItemData_Equipment_SO);
         }
     }
 

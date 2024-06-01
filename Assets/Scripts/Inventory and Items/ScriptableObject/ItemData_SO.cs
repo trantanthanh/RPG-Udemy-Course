@@ -9,7 +9,7 @@ public enum ItemType
 }
 
 [CreateAssetMenu(fileName = "New Data Item", menuName = "Data/Item")]
-public class ItemData : ScriptableObject
+public class ItemData_SO : ScriptableObject
 {
     public ItemType itemType;
     public string itemName;

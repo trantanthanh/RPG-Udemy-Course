@@ -6,10 +6,10 @@ using System;
 [Serializable]
 public class InventoryItem
 {
-    public ItemData data;
+    public ItemData_SO data;
     public int stackSize;
 
-    public InventoryItem(ItemData _newItemData)
+    public InventoryItem(ItemData_SO _newItemData)
     {
         data = _newItemData;
         //TODO: add to stack

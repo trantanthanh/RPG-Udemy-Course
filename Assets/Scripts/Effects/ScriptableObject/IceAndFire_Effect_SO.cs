@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Ice And Fire Effect", menuName = "Data/Item Effect/Ice And Fire")]
-public class IceAndFire_Effect : ItemEffect
+public class IceAndFire_Effect_SO : ItemEffect_SO
 {
     [SerializeField] GameObject iceAndFirePrefab;
     [SerializeField] Vector2 velocity;

@@ -50,7 +50,7 @@ public class PlayerItemDrop : ItemDrop
 
         foreach (InventoryItem itemUnequipt in itemsToUnequipt)
         {
-            InventoryManager.Instance.UnEquipItem(itemUnequipt.data as ItemData_Equipment, false);
+            InventoryManager.Instance.UnEquipItem(itemUnequipt.data as ItemData_Equipment_SO, false);
         }
     }
 }

@@ -6,10 +6,10 @@ using UnityEngine;
 //This class for items drop in game
 public class ItemObject : MonoBehaviour
 {
-    [SerializeField] ItemData itemData;
+    [SerializeField] ItemData_SO itemData;
     Rigidbody2D myRigidBody => GetComponent<Rigidbody2D>();
 
-    public void SetupItem(ItemData _item, Vector2 _velocity)
+    public void SetupItem(ItemData_SO _item, Vector2 _velocity)
     {
         itemData = _item;
         myRigidBody.velocity = _velocity;

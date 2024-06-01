@@ -10,11 +10,11 @@ public enum EquipmentType
 }
 
 [CreateAssetMenu(fileName = "New data Item Equipment", menuName = "Data/Item Equipment")]
-public class ItemData_Equipment : ItemData
+public class ItemData_Equipment_SO : ItemData_SO
 {
     public EquipmentType equipmentType;
 
-    public ItemEffect[] itemEffects;
+    public ItemEffect_SO[] itemEffects;
 
     [Header("Major stats")]
     public int strength;
