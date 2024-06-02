@@ -32,4 +32,15 @@ public class PlayerStats : CharacterStats
     {
         base.DoDamage(_targetStats);
     }
+
+    protected override void TakeDamageWithoutEffect(int damage)
+    {
+        base.TakeDamageWithoutEffect(damage);
+
+        ItemData_Equipment_SO currentArmor = InventoryManager.Instance.GetEquipment(EquipmentType.Armor);
+        if (currentArmor != null)
+        {
+            currentArmor.Effect(player.transform);
+        }
+    }
 }

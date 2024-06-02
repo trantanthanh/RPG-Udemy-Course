@@ -90,7 +90,9 @@ public class Enemy : Entity, IAnimationDoneTrigger
         }
     }
 
-    public virtual IEnumerator FreezeTimerFor(float _seconds)
+    public void FreezeTimerFor(float _duration) => StartCoroutine(FreezeTimerForCoroutine(_duration));
+
+    protected virtual IEnumerator FreezeTimerForCoroutine(float _seconds)
     {
         FreezeTimer(true);
         yield return new WaitForSeconds(_seconds);

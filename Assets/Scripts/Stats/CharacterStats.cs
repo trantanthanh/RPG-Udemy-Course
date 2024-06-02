@@ -292,7 +292,7 @@ public class CharacterStats : MonoBehaviour
         TakeDamageWithoutEffect(damage);
     }
 
-    private void TakeDamageWithoutEffect(int damage)
+    protected virtual void TakeDamageWithoutEffect(int damage)
     {
         if (!isAlive) return;
         currentHealth -= damage;
@@ -300,10 +300,6 @@ public class CharacterStats : MonoBehaviour
         {
             currentHealth = 0;
             Die();
-        }
-        else if (currentHealth >= GetMaxHealth())
-        {
-            currentHealth = GetMaxHealth();
         }
         onHealthChanged?.Invoke();
     }

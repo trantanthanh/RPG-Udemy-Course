@@ -37,7 +37,7 @@ public class PlayerPrimaryAttackState : PlayerState
     public override void Exit()
     {
         base.Exit();
-        player.StartCoroutine(player.BusyFor(0.15f));
+        player.BusyFor(0.15f);
     }
 
     public override void Update()

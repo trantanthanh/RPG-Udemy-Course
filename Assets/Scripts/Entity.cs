@@ -140,7 +140,9 @@ public class Entity : MonoBehaviour
         Gizmos.DrawWireSphere(attackCheck.position, attackCheckRadius);
     }
 
-    public IEnumerator BusyFor(float _seconds)
+    public void BusyFor(float _duration) => StartCoroutine(CoroutineBusyFor(_duration));
+
+    IEnumerator CoroutineBusyFor(float _seconds)
     {
         isBusy = true;
         yield return new WaitForSeconds(_seconds);
