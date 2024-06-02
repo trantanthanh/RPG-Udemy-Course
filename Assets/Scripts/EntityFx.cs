@@ -22,7 +22,7 @@ public class EntityFx : MonoBehaviour
         originalMat = spriteRenderer.material;
     }
 
-    private IEnumerator FlashFx()
+    public IEnumerator FlashFx()
     {
         isFlashing = true;
         Color currentColor = spriteRenderer.color;

@@ -258,7 +258,7 @@ public class SwordSkillController : MonoBehaviour
                 pierceAmount--;
                 return;
             }
-            enemy.StartCoroutine("FreezeTimerFor", freeTimeDuration);
+            enemy.StartCoroutine(enemy.FreezeTimerFor(freeTimeDuration));
         }
 
 
