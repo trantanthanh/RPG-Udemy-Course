@@ -301,6 +301,21 @@ public class CharacterStats : MonoBehaviour
             currentHealth = 0;
             Die();
         }
+        else if (currentHealth >= GetMaxHealth())
+        {
+            currentHealth = GetMaxHealth();
+        }
+        onHealthChanged?.Invoke();
+    }
+
+    public void RestoreHealthBy(int _amount)
+    {
+        if (!isAlive) return;
+        currentHealth += _amount;
+        if (currentHealth >= GetMaxHealth())
+        {
+            currentHealth = GetMaxHealth();
+        }
         onHealthChanged?.Invoke();
     }
 

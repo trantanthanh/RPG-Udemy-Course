@@ -132,6 +132,11 @@ public class Player : Entity
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            InventoryManager.Instance.UseFlask();
+        }
+
         CheckDash();
     }
 

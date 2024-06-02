@@ -27,6 +27,8 @@ public class InventoryManager : MonoBehaviour
     private UI_ItemSlot[] inventorySlots;//for the equipment items
     private UI_ItemSlot[] stashSlots;//for the material items
     private UI_EquipmentSlot[] equipmentSlots;//for items equipped 
+
+    float lastTimeUsedFlask = 0f;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -164,6 +166,23 @@ public class InventoryManager : MonoBehaviour
 
 
         UpdateSlotUI();
+    }
+
+    public void UseFlask()
+    {
+        ItemData_Equipment_SO currentFlask = GetEquipment(EquipmentType.Flask);
+        if (currentFlask == null) return;
+
+        if (Time.time >= currentFlask.cooldown + lastTimeUsedFlask)
+        {
+            lastTimeUsedFlask = Time.time;
+            currentFlask.Effect(null);
+            //Debug.Log("Use flask");
+        }
+        else
+        {
+            //Debug.Log("Use flask is cooldown");
+        }
     }
 
     #region Stash
