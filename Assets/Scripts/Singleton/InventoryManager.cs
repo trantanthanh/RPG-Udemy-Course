@@ -28,7 +28,10 @@ public class InventoryManager : MonoBehaviour
     private UI_ItemSlot[] stashSlots;//for the material items
     private UI_EquipmentSlot[] equipmentSlots;//for items equipped 
 
+    float flaskCooldown;
     float lastTimeUsedFlask = 0f;
+
+    float armorCooldown;
     float lastTimeUsedArmorEffect = 0f;
     // Start is called before the first frame update
     private void Awake()
@@ -174,8 +177,9 @@ public class InventoryManager : MonoBehaviour
         ItemData_Equipment_SO currentFlask = GetEquipment(EquipmentType.Flask);
         if (currentFlask == null) return;
 
-        if (Time.time >= currentFlask.cooldown + lastTimeUsedFlask)
+        if (Time.time >= flaskCooldown + lastTimeUsedFlask)
         {
+            flaskCooldown = currentFlask.cooldown;
             lastTimeUsedFlask = Time.time;
             currentFlask.Effect(null);
             //Debug.Log("Use flask");
@@ -192,8 +196,9 @@ public class InventoryManager : MonoBehaviour
         if (currentArmor == null) return false;
         PlayerStats playerStat = PlayerManager.Instance.player.GetComponent<PlayerStats>();
         if (playerStat.CurrentHealth > (playerStat.GetMaxHealth() / 10)) return false;//Only use armor effect when HP below 10%
-        if (Time.time >= currentArmor.cooldown + lastTimeUsedArmorEffect)
+        if (Time.time >= armorCooldown + lastTimeUsedArmorEffect)
         {
+            armorCooldown = currentArmor.cooldown;
             lastTimeUsedArmorEffect = Time.time;
             return true;
         }
