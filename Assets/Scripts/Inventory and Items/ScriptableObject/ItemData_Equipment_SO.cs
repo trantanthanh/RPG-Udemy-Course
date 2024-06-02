@@ -17,7 +17,7 @@ public class ItemData_Equipment_SO : ItemData_SO
     public ItemEffect_SO[] itemEffects;
 
     [Header("Item cooldown")]
-    public float cooldown = 5f;
+    public float cooldown;
 
     [Header("Major stats")]
     public int strength;

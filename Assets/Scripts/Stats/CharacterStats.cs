@@ -325,4 +325,20 @@ public class CharacterStats : MonoBehaviour
     {
         isAlive = false;
     }
+
+    public virtual void IncreaseStatBy(int _modifier, float _duration, Stat _statToModify)
+    {
+        //Start Coroutine for stat increase
+        if (_statToModify != null)
+        {
+            StartCoroutine(StatModIncrease(_modifier, _duration, _statToModify));
+        }
+    }
+
+    IEnumerator StatModIncrease(int _modifier, float _duration, Stat _statToModify)
+    {
+        _statToModify.AddModifier(_modifier);
+        yield return new WaitForSeconds(_duration);
+        _statToModify.RemoveModifier(_modifier);
+    }
 }
