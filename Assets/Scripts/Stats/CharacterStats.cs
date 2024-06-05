@@ -2,6 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum StatType
+{
+    strength,
+    agility,
+    inteligence,
+    vitality,
+
+    damage,
+    critChance,
+    critPower,
+
+    fireDamage,
+    iceDamage,
+    lightningDamage,
+
+    maxHealth,
+    armor,
+    evasion,
+    magicResistance
+}
+
 public class CharacterStats : MonoBehaviour
 {
     [Header("Major stats")]
@@ -336,5 +357,69 @@ public class CharacterStats : MonoBehaviour
         _statToModify.AddModifier(_modifier);
         yield return new WaitForSeconds(_duration);
         _statToModify.RemoveModifier(_modifier);
+    }
+
+    public Stat GetStat(StatType _statType)
+    {
+        switch (_statType)
+        {
+            case StatType.strength:
+                {
+                    return strength;
+                }
+            case StatType.inteligence:
+                {
+                    return inteligence;
+                }
+            case StatType.agility:
+                {
+                    return agility;
+                }
+            case StatType.vitality:
+                {
+                    return vitality;
+                }
+            case StatType.damage:
+                {
+                    return damage;
+                }
+            case StatType.critChance:
+                {
+                    return critChance;
+                }
+            case StatType.critPower:
+                {
+                    return critPower;
+                }
+            case StatType.fireDamage:
+                {
+                    return fireDamage;
+                }
+            case StatType.iceDamage:
+                {
+                    return iceDamage;
+                }
+            case StatType.lightningDamage:
+                {
+                    return lightningDamage;
+                }
+            case StatType.maxHealth:
+                {
+                    return maxHealth;
+                }
+            case StatType.armor:
+                {
+                    return armor;
+                }
+            case StatType.evasion:
+                {
+                    return evasion;
+                }
+            case StatType.magicResistance:
+                {
+                    return magicResistance;
+                }
+        }
+        return null;
     }
 }
