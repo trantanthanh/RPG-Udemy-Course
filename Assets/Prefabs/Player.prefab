@@ -379,7 +379,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4ff5eff299eb089428d120dfb7a8c112, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b74cd7c92b66ff949804935b8e1b2a2a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -474,7 +474,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.575
+  m_Value: 0.606
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -692,25 +692,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   strength:
-    baseValue: 0
+    baseValue: 1
     modifers: 
   agility:
-    baseValue: 0
+    baseValue: 2
     modifers: 
   inteligence:
-    baseValue: 0
+    baseValue: 3
     modifers: 
   vitality:
-    baseValue: 0
+    baseValue: 4
     modifers: 
   fireDamage:
-    baseValue: 0
+    baseValue: 5
     modifers: 
   iceDamage:
-    baseValue: 0
+    baseValue: 6
     modifers: 
   lightningDamage:
-    baseValue: 0
+    baseValue: 7
     modifers: 
   isIgnited: 0
   isChilled: 0
@@ -721,19 +721,19 @@ MonoBehaviour:
     baseValue: 10
     modifers: 
   critChance:
-    baseValue: 0
+    baseValue: 12
     modifers: 
   critPower:
-    baseValue: 0
+    baseValue: 33
     modifers: 
   maxHealth:
     baseValue: 100
     modifers: 
   evasion:
-    baseValue: 0
+    baseValue: 14
     modifers: 
   armor:
-    baseValue: 0
+    baseValue: 16
     modifers: 
   magicResistance:
     baseValue: 0

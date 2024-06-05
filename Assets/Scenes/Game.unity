@@ -62194,54 +62194,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 703596861239897970, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
-      propertyPath: armor.baseValue
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 703596861239897970, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
-      propertyPath: agility.baseValue
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 703596861239897970, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
-      propertyPath: evasion.baseValue
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 703596861239897970, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
-      propertyPath: strength.baseValue
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 703596861239897970, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
-      propertyPath: vitality.baseValue
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 703596861239897970, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
-      propertyPath: critPower.baseValue
-      value: 33
-      objectReference: {fileID: 0}
-    - target: {fileID: 703596861239897970, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
-      propertyPath: iceDamage.baseValue
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 703596861239897970, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
-      propertyPath: critChance.baseValue
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 703596861239897970, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
-      propertyPath: fireDamage.baseValue
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 703596861239897970, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
-      propertyPath: inteligence.baseValue
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 703596861239897970, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
-      propertyPath: lightningDamage.baseValue
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 890600753529915137, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
-      propertyPath: m_Value
-      value: 0.606
-      objectReference: {fileID: 0}
     - target: {fileID: 3471302627653843766, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.01
@@ -62798,10 +62750,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2384487156096367647, guid: 6dc9783ef0b839c4b8e75768942054df, type: 3}
-      propertyPath: m_Value
-      value: 0.581
-      objectReference: {fileID: 0}
     - target: {fileID: 3769457940908924336, guid: 6dc9783ef0b839c4b8e75768942054df, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -62810,26 +62758,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4431665946197419970, guid: 6dc9783ef0b839c4b8e75768942054df, type: 3}
-      propertyPath: damage.baseValue
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4431665946197419970, guid: 6dc9783ef0b839c4b8e75768942054df, type: 3}
-      propertyPath: maxHealth.baseValue
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 4431665946197419970, guid: 6dc9783ef0b839c4b8e75768942054df, type: 3}
-      propertyPath: lightningDamage.baseValue
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5304158678741358152, guid: 6dc9783ef0b839c4b8e75768942054df, type: 3}
       propertyPath: m_Name
       value: Enemy_Skeleton
       objectReference: {fileID: 0}
-    - target: {fileID: 7036904863636377495, guid: 6dc9783ef0b839c4b8e75768942054df, type: 3}
-      propertyPath: itemData
-      value: 
-      objectReference: {fileID: 11400000, guid: 2e2824c0065710443be6ed9fe044c2c1, type: 2}
     - target: {fileID: 7626629464300203417, guid: 6dc9783ef0b839c4b8e75768942054df, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.88
