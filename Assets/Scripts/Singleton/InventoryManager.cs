@@ -64,7 +64,10 @@ public class InventoryManager : MonoBehaviour
     {
         for (int i = 0; i < startingItems.Count; i++)
         {
-            AddItem(startingItems[i]);
+            if (CanAddItem(startingItems[i]))
+            {
+                AddItem(startingItems[i]);
+            }
         }
     }
 
@@ -135,7 +138,7 @@ public class InventoryManager : MonoBehaviour
             }
         }
 
-        if (oldEquipment != null)
+        if (oldEquipment != null && CanAddItem(oldEquipment))
         {
             oldEquipment.RemoveModifiers();//Remove modifiers are applied
             //Remove item already have for replace new (ex: change new weapon)
@@ -153,6 +156,42 @@ public class InventoryManager : MonoBehaviour
                 UpdateSlotUI();
             }
         }
+    }
+
+    public bool CanAddItem(ItemData_SO _item)
+    {
+        if (_item.itemType == ItemType.Equipment)
+        {
+            if (inventory.Count >= inventorySlots.Length)
+            {
+                if (inventoryDictionary.TryGetValue(_item, out InventoryItem value))
+                {
+                    return true;
+                }
+                else
+                {
+                    Debug.Log("No more inventory slot to add");
+                    return false;
+                }
+            }
+
+        }
+        else if (_item.itemType == ItemType.Material)
+        {
+            if (stash.Count >= stashSlots.Length)
+            {
+                if (stashDictionary.TryGetValue(_item, out InventoryItem value))
+                {
+                    return true;
+                }
+                else
+                {
+                    Debug.Log("No more stash slot to add");
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     public void AddItem(ItemData_SO _item)
@@ -300,13 +339,17 @@ public class InventoryManager : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < materialsToRemove.Count; i++)
+        if (CanAddItem(_itemToCraft))
         {
-            RemoveItem(materialsToRemove[i].data);
-        }
+            for (int i = 0; i < materialsToRemove.Count; i++)
+            {
+                RemoveItem(materialsToRemove[i].data);
+            }
 
-        AddItem(_itemToCraft);
-        return true;
+            AddItem(_itemToCraft);
+            return true;
+        }
+        return false;
     }
 
     public List<InventoryItem> GetEquipmentList() => equipment;
