@@ -24,9 +24,13 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private Transform stashSlotParent;//this parent (like container) hold all of material item slots
     [SerializeField] private Transform equipmentSlotParent;//this parent (like container) hold all of equipped items
 
+    [SerializeField] private Transform statSlotParent;//UI Stats menu
+
     private UI_ItemSlot[] inventorySlots;//for the equipment items
     private UI_ItemSlot[] stashSlots;//for the material items
     private UI_EquipmentSlot[] equipmentSlots;//for items equipped 
+
+    private UI_StatSlot[] statSlots;
 
     float flaskCooldown;
     float lastTimeUsedFlask = 0f;
@@ -51,6 +55,8 @@ public class InventoryManager : MonoBehaviour
         inventorySlots = inventorySlotParent.GetComponentsInChildren<UI_ItemSlot>();
         stashSlots = stashSlotParent.GetComponentsInChildren<UI_ItemSlot>();
         equipmentSlots = equipmentSlotParent.GetComponentsInChildren<UI_EquipmentSlot>();
+
+        statSlots = statSlotParent.GetComponentsInChildren<UI_StatSlot>();
         AddStartingItems();
     }
 
@@ -93,6 +99,11 @@ public class InventoryManager : MonoBehaviour
         for (int i = 0; i < stash.Count; i++)
         {
             stashSlots[i].UpdateSlot(stash[i]);
+        }
+
+        for (int i = 0; i < statSlots.Length; i++)//Update infor of Character stats in UI
+        {
+            statSlots[i].UpdateStatValueUI();
         }
     }
 
