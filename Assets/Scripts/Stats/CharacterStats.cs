@@ -125,7 +125,8 @@ public class CharacterStats : MonoBehaviour
 
         if (CheckTargetCanAvoidAttack(_targetStats)) return;
 
-        int totalDamage = damage.GetValue() + strength.GetValue();
+        //int totalDamage = damage.GetValue() + strength.GetValue();
+        int totalDamage = GetFinalValueStat(StatType.damage);
         if (CanCrit())
         {
             totalDamage = CalculateCritDamage(totalDamage);
@@ -159,7 +160,8 @@ public class CharacterStats : MonoBehaviour
 
     private int CheckTargetMagicResist(CharacterStats targetStats, int totalMagicDamage)
     {
-        totalMagicDamage -= targetStats.magicResistance.GetValue() + targetStats.inteligence.GetValue() * 3;
+        //totalMagicDamage -= targetStats.magicResistance.GetValue() + targetStats.inteligence.GetValue() * 3;
+        totalMagicDamage -= targetStats.GetFinalValueStat(StatType.magicResistance);
         totalMagicDamage = Mathf.Clamp(totalMagicDamage, 0, int.MaxValue);
         return totalMagicDamage;
     }
@@ -273,7 +275,8 @@ public class CharacterStats : MonoBehaviour
 
     private bool CheckTargetCanAvoidAttack(CharacterStats _targetStats)
     {
-        int totalTargetEvasion = _targetStats.evasion.GetValue() + _targetStats.agility.GetValue();
+        //int totalTargetEvasion = _targetStats.evasion.GetValue() + _targetStats.agility.GetValue();
+        int totalTargetEvasion = _targetStats.GetFinalValueStat(StatType.evasion);
         if (isShocked)
         {
             totalTargetEvasion += 20;
@@ -287,7 +290,8 @@ public class CharacterStats : MonoBehaviour
 
     private bool CanCrit()
     {
-        int totalCritChance = critChance.GetValue() + agility.GetValue();
+        //int totalCritChance = critChance.GetValue() + agility.GetValue();
+        int totalCritChance = GetFinalValueStat(StatType.critChance);
 
         if (Random.Range(0, 100) <= totalCritChance)
         {
@@ -298,7 +302,8 @@ public class CharacterStats : MonoBehaviour
 
     private int CalculateCritDamage(int _damage)
     {
-        float totalCritPower = (critPower.GetValue() + strength.GetValue()) * 0.01f;
+        //float totalCritPower = (critPower.GetValue() + strength.GetValue()) * 0.01f;
+        float totalCritPower = GetFinalValueStat(StatType.critPower) * 0.01f;
         float totalDamage = _damage * totalCritPower;
         return Mathf.RoundToInt(totalDamage);
     }
@@ -359,7 +364,7 @@ public class CharacterStats : MonoBehaviour
         _statToModify.RemoveModifier(_modifier);
     }
 
-    public Stat GetStat(StatType _statType)
+    public Stat GetBaseStat(StatType _statType)
     {
         switch (_statType)
         {
@@ -421,5 +426,76 @@ public class CharacterStats : MonoBehaviour
                 }
         }
         return null;
+    }
+
+    public int GetFinalValueStat(StatType _statType)
+    {
+        switch (_statType)
+        {
+            case StatType.strength:
+                {
+                    return strength.GetValue();
+                }
+            case StatType.inteligence:
+                {
+                    return inteligence.GetValue();
+                }
+            case StatType.agility:
+                {
+                    return agility.GetValue();
+                }
+            case StatType.vitality:
+                {
+                    return vitality.GetValue();
+                }
+            case StatType.damage:
+                {
+                    return damage.GetValue() + strength.GetValue();
+                }
+            case StatType.critChance:
+                {
+                    return critChance.GetValue() + agility.GetValue();
+                }
+            case StatType.critPower:
+                {
+                    return critPower.GetValue() + strength.GetValue();
+                }
+            case StatType.fireDamage:
+                {
+                    return fireDamage.GetValue();
+                }
+            case StatType.iceDamage:
+                {
+                    return iceDamage.GetValue();
+                }
+            case StatType.lightningDamage:
+                {
+                    return lightningDamage.GetValue();
+                }
+            case StatType.maxHealth:
+                {
+                    return GetMaxHealth();
+                }
+            case StatType.armor:
+                {
+                    if (isChilled)
+                    {
+                        return Mathf.RoundToInt(armor.GetValue() * 0.8f);//Reduce armor 20% when chilled
+                    }
+                    else
+                    { 
+                    return armor.GetValue();
+                    }
+                }
+            case StatType.evasion:
+                {
+                    return evasion.GetValue() + agility.GetValue();
+                }
+            case StatType.magicResistance:
+                {
+                    return magicResistance.GetValue() + inteligence.GetValue() * 3;
+                }
+        }
+        return 0;
     }
 }

@@ -18,6 +18,6 @@ public class BuffEffect_SO : ItemEffect_SO
 
         //Ex:
         //playerStats.IncreaseStatBy(buffAmount, buffDuration, playerStats.iceDamage);
-        playerStats.IncreaseStatBy(buffAmount, buffDuration, playerStats.GetStat(buffType));
+        playerStats.IncreaseStatBy(buffAmount, buffDuration, playerStats.GetBaseStat(buffType));
     }
 }

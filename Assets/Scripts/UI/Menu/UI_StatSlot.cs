@@ -30,7 +30,7 @@ public class UI_StatSlot : MonoBehaviour
         PlayerStats playerStats = PlayerManager.Instance.player.GetComponent<PlayerStats>();
         if (playerStats != null)
         {
-            statValueText.text = playerStats.GetStat(statType).GetValue().ToString();
+            statValueText.text = playerStats.GetFinalValueStat(statType).ToString();
         }
     }
 }
