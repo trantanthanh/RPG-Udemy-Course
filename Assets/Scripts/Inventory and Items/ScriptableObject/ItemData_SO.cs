@@ -1,3 +1,4 @@
+using System.Text;
 using UnityEngine;
 
 
@@ -17,4 +18,11 @@ public class ItemData_SO : ScriptableObject
 
     [Range(0, 100)]
     public int dropChance;
+
+    protected StringBuilder stringBuilder = new StringBuilder();
+
+    public virtual string GetDescription()
+    {
+        return "";
+    }
 }

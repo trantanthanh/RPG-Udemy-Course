@@ -4,12 +4,18 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 //update info of item to slot in inventory
-public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler
+public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] Image itemImage;
     [SerializeField] TextMeshProUGUI itemCountText;
 
     public InventoryItem item;
+    private UI ui;
+
+    private void Start()
+    {
+        ui = GetComponentInParent<UI>();
+    }
 
     public void UpdateSlot(InventoryItem _newItem)
     {
@@ -57,5 +63,18 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler
         itemImage.sprite = null;
         itemImage.color = Color.clear;
         itemCountText.text = "";
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (item == null || item.data == null) return;
+        Debug.Log("Show item info");
+        ui.itemTooltip.ShowTooltip(item.data as ItemData_Equipment_SO);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        Debug.Log("Hide item info");
+        ui.itemTooltip.HideTooltip();
     }
 }

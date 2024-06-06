@@ -93,4 +93,41 @@ public class ItemData_Equipment_SO : ItemData_SO
         playerStats.evasion.RemoveModifier(this.evasion);
         playerStats.magicResistance.RemoveModifier(this.magicResistance);
     }
+
+    public override string GetDescription()
+    {
+        stringBuilder.Clear();
+        AddItemDescription(strength, "Strength");
+        AddItemDescription(agility, "Agility");
+        AddItemDescription(inteligence, "Inteligence");
+        AddItemDescription(vitality, "Vitality");
+
+        AddItemDescription(damage, "Damage");
+        AddItemDescription(critChance, "CritChance");
+        AddItemDescription(critPower, "CritPower");
+
+        AddItemDescription(fireDamage, "Fire Damage");
+        AddItemDescription(iceDamage, "Ice Damage");
+        AddItemDescription(lightningDamage, "Lightning Damage");
+
+        AddItemDescription(health, "Health");
+        AddItemDescription(armor, "Armor");
+        AddItemDescription(evasion, "Evasion");
+        AddItemDescription(magicResistance, "Magic Resistance");
+
+        return stringBuilder.ToString();
+    }
+
+    private void AddItemDescription(int _value, string _name)
+    {
+        if (_value != 0)
+        {
+            if (stringBuilder.Length > 0)
+            {
+                stringBuilder.AppendLine();
+            }
+
+            stringBuilder.AppendLine($"{_name} : {_value}");
+        }
+    }
 }
