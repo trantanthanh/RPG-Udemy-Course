@@ -127,7 +127,7 @@ public class ItemData_Equipment_SO : ItemData_SO
                 stringBuilder.AppendLine();
             }
 
-            stringBuilder.AppendLine($"{_name} : {_value}");
+            stringBuilder.AppendLine($"+ {_value} {_name}");
         }
     }
 }

@@ -12,7 +12,7 @@ public class UI_ItemTooltip : MonoBehaviour
     public void ShowTooltip(ItemData_Equipment_SO _item)
     {
         itemNameText.text = _item.itemName;
-        itemTypeText.text = _item.itemType.ToString();
+        itemTypeText.text = _item.equipmentType.ToString();
         itemDescriptionText.text = _item.GetDescription();
 
         gameObject.SetActive(true);
