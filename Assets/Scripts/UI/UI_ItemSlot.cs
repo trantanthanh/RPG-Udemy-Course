@@ -6,13 +6,13 @@ using UnityEngine.UI;
 //update info of item to slot in inventory
 public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField] Image itemImage;
-    [SerializeField] TextMeshProUGUI itemCountText;
+    [SerializeField] protected Image itemImage;
+    [SerializeField] protected TextMeshProUGUI itemCountText;
 
     public InventoryItem item;
-    private UI ui;
+    protected UI ui;
 
-    private void Start()
+    protected virtual void Start()
     {
         ui = GetComponentInParent<UI>();
     }

@@ -17,6 +17,8 @@ MonoBehaviour:
   icon: {fileID: -1294465547, guid: be55291aae08d434db3da3b59db3ab4a, type: 3}
   dropChance: 60
   equipmentType: 1
+  itemEffects: []
+  cooldown: 0
   strength: 0
   agility: 0
   inteligence: 0
@@ -27,8 +29,12 @@ MonoBehaviour:
   damage: 0
   critChance: 0
   critPower: 0
-  health: 0
-  armor: 0
-  evasion: 0
+  health: 8
+  armor: 10
+  evasion: 5
   magicResistance: 0
-  craftingMaterials: []
+  craftingMaterials:
+  - data: {fileID: 11400000, guid: 64d122e4a7d1a714e8bbb28bfbbabc96, type: 2}
+    stackSize: 1
+  - data: {fileID: 11400000, guid: 44dd28e2085c18f4eb97af835d4ec141, type: 2}
+    stackSize: 1

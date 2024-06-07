@@ -330,7 +330,10 @@ public class InventoryManager : MonoBehaviour
                     return false;
                 }
                 //add this to used material
-                materialsToRemove.Add(stashValue);
+                for (int j = 0; j < _requiredMaterials[i].stackSize; j++)
+                {
+                    materialsToRemove.Add(stashValue);
+                }
             }
             else
             {

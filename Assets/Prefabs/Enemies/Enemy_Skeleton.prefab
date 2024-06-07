@@ -763,11 +763,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   possibleItemsDrop: 4
   possibleDrop:
-  - {fileID: 11400000, guid: 528310befcc077044bbffc6374d5a0c0, type: 2}
-  - {fileID: 11400000, guid: e12192ff3c7e0f741a1bba2aa56e1d83, type: 2}
-  - {fileID: 11400000, guid: 55c9bdaa7ee547a4b8374416b154857f, type: 2}
   - {fileID: 11400000, guid: 2e2824c0065710443be6ed9fe044c2c1, type: 2}
+  - {fileID: 11400000, guid: 31a6d83020582d14d9005e9e99a8fd94, type: 2}
+  - {fileID: 11400000, guid: 44dd28e2085c18f4eb97af835d4ec141, type: 2}
+  - {fileID: 11400000, guid: b9e1ffba39f1489488947ac8ccdb75c0, type: 2}
+  - {fileID: 11400000, guid: 9a7bd225765b28342ad4d1ec7bd84360, type: 2}
   - {fileID: 11400000, guid: 64d122e4a7d1a714e8bbb28bfbbabc96, type: 2}
+  - {fileID: 11400000, guid: cb068e2ef1e7f2f40854a4c1c7e770c4, type: 2}
+  - {fileID: 11400000, guid: 477c02553d0d3d84892008a05a3e20a7, type: 2}
   dropPrefab: {fileID: 4148545283387419536, guid: e473808a9b8017c45ac76b36a64d4a89, type: 3}
 --- !u!1 &7584969247699223718
 GameObject:

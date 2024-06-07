@@ -17,6 +17,8 @@ MonoBehaviour:
   icon: {fileID: -671158514, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
   dropChance: 60
   equipmentType: 0
+  itemEffects: []
+  cooldown: 0
   strength: 0
   agility: 0
   inteligence: 0
@@ -24,9 +26,9 @@ MonoBehaviour:
   fireDamage: 5
   iceDamage: 0
   lightningDamage: 0
-  damage: 50
-  critChance: 0
-  critPower: 0
+  damage: 20
+  critChance: 10
+  critPower: 20
   health: 0
   armor: 0
   evasion: 0
@@ -35,4 +37,4 @@ MonoBehaviour:
   - data: {fileID: 11400000, guid: 64d122e4a7d1a714e8bbb28bfbbabc96, type: 2}
     stackSize: 1
   - data: {fileID: 11400000, guid: 2e2824c0065710443be6ed9fe044c2c1, type: 2}
-    stackSize: 0
+    stackSize: 1

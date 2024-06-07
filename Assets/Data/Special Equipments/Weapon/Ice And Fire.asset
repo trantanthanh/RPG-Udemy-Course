@@ -19,12 +19,13 @@ MonoBehaviour:
   equipmentType: 0
   itemEffects:
   - {fileID: 11400000, guid: 19cc0ea1065cdc643aa3e17bb2f65d0c, type: 2}
+  cooldown: 0
   strength: 0
   agility: 0
   inteligence: 0
   vitality: 0
-  fireDamage: 1
-  iceDamage: 1
+  fireDamage: 2
+  iceDamage: 2
   lightningDamage: 0
   damage: 0
   critChance: 0
@@ -33,4 +34,10 @@ MonoBehaviour:
   armor: 0
   evasion: 0
   magicResistance: 0
-  craftingMaterials: []
+  craftingMaterials:
+  - data: {fileID: 11400000, guid: 477c02553d0d3d84892008a05a3e20a7, type: 2}
+    stackSize: 1
+  - data: {fileID: 11400000, guid: 64d122e4a7d1a714e8bbb28bfbbabc96, type: 2}
+    stackSize: 1
+  - data: {fileID: 11400000, guid: 2e2824c0065710443be6ed9fe044c2c1, type: 2}
+    stackSize: 1

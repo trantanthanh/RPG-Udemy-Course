@@ -19,6 +19,7 @@ MonoBehaviour:
   equipmentType: 0
   itemEffects:
   - {fileID: 11400000, guid: 2545feff140defc43b472149d5766b86, type: 2}
+  cooldown: 0
   strength: 0
   agility: 0
   inteligence: 0
@@ -33,4 +34,8 @@ MonoBehaviour:
   armor: 0
   evasion: 0
   magicResistance: 0
-  craftingMaterials: []
+  craftingMaterials:
+  - data: {fileID: 11400000, guid: 64d122e4a7d1a714e8bbb28bfbbabc96, type: 2}
+    stackSize: 3
+  - data: {fileID: 11400000, guid: 477c02553d0d3d84892008a05a3e20a7, type: 2}
+    stackSize: 3
