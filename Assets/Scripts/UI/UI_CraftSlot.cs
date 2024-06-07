@@ -24,10 +24,11 @@ public class UI_CraftSlot : UI_ItemSlot
         ItemData_Equipment_SO craftData = item.data as ItemData_Equipment_SO;
         if (craftData != null)
         {
-            if (InventoryManager.Instance.CanCraft(craftData, craftData.craftingMaterials))
-            {
-                //Inform to user
-            }
+            ui.craftWindow.SetupCraftWindow(craftData);
+            //if (InventoryManager.Instance.CanCraft(craftData, craftData.craftingMaterials))
+            //{
+            //    //Inform to user
+            //}
         }
     }
 }

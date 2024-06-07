@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+//SetupCraftList - Weapon
 public class UI_CraftList : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField] private Transform craftSlotParent;
     [SerializeField] private GameObject craftSlotPrefab;
 
     [SerializeField] private List<ItemData_Equipment_SO> craftEquipment;
-    [SerializeField] private List<UI_CraftSlot> craftSlots;
+    private List<UI_CraftSlot> craftSlots = new List<UI_CraftSlot>();
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +40,7 @@ public class UI_CraftList : MonoBehaviour, IPointerDownHandler
         {
             GameObject newSlot = Instantiate(craftSlotPrefab, craftSlotParent);
             newSlot.GetComponent<UI_CraftSlot>().SetupCraftSlot(craftEquipment[i]);
+            craftSlots.Add(newSlot.GetComponent<UI_CraftSlot>());
         }
     }
 
