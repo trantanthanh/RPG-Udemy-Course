@@ -7,12 +7,12 @@ public class UI_StatTooltip : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI description;
 
-    public void ShowStatToolTip(string text)
+    public void Show(string text)
     {
         if (text.Length == 0) return;
         description.text = text;
         gameObject.SetActive(true);
     }
 
-    public void HideStatTooltip() => gameObject.SetActive(false);
+    public void Hide() => gameObject.SetActive(false);
 }

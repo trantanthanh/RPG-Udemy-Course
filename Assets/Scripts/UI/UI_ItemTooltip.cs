@@ -9,7 +9,7 @@ public class UI_ItemTooltip : MonoBehaviour
     [SerializeField] private TextMeshProUGUI itemTypeText;
     [SerializeField] private TextMeshProUGUI itemDescriptionText;
 
-    public void ShowTooltip(ItemData_Equipment_SO _item)
+    public void Show(ItemData_Equipment_SO _item)
     {
         itemNameText.text = _item.itemName;
         itemTypeText.text = _item.equipmentType.ToString();
@@ -18,5 +18,5 @@ public class UI_ItemTooltip : MonoBehaviour
         gameObject.SetActive(true);
     }
 
-    public void HideTooltip() => gameObject.SetActive(false);
+    public void Hide() => gameObject.SetActive(false);
 }
