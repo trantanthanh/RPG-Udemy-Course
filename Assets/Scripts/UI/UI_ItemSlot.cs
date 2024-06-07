@@ -55,6 +55,7 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
                 InventoryManager.Instance.EquipItem(item.data);
             }
         }
+        ui.itemTooltip.Hide();
     }
 
     public void CleanupSlot()
