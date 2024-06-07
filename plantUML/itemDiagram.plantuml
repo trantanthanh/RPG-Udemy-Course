@@ -1,0 +1,97 @@
+@startuml
+class ItemData_SO extends ScriptableObject {
+    + itemType : ItemType;
+    + itemName : string;
+    + icon : Sprite;
+    + dropChance : int;
+    # stringBuilder: StringBuilder
+    + virtual GetDescription() : string;
+}
+note left of ItemData_SO::stringBuilder
+This is description of item
+end note
+
+class ItemEffect_SO extends ScriptableObject {
+    + virtual ExecuteEffect(Transform _target) : void
+}
+
+class FreezeEnemies_Effect_SO extends ItemEffect_SO {
+
+}
+class HealEffect_SO extends ItemEffect_SO {}
+class IceAndFire_Effect_SO extends ItemEffect_SO {
+    -[SerializeField] iceAndFirePrefab:GameObject;
+    -[SerializeField] xVelocity:float;
+}
+class BuffEffect_SO extends ItemEffect_SO {}
+class ThunderStrike_Effect_SO extends ItemEffect_SO {
+    -[SerializeField] thunderstrikePrefab:GameObject;
+}
+
+ItemData_Equipment_SO::itemEffects --> ItemEffect_SO::ExecuteEffect
+class ItemData_Equipment_SO extends ItemData_SO
+{
+    + equipmentType : EquipmentType;
+    + itemEffects:  ItemEffect_SO[] ;
+
+    + cooldown:float;
+
+    + strength:int;
+    + agility:int;
+    + inteligence:int;
+    + vitality:int;
+
+    + fireDamage:int;
+    + iceDamage:int;
+    + lightningDamage:int;
+
+    + damage:int;
+    + critChance:int;
+    + critPower:int;
+
+    + health:int;
+    + armor:int;
+    + evasion:int;
+    + magicResistance:int;
+
+    + List<InventoryItem> craftingMaterials;
+
+    + Effect(Transform _target):void
+
+    + AddModifiers():void
+    + RemoveModifiers():void
+    + override GetDescription():string
+    - AddItemDescription(int _value, string _name):void
+}
+
+class InventoryManager {
+    + AddItem(ItemData_Equipment_SO _item):void
+}
+
+class ItemObject {
+    +[SerializeField] itemData:ItemData_SO;
+    +SetupItem(ItemData_SO _item, Vector2 _velocity):void
+    -UpdateIconAndName():void
+    +PickupItem():void
+}
+note top of ItemObject
+This class for items drop in game
+Attach to ItemObject prefab
+end note
+
+class ItemObject_Trigger {
+    - myItemObject:ItemObject;
+    - OnTriggerEnter2D
+}
+
+note top of ItemObject_Trigger
+This class for items to collect in game scene
+Attach to ItemObject prefab
+end note
+
+
+ItemObject::itemData --> ItemData_SO
+ItemObject::PickupItem --> InventoryManager::AddItem
+
+ItemObject_Trigger::myItemObject --> ItemObject::PickupItem
+@enduml
