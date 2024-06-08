@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-//SetupCraftList - Weapon
+//SetupCraftList - Weapon, Armor, Amulet, Flask
 public class UI_CraftList : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField] private Transform craftSlotParent;

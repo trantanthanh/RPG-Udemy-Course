@@ -8,6 +8,11 @@ public class UI : MonoBehaviour
     [SerializeField] private GameObject skillTreeUI;
     [SerializeField] private GameObject craftUI;
     [SerializeField] private GameObject optionsUI;
+    public GameObject CharacterUI { get { return characterUI; } }
+    public GameObject SkillTreeUI { get { return skillTreeUI; } }
+    public GameObject CraftUI { get { return craftUI; } }
+    public GameObject OptionsUI { get { return optionsUI; } }
+
     private bool isMenuShow = false;
     private int currentMenuIndex = 0;
     private Dictionary<int, GameObject> menuDictionary = new Dictionary<int, GameObject>();
