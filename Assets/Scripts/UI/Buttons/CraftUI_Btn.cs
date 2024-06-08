@@ -1,6 +1,6 @@
-using UnityEngine.UI;
+using Menu;
 
-public class CharacterBtn : BaseButton
+public class CraftUI_Btn : BaseButton
 {
     private UI ui;
 
@@ -12,6 +12,6 @@ public class CharacterBtn : BaseButton
 
     protected override void OnClick()
     {
-        ui.SwitchMenuTo(ui.CharacterUI);
+        ui.SwitchMenuTo(ui.CraftUI);
     }
 }
