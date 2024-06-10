@@ -649,8 +649,12 @@ MonoBehaviour:
   skillName: Bouncy Sword
   skillDescription: 
   skillImage: {fileID: 0}
-  shouldBeUnlocked: []
-  shouldBelocked: []
+  shouldBeUnlocked:
+  - {fileID: 2613972798873839341}
+  shouldBelocked:
+  - {fileID: 5391142765845923063}
+  - {fileID: 6636117724662859153}
+  - {fileID: 1122702913202178185}
   unlocked: 1
 --- !u!1 &765079917076283199
 GameObject:
@@ -789,8 +793,14 @@ MonoBehaviour:
   skillName: Bouncy Sword
   skillDescription: 
   skillImage: {fileID: 0}
-  shouldBeUnlocked: []
-  shouldBelocked: []
+  shouldBeUnlocked:
+  - {fileID: 2613972798873839341}
+  - {fileID: 5391142765845923063}
+  - {fileID: 6636117724662859153}
+  shouldBelocked:
+  - {fileID: 100033612283781106}
+  - {fileID: 9203466086263749365}
+  - {fileID: 7405583323293627179}
   unlocked: 1
 --- !u!1 &1229845428612910605
 GameObject:
@@ -1285,8 +1295,13 @@ MonoBehaviour:
   skillName: Bouncy Sword
   skillDescription: 
   skillImage: {fileID: 0}
-  shouldBeUnlocked: []
-  shouldBelocked: []
+  shouldBeUnlocked:
+  - {fileID: 2613972798873839341}
+  - {fileID: 5391142765845923063}
+  shouldBelocked:
+  - {fileID: 100033612283781106}
+  - {fileID: 9203466086263749365}
+  - {fileID: 7405583323293627179}
   unlocked: 1
 --- !u!1 &2355827731247692336
 GameObject:
@@ -1702,8 +1717,10 @@ MonoBehaviour:
   skillName: Bouncy Sword
   skillDescription: 
   skillImage: {fileID: 0}
-  shouldBeUnlocked: []
-  shouldBelocked: []
+  shouldBeUnlocked:
+  - {fileID: 6740480427511085289}
+  shouldBelocked:
+  - {fileID: 798971095567669724}
   unlocked: 1
 --- !u!1 &2701615216062540561
 GameObject:
@@ -2002,11 +2019,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1725325751079543290}
+  - {fileID: 2429911466069849013}
+  - {fileID: 6697828277833268015}
   - {fileID: 2458203608564109883}
   - {fileID: 322457007735628567}
   - {fileID: 1213722591359259217}
-  - {fileID: 2429911466069849013}
-  - {fileID: 6697828277833268015}
   m_Father: {fileID: 2908501430452231778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -3094,7 +3111,9 @@ MonoBehaviour:
   skillName: Bouncy Sword
   skillDescription: 
   skillImage: {fileID: 0}
-  shouldBeUnlocked: []
+  shouldBeUnlocked:
+  - {fileID: 9061754522895342694}
+  - {fileID: 9007576626916626127}
   shouldBelocked: []
   unlocked: 1
 --- !u!1 &4415357643807599137
@@ -3368,7 +3387,8 @@ MonoBehaviour:
   skillName: Bouncy Sword
   skillDescription: 
   skillImage: {fileID: 0}
-  shouldBeUnlocked: []
+  shouldBeUnlocked:
+  - {fileID: 9061754522895342694}
   shouldBelocked: []
   unlocked: 1
 --- !u!1 &5046456958992311517
@@ -3644,7 +3664,9 @@ MonoBehaviour:
   skillName: Bouncy Sword
   skillDescription: 
   skillImage: {fileID: 0}
-  shouldBeUnlocked: []
+  shouldBeUnlocked:
+  - {fileID: 4216902344586659368}
+  - {fileID: 3231538173562496497}
   shouldBelocked: []
   unlocked: 1
 --- !u!1 &5187150407096540127
@@ -4329,8 +4351,12 @@ MonoBehaviour:
   skillName: Bouncy Sword
   skillDescription: 
   skillImage: {fileID: 0}
-  shouldBeUnlocked: []
-  shouldBelocked: []
+  shouldBeUnlocked:
+  - {fileID: 2613972798873839341}
+  shouldBelocked:
+  - {fileID: 100033612283781106}
+  - {fileID: 9203466086263749365}
+  - {fileID: 7405583323293627179}
   unlocked: 1
 --- !u!1 &5998062579446075785
 GameObject:
@@ -5007,7 +5033,8 @@ MonoBehaviour:
   skillName: Bouncy Sword
   skillDescription: 
   skillImage: {fileID: 0}
-  shouldBeUnlocked: []
+  shouldBeUnlocked:
+  - {fileID: 4216902344586659368}
   shouldBelocked: []
   unlocked: 1
 --- !u!1 &6497252687113063788
@@ -5281,8 +5308,10 @@ MonoBehaviour:
   skillName: Bouncy Sword
   skillDescription: 
   skillImage: {fileID: 0}
-  shouldBeUnlocked: []
-  shouldBelocked: []
+  shouldBeUnlocked:
+  - {fileID: 6740480427511085289}
+  shouldBelocked:
+  - {fileID: 7024293099338371738}
   unlocked: 1
 --- !u!1 &6567895507403383311
 GameObject:
@@ -5421,8 +5450,14 @@ MonoBehaviour:
   skillName: Bouncy Sword
   skillDescription: 
   skillImage: {fileID: 0}
-  shouldBeUnlocked: []
-  shouldBelocked: []
+  shouldBeUnlocked:
+  - {fileID: 2613972798873839341}
+  - {fileID: 100033612283781106}
+  - {fileID: 9203466086263749365}
+  shouldBelocked:
+  - {fileID: 5391142765845923063}
+  - {fileID: 6636117724662859153}
+  - {fileID: 1122702913202178185}
   unlocked: 1
 --- !u!1 &6682972439571770227
 GameObject:
@@ -5963,7 +5998,8 @@ MonoBehaviour:
   skillName: Bouncy Sword
   skillDescription: 
   skillImage: {fileID: 0}
-  shouldBeUnlocked: []
+  shouldBeUnlocked:
+  - {fileID: 5487942739463033064}
   shouldBelocked: []
   unlocked: 1
 --- !u!1 &7097140257006802818
@@ -7143,8 +7179,13 @@ MonoBehaviour:
   skillName: Bouncy Sword
   skillDescription: 
   skillImage: {fileID: 0}
-  shouldBeUnlocked: []
-  shouldBelocked: []
+  shouldBeUnlocked:
+  - {fileID: 2613972798873839341}
+  - {fileID: 100033612283781106}
+  shouldBelocked:
+  - {fileID: 5391142765845923063}
+  - {fileID: 6636117724662859153}
+  - {fileID: 1122702913202178185}
   unlocked: 1
 --- !u!1 &8455516909072553488
 GameObject:

@@ -24,7 +24,15 @@ public class UI_SkillTreeSlot : MonoBehaviour
     private void Start()
     {
         skillImage = GetComponent<Image>();
-        skillImage.color = Color.red;
+        if (unlocked)
+        {
+            skillImage.color = Color.green;
+        }
+        else
+        {
+            skillImage.color = Color.red;
+        }
+
         GetComponent<Button>().onClick.AddListener(() => UnlockSkillSlot());
     }
 
