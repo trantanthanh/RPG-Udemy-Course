@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public abstract class BaseButton : MonoBehaviour
 {
     [Header("Base Button")]
-    [SerializeField] protected Button button;
+    [SerializeField] protected Button button;//assign button in inspector: make sure buttons which is disabled can be work
 
     protected virtual void Start()
     {
