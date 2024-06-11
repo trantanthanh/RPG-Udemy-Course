@@ -48597,21 +48597,85 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1502373173}
     m_Modifications:
+    - target: {fileID: 231587939431050005, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.a
+      value: 0.80784315
+      objectReference: {fileID: 0}
+    - target: {fileID: 231587939431050005, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 231587939431050005, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 231587939431050005, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 272823701106974241, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.a
+      value: 0.80784315
+      objectReference: {fileID: 0}
+    - target: {fileID: 272823701106974241, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 272823701106974241, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 272823701106974241, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 433921057847942662, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.a
+      value: 0.80784315
+      objectReference: {fileID: 0}
+    - target: {fileID: 433921057847942662, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 433921057847942662, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 433921057847942662, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 681755950383864052, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.a
+      value: 0.80784315
+      objectReference: {fileID: 0}
+    - target: {fileID: 681755950383864052, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 681755950383864052, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 681755950383864052, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6037736
+      objectReference: {fileID: 0}
     - target: {fileID: 1016540192823439102, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.a
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1016540192823439102, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.b
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 1016540192823439102, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.g
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 1016540192823439102, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.r
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 1017360994480466272, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.a
@@ -48619,15 +48683,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1017360994480466272, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.b
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 1017360994480466272, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.g
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 1017360994480466272, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.r
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 1049796917553320937, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.a
@@ -48635,14 +48699,46 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1049796917553320937, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.b
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 1049796917553320937, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.g
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 1049796917553320937, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.r
+      value: 0.49056602
+      objectReference: {fileID: 0}
+    - target: {fileID: 1080177607950250039, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.a
+      value: 0.80784315
+      objectReference: {fileID: 0}
+    - target: {fileID: 1080177607950250039, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 1080177607950250039, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 1080177607950250039, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 1269555858296643591, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.a
+      value: 0.80784315
+      objectReference: {fileID: 0}
+    - target: {fileID: 1269555858296643591, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 1269555858296643591, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 1269555858296643591, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.r
       value: 0.6037736
       objectReference: {fileID: 0}
     - target: {fileID: 1548676811964692623, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
@@ -48651,15 +48747,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1548676811964692623, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.b
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 1548676811964692623, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.g
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 1548676811964692623, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.r
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 1652322090399776142, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.a
@@ -48667,14 +48763,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1652322090399776142, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.b
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 1652322090399776142, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.g
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 1652322090399776142, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.r
+      value: 0.49056602
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684418011008263280, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.a
+      value: 0.80784315
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684418011008263280, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684418011008263280, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 1684418011008263280, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.r
       value: 0.6037736
       objectReference: {fileID: 0}
     - target: {fileID: 1749934090383706217, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
@@ -48683,14 +48795,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1749934090383706217, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.b
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 1749934090383706217, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.g
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 1749934090383706217, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.r
+      value: 0.49056602
+      objectReference: {fileID: 0}
+    - target: {fileID: 1800654686542011978, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.a
+      value: 0.80784315
+      objectReference: {fileID: 0}
+    - target: {fileID: 1800654686542011978, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 1800654686542011978, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 1800654686542011978, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.r
       value: 0.6037736
       objectReference: {fileID: 0}
     - target: {fileID: 1933627374074273562, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
@@ -48699,15 +48827,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1933627374074273562, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.b
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 1933627374074273562, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.g
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 1933627374074273562, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.r
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 2207535734485954210, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.a
@@ -48715,14 +48843,46 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2207535734485954210, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.b
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 2207535734485954210, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.g
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 2207535734485954210, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.r
+      value: 0.49056602
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555745849681456366, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.a
+      value: 0.80784315
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555745849681456366, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555745849681456366, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555745849681456366, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 3341100288169656483, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.a
+      value: 0.80784315
+      objectReference: {fileID: 0}
+    - target: {fileID: 3341100288169656483, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 3341100288169656483, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 3341100288169656483, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.r
       value: 0.6037736
       objectReference: {fileID: 0}
     - target: {fileID: 3488138024979220942, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
@@ -48731,15 +48891,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3488138024979220942, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.b
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 3488138024979220942, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.g
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 3488138024979220942, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.r
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 3534082522650315248, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: m_AnchorMax.y
@@ -48771,31 +48931,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3613963876060051885, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.b
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 3613963876060051885, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.g
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 3613963876060051885, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.r
+      value: 0.49056602
+      objectReference: {fileID: 0}
+    - target: {fileID: 3687974993500672405, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.a
+      value: 0.80784315
+      objectReference: {fileID: 0}
+    - target: {fileID: 3687974993500672405, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 3687974993500672405, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 3687974993500672405, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739301407860833465, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.a
+      value: 0.80784315
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739301407860833465, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739301407860833465, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739301407860833465, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.r
       value: 0.6037736
       objectReference: {fileID: 0}
     - target: {fileID: 3756537003334368619, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: m_Color.a
-      value: 1
+      value: 0.80784315
       objectReference: {fileID: 0}
     - target: {fileID: 3756537003334368619, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0.6037736
       objectReference: {fileID: 0}
     - target: {fileID: 3756537003334368619, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0.6037736
       objectReference: {fileID: 0}
     - target: {fileID: 3756537003334368619, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.6037736
       objectReference: {fileID: 0}
     - target: {fileID: 3891327513144428979, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.a
@@ -48803,14 +48995,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3891327513144428979, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.b
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 3891327513144428979, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.g
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 3891327513144428979, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.r
+      value: 0.49056602
+      objectReference: {fileID: 0}
+    - target: {fileID: 3916749361698108786, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.a
+      value: 0.80784315
+      objectReference: {fileID: 0}
+    - target: {fileID: 3916749361698108786, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 3916749361698108786, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 3916749361698108786, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.r
       value: 0.6037736
       objectReference: {fileID: 0}
     - target: {fileID: 3973628665140394111, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
@@ -48819,15 +49027,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3973628665140394111, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.b
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 3973628665140394111, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.g
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 3973628665140394111, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.r
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 4369813440139529586, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.a
@@ -48835,14 +49043,46 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4369813440139529586, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.b
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 4369813440139529586, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.g
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 4369813440139529586, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.r
+      value: 0.49056602
+      objectReference: {fileID: 0}
+    - target: {fileID: 4454319756116436490, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.a
+      value: 0.80784315
+      objectReference: {fileID: 0}
+    - target: {fileID: 4454319756116436490, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 4454319756116436490, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 4454319756116436490, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 4615631937399402937, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.a
+      value: 0.80784315
+      objectReference: {fileID: 0}
+    - target: {fileID: 4615631937399402937, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 4615631937399402937, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 4615631937399402937, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.r
       value: 0.6037736
       objectReference: {fileID: 0}
     - target: {fileID: 4708573383444003989, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
@@ -48873,6 +49113,38 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5264210081411376081, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.a
+      value: 0.80784315
+      objectReference: {fileID: 0}
+    - target: {fileID: 5264210081411376081, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 5264210081411376081, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 5264210081411376081, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 5277520584149680157, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.a
+      value: 0.80784315
+      objectReference: {fileID: 0}
+    - target: {fileID: 5277520584149680157, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 5277520584149680157, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 5277520584149680157, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6037736
+      objectReference: {fileID: 0}
     - target: {fileID: 5522380329875118447, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -48903,15 +49175,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5724613000374352915, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.b
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 5724613000374352915, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.g
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 5724613000374352915, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.r
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 5762988655506583961, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.a
@@ -48919,14 +49191,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5762988655506583961, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.b
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 5762988655506583961, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.g
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 5762988655506583961, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.r
+      value: 0.49056602
+      objectReference: {fileID: 0}
+    - target: {fileID: 6393637894467144704, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.a
+      value: 0.80784315
+      objectReference: {fileID: 0}
+    - target: {fileID: 6393637894467144704, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 6393637894467144704, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 6393637894467144704, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.r
       value: 0.6037736
       objectReference: {fileID: 0}
     - target: {fileID: 6580746192175881253, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
@@ -48935,14 +49223,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6580746192175881253, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.b
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 6580746192175881253, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.g
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 6580746192175881253, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.r
+      value: 0.49056602
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592639423576369820, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.a
+      value: 0.80784315
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592639423576369820, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592639423576369820, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592639423576369820, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.r
       value: 0.6037736
       objectReference: {fileID: 0}
     - target: {fileID: 6760060323012655522, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
@@ -48951,15 +49255,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6760060323012655522, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.b
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 6760060323012655522, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.g
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 6760060323012655522, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.r
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 6838135601967371765, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: m_Pivot.x
@@ -49041,20 +49345,52 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6887851694029349184, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.a
+      value: 0.80784315
+      objectReference: {fileID: 0}
+    - target: {fileID: 6887851694029349184, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 6887851694029349184, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 6887851694029349184, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6037736
+      objectReference: {fileID: 0}
     - target: {fileID: 7434759359286979567, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.a
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7434759359286979567, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.b
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 7434759359286979567, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.g
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 7434759359286979567, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.r
+      value: 0.49056602
+      objectReference: {fileID: 0}
+    - target: {fileID: 7598733226834964730, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.a
+      value: 0.80784315
+      objectReference: {fileID: 0}
+    - target: {fileID: 7598733226834964730, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 7598733226834964730, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 7598733226834964730, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.r
       value: 0.6037736
       objectReference: {fileID: 0}
     - target: {fileID: 7828324519126439847, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
@@ -49063,15 +49399,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7828324519126439847, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.b
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 7828324519126439847, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.g
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 7828324519126439847, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.r
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 8121099142074942349, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.a
@@ -49079,15 +49415,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8121099142074942349, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.b
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 8121099142074942349, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.g
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 8121099142074942349, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.r
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 8158651266110149775, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.a
@@ -49095,14 +49431,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8158651266110149775, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.b
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 8158651266110149775, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.g
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 8158651266110149775, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.r
+      value: 0.49056602
+      objectReference: {fileID: 0}
+    - target: {fileID: 8407241158052262802, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.a
+      value: 0.80784315
+      objectReference: {fileID: 0}
+    - target: {fileID: 8407241158052262802, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 8407241158052262802, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 8407241158052262802, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.r
       value: 0.6037736
       objectReference: {fileID: 0}
     - target: {fileID: 8460999510975124096, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
@@ -49111,15 +49463,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8460999510975124096, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.b
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 8460999510975124096, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.g
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 8460999510975124096, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.r
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 8602110245243900220, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.a
@@ -49127,15 +49479,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8602110245243900220, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.b
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 8602110245243900220, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.g
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 8602110245243900220, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.r
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 9043360601630547463, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: m_AnchorMax.y
@@ -49167,14 +49519,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9074868854058424429, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.b
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 9074868854058424429, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.g
-      value: 0.6037736
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 9074868854058424429, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: lockedSkillColor.r
+      value: 0.49056602
+      objectReference: {fileID: 0}
+    - target: {fileID: 9208679521803894911, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.a
+      value: 0.80784315
+      objectReference: {fileID: 0}
+    - target: {fileID: 9208679521803894911, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 9208679521803894911, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 9208679521803894911, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Color.r
       value: 0.6037736
       objectReference: {fileID: 0}
     m_RemovedComponents: []

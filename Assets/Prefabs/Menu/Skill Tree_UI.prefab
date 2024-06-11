@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 0.80784315}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Crystal Mirage
-  lockedSkillColor: {r: 0, g: 0, b: 0, a: 0}
+  lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked:
@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 0.80784315}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -278,7 +278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Explosion
-  lockedSkillColor: {r: 0, g: 0, b: 0, a: 0}
+  lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked:
@@ -422,7 +422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 0.80784315}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -496,7 +496,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Controlled Destruction
-  lockedSkillColor: {r: 0, g: 0, b: 0, a: 0}
+  lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked:
@@ -874,7 +874,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 0.80784315}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -948,7 +948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Parry - Mirrage attack
-  lockedSkillColor: {r: 0, g: 0, b: 0, a: 0}
+  lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked:
@@ -1017,7 +1017,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 0.80784315}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1091,7 +1091,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Multiple distruction
-  lockedSkillColor: {r: 0, g: 0, b: 0, a: 0}
+  lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked:
@@ -1832,7 +1832,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 0.80784315}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1906,7 +1906,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Bouncy Sword
-  lockedSkillColor: {r: 0, g: 0, b: 0, a: 0}
+  lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked:
@@ -2111,7 +2111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 0.80784315}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2185,7 +2185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Dodge mirage
-  lockedSkillColor: {r: 0, g: 0, b: 0, a: 0}
+  lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked:
@@ -2388,7 +2388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 0.80784315}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2462,7 +2462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Mirage Blink
-  lockedSkillColor: {r: 0, g: 0, b: 0, a: 0}
+  lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked:
@@ -2667,7 +2667,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 0.80784315}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2741,7 +2741,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Dash - See me
-  lockedSkillColor: {r: 0, g: 0, b: 0, a: 0}
+  lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked:
@@ -2809,7 +2809,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 0.80784315}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2883,7 +2883,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Parry
-  lockedSkillColor: {r: 0, g: 0, b: 0, a: 0}
+  lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked: []
@@ -3219,7 +3219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 0.80784315}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3293,7 +3293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Aggresive Mirage
-  lockedSkillColor: {r: 0, g: 0, b: 0, a: 0}
+  lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked: []
@@ -3360,7 +3360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 0.80784315}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3434,7 +3434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Dash
-  lockedSkillColor: {r: 0, g: 0, b: 0, a: 0}
+  lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked: []
@@ -3501,7 +3501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 0.80784315}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3575,7 +3575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Chain saw Sword
-  lockedSkillColor: {r: 0, g: 0, b: 0, a: 0}
+  lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked:
@@ -3779,7 +3779,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 0.80784315}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3853,7 +3853,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Crystal
-  lockedSkillColor: {r: 0, g: 0, b: 0, a: 0}
+  lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked: []
@@ -4405,7 +4405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 0.80784315}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4479,7 +4479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Parry - HP/Energy
-  lockedSkillColor: {r: 0, g: 0, b: 0, a: 0}
+  lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked:
@@ -5054,7 +5054,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 0.80784315}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5128,7 +5128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Black Hole
-  lockedSkillColor: {r: 0, g: 0, b: 0, a: 0}
+  lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked:
@@ -5196,7 +5196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 0.80784315}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5270,7 +5270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Bullet Sword
-  lockedSkillColor: {r: 0, g: 0, b: 0, a: 0}
+  lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked:
@@ -5610,7 +5610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 0.80784315}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5684,7 +5684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Multiple Mirage
-  lockedSkillColor: {r: 0, g: 0, b: 0, a: 0}
+  lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked:
@@ -6062,7 +6062,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 0.80784315}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6136,7 +6136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Sword Throw
-  lockedSkillColor: {r: 0, g: 0, b: 0, a: 0}
+  lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked: []
@@ -6337,7 +6337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 0.80784315}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6411,7 +6411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Time Stop
-  lockedSkillColor: {r: 0, g: 0, b: 0, a: 0}
+  lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked:
@@ -6925,7 +6925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 0.80784315}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6999,7 +6999,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Vulnerability
-  lockedSkillColor: {r: 0, g: 0, b: 0, a: 0}
+  lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked:
@@ -7202,7 +7202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 0.80784315}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7276,7 +7276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Dodge
-  lockedSkillColor: {r: 0, g: 0, b: 0, a: 0}
+  lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked: []
@@ -7343,7 +7343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 0.80784315}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7417,7 +7417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Time Mirage
-  lockedSkillColor: {r: 0, g: 0, b: 0, a: 0}
+  lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked: []
@@ -7793,7 +7793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 0.80784315}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7867,7 +7867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Dash - Here I am
-  lockedSkillColor: {r: 0, g: 0, b: 0, a: 0}
+  lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked:

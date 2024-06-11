@@ -30,6 +30,7 @@ public class UI_SkillTreeSlot : MonoBehaviour
     private void Start()
     {
         skillImage = GetComponent<Image>();
+
         if (unlocked)
         {
             skillImage.color = Color.white;
