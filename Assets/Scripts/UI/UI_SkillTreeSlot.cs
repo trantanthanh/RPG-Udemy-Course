@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,12 +14,12 @@ public class UI_SkillTreeSlot : MonoBehaviour
     [SerializeField] private UI_SkillTreeSlot[] shouldBeUnlocked;
     [SerializeField] private UI_SkillTreeSlot[] shouldBelocked;
 
-
     public bool unlocked = false;
 
     private void OnValidate()
     {
         gameObject.name = "SkillTreeSlot_UI - " + skillName;
+        GetComponentInChildren<TextMeshProUGUI>().text = skillName;//Temporary
     }
 
     private void Start()

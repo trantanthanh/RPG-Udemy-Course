@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4852259406091483083}
   - component: {fileID: 1749934090383706217}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Bouncy Sword
+  m_Name: SkillTreeSlot_UI - Crystal Mirage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee36376fe19f21841814302abdd2084a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: Bouncy Sword
+  skillName: Crystal Mirage
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked:
@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 3284849009798927955}
   - component: {fileID: 5724613000374352915}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Bouncy Sword
+  m_Name: SkillTreeSlot_UI - Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee36376fe19f21841814302abdd2084a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: Bouncy Sword
+  skillName: Explosion
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked:
@@ -375,7 +375,7 @@ GameObject:
   - component: {fileID: 1139174435404302962}
   - component: {fileID: 3613963876060051885}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Bouncy Sword
+  m_Name: SkillTreeSlot_UI - Controlled Destruction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -495,7 +495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee36376fe19f21841814302abdd2084a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: Bouncy Sword
+  skillName: Controlled Destruction
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked:
@@ -571,7 +571,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Parry
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -745,7 +745,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Controlled Destruction
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -828,7 +828,7 @@ GameObject:
   - component: {fileID: 1261861391872198358}
   - component: {fileID: 8121099142074942349}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Bouncy Sword
+  m_Name: SkillTreeSlot_UI - Parry - Mirrage attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -948,7 +948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee36376fe19f21841814302abdd2084a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: Bouncy Sword
+  skillName: Parry - Mirrage attack
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked:
@@ -970,7 +970,7 @@ GameObject:
   - component: {fileID: 126118446013841057}
   - component: {fileID: 3973628665140394111}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Bouncy Sword
+  m_Name: SkillTreeSlot_UI - Multiple distruction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1090,7 +1090,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee36376fe19f21841814302abdd2084a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: Bouncy Sword
+  skillName: Multiple distruction
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked:
@@ -1167,7 +1167,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Explosion
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1301,7 +1301,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Crystal
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1435,7 +1435,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Time Mirage
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1569,7 +1569,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Dash
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1703,7 +1703,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Multiple Mirage
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2064,7 +2064,7 @@ GameObject:
   - component: {fileID: 8995391851351547979}
   - component: {fileID: 3891327513144428979}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Bouncy Sword
+  m_Name: SkillTreeSlot_UI - Dodge mirage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2184,7 +2184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee36376fe19f21841814302abdd2084a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: Bouncy Sword
+  skillName: Dodge mirage
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked:
@@ -2345,7 +2345,7 @@ GameObject:
   - component: {fileID: 8913886078728981357}
   - component: {fileID: 6580746192175881253}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Bouncy Sword
+  m_Name: SkillTreeSlot_UI - Mirage Blink
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2465,7 +2465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee36376fe19f21841814302abdd2084a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: Bouncy Sword
+  skillName: Mirage Blink
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked:
@@ -2540,7 +2540,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Aggresive Mirage
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2623,7 +2623,7 @@ GameObject:
   - component: {fileID: 5477034138686255835}
   - component: {fileID: 1933627374074273562}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Bouncy Sword
+  m_Name: SkillTreeSlot_UI - Dash - See me
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2743,7 +2743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee36376fe19f21841814302abdd2084a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: Bouncy Sword
+  skillName: Dash - See me
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked:
@@ -2764,7 +2764,7 @@ GameObject:
   - component: {fileID: 5352963921334311675}
   - component: {fileID: 7434759359286979567}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Bouncy Sword
+  m_Name: SkillTreeSlot_UI - Parry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2884,7 +2884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee36376fe19f21841814302abdd2084a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: Bouncy Sword
+  skillName: Parry
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked: []
@@ -2955,7 +2955,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Time Stop
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3173,7 +3173,7 @@ GameObject:
   - component: {fileID: 3469531824104912145}
   - component: {fileID: 6760060323012655522}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Bouncy Sword
+  m_Name: SkillTreeSlot_UI - Aggresive Mirage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3293,7 +3293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee36376fe19f21841814302abdd2084a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: Bouncy Sword
+  skillName: Aggresive Mirage
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked: []
@@ -3313,7 +3313,7 @@ GameObject:
   - component: {fileID: 317262726763058595}
   - component: {fileID: 8158651266110149775}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Bouncy Sword
+  m_Name: SkillTreeSlot_UI - Dash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3433,7 +3433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee36376fe19f21841814302abdd2084a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: Bouncy Sword
+  skillName: Dash
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked: []
@@ -3647,7 +3647,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Multiple distruction
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3730,7 +3730,7 @@ GameObject:
   - component: {fileID: 5784943619792325844}
   - component: {fileID: 5762988655506583961}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Bouncy Sword
+  m_Name: SkillTreeSlot_UI - Crystal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3850,7 +3850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee36376fe19f21841814302abdd2084a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: Bouncy Sword
+  skillName: Crystal
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked: []
@@ -4057,7 +4057,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Bullet Sword
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4272,7 +4272,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Dodge mirage
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4355,7 +4355,7 @@ GameObject:
   - component: {fileID: 81983500570153191}
   - component: {fileID: 9074868854058424429}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Bouncy Sword
+  m_Name: SkillTreeSlot_UI - Parry - HP/Energy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4475,7 +4475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee36376fe19f21841814302abdd2084a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: Bouncy Sword
+  skillName: Parry - HP/Energy
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked:
@@ -4547,7 +4547,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Parry - HP/Energy
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4816,7 +4816,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Dash - See me
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5003,7 +5003,7 @@ GameObject:
   - component: {fileID: 1546114205659182984}
   - component: {fileID: 4369813440139529586}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Bouncy Sword
+  m_Name: SkillTreeSlot_UI - Black Hole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5123,7 +5123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee36376fe19f21841814302abdd2084a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: Bouncy Sword
+  skillName: Black Hole
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked:
@@ -5557,7 +5557,7 @@ GameObject:
   - component: {fileID: 7116138598324338838}
   - component: {fileID: 1548676811964692623}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Bouncy Sword
+  m_Name: SkillTreeSlot_UI - Multiple Mirage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5677,7 +5677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee36376fe19f21841814302abdd2084a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: Bouncy Sword
+  skillName: Multiple Mirage
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked:
@@ -5750,7 +5750,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Black Hole
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5925,7 +5925,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Chain saw Sword
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6199,7 +6199,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Parry - Mirrage attack
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6474,7 +6474,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Dodge
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6786,7 +6786,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Vulnerability
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7062,7 +7062,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Crystal Mirage
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7145,7 +7145,7 @@ GameObject:
   - component: {fileID: 1557084920297999001}
   - component: {fileID: 1017360994480466272}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Bouncy Sword
+  m_Name: SkillTreeSlot_UI - Dodge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7265,7 +7265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee36376fe19f21841814302abdd2084a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: Bouncy Sword
+  skillName: Dodge
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked:
@@ -7290,7 +7290,7 @@ GameObject:
   - component: {fileID: 4980490743880203461}
   - component: {fileID: 8602110245243900220}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Bouncy Sword
+  m_Name: SkillTreeSlot_UI - Time Mirage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7410,7 +7410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee36376fe19f21841814302abdd2084a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: Bouncy Sword
+  skillName: Time Mirage
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked: []
@@ -7481,7 +7481,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Bouncy Sword
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7615,7 +7615,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Mirage Blink
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7739,7 +7739,7 @@ GameObject:
   - component: {fileID: 2743170835042130640}
   - component: {fileID: 1652322090399776142}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Bouncy Sword
+  m_Name: SkillTreeSlot_UI - Dash - Here I am
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7859,7 +7859,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee36376fe19f21841814302abdd2084a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: Bouncy Sword
+  skillName: Dash - Here I am
   skillDescription: 
   skillImage: {fileID: 0}
   shouldBeUnlocked:
@@ -7932,7 +7932,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Sword Throw
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8066,7 +8066,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Dash - Here I am
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

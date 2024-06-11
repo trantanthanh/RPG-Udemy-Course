@@ -48597,9 +48597,37 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1502373173}
     m_Modifications:
+    - target: {fileID: 1505653183112228022, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Name
+      value: SkillTreeSlot_UI - Parry - Mirrage attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 1652322090399776142, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: skillName
+      value: Dash - Here I am
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933627374074273562, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: skillName
+      value: Dash - See me
+      objectReference: {fileID: 0}
+    - target: {fileID: 2930559476013331526, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Name
+      value: SkillTreeSlot_UI - Dash - See me
+      objectReference: {fileID: 0}
+    - target: {fileID: 3043237229977305148, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Name
+      value: SkillTreeSlot_UI - Parry
+      objectReference: {fileID: 0}
+    - target: {fileID: 4227807261067108946, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Name
+      value: SkillTreeSlot_UI - Dash
+      objectReference: {fileID: 0}
     - target: {fileID: 4708573383444003989, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: m_Name
       value: Skill Tree_UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 5024878497009019521, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Name
+      value: SkillTreeSlot_UI - Parry - HP/Energy
       objectReference: {fileID: 0}
     - target: {fileID: 6838135601967371765, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: m_Pivot.x
@@ -48680,6 +48708,26 @@ PrefabInstance:
     - target: {fileID: 6838135601967371765, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7434759359286979567, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: skillName
+      value: Parry
+      objectReference: {fileID: 0}
+    - target: {fileID: 8121099142074942349, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: skillName
+      value: Parry - Mirrage attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 8158651266110149775, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: skillName
+      value: Dash
+      objectReference: {fileID: 0}
+    - target: {fileID: 9074868854058424429, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: skillName
+      value: Parry - HP/Energy
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200659606936984405, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_Name
+      value: SkillTreeSlot_UI - Dash - Here I am
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
