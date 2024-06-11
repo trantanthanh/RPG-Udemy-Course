@@ -22,6 +22,7 @@ namespace Menu
         public UI_ItemTooltip itemTooltip;
         public UI_StatTooltip statTooltip;
         public UI_CraftWindow craftWindow;
+        public UI_SkillTooltip skillToolTip;
 
         private void Start()
         {
@@ -33,6 +34,7 @@ namespace Menu
             SwitchMenuTo(null);
             itemTooltip.Hide();
             statTooltip.Hide();
+            skillToolTip.Hide();
         }
 
         private void Update()

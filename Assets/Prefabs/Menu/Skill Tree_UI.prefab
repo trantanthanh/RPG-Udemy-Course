@@ -136,8 +136,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Crystal Mirage
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
-  skillDescription: 
-  skillImage: {fileID: 0}
+  skillDescription: 'You create crystall instead of mirage.
+
+    With all it''s qualities.
+
+    (Only
+    one sword upgrade can be choose)'
   shouldBeUnlocked:
   - {fileID: 6760060323012655522}
   shouldBelocked:
@@ -279,8 +283,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Explosion
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
-  skillDescription: 
-  skillImage: {fileID: 0}
+  skillDescription: 'Crystal can explode.
+
+    (Only one sword upgrade can be choose)'
   shouldBeUnlocked:
   - {fileID: 5762988655506583961}
   shouldBelocked:
@@ -315,12 +320,16 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6115144940247909505}
+  - {fileID: 7717286944216511163}
+  - {fileID: 1294817235874672331}
+  - {fileID: 6806121851000040439}
   m_Father: {fileID: 6838135601967371765}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 132}
   m_SizeDelta: {x: 1500, y: 843}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8607345005464161851
@@ -497,8 +506,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Controlled Destruction
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
-  skillDescription: 
-  skillImage: {fileID: 0}
+  skillDescription: 'Crystal move towards the enemy.
+
+    You can no longer to teleport
+    to the crystal.
+
+    (Only one sword upgrade can be choose)'
   shouldBeUnlocked:
   - {fileID: 5762988655506583961}
   - {fileID: 5724613000374352915}
@@ -662,7 +675,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1185495552353202024}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -672,7 +685,7 @@ RectTransform:
   - {fileID: 3295238256921957832}
   - {fileID: 54662517237262867}
   - {fileID: 1118815505829907856}
-  m_Father: {fileID: 6838135601967371765}
+  m_Father: {fileID: 690707527582437023}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -949,8 +962,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Parry - Mirrage attack
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
-  skillDescription: 
-  skillImage: {fileID: 0}
+  skillDescription: You create a clone with succesfull parry.
   shouldBeUnlocked:
   - {fileID: 7434759359286979567}
   - {fileID: 9074868854058424429}
@@ -1092,8 +1104,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Multiple distruction
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
-  skillDescription: 
-  skillImage: {fileID: 0}
+  skillDescription: 'You can spawn up to 3 crystal at a time.
+
+    (Only one sword
+    upgrade can be choose)'
   shouldBeUnlocked:
   - {fileID: 5762988655506583961}
   - {fileID: 5724613000374352915}
@@ -1230,6 +1244,140 @@ MonoBehaviour:
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
   m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &1737387430788727828
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3487126094980836446}
+  - component: {fileID: 5310108472935490051}
+  - component: {fileID: 3961951473099048514}
+  m_Layer: 5
+  m_Name: SkillName
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3487126094980836446
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737387430788727828}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3807146266209417256}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -0.00021362305, y: -37.626}
+  m_SizeDelta: {x: 924.0005, y: 69.662}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &5310108472935490051
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737387430788727828}
+  m_CullTransparentMesh: 1
+--- !u!114 &3961951473099048514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737387430788727828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: SkillName
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 84bdc42b70bb5e54aa18bb33c1fa834e, type: 2}
+  m_sharedMaterial: {fileID: -8065883861848785263, guid: 84bdc42b70bb5e54aa18bb33c1fa834e, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: 2427
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 33
+  m_fontSizeBase: 33
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 19.235443, y: 0, z: 16.972475, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1907,8 +2055,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Bouncy Sword
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
-  skillDescription: 
-  skillImage: {fileID: 0}
+  skillDescription: 'Sword can bouncy between targets.
+
+    (Only one sword upgrade
+    can be choose)'
   shouldBeUnlocked:
   - {fileID: 3488138024979220942}
   shouldBelocked:
@@ -2186,8 +2336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Dodge mirage
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
-  skillDescription: 
-  skillImage: {fileID: 0}
+  skillDescription: You can create mirage on dodge.
   shouldBeUnlocked:
   - {fileID: 1017360994480466272}
   shouldBelocked: []
@@ -2463,8 +2612,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Mirage Blink
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
-  skillDescription: 
-  skillImage: {fileID: 0}
+  skillDescription: 'You leave your mirage instead of you when you blink.
+
+    (Only
+    one sword upgrade can be choose)'
   shouldBeUnlocked:
   - {fileID: 5762988655506583961}
   shouldBelocked:
@@ -2620,7 +2771,7 @@ GameObject:
   - component: {fileID: 5477034138686255835}
   - component: {fileID: 1933627374074273562}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Dash - See me
+  m_Name: SkillTreeSlot_UI - Dash - Here I am
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2740,10 +2891,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee36376fe19f21841814302abdd2084a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: Dash - See me
+  skillName: Dash - Here I am
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
-  skillDescription: 
-  skillImage: {fileID: 0}
+  skillDescription: You can leave mirage when you dash.
   shouldBeUnlocked:
   - {fileID: 8158651266110149775}
   shouldBelocked: []
@@ -2884,8 +3034,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Parry
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
-  skillDescription: 
-  skillImage: {fileID: 0}
+  skillDescription: You can parry a attack to avoid damage and attack back to enemy.
   shouldBeUnlocked: []
   shouldBelocked: []
   unlocked: 0
@@ -3294,8 +3443,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Aggresive Mirage
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
-  skillDescription: 
-  skillImage: {fileID: 0}
+  skillDescription: 'Your mirage has 80% of your damage.
+
+    Your mirage can apply
+    on hit effects.'
   shouldBeUnlocked: []
   shouldBelocked: []
   unlocked: 0
@@ -3435,8 +3586,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Dash
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
-  skillDescription: 
-  skillImage: {fileID: 0}
+  skillDescription: You can dash to avoid attack.
   shouldBeUnlocked: []
   shouldBelocked: []
   unlocked: 0
@@ -3576,8 +3726,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Chain saw Sword
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
-  skillDescription: 
-  skillImage: {fileID: 0}
+  skillDescription: 'Sword will spin like a chainsaw.
+
+    (Only one sword upgrade
+    can be choose)'
   shouldBeUnlocked:
   - {fileID: 3488138024979220942}
   shouldBelocked:
@@ -3854,8 +4006,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Crystal
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
-  skillDescription: 
-  skillImage: {fileID: 0}
+  skillDescription: 'You create magic crystal that does magic damage.
+
+    By clicking
+    ability again, you can teleport to your crystal.'
   shouldBeUnlocked: []
   shouldBelocked: []
   unlocked: 0
@@ -4161,10 +4315,7 @@ RectTransform:
   m_Children:
   - {fileID: 2275162315822984327}
   - {fileID: 690707527582437023}
-  - {fileID: 6115144940247909505}
-  - {fileID: 7717286944216511163}
-  - {fileID: 1294817235874672331}
-  - {fileID: 6806121851000040439}
+  - {fileID: 3807146266209417256}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -4480,8 +4631,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Parry - HP/Energy
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
-  skillDescription: 
-  skillImage: {fileID: 0}
+  skillDescription: You restore a bit of health with succesful parry.
   shouldBeUnlocked:
   - {fileID: 7434759359286979567}
   shouldBelocked: []
@@ -4993,6 +5143,98 @@ MonoBehaviour:
   m_Spacing: {x: 20, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!1 &5545207392861583943
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3807146266209417256}
+  - component: {fileID: 5585630418937237232}
+  - component: {fileID: 4506130889773604202}
+  - component: {fileID: 2760359173600371651}
+  m_Layer: 5
+  m_Name: SkillToolTip
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3807146266209417256
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5545207392861583943}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3487126094980836446}
+  - {fileID: 1172737891637200560}
+  m_Father: {fileID: 6838135601967371765}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -0.00001347065, y: 140}
+  m_SizeDelta: {x: 924.018, y: 203.30298}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &5585630418937237232
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5545207392861583943}
+  m_CullTransparentMesh: 1
+--- !u!114 &4506130889773604202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5545207392861583943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 1501737082, guid: 05cde80bbd6c9484e9d631b053c1e502, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2760359173600371651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5545207392861583943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 422373c7e835b43429c308a1e47d6b91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillName: {fileID: 3961951473099048514}
+  skillDescription: {fileID: 8531795781084125173}
 --- !u!1 &5760963014561501143
 GameObject:
   m_ObjectHideFlags: 0
@@ -5129,8 +5371,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Black Hole
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
-  skillDescription: 
-  skillImage: {fileID: 0}
+  skillDescription: You trap enemies in a blackhole which allows you to do a tons
+    of damage.
   shouldBeUnlocked:
   - {fileID: 8602110245243900220}
   shouldBelocked: []
@@ -5271,8 +5513,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Bullet Sword
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
-  skillDescription: 
-  skillImage: {fileID: 0}
+  skillDescription: 'Sword can pierce targets.
+
+    (Only one sword upgrade can be
+    choose)'
   shouldBeUnlocked:
   - {fileID: 3488138024979220942}
   shouldBelocked:
@@ -5685,8 +5929,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Multiple Mirage
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
-  skillDescription: 
-  skillImage: {fileID: 0}
+  skillDescription: 'Your  mirage has 30% of your damage.
+
+    Your mirage can spawn
+    another mirage.
+
+    (Only one sword upgrade can be choose)'
   shouldBeUnlocked:
   - {fileID: 6760060323012655522}
   shouldBelocked:
@@ -5849,7 +6097,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6645521891820139033}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5860,7 +6108,7 @@ RectTransform:
   - {fileID: 3710623909147924217}
   - {fileID: 2567010391768861702}
   - {fileID: 6301703900373261040}
-  m_Father: {fileID: 6838135601967371765}
+  m_Father: {fileID: 690707527582437023}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6137,8 +6385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Sword Throw
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
-  skillDescription: 
-  skillImage: {fileID: 0}
+  skillDescription: Throws sword into the enemy.
   shouldBeUnlocked: []
   shouldBelocked: []
   unlocked: 0
@@ -6412,8 +6659,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Time Stop
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
-  skillDescription: 
-  skillImage: {fileID: 0}
+  skillDescription: When enemy hit by throw sword, his time stops a bit.
   shouldBeUnlocked:
   - {fileID: 3488138024979220942}
   shouldBelocked: []
@@ -6587,7 +6833,7 @@ RectTransform:
   - {fileID: 3269976010140339417}
   - {fileID: 7090137011267109529}
   - {fileID: 5171303452400002729}
-  m_Father: {fileID: 6838135601967371765}
+  m_Father: {fileID: 690707527582437023}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7000,8 +7246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Vulnerability
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
-  skillDescription: 
-  skillImage: {fileID: 0}
+  skillDescription: Enemy hit by sword, take 10% more damage.
   shouldBeUnlocked:
   - {fileID: 1016540192823439102}
   - {fileID: 3488138024979220942}
@@ -7277,8 +7522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Dodge
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
-  skillDescription: 
-  skillImage: {fileID: 0}
+  skillDescription: You getting 10% of
   shouldBeUnlocked: []
   shouldBelocked: []
   unlocked: 0
@@ -7418,11 +7662,147 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Time Mirage
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
-  skillDescription: 
-  skillImage: {fileID: 0}
+  skillDescription: 'Your mirage can attack targets.
+
+    Your mirage has 30% of
+    your damage.'
   shouldBeUnlocked: []
   shouldBelocked: []
   unlocked: 0
+--- !u!1 &8975663875202966199
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1172737891637200560}
+  - component: {fileID: 2743860570967325193}
+  - component: {fileID: 8531795781084125173}
+  m_Layer: 5
+  m_Name: SkillDescription
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1172737891637200560
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8975663875202966199}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3807146266209417256}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 65.12001}
+  m_SizeDelta: {x: 924, y: 130.23999}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &2743860570967325193
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8975663875202966199}
+  m_CullTransparentMesh: 1
+--- !u!114 &8531795781084125173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8975663875202966199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Skill Description
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 84bdc42b70bb5e54aa18bb33c1fa834e, type: 2}
+  m_sharedMaterial: {fileID: -8065883861848785263, guid: 84bdc42b70bb5e54aa18bb33c1fa834e, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 30
+  m_fontSizeBase: 30
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 24.892944, y: 0, z: 21.498383, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &9002466108803389350
 GameObject:
   m_ObjectHideFlags: 0
@@ -7725,7 +8105,7 @@ RectTransform:
   - {fileID: 3927043256987997324}
   - {fileID: 4914716860490811405}
   - {fileID: 878691822949392886}
-  m_Father: {fileID: 6838135601967371765}
+  m_Father: {fileID: 690707527582437023}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7746,7 +8126,7 @@ GameObject:
   - component: {fileID: 2743170835042130640}
   - component: {fileID: 1652322090399776142}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Dash - Here I am
+  m_Name: SkillTreeSlot_UI - Dash - Atually Here I am
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7866,10 +8246,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee36376fe19f21841814302abdd2084a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: Dash - Here I am
+  skillName: Dash - Atually Here I am
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
-  skillDescription: 
-  skillImage: {fileID: 0}
+  skillDescription: You create mirage at your arrival.
   shouldBeUnlocked:
   - {fileID: 8158651266110149775}
   - {fileID: 1933627374074273562}
