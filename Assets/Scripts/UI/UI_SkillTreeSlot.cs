@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class UI_SkillTreeSlot : MonoBehaviour
 {
     [SerializeField] private string skillName;
+    [SerializeField] private Color lockedSkillColor;
     [TextArea]
     [SerializeField] private string skillDescription;
     [SerializeField] private Image skillImage;
@@ -19,8 +20,11 @@ public class UI_SkillTreeSlot : MonoBehaviour
     private void OnValidate()
     {
         gameObject.name = "SkillTreeSlot_UI - " + skillName;
-        //GetComponentInChildren<TextMeshProUGUI>().text = skillName;//Temporary
+
+        //Temporary
+        //GetComponentInChildren<TextMeshProUGUI>().text = skillName;
         //GetComponentInChildren<TextMeshProUGUI>().gameObject.SetActive(false);
+        //GetComponent<Image>().color = lockedSkillColor;
     }
 
     private void Start()
@@ -28,11 +32,11 @@ public class UI_SkillTreeSlot : MonoBehaviour
         skillImage = GetComponent<Image>();
         if (unlocked)
         {
-            skillImage.color = Color.green;
+            skillImage.color = Color.white;
         }
         else
         {
-            skillImage.color = Color.red;
+            skillImage.color = lockedSkillColor;
         }
 
         GetComponent<Button>().onClick.AddListener(() => UnlockSkillSlot());
