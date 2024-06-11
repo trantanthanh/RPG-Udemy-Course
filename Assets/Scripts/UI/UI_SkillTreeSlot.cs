@@ -19,7 +19,8 @@ public class UI_SkillTreeSlot : MonoBehaviour
     private void OnValidate()
     {
         gameObject.name = "SkillTreeSlot_UI - " + skillName;
-        GetComponentInChildren<TextMeshProUGUI>().text = skillName;//Temporary
+        //GetComponentInChildren<TextMeshProUGUI>().text = skillName;//Temporary
+        //GetComponentInChildren<TextMeshProUGUI>().gameObject.SetActive(false);
     }
 
     private void Start()
@@ -60,6 +61,6 @@ public class UI_SkillTreeSlot : MonoBehaviour
         }
 
         unlocked = true;
-        skillImage.color = Color.green;
+        skillImage.color = Color.white;
     }
 }
