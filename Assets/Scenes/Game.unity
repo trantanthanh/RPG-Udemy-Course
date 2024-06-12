@@ -1193,6 +1193,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 1
+  dashUnlocked: 0
+  dashUnlockButton: {fileID: 3134303364411499343}
+  cloneOnDashUnlocked: 0
+  cloneOnDashUnlockButton: {fileID: 3134303364411499342}
+  cloneOnArrivalUnlocked: 0
+  cloneOnArrivalButton: {fileID: 3134303364411499341}
 --- !u!114 &1014679309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1209,11 +1215,11 @@ MonoBehaviour:
   clonePrefab: {fileID: 3799389986137735871, guid: e1e4d72726223064a9c437391e0a72e6, type: 3}
   cloneDuration: 1.5
   canAtack: 1
-  createCloneOnDashStart: 1
-  createCloneOnDashOver: 1
-  canCreateCloneOnCounterAttack: 1
-  canDuplicateClone: 1
-  percentToDuplicateClone: 20
+  createCloneOnDashStart: 0
+  createCloneOnDashOver: 0
+  canCreateCloneOnCounterAttack: 0
+  canDuplicateClone: 0
+  percentToDuplicateClone: 30
   offSetCloneCounterAttack: 1.5
   timeDelayCreateCloneCounterAttack: 0.5
   crystalInsteadOfClone: 0
@@ -47530,6 +47536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 6466156414483814563}
+  currentCurrency: 0
 --- !u!1 &1502373169
 GameObject:
   m_ObjectHideFlags: 0
@@ -48598,9 +48605,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1502373173}
     m_Modifications:
-    - target: {fileID: 1017360994480466272, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
-      propertyPath: skillDescription
-      value: You getting 10% of evasion.
+    - target: {fileID: 317262726763058595, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 317262726763058595, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 317262726763058595, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 317262726763058595, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 317262726763058595, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3534082522650315248, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: m_AnchorMax.y
@@ -48758,6 +48781,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7154327557789426754, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9043360601630547463, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -48796,6 +48823,39 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 422373c7e835b43429c308a1e47d6b91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3134303364411499341 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1652322090399776142, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+  m_PrefabInstance: {fileID: 3134303364411499339}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee36376fe19f21841814302abdd2084a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3134303364411499342 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1933627374074273562, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+  m_PrefabInstance: {fileID: 3134303364411499339}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee36376fe19f21841814302abdd2084a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3134303364411499343 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8158651266110149775, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+  m_PrefabInstance: {fileID: 3134303364411499339}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee36376fe19f21841814302abdd2084a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &3875616735069545423

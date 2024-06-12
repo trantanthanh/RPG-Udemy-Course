@@ -6,6 +6,8 @@ public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager Instance;
     public Player player;
+
+    public int currentCurrency;
     // Start is called before the first frame update
     void Awake()
     {
@@ -15,5 +17,17 @@ public class PlayerManager : MonoBehaviour
             return;
         }
         Destroy(gameObject);
+    }
+
+    public bool HaveEnoughMoney(int _price)
+    {
+        if (_price > currentCurrency)
+        {
+            Debug.Log("Not enough money");
+            return false;
+        }
+
+        currentCurrency -= _price;
+        return true;
     }
 }

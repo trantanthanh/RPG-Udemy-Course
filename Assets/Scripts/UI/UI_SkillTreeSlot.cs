@@ -9,6 +9,7 @@ using Menu;
 public class UI_SkillTreeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private string skillName;
+    [SerializeField] private int skillPrice;
     [SerializeField] private Color lockedSkillColor;
     [TextArea]
     [SerializeField] private string skillDescription;
@@ -32,6 +33,11 @@ public class UI_SkillTreeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExi
         //GetComponent<Image>().color = lockedSkillColor;
     }
 
+    private void Awake()
+    {
+        GetComponent<Button>().onClick.AddListener(() => UnlockSkillSlot());
+    }
+
     private void Start()
     {
         skillImage = GetComponent<Image>();
@@ -44,12 +50,11 @@ public class UI_SkillTreeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExi
         {
             skillImage.color = lockedSkillColor;
         }
-
-        GetComponent<Button>().onClick.AddListener(() => UnlockSkillSlot());
     }
 
     public void UnlockSkillSlot()
     {
+        if (unlocked) return;
         //Check the previous skills in skill tree are unlocked or not
         for (int i = 0; i < shouldBeUnlocked.Length; i++)
         {
@@ -69,9 +74,11 @@ public class UI_SkillTreeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExi
                 return;
             }
         }
+        if (!PlayerManager.Instance.HaveEnoughMoney(skillPrice)) return;
 
         unlocked = true;
         skillImage.color = Color.white;
+        ui.skillToolTip.Hide();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
