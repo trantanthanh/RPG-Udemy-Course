@@ -1215,8 +1215,6 @@ MonoBehaviour:
   clonePrefab: {fileID: 3799389986137735871, guid: e1e4d72726223064a9c437391e0a72e6, type: 3}
   cloneDuration: 1.5
   canAtack: 1
-  createCloneOnDashStart: 0
-  createCloneOnDashOver: 0
   canCreateCloneOnCounterAttack: 0
   canDuplicateClone: 0
   percentToDuplicateClone: 30

@@ -137,7 +137,10 @@ public class Player : Entity
             InventoryManager.Instance.UseFlask();
         }
 
-        CheckDash();
+        if (SkillManager.Instance.dash.dashUnlocked)
+        {
+            CheckDash();
+        }
     }
 
     private void CheckDash()

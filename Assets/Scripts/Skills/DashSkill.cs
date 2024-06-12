@@ -56,4 +56,20 @@ public class DashSkill : Skill
             cloneOnArrivalUnlocked = true;
         }
     }
+
+    public void CreateCloneOnDashStart()
+    {
+        if (cloneOnDashUnlocked)
+        {
+            SkillManager.Instance.clone.CreateClone(player.transform, Vector3.zero);
+        }
+    }
+
+    public void CreateCloneOnDashOver()
+    {
+        if (cloneOnArrivalUnlocked)
+        {
+            SkillManager.Instance.clone.CreateClone(player.transform, Vector3.zero);
+        }
+    }
 }
