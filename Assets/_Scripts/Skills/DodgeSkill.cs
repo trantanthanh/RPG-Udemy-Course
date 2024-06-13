@@ -8,7 +8,7 @@ public class DodgeSkill : Skill
     [Header("Dodge")]
     [SerializeField] private UI_SkillTreeSlot dodgeUnlockButton;
     [SerializeField] private int evasionBonus = 10;
-    public bool dodgeUnlocked {  get; private set; }
+    public bool dodgeUnlocked { get; private set; }
 
     [Header("Dodge Mirage")]
     [SerializeField] private UI_SkillTreeSlot dodgeMirageUnlockButton;
@@ -44,7 +44,12 @@ public class DodgeSkill : Skill
     {
         if (dodgeMirageUnlocked)
         {
-            SkillManager.Instance.clone.CreateClone(player.transform, Vector3.zero);
+            Transform closestEnemy = player.FindClosestEnemy(transform.position, 25);
+            Vector3 offset = Vector3.zero;
+            if (closestEnemy != null) {
+                offset.y = player.transform.position.y - closestEnemy.transform.position.y;
+            }
+            SkillManager.Instance.clone.CreateClone(closestEnemy == null ? player.transform : closestEnemy, offset);
         }
     }
 }
