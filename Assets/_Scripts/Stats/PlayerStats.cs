@@ -28,6 +28,12 @@ public class PlayerStats : CharacterStats
         player.GetComponent<PlayerItemDrop>()?.GenerateDrop();//Drop item if can
     }
 
+    protected override void OnDodge()
+    {
+        base.OnDodge();
+        player.skills.dodge.CreateMirageOnDodge();
+    }
+
     public override void DoDamage(CharacterStats _targetStats)
     {
         base.DoDamage(_targetStats);

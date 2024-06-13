@@ -37,19 +37,13 @@ public class CrystalSkill : Skill
     private List<GameObject> crystalsLeft = new List<GameObject>();
     private GameObject currentCrystal;
 
-    protected override void Start()
+    private void OnEnable()
     {
-        base.Start();
-        unlockCrystalButton.GetComponent<Button>().onClick.AddListener(UnlockCrystal);
-        unlockCrystalMirageButton.GetComponent<Button>().onClick.AddListener(UnlockCrystalMirage);
-        unlockCrystalExplosionButton.GetComponent<Button>().onClick.AddListener(UnlockCrystalExplosion);
-        unlockCrystalMovingButton.GetComponent<Button>().onClick.AddListener(UnlockCrystalMoving);
-        unlockMultiCrystalButton.GetComponent<Button>().onClick.AddListener(UnlockMultiCrystal);
-
-        //if (canUseMultiStacks)
-        //{
-        //    ResetAbility();//1st times init crystalsLeft
-        //}
+        unlockCrystalButton.onUpgradeSkill = UnlockCrystal;
+        unlockCrystalMirageButton.onUpgradeSkill = UnlockCrystalMirage;
+        unlockCrystalExplosionButton.onUpgradeSkill = UnlockCrystalExplosion;
+        unlockCrystalMovingButton.onUpgradeSkill = UnlockCrystalMoving;
+        unlockMultiCrystalButton.onUpgradeSkill = UnlockMultiCrystal;
     }
 
     #region unlock zone

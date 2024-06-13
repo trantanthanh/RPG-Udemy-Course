@@ -17,13 +17,11 @@ public class DashSkill : Skill
     [SerializeField] private UI_SkillTreeSlot cloneOnArrivalButton;
     public bool cloneOnArrivalUnlocked { get; private set; }
 
-    protected override void Start()
+    private void OnEnable()
     {
-        base.Start();
-
-        dashUnlockButton.GetComponent<Button>().onClick.AddListener(this.UnlockDash);
-        cloneOnDashUnlockButton.GetComponent<Button>().onClick.AddListener(this.UnlockCloneOnDash);
-        cloneOnArrivalButton.GetComponent<Button>().onClick.AddListener(this.UnlockCloneOnArrival);
+        dashUnlockButton.onUpgradeSkill = UnlockDash;
+        cloneOnDashUnlockButton.onUpgradeSkill = UnlockCloneOnDash;
+        cloneOnArrivalButton.onUpgradeSkill = UnlockCloneOnArrival;
     }
 
     public override void UseSkill()

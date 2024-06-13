@@ -21,6 +21,7 @@ public class UI_SkillTreeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExi
     private Image skillImage;
 
     public bool unlocked = false;
+    public System.Action onUpgradeSkill;
 
     private void OnValidate()
     {
@@ -75,10 +76,10 @@ public class UI_SkillTreeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExi
             }
         }
         if (!PlayerManager.Instance.HaveEnoughMoney(skillPrice)) return;
-
         unlocked = true;
         skillImage.color = Color.white;
         ui.skillToolTip.Hide();
+        onUpgradeSkill?.Invoke();
     }
 
     public void OnPointerEnter(PointerEventData eventData)

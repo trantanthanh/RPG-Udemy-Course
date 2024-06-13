@@ -26,6 +26,11 @@ public class UI_StatSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         }
     }
 
+    private void OnEnable()
+    {
+        UpdateStatValueUI();//update again when change tab or switch on tab
+    }
+
     // Start is called before the first frame update
     void Start()
     {

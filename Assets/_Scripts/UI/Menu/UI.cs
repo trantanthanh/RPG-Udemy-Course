@@ -10,10 +10,13 @@ namespace Menu
         [SerializeField] private GameObject skillTreeUI;
         [SerializeField] private GameObject craftUI;
         [SerializeField] private GameObject optionsUI;
+
+        [SerializeField] private GameObject closeBTN;
         public GameObject CharacterUI { get { return characterUI; } }
         public GameObject SkillTreeUI { get { return skillTreeUI; } }
         public GameObject CraftUI { get { return craftUI; } }
         public GameObject OptionsUI { get { return optionsUI; } }
+        public GameObject CloseBTN { get { return closeBTN; } }
 
         private bool isMenuShow = false;
         private int currentMenuIndex = 0;
@@ -77,6 +80,7 @@ namespace Menu
                         break;
                     }
                 }
+                closeBTN.SetActive(true);
                 _menu.SetActive(true);
             }
         }
@@ -88,6 +92,7 @@ namespace Menu
                 _menu.SetActive(false);
             }
 
+            closeBTN.SetActive(true);
             SwitchMenuTo(_menu);
         }
     }

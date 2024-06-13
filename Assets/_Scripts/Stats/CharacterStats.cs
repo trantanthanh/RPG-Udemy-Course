@@ -291,9 +291,15 @@ public class CharacterStats : MonoBehaviour
         }
         if (Random.Range(0, 100) <= totalTargetEvasion)
         {
+            _targetStats.OnDodge();
             return true;
         }
         return false;
+    }
+
+    protected virtual void OnDodge()
+    {
+
     }
 
     private bool CanCrit()

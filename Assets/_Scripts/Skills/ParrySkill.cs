@@ -18,12 +18,12 @@ public class ParrySkill : Skill
     [Header("Parry - Mirage Attack")]
     [SerializeField] UI_SkillTreeSlot parryMirageAttackUnlockButton;
     public bool parryMirageAttackUnlocked { get; private set; }
-    protected override void Start()
+
+    private void OnEnable()
     {
-        base.Start();
-        parryUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockParry);
-        parryRestoredUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockParryRestore);
-        parryMirageAttackUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockParryMirage);
+        parryUnlockButton.onUpgradeSkill = UnlockParry;
+        parryRestoredUnlockButton.onUpgradeSkill = UnlockParryRestore;
+        parryMirageAttackUnlockButton.onUpgradeSkill = UnlockParryMirage;
     }
 
     private void UnlockParry()
