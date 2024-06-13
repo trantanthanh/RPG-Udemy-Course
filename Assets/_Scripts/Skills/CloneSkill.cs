@@ -33,11 +33,11 @@ public class CloneSkill : Skill
 
     public void CreateCloneOnCounterAttack(Transform _enemyTransform)
     {
-        if (canCreateCloneOnCounterAttack)
-        {
-            //StartCoroutine(CreateCloneWithDelay(timeDelayCreateCloneCounterAttack, _enemyTransform));
-            CreateCloneCanDuplicate(_enemyTransform);
-        }
+        //if (canCreateCloneOnCounterAttack)
+        //{
+        StartCoroutine(CreateCloneWithDelay(0f, _enemyTransform));//create immediately
+        //CreateCloneCanDuplicate(_enemyTransform);
+        //}
     }
 
     public void CreateCloneCanDuplicate(Transform _enemyTransform)

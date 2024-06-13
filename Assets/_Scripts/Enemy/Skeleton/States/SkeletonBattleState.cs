@@ -38,12 +38,12 @@ public class SkeletonBattleState : EnemyState
 
         enemy.SetVelocity(enemy.MoveSpeed * moveDir, rb.velocity.y);
         RaycastHit2D hit = enemy.IsPlayerDetected();
-        if (hit)//saw enemy
+        if (hit)//saw player
         {
             stateTimer = enemy.BattleTime;
             if (hit.distance < enemy.DistanceAttack)
             {
-                //enemy.SetZeroVelocity();
+                enemy.SetZeroVelocity();//stop moving when in attack range
                 if (enemy.CanAttack())
                 {
                     stateMachine.ChangeState(enemy.attackState);

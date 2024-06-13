@@ -11,6 +11,8 @@ public class ParrySkill : Skill
 
     [Header("Parry - Restore HP")]
     [SerializeField] UI_SkillTreeSlot parryRestoredUnlockButton;
+    [Range(0.1f, 1f)]
+    [SerializeField] float amountHPRestore;
     public bool parryRestoreUnlocked;
 
     [Header("Parry - Mirage Attack")]
@@ -34,7 +36,7 @@ public class ParrySkill : Skill
 
     private void UnlockParryRestore()
     {
-        if (parryRestoredUnlockButton.unlocked) 
+        if (parryRestoredUnlockButton.unlocked)
         {
             parryRestoreUnlocked = true;
         }
@@ -46,5 +48,21 @@ public class ParrySkill : Skill
         {
             parryMirageAttackUnlocked = true;
         }
+    }
+
+    public void MakeMirageOnParry(Transform _enemyTarget)
+    {
+        ParrySuccess();
+        if (parryMirageAttackUnlocked)
+        {
+            SkillManager.Instance.clone.CreateCloneOnCounterAttack(_enemyTarget);
+        }
+    }
+
+    public void ParrySuccess()
+    {
+        if (!parryRestoreUnlocked) return;
+        int restoreAmount = Mathf.RoundToInt(player.stats.GetMaxHealth() * amountHPRestore);
+        player.stats.RestoreHealthBy(restoreAmount);
     }
 }

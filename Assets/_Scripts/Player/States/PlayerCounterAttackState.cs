@@ -49,11 +49,8 @@ public class PlayerCounterAttackState : PlayerState
                     player.animator.SetBool("SuccessfulCounterAttack", true);
                     if (canCreateClone)
                     {
-                        if (player.skills.parry.parryMirageAttackUnlocked)
-                        {
-                            canCreateClone = false;
-                            player.skills.clone.CreateCloneOnCounterAttack(enemy.transform);
-                        }
+                        canCreateClone = false;
+                        player.skills.parry.MakeMirageOnParry(enemy.transform);
                     }
                     break;
                 }

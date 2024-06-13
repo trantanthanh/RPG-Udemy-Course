@@ -81,7 +81,8 @@ public class CharacterStats : MonoBehaviour
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        currentHealth = maxHealth.GetValue();
+        //currentHealth = maxHealth.GetValue();
+        currentHealth = GetMaxHealth();//calc with other stats
 
         fx = GetComponent<EntityFx>();
         entity = GetComponent<Entity>();
@@ -133,7 +134,14 @@ public class CharacterStats : MonoBehaviour
         }
         totalDamage = CheckTargetArmor(_targetStats, totalDamage);
 
-        _targetStats.TakeDamage(totalDamage);//Apply damage to target
+        if (totalDamage > 0)
+        {
+            _targetStats.TakeDamage(totalDamage);//Apply damage to target
+        }
+        else
+        {
+            //evaded or damage is reduce to 0
+        }
 
         //DoMagicDamage(_targetStats);
     }
@@ -483,8 +491,8 @@ public class CharacterStats : MonoBehaviour
                         return Mathf.RoundToInt(armor.GetValue() * 0.8f);//Reduce armor 20% when chilled
                     }
                     else
-                    { 
-                    return armor.GetValue();
+                    {
+                        return armor.GetValue();
                     }
                 }
             case StatType.evasion:
