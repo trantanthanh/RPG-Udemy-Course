@@ -59,10 +59,13 @@ public class ParrySkill : Skill
         }
     }
 
-    public void ParrySuccess()
+    private void ParrySuccess()
     {
-        if (!parryRestoreUnlocked) return;
-        int restoreAmount = Mathf.RoundToInt(player.stats.GetMaxHealth() * amountHPRestore);
-        player.stats.RestoreHealthBy(restoreAmount);
+        if (parryRestoreUnlocked)
+        {
+            int restoreAmount = Mathf.RoundToInt(player.stats.GetMaxHealth() * amountHPRestore);
+            //Debug.Log("restoreAmount " + restoreAmount);
+            player.stats.RestoreHealthBy(restoreAmount);
+        }
     }
 }
