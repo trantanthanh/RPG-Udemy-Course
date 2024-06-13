@@ -7,17 +7,17 @@ public class ParrySkill : Skill
 {
     [Header("Parry")]
     [SerializeField] UI_SkillTreeSlot parryUnlockButton;
-    public bool parryUnlocked;
+    public bool parryUnlocked { get; private set; }
 
     [Header("Parry - Restore HP")]
     [SerializeField] UI_SkillTreeSlot parryRestoredUnlockButton;
     [Range(0.1f, 1f)]
     [SerializeField] float amountHPRestore;
-    public bool parryRestoreUnlocked;
+    public bool parryRestoreUnlocked { get; private set; }
 
     [Header("Parry - Mirage Attack")]
     [SerializeField] UI_SkillTreeSlot parryMirageAttackUnlockButton;
-    public bool parryMirageAttackUnlocked;
+    public bool parryMirageAttackUnlocked { get; private set; }
     protected override void Start()
     {
         base.Start();
