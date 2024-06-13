@@ -124,7 +124,7 @@ public class Player : Entity
         stateMachine.currentState.Update();
         //Debug.Log($"IsGrounded {IsGroundDetected()}");
         //Debug.Log($"IsFaceWall {IsFaceWallDetected()}");
-        if (Input.GetKeyDown(KeyCode.F))
+        if (skills.crystal.crystalUnlocked && Input.GetKeyDown(KeyCode.F))
         {
             if (skills.crystal.CanUseSkill())
             {
