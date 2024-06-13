@@ -1314,7 +1314,6 @@ MonoBehaviour:
   unlockCrystalMirageButton: {fileID: 1121263357}
   unlockCrystalExplosionButton: {fileID: 1426223409}
   growSpeed: 3
-  canExplode: 0
   unlockCrystalMovingButton: {fileID: 1705497448}
   moveSpeed: 3
   unlockMultiCrystalButton: {fileID: 985829735}

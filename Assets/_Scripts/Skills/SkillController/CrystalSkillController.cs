@@ -86,5 +86,16 @@ public class CrystalSkillController : MonoBehaviour
         PlayerManager.Instance.player.DoDamageEnemiesInCircle(transform.position, circleCollider.radius, true);//Do magical damage
     }
 
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (canExplode && !isDestroying)
+    //    {
+    //        if (collision.GetComponent<Enemy>() != null)
+    //        {
+    //            Explode();
+    //        }
+    //    }
+    //}
+
     private void SelfDestroy() => Destroy(gameObject);
 }
