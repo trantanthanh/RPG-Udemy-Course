@@ -121,7 +121,7 @@ public class CharacterStats : MonoBehaviour
         }
     }
 
-    public virtual void DoDamage(CharacterStats _targetStats, float amplifierDamagePercent = 0)
+    public virtual void DoDamage(CharacterStats _targetStats, float amplifierDamagePercent = 0, float reducerDamagePercent = 0)
     {
 
         if (CheckTargetCanAvoidAttack(_targetStats)) return;
@@ -129,6 +129,7 @@ public class CharacterStats : MonoBehaviour
         //int totalDamage = damage.GetValue() + strength.GetValue();
         int totalDamage = GetFinalValueStat(StatType.damage);
         totalDamage += Mathf.RoundToInt(totalDamage * amplifierDamagePercent);
+        totalDamage -= Mathf.RoundToInt(totalDamage * reducerDamagePercent);
         if (CanCrit())
         {
             totalDamage = CalculateCritDamage(totalDamage);

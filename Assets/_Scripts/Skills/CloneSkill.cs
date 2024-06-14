@@ -4,21 +4,35 @@ using UnityEngine;
 
 public class CloneSkill : Skill
 {
+    [Header("Clone info")]
+    [SerializeField] UI_SkillTreeSlot timeMirageUnlockButton;
+    public bool mirageUnlocked { get; private set; }
+    [Range(0.1f, 1f)]
+    [SerializeField] float mirageDamagePercent;
     [SerializeField] GameObject clonePrefab;
     [SerializeField] float cloneDuration;
-    [Space]
-    [SerializeField] bool canAtack;
+    bool canAtack = true;
 
     [Header("Clone features")]
-    [SerializeField] private bool canCreateCloneOnCounterAttack;
-    [SerializeField] private bool canDuplicateClone;
+    [SerializeField] UI_SkillTreeSlot blackHoleUnlockButton;
+    public bool blackHoleUnlocked { get; private set; }
+    [Space]
+    [SerializeField] UI_SkillTreeSlot agressiveUnlockButton;
+    [Range(0.5f, 1f)]
+    [SerializeField] float mirageDamageAgreesivePercent;//80% damage, can hit effect
+    public bool agressiveMirageUnlocked { get; private set; }
+
+    [Space]
+    [SerializeField] UI_SkillTreeSlot multipleMirageUnlockButton;
+    public bool canDuplicateClone { get; private set; }
     private int cloneDuplicateFacingDir = -1;
     [SerializeField][Range(0, 100)] private int percentToDuplicateClone;
     [SerializeField] private float offSetCloneCounterAttack = 1.5f;
     [SerializeField] private float timeDelayCreateCloneCounterAttack = 0.5f;
 
     [Header("Create crystal instead of clone")]
-    [SerializeField] bool crystalInsteadOfClone;
+    [SerializeField] UI_SkillTreeSlot crystalMirageUnlockButton;
+    private bool crystalInsteadOfClone;
     public bool CrystalInsteadOfClone { get { return crystalInsteadOfClone; } }
     public void CreateClone(Transform _newTransform, Vector3 _offset, Transform _targetToFacing = null, bool _canDuplicateClone = false, int _percentToDuplicateClone = 0)
     {
