@@ -1308,7 +1308,7 @@ MonoBehaviour:
   returnSpeed: 12
   timeStopUnlockButton: {fileID: 1711744109}
   vulnerabilityUnlockButton: {fileID: 1527963014}
-  vulnerabilityMultiplierDamage: 0
+  vulnerabilityMultiplierDamage: 1.1
   chainsawSwordUnlockButton: {fileID: 345679453}
   maxTravelDistance: 7
   spinDuration: 2
