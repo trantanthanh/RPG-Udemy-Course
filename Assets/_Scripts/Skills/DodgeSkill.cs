@@ -22,23 +22,14 @@ public class DodgeSkill : Skill
 
     private void UnlockDodge()
     {
-        if (dodgeUnlockButton.unlocked)
+        if (!dodgeUnlocked)
         {
-            if (!dodgeUnlocked)
-            {
-                player.stats.evasion.AddModifier(evasionBonus);
-            }
-            dodgeUnlocked = true;
+            player.stats.evasion.AddModifier(evasionBonus);
         }
+        dodgeUnlocked = true;
     }
 
-    private void UnlockDodgeMirage()
-    {
-        if (dodgeMirageUnlockButton.unlocked)
-        {
-            dodgeMirageUnlocked = true;
-        }
-    }
+    private void UnlockDodgeMirage() => dodgeMirageUnlocked = true;
 
     public void CreateMirageOnDodge()
     {
@@ -46,7 +37,8 @@ public class DodgeSkill : Skill
         {
             Transform closestEnemy = player.FindClosestEnemy(transform.position, 25);
             Vector3 offset = Vector3.zero;
-            if (closestEnemy != null) {
+            if (closestEnemy != null)
+            {
                 offset.y = player.transform.position.y - closestEnemy.transform.position.y;
             }
             SkillManager.Instance.clone.CreateClone(closestEnemy == null ? player.transform : closestEnemy, offset);

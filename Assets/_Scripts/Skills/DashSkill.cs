@@ -31,29 +31,11 @@ public class DashSkill : Skill
         //Create clone trail behind
     }
 
-    private void UnlockDash()
-    {
-        if (dashUnlockButton.unlocked)
-        {
-            dashUnlocked = true;
-        }
-    }
+    private void UnlockDash() => dashUnlocked = true;
 
-    private void UnlockCloneOnDash()
-    {
-        if (cloneOnDashUnlockButton.unlocked)
-        {
-            cloneOnDashUnlocked = true;
-        }
-    }
+    private void UnlockCloneOnDash() => cloneOnDashUnlocked = true;
 
-    private void UnlockCloneOnArrival()
-    {
-        if (cloneOnArrivalButton.unlocked)
-        {
-            cloneOnArrivalUnlocked = true;
-        }
-    }
+    private void UnlockCloneOnArrival() => cloneOnArrivalUnlocked = true;
 
     public void CreateCloneOnDashStart()
     {

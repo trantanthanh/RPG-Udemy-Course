@@ -47,34 +47,10 @@ public class CrystalSkill : Skill
     }
 
     #region unlock zone
-    private void UnlockCrystal()
-    {
-        if (unlockCrystalButton.unlocked)
-        {
-            crystalUnlocked = true;
-        }
-    }
-    private void UnlockCrystalMirage()
-    {
-        if (unlockCrystalMirageButton.unlocked)
-        {
-            crystalMirageUnlocked = true;
-        }
-    }
-    private void UnlockCrystalExplosion()
-    {
-        if (unlockCrystalExplosionButton.unlocked)
-        {
-            canExplode = true;
-        }
-    }
-    private void UnlockCrystalMoving()
-    {
-        if (unlockCrystalMovingButton.unlocked)
-        {
-            canMoveToEnemy = true;
-        }
-    }
+    private void UnlockCrystal() => crystalUnlocked = true;
+    private void UnlockCrystalMirage() => crystalMirageUnlocked = true;
+    private void UnlockCrystalExplosion() => canExplode = true;
+    private void UnlockCrystalMoving() => canMoveToEnemy = true;
     private void UnlockMultiCrystal()
     {
         if (unlockMultiCrystalButton.unlocked)

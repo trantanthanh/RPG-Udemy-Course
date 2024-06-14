@@ -12,17 +12,23 @@ public class SwordSkill : Skill
 {
     public SwordType swordType = SwordType.Regular;
 
-    [Header("Bouce info")]
+    [Header("Bounce info")]
+    [SerializeField] UI_SkillTreeSlot bouncySwordUnlockButton;
+    public bool bouncySwordUnlocked { get; private set; }
     [SerializeField] int bounceAmount = 4;
     [SerializeField] float bounceSpeed = 20f;
     [SerializeField] float bounceRange = 10f;
     [SerializeField] float bounceGravity;
 
     [Header("Pierce info")]
+    [SerializeField] UI_SkillTreeSlot bulletSwordUnlockButton;
+    public bool bulletSwordUnlocked { get; private set; }
     [SerializeField] int pierceAmount;
     [SerializeField] float pierceGravity;
 
-    [Header("Skill info")]
+    [Header("Sword Skill info")]
+    [SerializeField] UI_SkillTreeSlot swordThrowUnlockButton;
+    public bool throwSwordUnlocked { get; private set; }
     [SerializeField] GameObject swordPrefab;
     [SerializeField] float launchForce;
     [SerializeField] float swordGravityRegular;
@@ -30,7 +36,15 @@ public class SwordSkill : Skill
     [SerializeField] float returnSpeed = 12f;
     private float swordGravity;
 
+    [Header("Passive sword")]
+    [SerializeField] UI_SkillTreeSlot timeStopUnlockButton;
+    public bool timeStopUnlocked { get; private set; }
+    [SerializeField] UI_SkillTreeSlot vulnerabilityUnlockButton;
+    public bool vulnerabilityUnlocked { get; private set; }
+
     [Header("Spin info")]
+    [SerializeField] UI_SkillTreeSlot chainsawSwordUnlockButton;
+    public bool chainsawSwordUnlocked { get; private set; }
     [SerializeField] float maxTravelDistance = 7f;
     [SerializeField] float spinDuration = 2f;
     [SerializeField] float spinHitCooldown = 0.35f;
@@ -48,7 +62,19 @@ public class SwordSkill : Skill
     {
         base.Start();
         GenerateDots();
+        CallBackUnlock();
     }
+
+    private void CallBackUnlock()
+    {
+        swordThrowUnlockButton.onUpgradeSkill = () => throwSwordUnlocked = true;
+        timeStopUnlockButton.onUpgradeSkill = () => timeStopUnlocked = true;
+        vulnerabilityUnlockButton.onUpgradeSkill = () => vulnerabilityUnlocked = true;
+        bulletSwordUnlockButton.onUpgradeSkill = () => bulletSwordUnlocked = true;
+        chainsawSwordUnlockButton.onUpgradeSkill = () => chainsawSwordUnlocked = true;
+        bouncySwordUnlockButton.onUpgradeSkill = () => bouncySwordUnlocked = true;
+    }
+
     public void CreatSword()
     {
         GameObject newSword = Instantiate(swordPrefab, player.attackCheck.transform.position, player.transform.rotation);
