@@ -252,10 +252,11 @@ public class SwordSkillController : MonoBehaviour
             if (!enemy.stats.IsAlive()) return;
 
             //enemy.DamageEffect();
-            SwordDamageEnemy(enemy);
+            //SwordDamageEnemy(enemy);
             if (isPiercing && pierceAmount > 0)
             {
                 pierceAmount--;
+                SwordDamageEnemy(enemy);
                 return;
             }
             if (player.skills.swordThrow.timeStopUnlocked)
@@ -267,17 +268,30 @@ public class SwordSkillController : MonoBehaviour
             {
                 enemy.stats.VulnerabilityFor(freeTimeDuration, player.skills.swordThrow.VulnerabilityMultiplierDamage);
             }
+
+            rb.isKinematic = true;
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            if (isBouncing) return;
+
+            circleCollider.enabled = false;
+            animator.SetBool("Rotation", false);
+            canRotate = false;
+            transform.parent = collision.transform;
+            SwordDamageEnemy(enemy);
+        }
+        else
+        {
+            //stuck on another collider
+            rb.isKinematic = true;
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            if (isBouncing) return;
+
+            circleCollider.enabled = false;
+            animator.SetBool("Rotation", false);
+            canRotate = false;
+            transform.parent = collision.transform;
         }
 
-
-        rb.isKinematic = true;
-        rb.constraints = RigidbodyConstraints2D.FreezeAll;
-        if (isBouncing) return;
-
-        circleCollider.enabled = false;
-        animator.SetBool("Rotation", false);
-        canRotate = false;
-        transform.parent = collision.transform;
     }
 
     public void ReturnSword()

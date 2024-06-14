@@ -75,6 +75,16 @@ public class Enemy : Entity, IAnimationDoneTrigger
     {
         base.Die();
         counterImage.SetActive(false);
+        CheckReturnSword();
+    }
+
+    private void CheckReturnSword()
+    {
+        SwordSkillController swordSkillController = GetComponentInChildren<SwordSkillController>();
+        if (swordSkillController != null)
+        {
+            swordSkillController.ReturnSword();
+        }
     }
 
     public virtual void FreezeTimer(bool isFrozen)
