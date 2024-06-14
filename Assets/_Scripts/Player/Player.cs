@@ -226,7 +226,7 @@ public class Player : Entity
         return _randomEnemy;
     }
 
-    public Transform DoDamageEnemiesInCircle(Vector3 _position, float _radius, bool _isMagicalDamage = false, float _amplifierDamagePercent = 0f, float _reducerDamagePercent = 0f)
+    public Transform DoDamageEnemiesInCircle(Vector3 _position, float _radius, bool _isMagicalDamage = false, float _multiplierDamage = 1f)
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(_position, _radius);
         Transform hasEnemy = null;
@@ -244,7 +244,7 @@ public class Player : Entity
                 }
                 else
                 {
-                    stats.DoDamage(enemy.stats, _amplifierDamagePercent, _reducerDamagePercent);
+                    stats.DoDamage(enemy.stats, _multiplierDamage);
                 }
                 //enemy.GetComponent<CharacterStats>().TakeDamage(stats.damage.GetValue());
                 hasEnemy = enemy.transform;

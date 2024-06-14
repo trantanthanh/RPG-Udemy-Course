@@ -7,8 +7,7 @@ public class CloneSkill : Skill
     [Header("Clone info")]
     [SerializeField] UI_SkillTreeSlot timeMirageUnlockButton;
     public bool canAtackUnlocked { get; private set; }//clone can attack
-    [Range(0.1f, 1f)]
-    [SerializeField] float mirageDamagePercent;
+    [SerializeField] float mirageDamageMultiplier;
     [SerializeField] GameObject clonePrefab;
     [SerializeField] float cloneDuration;
 
@@ -17,8 +16,7 @@ public class CloneSkill : Skill
     public bool blackHoleUnlocked { get; private set; }
     [Space]
     [SerializeField] UI_SkillTreeSlot agressiveUnlockButton;
-    [Range(0.5f, 1f)]
-    [SerializeField] float mirageDamageAgreesivePercent;//80% damage, can hit effect
+    [SerializeField] float mirageDamageAgreesiveMultiplier;//80% damage, can hit effect
     public bool agressiveMirageUnlocked { get; private set; }
 
     [Space]
@@ -42,9 +40,9 @@ public class CloneSkill : Skill
     {
         if (agressiveMirageUnlocked)
         {
-            return mirageDamageAgreesivePercent;
+            return mirageDamageAgreesiveMultiplier;
         }
-        return mirageDamagePercent;
+        return mirageDamageMultiplier;
     }
 
     private void CallBackUnlock()

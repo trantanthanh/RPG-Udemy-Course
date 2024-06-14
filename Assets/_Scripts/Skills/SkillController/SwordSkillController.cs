@@ -198,12 +198,12 @@ public class SwordSkillController : MonoBehaviour
 
     private void SwordDamageEnemy(Enemy enemy)
     {
-        float amplifierDamagePercent = 0;
+        float multiplierDamage = 1;
         if (player.skills.swordThrow.vulnerabilityUnlocked)
         {
-            amplifierDamagePercent = player.skills.swordThrow.PercentAmplifierDamage;
+            multiplierDamage = player.skills.swordThrow.MultipliderDamage;
         }
-        player.stats.DoDamage(enemy.stats, amplifierDamagePercent);
+        player.stats.DoDamage(enemy.stats, multiplierDamage);
         player.DoEffectFromAmulet(enemy);
     }
 

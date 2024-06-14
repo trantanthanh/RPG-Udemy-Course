@@ -1267,17 +1267,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 0
   timeMirageUnlockButton: {fileID: 46286193}
-  mirageDamagePercent: 0.3
+  mirageDamageMultiplier: 0.3
   clonePrefab: {fileID: 3799389986137735871, guid: e1e4d72726223064a9c437391e0a72e6, type: 3}
   cloneDuration: 1.5
   blackHoleUnlockButton: {fileID: 1829003357}
   agressiveUnlockButton: {fileID: 1042393608}
-  mirageDamageAgreesivePercent: 0.8
+  mirageDamageAgreesiveMultiplier: 0.8
   multipleMirageUnlockButton: {fileID: 1021900294}
   percentToDuplicateClone: 30
   offSetCloneCounterAttack: 1.5
   timeDelayCreateCloneCounterAttack: 0.5
-  crystalMirageUnlockButton: {fileID: 0}
+  crystalMirageUnlockButton: {fileID: 1944221763}
 --- !u!114 &1014679310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1308,7 +1308,7 @@ MonoBehaviour:
   returnSpeed: 12
   timeStopUnlockButton: {fileID: 1711744109}
   vulnerabilityUnlockButton: {fileID: 1527963014}
-  percentAmplifierDamage: 0
+  multipliderDamage: 1.1
   chainsawSwordUnlockButton: {fileID: 345679453}
   maxTravelDistance: 7
   spinDuration: 2
@@ -48672,6 +48672,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1921071931}
   m_CullTransparentMesh: 1
+--- !u!114 &1944221763 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1749934090383706217, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+  m_PrefabInstance: {fileID: 3134303364411499339}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee36376fe19f21841814302abdd2084a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1946857827 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2766839923703826411, guid: cab3b2aae0938784f973511ee86873bd, type: 3}
