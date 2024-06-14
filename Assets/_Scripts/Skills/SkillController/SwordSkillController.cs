@@ -198,12 +198,7 @@ public class SwordSkillController : MonoBehaviour
 
     private void SwordDamageEnemy(Enemy enemy)
     {
-        float multiplierDamage = 1;
-        if (player.skills.swordThrow.vulnerabilityUnlocked)
-        {
-            multiplierDamage = player.skills.swordThrow.MultipliderDamage;
-        }
-        player.stats.DoDamage(enemy.stats, multiplierDamage);
+        player.stats.DoDamage(enemy.stats);
         player.DoEffectFromAmulet(enemy);
     }
 
@@ -266,6 +261,11 @@ public class SwordSkillController : MonoBehaviour
             if (player.skills.swordThrow.timeStopUnlocked)
             {
                 enemy.FreezeTimerFor(freeTimeDuration);
+            }
+
+            if (player.skills.swordThrow.vulnerabilityUnlocked)
+            {
+                enemy.stats.VulnerabilityFor(freeTimeDuration, player.skills.swordThrow.VulnerabilityMultiplierDamage);
             }
         }
 

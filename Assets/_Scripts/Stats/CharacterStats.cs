@@ -40,6 +40,9 @@ public class CharacterStats : MonoBehaviour
     public bool isChilled;//reduce armor by 20%, speed by 50%
     public bool isShocked;//reduce accuracy by 20%
 
+    private bool isVulnerability = false;
+    private float vulnerabilityDamageMultiplier = 1.0f;
+
     private float igniteTimer;
     private float igniteDuration = 4f;
     private float igniteDamageCoolDown = 0.3f;//interval take burn damage
@@ -121,6 +124,19 @@ public class CharacterStats : MonoBehaviour
         }
     }
 
+    public void VulnerabilityFor(float _seconds, float _vulnerabilityDamageMultiplier = 1.0f)
+    {
+        vulnerabilityDamageMultiplier = _vulnerabilityDamageMultiplier;
+        StartCoroutine(VulnerabilityForCoroutine(_seconds));
+    }
+
+    IEnumerator VulnerabilityForCoroutine(float _seconds)
+    {
+        isVulnerability = true;
+        yield return new WaitForSeconds(_seconds);
+        isVulnerability = false;
+    }
+
     public virtual void DoDamage(CharacterStats _targetStats, float multiplierDamage = 1)
     {
 
@@ -128,7 +144,14 @@ public class CharacterStats : MonoBehaviour
 
         //int totalDamage = damage.GetValue() + strength.GetValue();
         int totalDamage = GetFinalValueStat(StatType.damage);
-        totalDamage = Mathf.RoundToInt(totalDamage * multiplierDamage);
+        if (isVulnerability)
+        {
+            totalDamage = Mathf.RoundToInt(totalDamage * vulnerabilityDamageMultiplier);
+        }
+        else
+        {
+            totalDamage = Mathf.RoundToInt(totalDamage * multiplierDamage);
+        }
         if (CanCrit())
         {
             totalDamage = CalculateCritDamage(totalDamage);

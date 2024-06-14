@@ -40,8 +40,8 @@ public class SwordSkill : Skill
     [SerializeField] UI_SkillTreeSlot timeStopUnlockButton;
     public bool timeStopUnlocked { get; private set; }
     [SerializeField] UI_SkillTreeSlot vulnerabilityUnlockButton;
-    [SerializeField] float multipliderDamage;
-    public float MultipliderDamage { get => multipliderDamage; }
+    [SerializeField] float vulnerabilityMultiplierDamage;
+    public float VulnerabilityMultiplierDamage { get => vulnerabilityMultiplierDamage; }
     public bool vulnerabilityUnlocked { get; private set; }
 
     [Header("Spin info")]

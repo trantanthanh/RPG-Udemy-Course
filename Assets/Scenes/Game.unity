@@ -1308,7 +1308,7 @@ MonoBehaviour:
   returnSpeed: 12
   timeStopUnlockButton: {fileID: 1711744109}
   vulnerabilityUnlockButton: {fileID: 1527963014}
-  multipliderDamage: 1.1
+  vulnerabilityMultiplierDamage: 0
   chainsawSwordUnlockButton: {fileID: 345679453}
   maxTravelDistance: 7
   spinDuration: 2
@@ -49132,7 +49132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8460999510975124096, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: skillDescription
-      value: Enemy hit by throw sword, take 10% more damage.
+      value: Enemy hit by throw sword, take 10% more damage in a short time.
       objectReference: {fileID: 0}
     - target: {fileID: 9043360601630547463, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
       propertyPath: m_AnchorMax.y
