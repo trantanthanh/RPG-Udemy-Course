@@ -17,11 +17,16 @@ public class DashSkill : Skill
     [SerializeField] private UI_SkillTreeSlot cloneOnArrivalButton;
     public bool cloneOnArrivalUnlocked { get; private set; }
 
-    private void OnEnable()
+    protected override void Start()
     {
-        dashUnlockButton.onUpgradeSkill = UnlockDash;
-        cloneOnDashUnlockButton.onUpgradeSkill = UnlockCloneOnDash;
-        cloneOnArrivalButton.onUpgradeSkill = UnlockCloneOnArrival;
+        CallBackUnlock();
+    }
+
+    private void CallBackUnlock()
+    {
+        dashUnlockButton.onUpgradeSkill = () => dashUnlocked = true;
+        cloneOnDashUnlockButton.onUpgradeSkill = () => cloneOnDashUnlocked = true;
+        cloneOnArrivalButton.onUpgradeSkill = () => cloneOnArrivalUnlocked = true;
     }
 
     public override void UseSkill()
@@ -30,12 +35,6 @@ public class DashSkill : Skill
 
         //Create clone trail behind
     }
-
-    private void UnlockDash() => dashUnlocked = true;
-
-    private void UnlockCloneOnDash() => cloneOnDashUnlocked = true;
-
-    private void UnlockCloneOnArrival() => cloneOnArrivalUnlocked = true;
 
     public void CreateCloneOnDashStart()
     {

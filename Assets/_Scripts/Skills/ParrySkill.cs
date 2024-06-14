@@ -21,9 +21,9 @@ public class ParrySkill : Skill
 
     private void OnEnable()
     {
-        parryUnlockButton.onUpgradeSkill = UnlockParry;
-        parryRestoredUnlockButton.onUpgradeSkill = UnlockParryRestore;
-        parryMirageAttackUnlockButton.onUpgradeSkill = UnlockParryMirage;
+        parryUnlockButton.onUpgradeSkill = () => parryUnlocked = true; ;
+        parryRestoredUnlockButton.onUpgradeSkill = () => parryRestoreUnlocked = true; ;
+        parryMirageAttackUnlockButton.onUpgradeSkill = () => parryMirageAttackUnlocked = true; ;
     }
 
     private void UnlockParry() => parryUnlocked = true;

@@ -198,7 +198,12 @@ public class SwordSkillController : MonoBehaviour
 
     private void SwordDamageEnemy(Enemy enemy)
     {
-        player.stats.DoDamage(enemy.stats);
+        float amplifierDamagePercent = 0;
+        if (player.skills.swordThrow.vulnerabilityUnlocked)
+        {
+            amplifierDamagePercent = player.skills.swordThrow.PercentAmplifierDamage;
+        }
+        player.stats.DoDamage(enemy.stats, amplifierDamagePercent);
         player.DoEffectFromAmulet(enemy);
     }
 
@@ -258,7 +263,10 @@ public class SwordSkillController : MonoBehaviour
                 pierceAmount--;
                 return;
             }
-            enemy.FreezeTimerFor(freeTimeDuration);
+            if (player.skills.swordThrow.timeStopUnlocked)
+            {
+                enemy.FreezeTimerFor(freeTimeDuration);
+            }
         }
 
 

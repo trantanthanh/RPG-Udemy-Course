@@ -40,6 +40,9 @@ public class SwordSkill : Skill
     [SerializeField] UI_SkillTreeSlot timeStopUnlockButton;
     public bool timeStopUnlocked { get; private set; }
     [SerializeField] UI_SkillTreeSlot vulnerabilityUnlockButton;
+    [Range(0.1f, 1f)]
+    [SerializeField] float percentAmplifierDamage;
+    public float PercentAmplifierDamage { get => percentAmplifierDamage; }
     public bool vulnerabilityUnlocked { get; private set; }
 
     [Header("Spin info")]
@@ -75,8 +78,26 @@ public class SwordSkill : Skill
         bouncySwordUnlockButton.onUpgradeSkill = () => bouncySwordUnlocked = true;
     }
 
+    private void ChooseSwordType()
+    {
+        swordType = SwordType.Regular;
+        if (bulletSwordUnlocked)
+        {
+            swordType = SwordType.Pierce;
+        }
+        else if (chainsawSwordUnlocked)
+        {
+            swordType = SwordType.Spin;
+        }
+        else if (bouncySwordUnlocked)
+        {
+            swordType = SwordType.Bounce;
+        }
+    }
+
     public void CreatSword()
     {
+        ChooseSwordType();
         GameObject newSword = Instantiate(swordPrefab, player.attackCheck.transform.position, player.transform.rotation);
         player.AssignNewSword(newSword);
         SwordSkillController newSwordScript = newSword.GetComponent<SwordSkillController>();
@@ -103,20 +124,28 @@ public class SwordSkill : Skill
     protected override void Update()
     {
         base.Update();
-        if (Input.GetKeyUp(KeyCode.Mouse1))
-        {
-            finalForce = AimDirection().normalized * launchForce;
-        }
+        UpdateAimSword();
+    }
 
-        if (Input.GetKey(KeyCode.Mouse1))
+    private void UpdateAimSword()
+    {
+        if (throwSwordUnlocked)
         {
-            SetupGravity();
-
-            for (int i = 0; i < dots.Length; i++)
+            if (Input.GetKeyUp(KeyCode.Mouse1))
             {
-                dots[i].transform.position = DotsPosition(i * spaceBetweenDots);
+                finalForce = AimDirection().normalized * launchForce;
             }
 
+            if (Input.GetKey(KeyCode.Mouse1))
+            {
+                SetupGravity();
+
+                for (int i = 0; i < dots.Length; i++)
+                {
+                    dots[i].transform.position = DotsPosition(i * spaceBetweenDots);
+                }
+
+            }
         }
     }
 

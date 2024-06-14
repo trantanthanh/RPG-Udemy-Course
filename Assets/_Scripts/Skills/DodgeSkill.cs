@@ -17,7 +17,7 @@ public class DodgeSkill : Skill
     private void OnEnable()
     {
         dodgeUnlockButton.onUpgradeSkill = UnlockDodge;
-        dodgeMirageUnlockButton.onUpgradeSkill = UnlockDodgeMirage;
+        dodgeMirageUnlockButton.onUpgradeSkill = () => dodgeMirageUnlocked = true;
     }
 
     private void UnlockDodge()
@@ -28,8 +28,6 @@ public class DodgeSkill : Skill
         }
         dodgeUnlocked = true;
     }
-
-    private void UnlockDodgeMirage() => dodgeMirageUnlocked = true;
 
     public void CreateMirageOnDodge()
     {

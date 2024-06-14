@@ -34,10 +34,10 @@ public class PlayerStats : CharacterStats
         player.skills.dodge.CreateMirageOnDodge();
     }
 
-    public override void DoDamage(CharacterStats _targetStats)
-    {
-        base.DoDamage(_targetStats);
-    }
+    //public override void DoDamage(CharacterStats _targetStats, float amplifierDamagePercent = 0)
+    //{
+    //    base.DoDamage(_targetStats, amplifierDamagePercent);
+    //}
 
     protected override void TakeDamageWithoutEffect(int damage)
     {

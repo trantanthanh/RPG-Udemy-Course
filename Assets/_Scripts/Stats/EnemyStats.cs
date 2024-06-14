@@ -63,8 +63,8 @@ public class EnemyStats : CharacterStats
         enemy.GetComponent<ItemDrop>()?.GenerateDrop();//Drop item if can
     }
 
-    public override void DoDamage(CharacterStats _targetStats)
-    {
-        base.DoDamage(_targetStats);
-    }
+    //public override void DoDamage(CharacterStats _targetStats, float amplifierDamagePercent = 0)
+    //{
+    //    base.DoDamage(_targetStats, amplifierDamagePercent);
+    //}
 }

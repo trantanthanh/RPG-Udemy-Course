@@ -1279,7 +1279,6 @@ MonoBehaviour:
   cooldown: 0
   swordType: 0
   bouncySwordUnlockButton: {fileID: 171691397}
-  bouncySwordUnlocked: 0
   bounceAmount: 4
   bounceSpeed: 15
   bounceRange: 10
@@ -1295,6 +1294,7 @@ MonoBehaviour:
   returnSpeed: 12
   timeStopUnlockButton: {fileID: 1711744109}
   vulnerabilityUnlockButton: {fileID: 1527963014}
+  percentAmplifierDamage: 0
   chainsawSwordUnlockButton: {fileID: 345679453}
   maxTravelDistance: 7
   spinDuration: 2

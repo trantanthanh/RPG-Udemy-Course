@@ -52,7 +52,7 @@ public class PlayerGroundedState : PlayerState
                 return;
             }
 
-            if (Input.GetKeyDown(KeyCode.Mouse1) && HasNoSword())//right mouse click
+            if (player.skills.swordThrow.throwSwordUnlocked && Input.GetKeyDown(KeyCode.Mouse1) && HasNoSword())//right mouse click
             {
                 player.stateMachine.ChangeState(player.aimSwordState);
                 return;

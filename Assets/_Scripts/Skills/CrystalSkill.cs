@@ -37,20 +37,20 @@ public class CrystalSkill : Skill
     private List<GameObject> crystalsLeft = new List<GameObject>();
     private GameObject currentCrystal;
 
-    private void OnEnable()
+    protected override void Start()
     {
-        unlockCrystalButton.onUpgradeSkill = UnlockCrystal;
-        unlockCrystalMirageButton.onUpgradeSkill = UnlockCrystalMirage;
-        unlockCrystalExplosionButton.onUpgradeSkill = UnlockCrystalExplosion;
-        unlockCrystalMovingButton.onUpgradeSkill = UnlockCrystalMoving;
+        CallBackUnlock();
+    }
+
+    private void CallBackUnlock()
+    {
+        unlockCrystalButton.onUpgradeSkill = () => crystalUnlocked = true; ;
+        unlockCrystalMirageButton.onUpgradeSkill = () => crystalMirageUnlocked = true; ;
+        unlockCrystalExplosionButton.onUpgradeSkill = () => canExplode = true; ;
+        unlockCrystalMovingButton.onUpgradeSkill = () => canMoveToEnemy = true;
         unlockMultiCrystalButton.onUpgradeSkill = UnlockMultiCrystal;
     }
 
-    #region unlock zone
-    private void UnlockCrystal() => crystalUnlocked = true;
-    private void UnlockCrystalMirage() => crystalMirageUnlocked = true;
-    private void UnlockCrystalExplosion() => canExplode = true;
-    private void UnlockCrystalMoving() => canMoveToEnemy = true;
     private void UnlockMultiCrystal()
     {
         if (unlockMultiCrystalButton.unlocked)
@@ -59,7 +59,6 @@ public class CrystalSkill : Skill
             ResetAbility(true);//1st times init crystalsLeft
         }
     }
-    #endregion
 
     public override bool CanUseSkill()
     {
