@@ -67,7 +67,7 @@ public class CloneSkillController : MonoBehaviour
     private void AttackTrigger()
     {
         Transform hasEnemy = null;
-        hasEnemy = PlayerManager.Instance.player.DoDamageEnemiesInCircle(attackCheck.position + offsetPos, attackRadius);
+        hasEnemy = PlayerManager.Instance.player.DoDamageEnemiesInCircle(attackCheck.position + offsetPos, attackRadius, false, 0.0f, 1 - PlayerManager.Instance.player.skills.clone.GetPercentMirageDamage());
         if (hasEnemy != null && canDuplicateClone)
         {
             int randomValue = Random.Range(0, 100);

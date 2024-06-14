@@ -24,7 +24,7 @@ public class PlayerGroundedState : PlayerState
 
         if (player.IsGroundDetected())
         {
-            if (Input.GetKeyDown(KeyCode.R))
+            if (player.skills.clone.blackHoleUnlocked && Input.GetKeyDown(KeyCode.R))
             {
                 player.stateMachine.ChangeState(player.blackHoleState);
                 return;

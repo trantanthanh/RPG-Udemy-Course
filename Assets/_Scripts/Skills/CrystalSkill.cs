@@ -53,11 +53,8 @@ public class CrystalSkill : Skill
 
     private void UnlockMultiCrystal()
     {
-        if (unlockMultiCrystalButton.unlocked)
-        {
-            canUseMultiStacks = true;
-            ResetAbility(true);//1st times init crystalsLeft
-        }
+        canUseMultiStacks = true;
+        ResetAbility(true);//1st times init crystalsLeft
     }
 
     public override bool CanUseSkill()

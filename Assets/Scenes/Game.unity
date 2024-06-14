@@ -128,6 +128,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5491871218263685978, guid: 33c3c84de5f1d0b4d952fe319d4678e0, type: 3}
   m_PrefabInstance: {fileID: 3875616735069545423}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &46286193 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8602110245243900220, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+  m_PrefabInstance: {fileID: 3134303364411499339}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee36376fe19f21841814302abdd2084a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &55026279 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7184284964226919404, guid: cab3b2aae0938784f973511ee86873bd, type: 3}
@@ -1255,15 +1266,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 0
+  timeMirageUnlockButton: {fileID: 46286193}
+  mirageDamagePercent: 0.3
   clonePrefab: {fileID: 3799389986137735871, guid: e1e4d72726223064a9c437391e0a72e6, type: 3}
   cloneDuration: 1.5
-  canAtack: 1
-  canCreateCloneOnCounterAttack: 0
-  canDuplicateClone: 0
+  blackHoleUnlockButton: {fileID: 1829003357}
+  agressiveUnlockButton: {fileID: 1042393608}
+  mirageDamageAgreesivePercent: 0.8
+  multipleMirageUnlockButton: {fileID: 1021900294}
   percentToDuplicateClone: 30
   offSetCloneCounterAttack: 1.5
   timeDelayCreateCloneCounterAttack: 0.5
-  crystalInsteadOfClone: 0
+  crystalMirageUnlockButton: {fileID: 0}
 --- !u!114 &1014679310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1383,6 +1397,28 @@ MonoBehaviour:
   dodgeUnlockButton: {fileID: 1536663936}
   evasionBonus: 10
   dodgeMirageUnlockButton: {fileID: 1585080668}
+--- !u!114 &1021900294 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1548676811964692623, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+  m_PrefabInstance: {fileID: 3134303364411499339}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee36376fe19f21841814302abdd2084a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1042393608 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6760060323012655522, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+  m_PrefabInstance: {fileID: 3134303364411499339}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee36376fe19f21841814302abdd2084a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1070876802
 GameObject:
   m_ObjectHideFlags: 0
@@ -48134,6 +48170,17 @@ Transform:
   - {fileID: 1258903086}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1829003357 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4369813440139529586, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
+  m_PrefabInstance: {fileID: 3134303364411499339}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee36376fe19f21841814302abdd2084a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1871510961
 GameObject:
   m_ObjectHideFlags: 0

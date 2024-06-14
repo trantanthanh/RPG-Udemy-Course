@@ -6,12 +6,11 @@ public class CloneSkill : Skill
 {
     [Header("Clone info")]
     [SerializeField] UI_SkillTreeSlot timeMirageUnlockButton;
-    public bool mirageUnlocked { get; private set; }
+    public bool canAtackUnlocked { get; private set; }//clone can attack
     [Range(0.1f, 1f)]
     [SerializeField] float mirageDamagePercent;
     [SerializeField] GameObject clonePrefab;
     [SerializeField] float cloneDuration;
-    bool canAtack = true;
 
     [Header("Clone features")]
     [SerializeField] UI_SkillTreeSlot blackHoleUnlockButton;
@@ -33,7 +32,30 @@ public class CloneSkill : Skill
     [Header("Create crystal instead of clone")]
     [SerializeField] UI_SkillTreeSlot crystalMirageUnlockButton;
     private bool crystalInsteadOfClone;
-    public bool CrystalInsteadOfClone { get { return crystalInsteadOfClone; } }
+    public bool CrystalInsteadOfClone { get => crystalInsteadOfClone; }
+
+    protected override void Start()
+    {
+        CallBackUnlock();
+    }
+    public float GetPercentMirageDamage()
+    {
+        if (agressiveMirageUnlocked)
+        {
+            return mirageDamageAgreesivePercent;
+        }
+        return mirageDamagePercent;
+    }
+
+    private void CallBackUnlock()
+    {
+        timeMirageUnlockButton.onUpgradeSkill = () => canAtackUnlocked = true;
+        blackHoleUnlockButton.onUpgradeSkill = () => blackHoleUnlocked = true;
+        agressiveUnlockButton.onUpgradeSkill = () => agressiveMirageUnlocked = true;
+        multipleMirageUnlockButton.onUpgradeSkill = () => canDuplicateClone = true;
+        crystalMirageUnlockButton.onUpgradeSkill = () => crystalInsteadOfClone = true;
+    }
+
     public void CreateClone(Transform _newTransform, Vector3 _offset, Transform _targetToFacing = null, bool _canDuplicateClone = false, int _percentToDuplicateClone = 0)
     {
         if (crystalInsteadOfClone)
@@ -42,7 +64,7 @@ public class CloneSkill : Skill
             return;
         }
         GameObject newClone = Instantiate(clonePrefab);
-        newClone.GetComponent<CloneSkillController>().SetupClone(_newTransform, cloneDuration, canAtack, _offset, _targetToFacing, _canDuplicateClone, _percentToDuplicateClone);
+        newClone.GetComponent<CloneSkillController>().SetupClone(_newTransform, cloneDuration, canAtackUnlocked, _offset, _targetToFacing, _canDuplicateClone, _percentToDuplicateClone);
     }
 
     public void CreateCloneOnCounterAttack(Transform _enemyTransform)
