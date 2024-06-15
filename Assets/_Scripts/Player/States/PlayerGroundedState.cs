@@ -24,20 +24,17 @@ public class PlayerGroundedState : PlayerState
 
         if (player.IsGroundDetected())
         {
-            if (player.skills.clone.blackHoleUnlocked && Input.GetKeyDown(KeyCode.R) && player.skills.blackHole.CanUseSkill())
+            if (Input.GetKeyDown(KeyCode.R) && player.skills.clone.blackHoleUnlocked && player.skills.blackHole.CanUseSkill())
             {
                 player.stateMachine.ChangeState(player.blackHoleState);
                 return;
             }
 
-            if (player.skills.parry.parryUnlocked && player.skills.parry.CanUseSkill())
+            if (Input.GetKeyDown(KeyCode.Q) && player.skills.parry.parryUnlocked && player.skills.parry.CanUseSkill())
             {
-                if (Input.GetKeyDown(KeyCode.Q))
-                {
-                    player.skills.parry.UseSkill();
-                    player.stateMachine.ChangeState(player.counterAttackState);
-                    return;
-                }
+                player.skills.parry.UseSkill();
+                player.stateMachine.ChangeState(player.counterAttackState);
+                return;
             }
 
             if (Input.GetKeyDown(KeyCode.Space))
@@ -52,7 +49,7 @@ public class PlayerGroundedState : PlayerState
                 return;
             }
 
-            if (player.skills.swordThrow.throwSwordUnlocked && Input.GetKeyDown(KeyCode.Mouse1) && HasNoSword())//right mouse click
+            if (Input.GetKeyDown(KeyCode.Mouse1) && player.skills.swordThrow.throwSwordUnlocked && HasNoSword())//right mouse click
             {
                 player.stateMachine.ChangeState(player.aimSwordState);
                 return;
