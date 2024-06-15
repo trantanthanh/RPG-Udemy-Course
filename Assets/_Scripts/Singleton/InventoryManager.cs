@@ -34,6 +34,7 @@ public class InventoryManager : MonoBehaviour
 
     float flaskCooldown;
     float lastTimeUsedFlask = 0f;
+    public float FlaskCooldown { get => flaskCooldown; }
 
     float armorCooldown;
     float lastTimeUsedArmorEffect = 0f;

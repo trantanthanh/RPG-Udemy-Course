@@ -13,6 +13,9 @@ public class UI_Ingame : MonoBehaviour
     [SerializeField] Image imageDashCooldown;
     [SerializeField] Image imageParryCooldown;
     [SerializeField] Image imageBlackHoleCooldown;
+    [SerializeField] Image imageCrystalCooldown;
+    [SerializeField] Image imageSwordCooldown;
+    [SerializeField] Image imageFlaskCooldown;
 
     private SkillManager skills;
 
@@ -42,10 +45,25 @@ public class UI_Ingame : MonoBehaviour
         {
             SetCooldownOf(imageBlackHoleCooldown);
         }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            SetCooldownOf(imageCrystalCooldown);
+        }
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            SetCooldownOf(imageSwordCooldown);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            SetCooldownOf(imageFlaskCooldown);
+        }
 
         CheckCooldownOf(imageDashCooldown, skills.dash.cooldown);
         CheckCooldownOf(imageParryCooldown, skills.parry.cooldown);
         CheckCooldownOf(imageBlackHoleCooldown, skills.blackHole.cooldown);
+        CheckCooldownOf(imageCrystalCooldown, skills.crystal.cooldown);
+        CheckCooldownOf(imageSwordCooldown, skills.swordThrow.cooldown);
+        CheckCooldownOf(imageFlaskCooldown, InventoryManager.Instance.FlaskCooldown);
     }
 
     private void UpdateHealthUI()
