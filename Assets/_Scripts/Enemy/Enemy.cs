@@ -129,7 +129,7 @@ public class Enemy : Entity, IAnimationDoneTrigger
         foreach (Collider2D collider in collders)
         {
             Player player = collider.GetComponent<Player>();
-            if (player != null)
+            if (player != null && player.CanDamage())
             {
                 //player.Damage();
                 stats.DoDamage(player.stats);

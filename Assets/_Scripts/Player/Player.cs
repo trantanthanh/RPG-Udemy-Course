@@ -153,6 +153,11 @@ public class Player : Entity
         }
     }
 
+    public bool CanDamage()
+    {
+        return (!stateMachine.IsState(blackHoleState) && !stateMachine.IsState(dashState));
+    }
+
     public void Jump()
     {
         SetVelocity(rb.velocity.x, jumpForce);

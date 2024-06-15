@@ -17,4 +17,9 @@ public class PlayerStateMachine
         currentState = _newState;
         currentState.Enter();
     }
+
+    public bool IsState(PlayerState _state)
+    {
+        return currentState == _state;
+    }
 }
