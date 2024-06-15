@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,6 +18,8 @@ public class UI_Ingame : MonoBehaviour
     [SerializeField] Image imageSwordCooldown;
     [SerializeField] Image imageFlaskCooldown;
 
+    [SerializeField] TextMeshProUGUI currentSouls;
+
     private SkillManager skills;
 
     // Start is called before the first frame update
@@ -28,11 +31,13 @@ public class UI_Ingame : MonoBehaviour
         }
 
         skills = SkillManager.Instance;
+       
     }
 
     // Update is called once per frame
     void Update()
     {
+        currentSouls.text = PlayerManager.Instance.GetCurrency().ToString("#,#");
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             SetCooldownOf(imageDashCooldown);

@@ -30,4 +30,6 @@ public class PlayerManager : MonoBehaviour
         currentCurrency -= _price;
         return true;
     }
+
+    public int GetCurrency() => currentCurrency;
 }
