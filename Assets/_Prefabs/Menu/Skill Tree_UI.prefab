@@ -3013,7 +3013,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2164224423321271568, guid: ae72133dacba6ec4eb33ecde48f50e56, type: 3}
+  m_Sprite: {fileID: 733483707, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7303,7 +7303,7 @@ MonoBehaviour:
   skillName: Vulnerability
   skillPrice: 0
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
-  skillDescription: Enemy hit by sword, take 10% more damage.
+  skillDescription: Enemy hit by throw sword, take 10% more damage in a short time.
   shouldBeUnlocked:
   - {fileID: 1016540192823439102}
   - {fileID: 3488138024979220942}

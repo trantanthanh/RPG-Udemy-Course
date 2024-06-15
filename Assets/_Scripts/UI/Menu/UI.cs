@@ -49,7 +49,7 @@ namespace Menu
             {
                 if (!isMenuShow)
                 {
-                    SwitchWithKeyTo(menuDictionary[currentMenuIndex]);
+                    SwitchMenuTo(menuDictionary[currentMenuIndex]);
                 }
                 else
                 {
@@ -60,7 +60,7 @@ namespace Menu
             if (isMenuShow && Input.GetKeyDown(KeyCode.Tab))
             {
                 currentMenuIndex = ++currentMenuIndex % 4;
-                SwitchWithKeyTo(menuDictionary[currentMenuIndex]);
+                SwitchMenuTo(menuDictionary[currentMenuIndex]);
             }
         }
 
@@ -93,17 +93,6 @@ namespace Menu
                  }
                 _menu.SetActive(true);
             }
-        }
-
-        public void SwitchWithKeyTo(GameObject _menu)
-        {
-            if (_menu != null && _menu.activeSelf)
-            {
-                _menu.SetActive(false);
-            }
-
-            closeBTN.SetActive(true);
-            SwitchMenuTo(_menu);
         }
     }
 }

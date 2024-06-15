@@ -11,7 +11,10 @@ public class UI_Ingame : MonoBehaviour
 
     [Header("Skill cooldown")]
     [SerializeField] Image imageDashCooldown;
-    private float dashCooldown;
+    [SerializeField] Image imageParryCooldown;
+    [SerializeField] Image imageBlackHoleCooldown;
+
+    private SkillManager skills;
 
     // Start is called before the first frame update
     void Start()
@@ -21,12 +24,7 @@ public class UI_Ingame : MonoBehaviour
             playerStats.onHealthChanged += UpdateHealthUI;
         }
 
-        Invoke(nameof(SetCooldownValues), 0.5f);
-    }
-
-    void SetCooldownValues()
-    {
-        dashCooldown = SkillManager.Instance.dash.cooldown;
+        skills = SkillManager.Instance;
     }
 
     // Update is called once per frame
@@ -36,7 +34,18 @@ public class UI_Ingame : MonoBehaviour
         {
             SetCooldownOf(imageDashCooldown);
         }
-        CheckCooldownOf(imageDashCooldown, dashCooldown);
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            SetCooldownOf(imageParryCooldown);
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SetCooldownOf(imageBlackHoleCooldown);
+        }
+
+        CheckCooldownOf(imageDashCooldown, skills.dash.cooldown);
+        CheckCooldownOf(imageParryCooldown, skills.parry.cooldown);
+        CheckCooldownOf(imageBlackHoleCooldown, skills.blackHole.cooldown);
     }
 
     private void UpdateHealthUI()
