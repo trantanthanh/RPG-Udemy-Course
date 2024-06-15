@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Menu
 {
@@ -12,11 +13,13 @@ namespace Menu
         [SerializeField] private GameObject optionsUI;
 
         [SerializeField] private GameObject closeBTN;
+        [SerializeField] private GameObject ingameMenu;
         public GameObject CharacterUI { get { return characterUI; } }
         public GameObject SkillTreeUI { get { return skillTreeUI; } }
         public GameObject CraftUI { get { return craftUI; } }
         public GameObject OptionsUI { get { return optionsUI; } }
         public GameObject CloseBTN { get { return closeBTN; } }
+        public GameObject IngameMenu { get { return ingameMenu; } }
 
         private bool isMenuShow = false;
         private int currentMenuIndex = 0;
@@ -34,7 +37,7 @@ namespace Menu
             menuDictionary.Add(2, craftUI);
             menuDictionary.Add(3, optionsUI);
 
-            SwitchMenuTo(null);
+            SwitchMenuTo(ingameMenu);
             itemTooltip.Hide();
             statTooltip.Hide();
             skillToolTip.Hide();
@@ -50,7 +53,7 @@ namespace Menu
                 }
                 else
                 {
-                    SwitchMenuTo(null);
+                    SwitchMenuTo(ingameMenu);
                 }
             }
 
@@ -80,7 +83,14 @@ namespace Menu
                         break;
                     }
                 }
-                closeBTN.SetActive(true);
+                if (_menu != ingameMenu)
+                {
+                    closeBTN.SetActive(true);
+                }
+                else
+                {
+                    isMenuShow = false;
+                 }
                 _menu.SetActive(true);
             }
         }

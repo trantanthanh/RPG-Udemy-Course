@@ -7,6 +7,6 @@ public class CloseUI_Btn : BaseButton
 {
     protected override void OnClick()
     {
-        ui.SwitchMenuTo(null);
+        ui.SwitchMenuTo(ui.IngameMenu);
     }
 }
