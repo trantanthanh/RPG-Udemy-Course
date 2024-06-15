@@ -19,6 +19,8 @@ MonoBehaviour:
   equipmentType: 3
   itemEffects:
   - {fileID: 11400000, guid: 451b56177b82ac24cbc3b7498e0ecd29, type: 2}
+  cooldown: 30
+  itemEffectDescription: Heal 30% of max HP. Cooldown is 30s.
   strength: 0
   agility: 0
   inteligence: 0

@@ -18,6 +18,8 @@ public class ItemData_Equipment_SO : ItemData_SO
 
     [Header("Item cooldown")]
     public float cooldown;
+    [TextArea]
+    [SerializeField] string itemEffectDescription;
 
     [Header("Major stats")]
     public int strength;
@@ -97,6 +99,9 @@ public class ItemData_Equipment_SO : ItemData_SO
     public override string GetDescription()
     {
         stringBuilder.Clear();
+
+        AddItemEffectDescription(itemEffectDescription);
+
         AddItemDescription(strength, "Strength");
         AddItemDescription(agility, "Agility");
         AddItemDescription(inteligence, "Inteligence");
@@ -116,6 +121,17 @@ public class ItemData_Equipment_SO : ItemData_SO
         AddItemDescription(magicResistance, "Magic Resistance");
 
         return stringBuilder.ToString();
+    }
+
+    private void AddItemEffectDescription(string _text)
+    {
+        if (itemEffectDescription.Length == 0) return;
+
+        if (stringBuilder.Length > 0)
+        {
+            stringBuilder.AppendLine();
+        }
+        stringBuilder.AppendLine(_text);
     }
 
     private void AddItemDescription(int _value, string _name)

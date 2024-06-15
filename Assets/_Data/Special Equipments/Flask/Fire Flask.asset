@@ -19,7 +19,8 @@ MonoBehaviour:
   equipmentType: 3
   itemEffects:
   - {fileID: 11400000, guid: f90d4c2301c424b4e82d923d2a412dfb, type: 2}
-  cooldown: 0
+  cooldown: 15
+  itemEffectDescription: Buff + 15 fire damage in 5s. Cooldown 15s.
   strength: 0
   agility: 0
   inteligence: 0

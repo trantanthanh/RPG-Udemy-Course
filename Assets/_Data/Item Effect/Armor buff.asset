@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Armor buff
   m_EditorClassIdentifier: 
   buffType: 11
-  buffAmount: 50
-  buffDuration: 7
+  buffAmount: 10
+  buffDuration: 20
