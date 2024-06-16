@@ -32,6 +32,7 @@ public class PlayerGroundedState : PlayerState
 
             if (Input.GetKeyDown(KeyCode.Q) && player.skills.parry.parryUnlocked && player.skills.parry.CanUseSkill())
             {
+                PlayerManager.Instance.uiIngame.SetParryCooldown();
                 player.skills.parry.UseSkill();
                 player.stateMachine.ChangeState(player.counterAttackState);
                 return;

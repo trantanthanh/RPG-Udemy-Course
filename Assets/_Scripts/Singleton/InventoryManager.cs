@@ -230,6 +230,7 @@ public class InventoryManager : MonoBehaviour
 
         if (Time.time >= flaskCooldown + lastTimeUsedFlask)
         {
+            PlayerManager.Instance.uiIngame.SetFlaskCooldown();
             flaskCooldown = currentFlask.cooldown;
             lastTimeUsedFlask = Time.time;
             currentFlask.Effect(null);

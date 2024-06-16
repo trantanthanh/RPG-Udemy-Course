@@ -64,17 +64,23 @@ public class CrystalSkill : Skill
 
     public override void UseSkill()
     {
-        base.UseSkill();
-
         if (CanUseMultiCrystal()) return;
 
         if (currentCrystal == null)
         {
             CreateCrystal();
+            if (canMoveToEnemy)
+            {
+                PlayerManager.Instance.uiIngame.SetCrystalCooldown();
+                base.UseSkill();
+            }
         }
         else
         {
             if (canMoveToEnemy) return;
+
+            PlayerManager.Instance.uiIngame.SetCrystalCooldown();
+            base.UseSkill();
 
             if (!currentCrystal.GetComponent<CrystalSkillController>().isDestroying)
             {
@@ -140,6 +146,7 @@ public class CrystalSkill : Skill
         if (crystalsLeft.Count <= 0)
         {
             cooldownTimer = multiStackCooldown;
+            PlayerManager.Instance.uiIngame.SetCrystalCooldown();
             RefillCrystal();
         }
     }
@@ -170,6 +177,7 @@ public class CrystalSkill : Skill
         if (!isInit)
         {
             cooldownTimer = multiStackCooldown;
+            PlayerManager.Instance.uiIngame.SetCrystalCooldown();
         }
     }
 

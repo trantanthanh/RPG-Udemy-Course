@@ -6,6 +6,7 @@ public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager Instance;
     public Player player;
+    public UI_Ingame uiIngame;
 
     public int currentCurrency;
     // Start is called before the first frame update

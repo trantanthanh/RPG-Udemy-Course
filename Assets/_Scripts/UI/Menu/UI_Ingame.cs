@@ -38,31 +38,11 @@ public class UI_Ingame : MonoBehaviour
     void Update()
     {
         currentSouls.text = PlayerManager.Instance.GetCurrency().ToString("#,#");
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            SetCooldownOf(imageDashCooldown);
-        }
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            SetCooldownOf(imageParryCooldown);
-        }
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            SetCooldownOf(imageBlackHoleCooldown);
-        }
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            SetCooldownOf(imageCrystalCooldown);
-        }
-        if (Input.GetKeyDown(KeyCode.Mouse1))
-        {
-            SetCooldownOf(imageSwordCooldown);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            SetCooldownOf(imageFlaskCooldown);
-        }
+        UpdateCheckCooldown();
+    }
 
+    private void UpdateCheckCooldown()
+    {
         CheckCooldownOf(imageDashCooldown, skills.dash.cooldown);
         CheckCooldownOf(imageParryCooldown, skills.parry.cooldown);
         CheckCooldownOf(imageBlackHoleCooldown, skills.blackHole.cooldown);
@@ -70,6 +50,13 @@ public class UI_Ingame : MonoBehaviour
         CheckCooldownOf(imageSwordCooldown, skills.swordThrow.cooldown);
         CheckCooldownOf(imageFlaskCooldown, InventoryManager.Instance.FlaskCooldown);
     }
+
+    public void SetDashCooldown() => SetCooldownOf(imageDashCooldown);
+    public void SetParryCooldown() => SetCooldownOf(imageParryCooldown);
+    public void SetBlackHoleCooldown() => SetCooldownOf(imageBlackHoleCooldown);
+    public void SetCrystalCooldown() => SetCooldownOf(imageCrystalCooldown);
+    public void SetSwordThrowCooldown() => SetCooldownOf(imageSwordCooldown);
+    public void SetFlaskCooldown() => SetCooldownOf(imageFlaskCooldown);
 
     private void UpdateHealthUI()
     {

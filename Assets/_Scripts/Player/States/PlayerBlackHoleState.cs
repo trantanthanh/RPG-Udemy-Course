@@ -43,6 +43,7 @@ public class PlayerBlackHoleState : PlayerState
                 if (player.skills.blackHole.CanUseSkill())
                 {
                     Debug.Log("Cast black hole");
+                    PlayerManager.Instance.uiIngame.SetBlackHoleCooldown();
                     player.skills.blackHole.UseSkill();
                     skillUsed = true;
                 }

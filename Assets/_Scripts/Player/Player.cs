@@ -148,6 +148,7 @@ public class Player : Entity
         if (IsFaceWallDetected()) return;
         if (Input.GetKeyDown(KeyCode.LeftShift) && SkillManager.Instance.dash.CanUseSkill())
         {
+            PlayerManager.Instance.uiIngame.SetDashCooldown();
             skills.dash.UseSkill();
             stateMachine.ChangeState(dashState);
         }
