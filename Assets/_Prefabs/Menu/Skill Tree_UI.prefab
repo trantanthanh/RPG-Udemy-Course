@@ -3799,7 +3799,7 @@ GameObject:
   - component: {fileID: 2147170977555890609}
   - component: {fileID: 8020707276109748094}
   m_Layer: 5
-  m_Name: Cost
+  m_Name: SkillCost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3821,8 +3821,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -1.6521, y: 35.57}
-  m_SizeDelta: {x: 346.7, y: 71.142}
+  m_AnchoredPosition: {x: -2.7915, y: 44.116}
+  m_SizeDelta: {x: 344.4211, y: 88.234}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2147170977555890609
 CanvasRenderer:
@@ -5369,9 +5369,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 577, y: 560}
+  m_AnchoredPosition: {x: 577, y: 335.00003}
   m_SizeDelta: {x: 350, y: 450}
-  m_Pivot: {x: 0.5, y: 1}
+  m_Pivot: {x: 0.5, y: 0.50000006}
 --- !u!222 &5585630418937237232
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5428,6 +5428,7 @@ MonoBehaviour:
   yOffset: 150
   skillName: {fileID: 3961951473099048514}
   skillDescription: {fileID: 8531795781084125173}
+  skillCost: {fileID: 8020707276109748094}
   defaultNameFontSize: 33
 --- !u!225 &6343381221055078846
 CanvasGroup:
@@ -7915,8 +7916,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 224.34052}
-  m_SizeDelta: {x: 350, y: 306.399}
+  m_AnchoredPosition: {x: 0, y: 232.89}
+  m_SizeDelta: {x: 350, y: 289.31}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2743860570967325193
 CanvasRenderer:
