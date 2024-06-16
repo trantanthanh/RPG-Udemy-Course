@@ -9,7 +9,7 @@ using Menu;
 public class UI_SkillTreeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private string skillName;
-    [SerializeField] private int skillPrice;
+    [SerializeField] private int skillCost;
     [SerializeField] private Color lockedSkillColor;
     [TextArea]
     [SerializeField] private string skillDescription;
@@ -75,7 +75,7 @@ public class UI_SkillTreeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExi
                 return;
             }
         }
-        if (!PlayerManager.Instance.HaveEnoughMoney(skillPrice)) return;
+        if (!PlayerManager.Instance.HaveEnoughMoney(skillCost)) return;
         unlocked = true;
         skillImage.color = Color.white;
         ui.skillToolTip.Hide();
@@ -84,7 +84,7 @@ public class UI_SkillTreeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        ui.skillToolTip.Show(skillName, skillDescription, skillPrice);
+        ui.skillToolTip.Show(skillName, skillDescription, skillCost);
     }
 
     public void OnPointerExit(PointerEventData eventData)
