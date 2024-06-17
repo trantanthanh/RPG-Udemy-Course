@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 using UnityEngine;
 using static UnityEditor.Progress;
 
 //for manager collect item and remove item in out inventory
-public class InventoryManager : MonoBehaviour
+public class InventoryManager : MonoBehaviour, ISaveManager
 {
     public static InventoryManager Instance;
 
@@ -38,6 +41,11 @@ public class InventoryManager : MonoBehaviour
 
     float armorCooldown;
     float lastTimeUsedArmorEffect = 0f;
+
+
+    [Header("Data base")]
+    public List<InventoryItem> loadedItems;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -63,6 +71,20 @@ public class InventoryManager : MonoBehaviour
 
     private void AddStartingItems()
     {
+        if (loadedItems.Count > 0)
+        {
+            foreach (InventoryItem item in loadedItems)
+            {
+                for (int i = 0; i < item.stackSize; i++)
+                {
+                    AddItem(item.data);
+                }
+            }
+
+            return;
+        }
+
+
         for (int i = 0; i < startingItems.Count; i++)
         {
             if (CanAddItem(startingItems[i]))
@@ -372,5 +394,50 @@ public class InventoryManager : MonoBehaviour
             }
         }
         return equippedItem;
+    }
+
+    public void LoadData(GameData _data)
+    {
+        Debug.Log("Item loaded");
+        foreach (KeyValuePair<string, int> pair in _data.inventory)
+        {
+            foreach (ItemData_SO item in GetItemDataBase())
+            {
+                if (item != null && item.itemId == pair.Key)
+                {
+                    InventoryItem itemToLoad = new InventoryItem(item);
+                    itemToLoad.stackSize = pair.Value;
+
+                    loadedItems.Add(itemToLoad);
+                }
+            }
+        }
+    }
+
+    public void SaveData(ref GameData _data)
+    {
+        _data.inventory.Clear();
+
+        foreach (KeyValuePair<ItemData_SO, InventoryItem> item in inventoryDictionary)
+        {
+            _data.inventory.Add(item.Key.itemId, item.Value.stackSize);
+        }
+    }
+
+    private List<ItemData_SO> GetItemDataBase()
+    {
+        List<ItemData_SO> itemDataBase = new List<ItemData_SO>();
+#if UNITY_EDITOR
+        string[] assetNames = AssetDatabase.FindAssets("", new[] { "Assets/_Data" });
+#endif
+
+        foreach (string SOName in assetNames)
+        {
+            var SOpath = AssetDatabase.GUIDToAssetPath(SOName);
+            var itemData = AssetDatabase.LoadAssetAtPath<ItemData_SO>(SOpath);
+            itemDataBase.Add(itemData);
+        }
+
+        return itemDataBase;
     }
 }

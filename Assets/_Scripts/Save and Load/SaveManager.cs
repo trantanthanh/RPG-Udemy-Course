@@ -29,7 +29,7 @@ public class SaveManager : MonoBehaviour
 #if UNITY_EDITOR
         fileDataHandler = new FileDataHandler("D:\\Unity\\RPG-Udemy-Course", fileSaveName);
 #else
-    fileDataHandler = new FileDataHandler(Application.persistentDataPath, fileSaveName);
+        fileDataHandler = new FileDataHandler(Application.persistentDataPath, fileSaveName);
 #endif
         saveManagers = FindAllSaveManagers();
         LoadGame();
