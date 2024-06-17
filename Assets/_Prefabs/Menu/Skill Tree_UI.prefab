@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Crystal Mirage
-  skillPrice: 0
+  skillCost: 0
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: 'You create crystall instead of mirage.
 
@@ -283,7 +283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Explosion
-  skillPrice: 0
+  skillCost: 0
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: 'Crystal can explode.
 
@@ -508,7 +508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Controlled Destruction
-  skillPrice: 0
+  skillCost: 0
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: 'Crystal move towards the enemy.
 
@@ -965,7 +965,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Parry - Mirrage attack
-  skillPrice: 0
+  skillCost: 0
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: You create a clone with succesfull parry.
   shouldBeUnlocked:
@@ -1108,7 +1108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Multiple distruction
-  skillPrice: 0
+  skillCost: 0
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: 'You can spawn up to 3 crystal at a time.
 
@@ -2060,7 +2060,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Bouncy Sword
-  skillPrice: 0
+  skillCost: 0
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: 'Sword can bouncy between targets.
 
@@ -2379,7 +2379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Dodge mirage
-  skillPrice: 0
+  skillCost: 0
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: You can create mirage on dodge.
   shouldBeUnlocked:
@@ -2656,7 +2656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Mirage Blink
-  skillPrice: 0
+  skillCost: 0
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: 'You leave your mirage instead of you when you blink.
 
@@ -2938,7 +2938,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Dash - Here I am
-  skillPrice: 0
+  skillCost: 0
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: You can leave mirage when you dash.
   shouldBeUnlocked:
@@ -3080,7 +3080,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Parry
-  skillPrice: 0
+  skillCost: 0
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: You can parry a attack to avoid damage and attack back to enemy.
   shouldBeUnlocked: []
@@ -3490,7 +3490,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Aggresive Mirage
-  skillPrice: 0
+  skillCost: 0
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: 'Your mirage has 80% of your damage.
 
@@ -3634,7 +3634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Dash
-  skillPrice: 0
+  skillCost: 0
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: You can dash to avoid attack.
   shouldBeUnlocked: []
@@ -3775,7 +3775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Chain saw Sword
-  skillPrice: 0
+  skillCost: 0
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: 'Sword will spin like a chainsaw.
 
@@ -4190,7 +4190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Crystal
-  skillPrice: 0
+  skillCost: 0
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: 'You create magic crystal that does magic damage.
 
@@ -4816,7 +4816,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Parry - HP/Energy
-  skillPrice: 0
+  skillCost: 0
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: You restore a bit of health with succesful parry.
   shouldBeUnlocked:
@@ -5577,7 +5577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Black Hole
-  skillPrice: 0
+  skillCost: 0
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: You trap enemies in a blackhole which allows you to do a tons
     of damage.
@@ -5720,7 +5720,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Bullet Sword
-  skillPrice: 0
+  skillCost: 0
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: 'Sword can pierce targets.
 
@@ -6137,7 +6137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Multiple Mirage
-  skillPrice: 0
+  skillCost: 0
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: 'Your  mirage has 30% of your damage.
 
@@ -6594,7 +6594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Sword Throw
-  skillPrice: 0
+  skillCost: 0
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: Throws sword into the enemy.
   shouldBeUnlocked: []
@@ -6869,7 +6869,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Time Stop
-  skillPrice: 0
+  skillCost: 0
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: When enemy hit by throw sword, his time stops a bit.
   shouldBeUnlocked:
@@ -7455,7 +7455,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Vulnerability
-  skillPrice: 0
+  skillCost: 0
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: Enemy hit by throw sword, take 10% more damage in a short time.
   shouldBeUnlocked:
@@ -7732,7 +7732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Dodge
-  skillPrice: 0
+  skillCost: 0
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: You getting 10% of evasion
   shouldBeUnlocked: []
@@ -7873,7 +7873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Time Mirage
-  skillPrice: 0
+  skillCost: 0
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: 'Your mirage can attack targets.
 
@@ -8460,7 +8460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Dash - Atually Here I am
-  skillPrice: 0
+  skillCost: 0
   lockedSkillColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   skillDescription: You create mirage at your arrival.
   shouldBeUnlocked:
