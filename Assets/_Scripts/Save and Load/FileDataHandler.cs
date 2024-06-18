@@ -6,6 +6,7 @@ public class FileDataHandler
 {
     private string dataDirPath = "";
     private string dataFileName = "";
+    private string fullPath = "";
 
     private bool isEncrypt = false;
     private string encryptCode = "thanhDev";
@@ -15,12 +16,11 @@ public class FileDataHandler
         this.dataDirPath = _dataDirPath;
         this.dataFileName = _dataFileName;
         this.isEncrypt = _isEncrypt;
+        fullPath = Path.Combine(dataDirPath, dataFileName);
     }
 
     public void Save(GameData _data)
     {
-        string fullPath = Path.Combine(dataDirPath, dataFileName);
-
         try
         {
             Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
@@ -47,7 +47,6 @@ public class FileDataHandler
 
     public GameData Load()
     {
-        string fullPath = Path.Combine(dataDirPath, dataFileName);
         GameData loadData = null;
         if (File.Exists(fullPath))
         {
@@ -79,8 +78,6 @@ public class FileDataHandler
 
     public void Delete()
     {
-        string fullPath = Path.Combine(dataDirPath, dataFileName);
-
         if (File.Exists(fullPath))
             File.Delete(fullPath);
     }
