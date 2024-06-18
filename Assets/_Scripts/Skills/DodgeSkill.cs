@@ -24,9 +24,21 @@ public class DodgeSkill : Skill
     {
         if (!dodgeUnlocked)
         {
-            player.stats.evasion.AddModifier(evasionBonus);
+            //player.stats.evasion.AddModifier(evasionBonus);
+            StartCoroutine(AddEvasionModifierWhenReady());
         }
         dodgeUnlocked = true;
+    }
+
+    private IEnumerator AddEvasionModifierWhenReady()
+    {
+        // wait until player.stats is ready
+        while (player.stats == null)
+        {
+            yield return null; // Wait to next frame
+        }
+
+        player.stats.evasion.AddModifier(evasionBonus);
     }
 
     public void CreateMirageOnDodge()

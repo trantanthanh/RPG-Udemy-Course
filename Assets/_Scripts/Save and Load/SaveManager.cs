@@ -8,6 +8,9 @@ public class SaveManager : MonoBehaviour
     public static SaveManager Instance;
     [SerializeField] string fileSaveName;
 
+    [Header("Skill Tree")]
+    [SerializeField] GameObject skillTreeObj;
+
     private GameData gameData;
     List<ISaveManager> saveManagers;
     private FileDataHandler fileDataHandler;
@@ -60,6 +63,7 @@ public class SaveManager : MonoBehaviour
     public void SaveGame()
     {
         Debug.Log("Game was saved");
+        Debug.Log("saveManagers.Count " + saveManagers.Count);
         foreach (ISaveManager saveManager in saveManagers)
         {
             saveManager.SaveData(ref gameData);
@@ -76,6 +80,11 @@ public class SaveManager : MonoBehaviour
     private List<ISaveManager> FindAllSaveManagers()
     {
         IEnumerable<ISaveManager> _saveManagers = FindObjectsOfType<MonoBehaviour>().OfType<ISaveManager>();
-        return new List<ISaveManager>(_saveManagers);
+
+        ISaveManager[] _skillTreeSaveManager = skillTreeObj.GetComponentsInChildren<ISaveManager>(true);//Find all inactive object
+
+        IEnumerable<ISaveManager> _allSaveManagers = _saveManagers.Concat(_skillTreeSaveManager);
+
+        return new List<ISaveManager>(_allSaveManagers);
     }
 }

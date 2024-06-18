@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Menu;
 
-public class UI_SkillTreeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class UI_SkillTreeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISaveManager
 {
     [SerializeField] private string skillName;
     [SerializeField] private int skillCost;
@@ -36,13 +36,12 @@ public class UI_SkillTreeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     private void Awake()
     {
+        skillImage = GetComponent<Image>();
         GetComponent<Button>().onClick.AddListener(() => UnlockSkillSlot());
     }
 
-    private void Start()
+    private void OnEnable()
     {
-        skillImage = GetComponent<Image>();
-
         if (unlocked)
         {
             skillImage.color = Color.white;
@@ -56,6 +55,7 @@ public class UI_SkillTreeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExi
     public void UnlockSkillSlot()
     {
         if (unlocked) return;
+        if (!PlayerManager.Instance.HaveEnoughMoney(skillCost)) return;
         //Check the previous skills in skill tree are unlocked or not
         for (int i = 0; i < shouldBeUnlocked.Length; i++)
         {
@@ -75,7 +75,7 @@ public class UI_SkillTreeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExi
                 return;
             }
         }
-        if (!PlayerManager.Instance.HaveEnoughMoney(skillCost)) return;
+
         unlocked = true;
         skillImage.color = Color.white;
         ui.skillToolTip.Hide();
@@ -90,5 +90,30 @@ public class UI_SkillTreeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExi
     public void OnPointerExit(PointerEventData eventData)
     {
         ui.skillToolTip.Hide();
+    }
+
+    public void LoadData(GameData _data)
+    {
+        Debug.Log("Skill tree loaded");
+        if (_data.skillTree.TryGetValue(skillName, out bool value))
+        {
+            unlocked = value;
+            if (unlocked)
+            {
+                onUpgradeSkill?.Invoke();
+            }
+        }
+    }
+
+    public void SaveData(ref GameData _data)
+    {
+        Debug.Log("Skill tree saved");
+        if (_data.skillTree.TryGetValue(skillName, out bool value))
+        {
+            _data.skillTree.Remove(skillName);
+            _data.skillTree.Add(skillName, unlocked);
+        }
+        else
+            _data.skillTree.Add(skillName, unlocked);
     }
 }
