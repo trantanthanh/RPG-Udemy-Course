@@ -45,7 +45,7 @@ public class InventoryManager : MonoBehaviour, ISaveManager
 
     [Header("Data base")]
     public List<InventoryItem> loadedItems;
-
+    public List<ItemData_Equipment_SO> loadedEquipment;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -66,11 +66,16 @@ public class InventoryManager : MonoBehaviour, ISaveManager
         equipmentSlots = equipmentSlotParent.GetComponentsInChildren<UI_EquipmentSlot>();
 
         statSlots = statSlotParent.GetComponentsInChildren<UI_StatSlot>();
-        AddStartingItems();
+        //AddStartingItems();
     }
 
     private void AddStartingItems()
     {
+        foreach (ItemData_Equipment_SO item in loadedEquipment)
+        {
+            EquipItem(item);
+        }
+
         if (loadedItems.Count > 0)
         {
             foreach (InventoryItem item in loadedItems)
@@ -412,6 +417,19 @@ public class InventoryManager : MonoBehaviour, ISaveManager
                 }
             }
         }
+
+        foreach (string loadedItemId in _data.equipmentId)
+        {
+            foreach (var item in GetItemDataBase())
+            {
+                if (item != null && loadedItemId == item.itemId)
+                {
+                    loadedEquipment.Add(item as ItemData_Equipment_SO);
+                }
+            }
+        }
+
+        AddStartingItems();
     }
 
     public void SaveData(ref GameData _data)
@@ -421,6 +439,11 @@ public class InventoryManager : MonoBehaviour, ISaveManager
         foreach (KeyValuePair<ItemData_SO, InventoryItem> item in inventoryDictionary)
         {
             _data.inventory.Add(item.Key.itemId, item.Value.stackSize);
+        }
+
+        foreach (KeyValuePair<ItemData_Equipment_SO, InventoryItem> pair in equipmentDictionary)
+        {
+            _data.equipmentId.Add(pair.Key.itemId);
         }
     }
 

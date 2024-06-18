@@ -510,6 +510,7 @@ MonoBehaviour:
   equipmentSlotParent: {fileID: 1637394735}
   statSlotParent: {fileID: 18462093}
   loadedItems: []
+  loadedEquipment: []
 --- !u!224 &599424447 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 120173464050848046, guid: 33c3c84de5f1d0b4d952fe319d4678e0, type: 3}
