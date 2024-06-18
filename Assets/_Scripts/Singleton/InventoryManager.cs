@@ -66,14 +66,17 @@ public class InventoryManager : MonoBehaviour, ISaveManager
         equipmentSlots = equipmentSlotParent.GetComponentsInChildren<UI_EquipmentSlot>();
 
         statSlots = statSlotParent.GetComponentsInChildren<UI_StatSlot>();
-        //AddStartingItems();
+        AddStartingItems();
     }
 
     private void AddStartingItems()
     {
-        foreach (ItemData_Equipment_SO item in loadedEquipment)
+        if (loadedEquipment.Count > 0)
         {
-            EquipItem(item);
+            foreach (ItemData_Equipment_SO item in loadedEquipment)
+            {
+                EquipItem(item);
+            }
         }
 
         if (loadedItems.Count > 0)
@@ -429,7 +432,7 @@ public class InventoryManager : MonoBehaviour, ISaveManager
             }
         }
 
-        AddStartingItems();
+        //AddStartingItems();
     }
 
     public void SaveData(ref GameData _data)

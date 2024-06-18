@@ -17,7 +17,7 @@ public class SaveManager : MonoBehaviour
     private FileDataHandler fileDataHandler;
 
     [ContextMenu("Delete save file")]
-    private void DeleteSavedData()
+    public void DeleteSavedData()
     {
         ConstructFileDataHandler();
         fileDataHandler.Delete();
@@ -75,14 +75,13 @@ public class SaveManager : MonoBehaviour
 
     public void SaveGame()
     {
-        Debug.Log("Game was saved");
-        Debug.Log("saveManagers.Count " + saveManagers.Count);
+        //Debug.Log("Game was saved");
         foreach (ISaveManager saveManager in saveManagers)
         {
             saveManager.SaveData(ref gameData);
         }
         fileDataHandler.Save(gameData);
-        Debug.Log("Save currency " + gameData.currency);
+        //Debug.Log("Save currency " + gameData.currency);
     }
 
     private void OnApplicationQuit()

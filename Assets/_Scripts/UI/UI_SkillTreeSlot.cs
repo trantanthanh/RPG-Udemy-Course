@@ -94,7 +94,7 @@ public class UI_SkillTreeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     public void LoadData(GameData _data)
     {
-        Debug.Log("Skill tree loaded");
+        //Debug.Log("Skill tree loaded");
         if (_data.skillTree.TryGetValue(skillName, out bool value))
         {
             unlocked = value;

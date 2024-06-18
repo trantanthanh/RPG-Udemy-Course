@@ -48415,6 +48415,10 @@ PrefabInstance:
       value: SaveManager
       objectReference: {fileID: 0}
     - target: {fileID: 3832578010000890732, guid: e388fe4a9797fe1439a7435f17532a93, type: 3}
+      propertyPath: encryptData
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3832578010000890732, guid: e388fe4a9797fe1439a7435f17532a93, type: 3}
       propertyPath: skillTreeObj
       value: 
       objectReference: {fileID: 9058213417006003713}
