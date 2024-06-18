@@ -89,7 +89,7 @@ public class InventoryManager : MonoBehaviour, ISaveManager
             return;
         }
 
-
+        //For testing
         for (int i = 0; i < startingItems.Count; i++)
         {
             if (CanAddItem(startingItems[i]))
@@ -441,6 +441,12 @@ public class InventoryManager : MonoBehaviour, ISaveManager
             _data.inventory.Add(item.Key.itemId, item.Value.stackSize);
         }
 
+        foreach (KeyValuePair<ItemData_SO, InventoryItem> pair in stashDictionary)
+        {
+            _data.inventory.Add(pair.Key.itemId, pair.Value.stackSize);
+        }
+
+        _data.equipmentId.Clear();
         foreach (KeyValuePair<ItemData_Equipment_SO, InventoryItem> pair in equipmentDictionary)
         {
             _data.equipmentId.Add(pair.Key.itemId);
