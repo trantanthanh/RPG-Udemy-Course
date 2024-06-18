@@ -10,6 +10,8 @@ public class UI_MainMenu : MonoBehaviour
 {
     [SerializeField] string sceneName = "Game";
     [SerializeField] GameObject continueButton;
+    [SerializeField] GameObject darkScreenFadeIn;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -21,6 +23,7 @@ public class UI_MainMenu : MonoBehaviour
         {
             continueButton.SetActive(true);
         }
+        darkScreenFadeIn.SetActive(true);
     }
 
     public void Continue()
