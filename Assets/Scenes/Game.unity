@@ -47532,6 +47532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fileSaveName: savefile.json
+  encryptData: 1
   skillTreeObj: {fileID: 9058213417006003713}
 --- !u!224 &1946857827 stripped
 RectTransform:

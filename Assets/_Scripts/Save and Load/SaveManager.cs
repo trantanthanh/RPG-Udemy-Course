@@ -7,6 +7,7 @@ public class SaveManager : MonoBehaviour
 {
     public static SaveManager Instance;
     [SerializeField] string fileSaveName;
+    [SerializeField] bool encryptData;
 
     [Header("Skill Tree")]
     [SerializeField] GameObject skillTreeObj;
@@ -44,9 +45,9 @@ public class SaveManager : MonoBehaviour
     private void ConstructFileDataHandler()
     {
 #if UNITY_EDITOR
-        fileDataHandler = new FileDataHandler("D:\\Unity\\RPG-Udemy-Course", fileSaveName);
+        fileDataHandler = new FileDataHandler("D:\\Unity\\RPG-Udemy-Course", fileSaveName, encryptData);
 #else
-        fileDataHandler = new FileDataHandler(Application.persistentDataPath, fileSaveName);
+        fileDataHandler = new FileDataHandler(Application.persistentDataPath, fileSaveName, encryptData);
 #endif
     }
 

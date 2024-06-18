@@ -10,10 +10,11 @@ public class FileDataHandler
     private bool isEncrypt = false;
     private string encryptCode = "thanhDev";
 
-    public FileDataHandler(string _dataDirPath, string _dataFileName)
+    public FileDataHandler(string _dataDirPath, string _dataFileName, bool _isEncrypt)
     {
         this.dataDirPath = _dataDirPath;
         this.dataFileName = _dataFileName;
+        this.isEncrypt = _isEncrypt;
     }
 
     public void Save(GameData _data)
