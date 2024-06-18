@@ -7,6 +7,9 @@ public class FileDataHandler
     private string dataDirPath = "";
     private string dataFileName = "";
 
+    private bool isEncrypt = false;
+    private string encryptCode = "thanhDev";
+
     public FileDataHandler(string _dataDirPath, string _dataFileName)
     {
         this.dataDirPath = _dataDirPath;
@@ -21,6 +24,11 @@ public class FileDataHandler
         {
             Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
             string dataJson = JsonUtility.ToJson(_data, true);
+
+            if (isEncrypt)
+            {
+                dataJson = EncryptDecrypt(dataJson);
+            }
 
             using (FileStream stream = new FileStream(fullPath, FileMode.Create))
             {
@@ -53,6 +61,11 @@ public class FileDataHandler
                     }
                 }
 
+                if (isEncrypt)
+                {
+                    dataJson = EncryptDecrypt(dataJson);
+                }
+
                 loadData = JsonUtility.FromJson<GameData>(dataJson);
             }
             catch (Exception e)
@@ -69,5 +82,18 @@ public class FileDataHandler
 
         if (File.Exists(fullPath))
             File.Delete(fullPath);
+    }
+
+    private string EncryptDecrypt(string _data)
+    {
+        string modifiedData = "";
+
+        for (int i = 0; i < _data.Length; i++)
+        {
+            modifiedData += (char)(_data[i] ^ encryptCode[i % encryptCode.Length]);
+        }
+
+        return modifiedData;
+
     }
 }
