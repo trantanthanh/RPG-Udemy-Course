@@ -15,6 +15,17 @@ public class SaveManager : MonoBehaviour
     List<ISaveManager> saveManagers;
     private FileDataHandler fileDataHandler;
 
+    [ContextMenu("Delete save file")]
+    private void DeleteSavedData()
+    {
+#if UNITY_EDITOR
+        fileDataHandler = new FileDataHandler("D:\\Unity\\RPG-Udemy-Course", fileSaveName);
+#else
+        fileDataHandler = new FileDataHandler(Application.persistentDataPath, fileSaveName);
+#endif
+        fileDataHandler.Delete();
+    }
+
     private void Awake()
     {
         if (Instance == null)
