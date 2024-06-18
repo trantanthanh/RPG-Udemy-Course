@@ -37,7 +37,7 @@ public class SaveManager : MonoBehaviour
 
     private void Start()
     {
-        ConstructFileDataHandler(); 
+        ConstructFileDataHandler();
         saveManagers = FindAllSaveManagers();
         LoadGame();
     }
@@ -93,10 +93,14 @@ public class SaveManager : MonoBehaviour
     {
         IEnumerable<ISaveManager> _saveManagers = FindObjectsOfType<MonoBehaviour>().OfType<ISaveManager>();
 
-        ISaveManager[] _skillTreeSaveManager = skillTreeObj.GetComponentsInChildren<ISaveManager>(true);//Find all inactive object
+        if (skillTreeObj != null)
+        {
 
-        IEnumerable<ISaveManager> _allSaveManagers = _saveManagers.Concat(_skillTreeSaveManager);
+            ISaveManager[] _skillTreeSaveManager = skillTreeObj.GetComponentsInChildren<ISaveManager>(true);//Find all inactive object
+            IEnumerable<ISaveManager> _allSaveManagers = _saveManagers.Concat(_skillTreeSaveManager);
+            return new List<ISaveManager>(_allSaveManagers);
+        }
 
-        return new List<ISaveManager>(_allSaveManagers);
+        return new List<ISaveManager>(_saveManagers);
     }
 }

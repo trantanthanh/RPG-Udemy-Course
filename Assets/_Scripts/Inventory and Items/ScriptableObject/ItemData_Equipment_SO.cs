@@ -125,7 +125,7 @@ public class ItemData_Equipment_SO : ItemData_SO
 
     private void AddItemEffectDescription(string _text)
     {
-        if (itemEffectDescription.Length == 0) return;
+        if (itemEffectDescription == null || itemEffectDescription.Length == 0) return;
 
         if (stringBuilder.Length > 0)
         {
