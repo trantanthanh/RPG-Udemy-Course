@@ -103,4 +103,13 @@ public class SaveManager : MonoBehaviour
 
         return new List<ISaveManager>(_saveManagers);
     }
+
+    public bool HasSaveData()
+    {
+        if (fileDataHandler.Load() != null)
+        {
+            return true;
+        }
+        return false;
+    }
 }

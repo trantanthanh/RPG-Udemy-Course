@@ -9,7 +9,20 @@ using UnityEngine.SceneManagement;
 public class UI_MainMenu : MonoBehaviour
 {
     [SerializeField] string sceneName = "Game";
+    [SerializeField] GameObject continueButton;
     // Start is called before the first frame update
+    private void Start()
+    {
+        if (!SaveManager.Instance.HasSaveData())
+        {
+            continueButton.SetActive(false);
+        }
+        else
+        {
+            continueButton.SetActive(true);
+        }
+    }
+
     public void Continue()
     {
         SceneManager.LoadScene(sceneName);
