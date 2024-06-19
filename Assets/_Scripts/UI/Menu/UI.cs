@@ -8,7 +8,7 @@ namespace Menu
     public class UI : MonoBehaviour
     {
         [SerializeField] UI_FadeScreen fakeScreen;
-        [SerializeField] GameObject dieText;
+        [SerializeField] GameObject dieScreen;
 
         [SerializeField] private GameObject characterUI;
         [SerializeField] private GameObject skillTreeUI;
@@ -48,7 +48,7 @@ namespace Menu
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.C))
+            if (Input.GetKeyDown(KeyCode.C) && PlayerManager.Instance.player.stats.IsAlive())
             {
                 if (!isMenuShow)
                 {
@@ -69,8 +69,14 @@ namespace Menu
 
         public void Die()
         {
+            SwitchMenuTo(null);
             fakeScreen.FadeOut(true);
-            dieText.SetActive(true);
+            dieScreen.SetActive(true);
+        }
+
+        public void RestartGameButton()
+        {
+            GameManager.Instance.RestartScene();
         }
 
         public void SwitchMenuTo(GameObject _menu)
