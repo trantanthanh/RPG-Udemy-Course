@@ -10,7 +10,7 @@ public class UI_MainMenu : MonoBehaviour
 {
     [SerializeField] string sceneName = "Game";
     [SerializeField] GameObject continueButton;
-    [SerializeField] GameObject darkScreenFadeIn;
+    [SerializeField] UI_FadeScreen fadeScreen;
 
     // Start is called before the first frame update
     private void Start()
@@ -23,17 +23,25 @@ public class UI_MainMenu : MonoBehaviour
         {
             continueButton.SetActive(true);
         }
-        darkScreenFadeIn.SetActive(true);
+        fadeScreen.FadeIn();
     }
 
     public void Continue()
     {
-        SceneManager.LoadScene(sceneName);
+        StartCoroutine(LoadSceneWithFadeEffect(1.5f));
     }
 
     public void NewGame()
     {
         SaveManager.Instance.DeleteSavedData();
+        SceneManager.LoadScene(sceneName);
+        StartCoroutine(LoadSceneWithFadeEffect(1.5f));
+    }
+
+    IEnumerator LoadSceneWithFadeEffect(float _delay)
+    {
+        fadeScreen.FadeOut();
+        yield return new WaitForSeconds(_delay);
         SceneManager.LoadScene(sceneName);
     }
 
