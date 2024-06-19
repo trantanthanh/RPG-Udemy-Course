@@ -28,6 +28,7 @@ public class Checkpoint : MonoBehaviour
             {
                 ActivateCheckpoint();
                 CheckDeactiveOthers();
+                SaveManager.Instance.SaveGame();
             }
         }
     }
