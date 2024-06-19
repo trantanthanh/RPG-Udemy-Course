@@ -27,7 +27,7 @@ public class Checkpoint : MonoBehaviour
             if (player != null)
             {
                 ActivateCheckpoint();
-                CheckDeactiveOthers();
+                //CheckDeactiveOthers();
                 SaveManager.Instance.SaveGame();
             }
         }

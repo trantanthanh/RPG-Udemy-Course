@@ -7,6 +7,7 @@ public class GameData
     public SerializableDictionary<string, bool> skillTree;
     public SerializableDictionary<string, int> inventory;
     public SerializableDictionary<string, bool> checkpoints;
+    public string closestCheckPointId = "";
     public List<string> equipmentId;
         
 

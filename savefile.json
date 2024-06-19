@@ -92,11 +92,12 @@
             "22e2885e-c2b0-4ebe-a845-7610d78a3290"
         ],
         "values": [
-            false,
-            false,
-            false,
+            true,
+            true,
+            true,
             true
         ]
     },
+    "closestCheckPointId": "22e2885e-c2b0-4ebe-a845-7610d78a3290",
     "equipmentId": []
 }

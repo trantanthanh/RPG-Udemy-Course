@@ -53,14 +53,15 @@ public class GameManager : MonoBehaviour, ISaveManager
             {
                 foreach (Checkpoint checkpoint in checkpoints)
                 {
-                    if (pair.Key == checkpoint.id)//find checkpoint to move player come
+                    if (pair.Key == checkpoint.id)
                     {
                         checkpoint.ActivateCheckpoint();//Re-active checkpoint after load
-
-                        //move player come
-                        PlayerManager.Instance.player.transform.position = new Vector3(checkpoint.transform.position.x, checkpoint.transform.position.y + PlayerManager.Instance.player.GetComponent<CapsuleCollider2D>().size.y);
-
-                        return;//finish load checkpoint, return : other checkpoints are deactive by default
+                        if (_data.closestCheckPointId != "" && _data.closestCheckPointId == checkpoint.id)
+                        {
+                            //move player come this check point
+                            PlayerManager.Instance.player.transform.position = new Vector3(checkpoint.transform.position.x, checkpoint.transform.position.y + PlayerManager.Instance.player.GetComponent<CapsuleCollider2D>().size.y);
+                        }
+                        break;//go to next check
                     }
                 }
             }
@@ -70,9 +71,34 @@ public class GameManager : MonoBehaviour, ISaveManager
     public void SaveData(ref GameData _data)
     {
         _data.checkpoints.Clear();
+        _data.closestCheckPointId = "";
+        Checkpoint closestCheckpoint = FindClosestCheckpoint();
+        if (closestCheckpoint != null)
+        {
+            _data.closestCheckPointId = closestCheckpoint.id;
+        }
         foreach (Checkpoint checkpoint in checkpoints)
         {
             _data.checkpoints.Add(checkpoint.id, checkpoint.activeStatus);
         }
+    }
+
+    private Checkpoint FindClosestCheckpoint()
+    {
+        Checkpoint _closestCheckpoint = null;
+        float _closestDistance = Mathf.Infinity;
+        foreach (Checkpoint checkpoint in checkpoints)
+        {
+            if (checkpoint.activeStatus == true)
+            {
+                float distance = Vector2.Distance(PlayerManager.Instance.player.transform.position, checkpoint.transform.position);
+                if (distance < _closestDistance)
+                {
+                    _closestDistance = distance;
+                    _closestCheckpoint = checkpoint;
+                }
+            }
+        }
+        return _closestCheckpoint;
     }
 }

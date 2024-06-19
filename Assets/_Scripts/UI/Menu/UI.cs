@@ -69,6 +69,7 @@ namespace Menu
 
         public void Die()
         {
+            SaveManager.Instance.SaveGame();//save when die
             SwitchMenuTo(null);
             fakeScreen.FadeOut(true);
             dieScreen.SetActive(true);
