@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    [SerializeField] private Checkpoint[] checkpoints;
 
     private void Awake()
     {
@@ -15,6 +16,11 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        checkpoints = FindObjectsOfType<Checkpoint>();
     }
 
     public void RestartScene()
