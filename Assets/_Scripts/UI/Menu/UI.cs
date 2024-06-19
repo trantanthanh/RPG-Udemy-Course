@@ -7,6 +7,9 @@ namespace Menu
 {
     public class UI : MonoBehaviour
     {
+        [SerializeField] UI_FadeScreen fakeScreen;
+        [SerializeField] GameObject dieText;
+
         [SerializeField] private GameObject characterUI;
         [SerializeField] private GameObject skillTreeUI;
         [SerializeField] private GameObject craftUI;
@@ -62,6 +65,12 @@ namespace Menu
                 currentMenuIndex = ++currentMenuIndex % 4;
                 SwitchMenuTo(menuDictionary[currentMenuIndex]);
             }
+        }
+
+        public void Die()
+        {
+            fakeScreen.FadeOut(true);
+            dieText.SetActive(true);
         }
 
         public void SwitchMenuTo(GameObject _menu)

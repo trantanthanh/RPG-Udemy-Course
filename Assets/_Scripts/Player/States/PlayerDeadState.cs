@@ -16,7 +16,8 @@ public class PlayerDeadState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        player.SetZeroVelocity(); 
+        player.SetZeroVelocity();
+        PlayerManager.Instance.ui.Die();
     }
 
     public override void Exit()

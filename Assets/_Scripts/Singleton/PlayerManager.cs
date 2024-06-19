@@ -7,6 +7,7 @@ public class PlayerManager : MonoBehaviour, ISaveManager
     public static PlayerManager Instance;
     public Player player;
     public UI_Ingame uiIngame;
+    public Menu.UI ui;
 
     private int currentCurrency;
     // Start is called before the first frame update
