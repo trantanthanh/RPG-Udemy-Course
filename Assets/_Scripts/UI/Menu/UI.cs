@@ -68,7 +68,16 @@ namespace Menu
         {
             for (int i = 0; i < transform.childCount; i++)
             {
-                transform.GetChild(i).gameObject.SetActive(false);
+                UI_FadeScreen fakeScreen = transform.GetChild(i).GetComponent<UI_FadeScreen>();
+                bool isFakeScreen = fakeScreen != null;//Keep fakeScreen gameObject active
+                if (!isFakeScreen)
+                {
+                    transform.GetChild(i).gameObject.SetActive(false);
+                }
+                else
+                {
+                    fakeScreen.FadeIn();
+                }
             }
             isMenuShow = false;
 
@@ -90,7 +99,7 @@ namespace Menu
                 else
                 {
                     isMenuShow = false;
-                 }
+                }
                 _menu.SetActive(true);
             }
         }

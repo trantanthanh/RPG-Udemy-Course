@@ -11,11 +11,11 @@ public class UI_FadeScreen : MonoBehaviour
 
     public void FadeIn()
     {
-        animator.Play("FadeIn");
+        animator.Play("FadeIn", -1, 0f);
     }
 
     public void FadeOut()
     {
-        animator.Play("FadeOut");
+        animator.Play("FadeOut", -1, 0f);
     }
 }

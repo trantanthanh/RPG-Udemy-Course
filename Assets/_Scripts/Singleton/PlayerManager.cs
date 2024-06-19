@@ -8,7 +8,7 @@ public class PlayerManager : MonoBehaviour, ISaveManager
     public Player player;
     public UI_Ingame uiIngame;
 
-    public int currentCurrency;
+    private int currentCurrency;
     // Start is called before the first frame update
     void Awake()
     {
@@ -36,6 +36,7 @@ public class PlayerManager : MonoBehaviour, ISaveManager
 
     public void LoadData(GameData _data)
     {
+        Debug.Log("PlayerManager load data _data.currency " + _data.currency);
         this.currentCurrency = _data.currency;
     }
 

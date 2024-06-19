@@ -37,7 +37,8 @@ public class UI_Ingame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentSouls.text = PlayerManager.Instance.GetCurrency().ToString("#,#");
+        int currency = PlayerManager.Instance.GetCurrency();
+        currentSouls.text = currency == 0 ? "0" : currency.ToString("#,#");
         UpdateCheckCooldown();
     }
 
