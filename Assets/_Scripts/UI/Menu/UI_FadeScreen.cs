@@ -9,13 +9,27 @@ public class UI_FadeScreen : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    public void FadeIn()
+    public void FadeIn(bool playFromStart = true)
     {
-        animator.Play("FadeIn", -1, 0f);
+        if (playFromStart)
+        {
+            animator.Play("FadeIn", -1, 0f);
+        }
+        else
+        {
+            animator.Play("FadeIn");
+        }
     }
 
-    public void FadeOut()
+    public void FadeOut(bool playFromStart = true)
     {
-        animator.Play("FadeOut", -1, 0f);
+        if (playFromStart)
+        {
+            animator.Play("FadeOut", -1, 0f);
+        }
+        else
+        {
+            animator.Play("FadeOut");
+        }
     }
 }

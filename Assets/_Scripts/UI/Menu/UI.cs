@@ -76,7 +76,7 @@ namespace Menu
                 }
                 else
                 {
-                    fakeScreen.FadeIn();
+                    fakeScreen.FadeIn(false);//play once
                 }
             }
             isMenuShow = false;
