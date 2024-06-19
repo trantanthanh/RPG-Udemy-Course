@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour, ISaveManager
                     if (pair.Value == true)
                     {
                         checkpoint.ActivateCheckpoint();
+                        PlayerManager.Instance.player.transform.position = new Vector3(checkpoint.transform.position.x, checkpoint.transform.position.y + PlayerManager.Instance.player.GetComponent<CapsuleCollider2D>().size.y);
                     }
                     else
                     {
