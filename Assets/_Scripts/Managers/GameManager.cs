@@ -49,20 +49,19 @@ public class GameManager : MonoBehaviour, ISaveManager
     {
         foreach (KeyValuePair<string, bool> pair in _data.checkpoints)
         {
-            foreach (Checkpoint checkpoint in checkpoints)
+            if (pair.Value == true)//find checkpoint active
             {
-                if (pair.Key == checkpoint.id)
+                foreach (Checkpoint checkpoint in checkpoints)
                 {
-                    if (pair.Value == true)
+                    if (pair.Key == checkpoint.id)//find checkpoint to move player come
                     {
-                        checkpoint.ActivateCheckpoint();
+                        checkpoint.ActivateCheckpoint();//Re-active checkpoint after load
+
+                        //move player come
                         PlayerManager.Instance.player.transform.position = new Vector3(checkpoint.transform.position.x, checkpoint.transform.position.y + PlayerManager.Instance.player.GetComponent<CapsuleCollider2D>().size.y);
+
+                        return;//finish load checkpoint, return : other checkpoints are deactive by default
                     }
-                    else
-                    {
-                        checkpoint.DeactiveCheckpoint();
-                    }
-                    break;
                 }
             }
         }
