@@ -84,5 +84,19 @@
             2
         ]
     },
+    "checkpoints": {
+        "keys": [
+            "991e7115-c94c-410d-b171-8c048ca0c417",
+            "57a89d4a-03a1-4b4e-a607-bcf67914f5a6",
+            "22e2885e-c2b0-4ebe-a845-7610d78a3290",
+            "13d057c6-140d-4ad0-956a-f3a3d8f27066"
+        ],
+        "values": [
+            true,
+            false,
+            false,
+            false
+        ]
+    },
     "equipmentId": []
 }

@@ -1,7 +1,8 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour, ISaveManager
 {
     public static GameManager Instance;
     [SerializeField] private Checkpoint[] checkpoints;
@@ -23,10 +24,55 @@ public class GameManager : MonoBehaviour
         checkpoints = FindObjectsOfType<Checkpoint>();
     }
 
+    public void CheckActiveCheckpoint(string _checkpointId)
+    {
+        foreach (Checkpoint checkpoint in checkpoints)
+        {
+            if (checkpoint.id == _checkpointId)
+            {
+                checkpoint.ActivateCheckpoint();
+            }
+            else
+            {
+                checkpoint.DeactiveCheckpoint();
+            }
+        }
+    }
+
     public void RestartScene()
     {
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
     }
 
+    public void LoadData(GameData _data)
+    {
+        foreach (KeyValuePair<string, bool> pair in _data.checkpoints)
+        {
+            foreach (Checkpoint checkpoint in checkpoints)
+            {
+                if (pair.Key == checkpoint.id)
+                {
+                    if (pair.Value == true)
+                    {
+                        checkpoint.ActivateCheckpoint();
+                    }
+                    else
+                    {
+                        checkpoint.DeactiveCheckpoint();
+                    }
+                    break;
+                }
+            }
+        }
+    }
+
+    public void SaveData(ref GameData _data)
+    {
+        _data.checkpoints.Clear();
+        foreach (Checkpoint checkpoint in checkpoints)
+        {
+            _data.checkpoints.Add(checkpoint.id, checkpoint.activeStatus);
+        }
+    }
 }
