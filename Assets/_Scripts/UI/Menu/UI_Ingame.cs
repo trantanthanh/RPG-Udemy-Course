@@ -18,9 +18,13 @@ public class UI_Ingame : MonoBehaviour
     [SerializeField] Image imageSwordCooldown;
     [SerializeField] Image imageFlaskCooldown;
 
+    [Header("Souls info")]
     [SerializeField] TextMeshProUGUI currentSouls;
+    [SerializeField] float soulsAmount;
+    [SerializeField] float soulsIncreaseRate = 1000f;
 
     private SkillManager skills;
+
 
     // Start is called before the first frame update
     void Start()
@@ -37,9 +41,24 @@ public class UI_Ingame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int currency = PlayerManager.Instance.GetCurrency();
-        currentSouls.text = currency == 0 ? "0" : currency.ToString("#,#");
+        UpdateSoulsUI();
         UpdateCheckCooldown();
+    }
+
+    private void UpdateSoulsUI()
+    {
+        int currency = PlayerManager.Instance.GetCurrency();
+
+        if (soulsAmount < currency)
+        {
+            soulsAmount += soulsIncreaseRate * Time.deltaTime;
+        }
+        else
+        {
+            soulsAmount = currency;
+        }
+        //currentSouls.text = currency == 0 ? "0" : currency.ToString("#,#");
+        currentSouls.text = currency == 0 ? "0" : ((int)soulsAmount).ToString("#,#");
     }
 
     private void UpdateCheckCooldown()
