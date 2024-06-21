@@ -1,31 +1,31 @@
 {
-    "currency": 0,
+    "currency": 100,
     "skillTree": {
         "keys": [
-            "Time Mirage",
-            "Bouncy Sword",
-            "Parry",
-            "Chain saw Sword",
-            "Multiple distruction",
-            "Multiple Mirage",
-            "Aggresive Mirage",
             "Sword Throw",
-            "Parry - Mirrage attack",
-            "Mirage Blink",
-            "Bullet Sword",
-            "Explosion",
+            "Time Stop",
             "Vulnerability",
+            "Bullet Sword",
+            "Chain saw Sword",
+            "Bouncy Sword",
+            "Time Mirage",
+            "Black Hole",
+            "Aggresive Mirage",
+            "Crystal Mirage",
+            "Multiple Mirage",
+            "Crystal",
+            "Mirage Blink",
+            "Explosion",
+            "Controlled Destruction",
+            "Multiple distruction",
             "Dodge",
             "Dodge mirage",
-            "Parry - HP/Energy",
-            "Controlled Destruction",
-            "Time Stop",
-            "Black Hole",
-            "Crystal Mirage",
-            "Crystal",
-            "Dash - Atually Here I am",
+            "Dash",
             "Dash - Here I am",
-            "Dash"
+            "Dash - Atually Here I am",
+            "Parry",
+            "Parry - HP/Energy",
+            "Parry - Mirrage attack"
         ],
         "values": [
             false,
@@ -87,8 +87,8 @@
     "checkpoints": {
         "keys": [
             "13d057c6-140d-4ad0-956a-f3a3d8f27066",
-            "57a89d4a-03a1-4b4e-a607-bcf67914f5a6",
             "991e7115-c94c-410d-b171-8c048ca0c417",
+            "57a89d4a-03a1-4b4e-a607-bcf67914f5a6",
             "22e2885e-c2b0-4ebe-a845-7610d78a3290"
         ],
         "values": [
@@ -99,5 +99,8 @@
         ]
     },
     "closestCheckPointId": "22e2885e-c2b0-4ebe-a845-7610d78a3290",
-    "equipmentId": []
+    "equipmentId": [],
+    "lostCurrencyX": 14.824565887451172,
+    "lostCurrencyY": -1.9648041725158692,
+    "lostCurrencyAmount": 400
 }

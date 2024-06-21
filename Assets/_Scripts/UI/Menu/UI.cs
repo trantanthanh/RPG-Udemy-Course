@@ -69,6 +69,9 @@ namespace Menu
 
         public void Die()
         {
+            GameManager.Instance.lostCurrencyAmount = PlayerManager.Instance.GetCurrency();
+            PlayerManager.Instance.UpdateCurrency(-PlayerManager.Instance.GetCurrency());
+
             SaveManager.Instance.SaveGame();//save when die
             SwitchMenuTo(null);
             fakeScreen.FadeOut(true);

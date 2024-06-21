@@ -24,14 +24,17 @@ public class ItemDrop : MonoBehaviour
         }
 
         //Drop items
-        for (int i = 0; i < possibleItemsDrop; i++)
+        if (dropList.Count > 0)
         {
-            ItemData_SO itemDrop = dropList[Random.Range(0, dropList.Count)];
-            dropList.Remove(itemDrop);
-            DropItem(itemDrop);
-            if (dropList.Count <= 0)
+            for (int i = 0; i < possibleItemsDrop; i++)
             {
-                break;
+                ItemData_SO itemDrop = dropList[Random.Range(0, dropList.Count)];
+                dropList.Remove(itemDrop);
+                DropItem(itemDrop);
+                if (dropList.Count <= 0)
+                {
+                    break;
+                }
             }
         }
     }

@@ -47265,6 +47265,7 @@ MonoBehaviour:
   player: {fileID: 6466156414483814563}
   uiIngame: {fileID: 469879540}
   ui: {fileID: 1502373174}
+  currentCurrency: 0
 --- !u!1 &1502373169
 GameObject:
   m_ObjectHideFlags: 0
@@ -47420,7 +47421,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1524617233}
   m_Layer: 0
-  m_Name: Singleton
+  m_Name: Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47502,6 +47503,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkpoints: []
+  lostCurrencyPrefab: {fileID: 2733271326634691669, guid: 9b2b7b87df6a32e46b40437005265461, type: 3}
+  lostCurrencyAmount: 0
 --- !u!114 &1536663936 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1017360994480466272, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
@@ -48479,6 +48482,10 @@ PrefabInstance:
       propertyPath: playerStats
       value: 
       objectReference: {fileID: 6466156414483814565}
+    - target: {fileID: 6892964105958079767, guid: e5a3662d3626ec04f94cee62ce2dba31, type: 3}
+      propertyPath: soulsIncreaseRate
+      value: 9999
+      objectReference: {fileID: 0}
     - target: {fileID: 9168783081346422306, guid: e5a3662d3626ec04f94cee62ce2dba31, type: 3}
       propertyPath: m_Name
       value: Ingame_UI
@@ -50043,6 +50050,10 @@ PrefabInstance:
     - target: {fileID: 3769457940908924336, guid: 6dc9783ef0b839c4b8e75768942054df, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431665946197419970, guid: 6dc9783ef0b839c4b8e75768942054df, type: 3}
+      propertyPath: soulsDropAmout.baseValue
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5304158678741358152, guid: 6dc9783ef0b839c4b8e75768942054df, type: 3}
       propertyPath: m_Name

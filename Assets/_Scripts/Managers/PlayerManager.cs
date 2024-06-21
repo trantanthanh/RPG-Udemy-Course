@@ -9,7 +9,7 @@ public class PlayerManager : MonoBehaviour, ISaveManager
     public UI_Ingame uiIngame;
     public Menu.UI ui;
 
-    private int currentCurrency;
+    public int currentCurrency;
     // Start is called before the first frame update
     void Awake()
     {
@@ -31,6 +31,15 @@ public class PlayerManager : MonoBehaviour, ISaveManager
 
         currentCurrency -= _price;
         return true;
+    }
+
+    public void UpdateCurrency(int _amountChange)
+    {
+        currentCurrency += _amountChange;
+        if (currentCurrency <= 0)
+        {
+            currentCurrency = 0;
+        }
     }
 
     public int GetCurrency() => currentCurrency;

@@ -7,9 +7,14 @@ public class EnemyStats : CharacterStats
     [SerializeField] private int level = 1;//start from level 1
     [Range(0f, 1f)]
     [SerializeField] private float percentageLevelModifier = 0.4f;//increase 40% per level
+
+    [HideInInspector]
+    public Stat soulsDropAmout;
+
     Enemy enemy;
     protected override void Start()
     {
+        soulsDropAmout.SetDefaultValue(100);
         ApplyModifiers();
 
         base.Start();
@@ -35,6 +40,7 @@ public class EnemyStats : CharacterStats
         Modify(this.armor);
         Modify(this.evasion);
         Modify(this.magicResistance);
+        Modify(this.soulsDropAmout);
     }
 
     private void Modify(Stat _stat)
@@ -61,6 +67,7 @@ public class EnemyStats : CharacterStats
         base.Die();
         enemy.Die();
         enemy.GetComponent<ItemDrop>()?.GenerateDrop();//Drop item if can
+        PlayerManager.Instance.UpdateCurrency(this.soulsDropAmout.GetValue());
     }
 
     //public override void DoDamage(CharacterStats _targetStats, float amplifierDamagePercent = 0)

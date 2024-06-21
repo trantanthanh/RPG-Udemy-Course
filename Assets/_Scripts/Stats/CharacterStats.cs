@@ -62,6 +62,7 @@ public class CharacterStats : MonoBehaviour
     [Header("Offensive stats")]
     public Stat damage;
     public Stat critChance;
+    [HideInInspector]
     public Stat critPower;//default value is 150%
 
     [Header("Defensive stats")]
