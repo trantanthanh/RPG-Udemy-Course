@@ -32,6 +32,8 @@ public class PlayerPrimaryAttackState : PlayerState
             attackDir = xInput;
 
         player.SetVelocity(player.attackMovements[comboCounter].x * attackDir, player.attackMovements[comboCounter].y);
+
+        AudioManager.Instance.PlaySFX(2);
     }
 
     public override void Exit()
