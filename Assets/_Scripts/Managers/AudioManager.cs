@@ -12,18 +12,23 @@ public enum SFXDefine : int
     sfx_checkpoint,
     sfx_chronosphere,
     sfx_click,
-    sfx_clock_tick,
+    sfx_clock_tick_,
     sfx_clock_tick_2,
     sfx_clock,
+    sfx_death_screen,
     sfx_evil_voice,
     sfx_fire_magic,
     sfx_footsteps,
     sfx_girl_sigh_2,
     sfx_granfather_clock,
     sfx_gril_sigh,
+    sfx_item_pickup,
+    sfx_monster_breathing,
+    sfx_monster_growl,
     sfx_mosnter_growl_1,
     sfx_open_chest,
     sfx_quick_time_event_key,
+    sfx_skeleton_bones,
     sfx_spell_1,
     sfx_spell,
     sfx_sword_throw_2,
@@ -60,7 +65,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        //CopyListNames();
+        //CopyListNames();//only for generate list
     }
 
     private void CopyListNames()

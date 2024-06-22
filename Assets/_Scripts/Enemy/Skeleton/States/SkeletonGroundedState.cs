@@ -18,7 +18,7 @@ public class SkeletonGroundedState : EnemyState
     public override void Exit()
     {
         base.Exit();
-        AudioManager.Instance.PlaySFX((int)SFXDefine.sfx_mosnter_growl_1, enemy.transform);
+        AudioManager.Instance.PlaySFX((int)SFXDefine.sfx_skeleton_bones, enemy.transform);
     }
 
     public override void Update()
