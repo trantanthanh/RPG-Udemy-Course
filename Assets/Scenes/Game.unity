@@ -52817,6 +52817,7 @@ MonoBehaviour:
   - {fileID: 179797278}
   - {fileID: 357535231}
   - {fileID: 177458949}
+  sfxMininumDistance: 10
   isPlayingBGM: 0
 --- !u!1 &2134146515
 GameObject:
