@@ -9,6 +9,8 @@ public class PlayerPrimaryAttackState : PlayerState
     private float timeCombo = 1f;//next attack must below this value to increase comboCounter;
     private float timeNextAttack = 0f;
 
+    private int[] sfxAttacks = { (int)SFXDefine.sfx_attack1, (int)SFXDefine.sfx_attack2, (int)SFXDefine.sfx_attack3 };
+
     public PlayerPrimaryAttackState(Player _player, PlayerStateMachine _stateMachine, string _animName) : base(_player, _stateMachine, _animName)
     {
     }
@@ -33,7 +35,7 @@ public class PlayerPrimaryAttackState : PlayerState
 
         player.SetVelocity(player.attackMovements[comboCounter].x * attackDir, player.attackMovements[comboCounter].y);
 
-        AudioManager.Instance.PlaySFX((int)SFXDefine.sfx_attack2);
+        AudioManager.Instance.PlaySFX(sfxAttacks[comboCounter]);
     }
 
     public override void Exit()
