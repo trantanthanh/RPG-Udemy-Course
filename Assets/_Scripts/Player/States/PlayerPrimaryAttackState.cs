@@ -35,7 +35,8 @@ public class PlayerPrimaryAttackState : PlayerState
 
         player.SetVelocity(player.attackMovements[comboCounter].x * attackDir, player.attackMovements[comboCounter].y);
 
-        SoundManager.Instance.PlaySFX((SFXDefine)sfxAttacks[comboCounter]);
+        //SoundManager.Instance.PlaySFX((SFXDefine)sfxAttacks[comboCounter]);
+        SoundManager.Instance.PlaySFX((SFXDefine)SFXDefine.sfx_attack3);
     }
 
     public override void Exit()

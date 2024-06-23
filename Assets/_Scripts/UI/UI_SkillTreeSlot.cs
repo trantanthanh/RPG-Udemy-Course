@@ -76,6 +76,8 @@ public class UI_SkillTreeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExi
             }
         }
 
+        SoundManager.Instance.PlaySFX(SFXDefine.sfx_click);
+
         unlocked = true;
         skillImage.color = Color.white;
         ui.skillToolTip.Hide();

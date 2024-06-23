@@ -33,6 +33,12 @@ public abstract class BaseButton : MonoBehaviour
     protected virtual void AddOnClickEvent()
     {
         this.button.onClick.AddListener(this.OnClick);
+        this.button.onClick.AddListener(this.PlaySoundFX);
+    }
+
+    protected virtual void PlaySoundFX()
+    {
+        SoundManager.Instance.PlaySFX(SFXDefine.sfx_click);
     }
 
     protected abstract void OnClick();

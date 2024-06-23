@@ -14,6 +14,7 @@ public class PlayerBlackHoleState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        SoundManager.Instance.PlaySFX(SFXDefine.sfx_bankai);
         skillUsed = false;
         timerState = flyTime;
         gravityBackup = rb.gravityScale;
@@ -43,6 +44,7 @@ public class PlayerBlackHoleState : PlayerState
                 if (player.skills.blackHole.CanUseSkill())
                 {
                     Debug.Log("Cast black hole");
+                    SoundManager.Instance.PlaySFX(SFXDefine.sfx_chronosphere);
                     PlayerManager.Instance.uiIngame.SetBlackHoleCooldown();
                     player.skills.blackHole.UseSkill();
                     skillUsed = true;
