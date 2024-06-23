@@ -17,4 +17,9 @@ public class UI_VolumeSlider : MonoBehaviour
     {
         audioMixer.SetFloat(parameter, Mathf.Log10(_value) * multiplier);//_value[0.001, 1] -> Mathf.Log10(_value)[-3, 0]
     }
+
+    public void LoadSlider(float _value)
+    {
+        slider.value = _value;
+    }
 }

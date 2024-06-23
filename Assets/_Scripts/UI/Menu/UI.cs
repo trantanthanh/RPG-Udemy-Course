@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace Menu
 {
-    public class UI : MonoBehaviour
+    public class UI : MonoBehaviour, ISaveManager
     {
         [SerializeField] UI_FadeScreen fakeScreen;
         [SerializeField] GameObject dieScreen;
@@ -17,6 +17,9 @@ namespace Menu
 
         [SerializeField] private GameObject closeBTN;
         [SerializeField] private GameObject ingameMenu;
+
+        [SerializeField] private UI_VolumeSlider[] volumeSettings;
+
         public GameObject CharacterUI { get { return characterUI; } }
         public GameObject SkillTreeUI { get { return skillTreeUI; } }
         public GameObject CraftUI { get { return craftUI; } }
@@ -120,6 +123,29 @@ namespace Menu
                     isMenuShow = false;
                 }
                 _menu.SetActive(true);
+            }
+        }
+
+        public void LoadData(GameData _data)
+        {
+            foreach (KeyValuePair<string, float> pair in _data.volumeSettings)
+            {
+                foreach (UI_VolumeSlider item in volumeSettings)
+                {
+                    if (pair.Key == item.parameter)
+                    {
+                        item.LoadSlider(pair.Value);
+                    }
+                }
+            }
+        }
+
+        public void SaveData(ref GameData _data)
+        {
+            _data.volumeSettings.Clear();
+            foreach (UI_VolumeSlider item in volumeSettings)
+            {
+                _data.volumeSettings.Add(item.parameter, item.slider.value);
             }
         }
     }

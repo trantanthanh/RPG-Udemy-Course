@@ -110,7 +110,17 @@
     "equipmentId": [
         "d7431eef806898945aa54a4e5236849e"
     ],
-    "lostCurrencyX": -26.44719886779785,
-    "lostCurrencyY": -1.9601285457611085,
-    "lostCurrencyAmount": 0
+    "lostCurrencyX": -20.059911727905275,
+    "lostCurrencyY": -1.9625306129455567,
+    "lostCurrencyAmount": 0,
+    "volumeSettings": {
+        "keys": [
+            "sfx",
+            "bgm"
+        ],
+        "values": [
+            1.0,
+            1.0
+        ]
+    }
 }
