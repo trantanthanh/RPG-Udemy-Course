@@ -95,9 +95,9 @@
     "checkpoints": {
         "keys": [
             "13d057c6-140d-4ad0-956a-f3a3d8f27066",
-            "22e2885e-c2b0-4ebe-a845-7610d78a3290",
+            "991e7115-c94c-410d-b171-8c048ca0c417",
             "57a89d4a-03a1-4b4e-a607-bcf67914f5a6",
-            "991e7115-c94c-410d-b171-8c048ca0c417"
+            "22e2885e-c2b0-4ebe-a845-7610d78a3290"
         ],
         "values": [
             true,
@@ -110,7 +110,7 @@
     "equipmentId": [
         "d7431eef806898945aa54a4e5236849e"
     ],
-    "lostCurrencyX": -19.2598876953125,
-    "lostCurrencyY": -1.9648265838623047,
+    "lostCurrencyX": -26.44719886779785,
+    "lostCurrencyY": -1.9601285457611085,
     "lostCurrencyAmount": 0
 }
