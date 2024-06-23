@@ -399,6 +399,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2019887029043643376}
   - component: {fileID: 8495996843154670027}
+  - component: {fileID: 7454726383188674949}
   m_Layer: 5
   m_Name: BGM_volume
   m_TagString: Untagged
@@ -473,13 +474,41 @@ MonoBehaviour:
   m_FillRect: {fileID: 6320054151507658196}
   m_HandleRect: {fileID: 6670952323095693087}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.528
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7454726383188674949}
+        m_TargetAssemblyTypeName: UI_VolumeSlider, Assembly-CSharp
+        m_MethodName: SliderValue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7454726383188674949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967587206636111685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3d713d4dd9a980408fce4776013bde2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 8495996843154670027}
+  parameter: bgm
+  audioMixer: {fileID: 24100000, guid: 5e76e7052eb1802499e4181885a4fcad, type: 2}
+  multiplier: 25
 --- !u!1 &1205859880846430893
 GameObject:
   m_ObjectHideFlags: 0
@@ -1939,6 +1968,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5445547231733397024}
   - component: {fileID: 3953220827548547777}
+  - component: {fileID: 8635119648055001305}
   m_Layer: 5
   m_Name: SFX_volume
   m_TagString: Untagged
@@ -2013,13 +2043,41 @@ MonoBehaviour:
   m_FillRect: {fileID: 4754544232676974446}
   m_HandleRect: {fileID: 7085215801437141962}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.528
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8635119648055001305}
+        m_TargetAssemblyTypeName: UI_VolumeSlider, Assembly-CSharp
+        m_MethodName: SliderValue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8635119648055001305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5705860913241731884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3d713d4dd9a980408fce4776013bde2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 3953220827548547777}
+  parameter: sfx
+  audioMixer: {fileID: 24100000, guid: 5e76e7052eb1802499e4181885a4fcad, type: 2}
+  multiplier: 25
 --- !u!1 &5990412565419247375
 GameObject:
   m_ObjectHideFlags: 0
