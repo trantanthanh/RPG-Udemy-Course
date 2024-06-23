@@ -37,6 +37,7 @@ public class ItemObject : MonoBehaviour
             return;
         }
 
+        SoundManager.Instance.PlaySFX(SFXDefine.sfx_item_pickup);
         InventoryManager.Instance.AddItem(itemData);
         Destroy(gameObject);
     }

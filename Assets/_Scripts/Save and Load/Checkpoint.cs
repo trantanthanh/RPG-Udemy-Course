@@ -26,6 +26,7 @@ public class Checkpoint : MonoBehaviour
             Player player = collision.GetComponent<Player>();
             if (player != null)
             {
+                SoundManager.Instance.PlaySFX(SFXDefine.sfx_checkpoint);
                 ActivateCheckpoint();
                 //CheckDeactiveOthers();
                 SaveManager.Instance.SaveGame();

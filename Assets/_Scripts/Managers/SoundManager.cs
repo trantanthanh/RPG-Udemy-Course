@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum SFXDefine : int
+public enum SFXDefine
 {
     sfx_attack1 = 0,
     sfx_attack2,
@@ -42,7 +42,7 @@ public enum SFXDefine : int
     sfx_woman_struggle
 }
 
-public enum BGMDefine : int
+public enum BGMDefine
 {
     BGM_a_fateful_encounter = 0,
     BGM_crawl_in_the_dark,
@@ -52,16 +52,16 @@ public enum BGMDefine : int
     BGM_the_village
 }
 
-public class AudioManager : MonoBehaviour
+public class SoundManager : MonoBehaviour
 {
-    public static AudioManager Instance;
+    public static SoundManager Instance;
     [SerializeField] private AudioSource[] sfx;
     [SerializeField] private AudioSource[] bgm;
 
     [SerializeField] float sfxMininumDistance;
 
     public bool isPlayingBGM;
-    private int bgmIndex;
+    [SerializeField] BGMDefine bgmIndex;
 
     private void Start()
     {
@@ -96,7 +96,7 @@ public class AudioManager : MonoBehaviour
         }
         else
         {
-            if (!bgm[bgmIndex].isPlaying)
+            if (!bgm[(int)bgmIndex].isPlaying)
             {
                 PlayBGM(bgmIndex);
             }
@@ -116,8 +116,9 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PlaySFX(int _sfxIndex, Transform _source = null)
+    public void PlaySFX(SFXDefine sfxIndex, Transform _source = null)
     {
+        int _sfxIndex = (int)sfxIndex;
         if (sfx[_sfxIndex].isPlaying) return;
 
         if (_source != null && Vector2.Distance(PlayerManager.Instance.player.transform.position, _source.position) > sfxMininumDistance)
@@ -127,12 +128,14 @@ public class AudioManager : MonoBehaviour
         sfx[_sfxIndex].Play();
     }
 
-    public void StopSFX(int _sfxIndex) => sfx[_sfxIndex].Stop();
+    public void StopSFX(SFXDefine _sfxIndex) => sfx[(int)_sfxIndex].Stop();
 
-    public void PlayBGM(int _bgmIndex)
+    public void PlayBGM(BGMDefine bgmIndex, bool _isLoop = false)
     {
+        int _bgmIndex = (int)bgmIndex;
         StopAllBGM();
 
+        bgm[_bgmIndex].loop = _isLoop;
         bgm[_bgmIndex].Play();
     }
 
