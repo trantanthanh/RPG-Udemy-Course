@@ -129,6 +129,27 @@ public class SoundManager : MonoBehaviour
     }
 
     public void StopSFX(SFXDefine _sfxIndex) => sfx[(int)_sfxIndex].Stop();
+    public void StopSFXWithTime(SFXDefine _sfxIndex)
+    {
+        StartCoroutine(DecreaseVolume(sfx[(int)_sfxIndex]));
+    }
+
+    IEnumerator DecreaseVolume(AudioSource _audio)
+    {
+        float defaultVolume = _audio.volume;
+        while (_audio.volume > 0.1f)
+        {
+            _audio.volume -= Time.deltaTime;//Decrease in 1s
+            yield return new WaitForEndOfFrame();
+
+            if (_audio.volume <= 0.1f)
+            {
+                _audio.Stop();
+                _audio.volume = defaultVolume;
+                break;
+            }
+        }
+    }
 
     public void PlayBGM(BGMDefine bgmIndex, bool _isLoop = false)
     {

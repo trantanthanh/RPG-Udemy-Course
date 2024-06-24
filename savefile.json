@@ -106,12 +106,12 @@
             true
         ]
     },
-    "closestCheckPointId": "57a89d4a-03a1-4b4e-a607-bcf67914f5a6",
+    "closestCheckPointId": "991e7115-c94c-410d-b171-8c048ca0c417",
     "equipmentId": [
         "d7431eef806898945aa54a4e5236849e"
     ],
-    "lostCurrencyX": -16.520063400268556,
-    "lostCurrencyY": -1.9600920677185059,
+    "lostCurrencyX": -23.353126525878908,
+    "lostCurrencyY": -1.9618537425994874,
     "lostCurrencyAmount": 0,
     "volumeSettings": {
         "keys": [
