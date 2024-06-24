@@ -198,6 +198,7 @@ public class SwordSkillController : MonoBehaviour
 
     private void SwordDamageEnemy(Enemy enemy)
     {
+        enemy.GetComponent<Entity>().SetupKnockbackDir(transform);
         player.stats.DoDamage(enemy.stats);
         player.DoEffectFromAmulet(enemy);
     }

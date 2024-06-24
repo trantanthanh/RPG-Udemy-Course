@@ -26,6 +26,7 @@ public class Entity : MonoBehaviour
     [SerializeField] Vector2 knockBackPower;
     [SerializeField] float knockBackDuration = 0.07f;
     protected bool isKnocked = false;
+    public int knockBackDir { get; private set; }
 
     public int facingDir { get; private set; } = 1;//-1 left, 1 right
     protected bool isFacingRight = true;
@@ -90,6 +91,20 @@ public class Entity : MonoBehaviour
     {
     }
 
+    public virtual void SetupKnockbackDir(Transform _damageDirection)
+    {
+        if (_damageDirection.position.x > transform.position.x)
+        {
+            knockBackDir = 1;
+        }
+        else if (_damageDirection.position.x < transform.position.x)
+        {
+            knockBackDir = -1;
+        }
+
+        Debug.Log("knockBackDir " + knockBackDir);
+    }
+
     public virtual void DamageImpact() => StartCoroutine(KnockBackHit());
 
     public virtual void DamageEffect() => fx.StartCoroutine(fx.FlashFx());
@@ -97,7 +112,8 @@ public class Entity : MonoBehaviour
     protected virtual IEnumerator KnockBackHit()
     {
         isKnocked = true;
-        rb.velocity = new Vector2(knockBackPower.x * (-facingDir), knockBackPower.y);
+        //rb.velocity = new Vector2(knockBackPower.x * (-facingDir), knockBackPower.y);
+        rb.velocity = new Vector2(knockBackPower.x * (-knockBackDir), knockBackPower.y);
         yield return new WaitForSeconds(knockBackDuration);
         isKnocked = false;
     }
