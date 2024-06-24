@@ -36,6 +36,15 @@ public class CloneSkill : Skill
     {
         CallBackUnlock();
     }
+    protected override void CheckUnlock()
+    {
+        base.CheckUnlock();
+        canAtackUnlocked = timeMirageUnlockButton.unlocked;
+        blackHoleUnlocked = blackHoleUnlockButton.unlocked;
+        agressiveMirageUnlocked = agressiveUnlockButton.unlocked;
+        canDuplicateClone = multipleMirageUnlockButton.unlocked;
+        crystalInsteadOfClone = crystalMirageUnlockButton.unlocked;
+    }
     public float GetPercentMirageDamage()
     {
         if (agressiveMirageUnlocked)

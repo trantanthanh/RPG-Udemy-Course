@@ -20,6 +20,16 @@ public class DodgeSkill : Skill
         dodgeMirageUnlockButton.onUpgradeSkill = () => dodgeMirageUnlocked = true;
     }
 
+    protected override void CheckUnlock()
+    {
+        base.CheckUnlock();
+        if (dodgeUnlockButton.unlocked)
+        {
+            UnlockDodge();
+        }
+        dodgeMirageUnlocked = dodgeMirageUnlockButton.unlocked;
+    }
+
     private void UnlockDodge()
     {
         if (!dodgeUnlocked)

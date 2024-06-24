@@ -77,6 +77,17 @@ public class SwordSkill : Skill
         bouncySwordUnlockButton.onUpgradeSkill = () => bouncySwordUnlocked = true;
     }
 
+    protected override void CheckUnlock()
+    {
+        base.CheckUnlock();
+        throwSwordUnlocked = swordThrowUnlockButton.unlocked;
+        timeStopUnlocked = timeStopUnlockButton.unlocked;
+        vulnerabilityUnlocked = vulnerabilityUnlockButton.unlocked;
+        bulletSwordUnlocked = bulletSwordUnlockButton.unlocked;
+        chainsawSwordUnlocked = chainsawSwordUnlockButton.unlocked;
+        bouncySwordUnlocked = bouncySwordUnlockButton.unlocked;
+    }
+
     private void ChooseSwordType()
     {
         swordType = SwordType.Regular;

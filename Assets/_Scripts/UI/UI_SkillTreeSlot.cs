@@ -100,10 +100,10 @@ public class UI_SkillTreeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExi
         if (_data.skillTree.TryGetValue(skillName, out bool value))
         {
             unlocked = value;
-            if (unlocked)
-            {
-                onUpgradeSkill?.Invoke();
-            }
+            //if (unlocked)
+            //{
+            //    onUpgradeSkill?.Invoke();
+            //}
         }
     }
 

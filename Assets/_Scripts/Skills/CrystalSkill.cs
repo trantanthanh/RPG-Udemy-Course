@@ -42,6 +42,19 @@ public class CrystalSkill : Skill
         CallBackUnlock();
     }
 
+    protected override void CheckUnlock()
+    {
+        base.CheckUnlock();
+        crystalUnlocked = unlockCrystalButton.unlocked;
+        crystalMirageUnlocked = unlockCrystalMirageButton.unlocked;
+        canExplode = unlockCrystalExplosionButton.unlocked;
+        canMoveToEnemy = unlockCrystalMovingButton.unlocked;
+        if (unlockMultiCrystalButton.unlocked)
+        {
+            UnlockMultiCrystal();
+        }
+    }
+
     private void CallBackUnlock()
     {
         unlockCrystalButton.onUpgradeSkill = () => crystalUnlocked = true; ;

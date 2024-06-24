@@ -25,7 +25,7 @@ public class EnemySkeleton : Enemy
     public override void DamageImpact()
     {
         base.DamageImpact();
-        Debug.Log("Skeleton has damaged");
+        //Debug.Log("Skeleton has damaged");
     }
     #endregion
 

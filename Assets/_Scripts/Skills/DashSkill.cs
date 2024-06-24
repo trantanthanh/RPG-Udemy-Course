@@ -19,7 +19,16 @@ public class DashSkill : Skill
 
     protected override void Start()
     {
+        base.Start();
         CallBackUnlock();
+    }
+
+    protected override void CheckUnlock()
+    {
+        base.CheckUnlock();
+        dashUnlocked = dashUnlockButton.unlocked;
+        cloneOnDashUnlocked = cloneOnDashUnlockButton.unlocked;
+        cloneOnArrivalUnlocked = cloneOnArrivalButton.unlocked;
     }
 
     private void CallBackUnlock()

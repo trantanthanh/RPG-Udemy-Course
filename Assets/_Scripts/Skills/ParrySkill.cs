@@ -26,11 +26,14 @@ public class ParrySkill : Skill
         parryMirageAttackUnlockButton.onUpgradeSkill = () => parryMirageAttackUnlocked = true; ;
     }
 
-    private void UnlockParry() => parryUnlocked = true;
+    protected override void CheckUnlock()
+    {
+        base.CheckUnlock();
 
-    private void UnlockParryRestore() => parryRestoreUnlocked = true;
-
-    private void UnlockParryMirage() => parryMirageAttackUnlocked = true;
+        parryUnlocked = parryUnlockButton.unlocked;
+        parryRestoreUnlocked = parryRestoredUnlockButton.unlocked;
+        parryMirageAttackUnlocked = parryMirageAttackUnlockButton.unlocked;
+    }
 
     public void MakeMirageOnParry(Transform _enemyTarget)
     {

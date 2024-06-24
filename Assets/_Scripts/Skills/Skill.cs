@@ -16,6 +16,11 @@ public class Skill : MonoBehaviour
 
     protected virtual void Start()
     {
+        CheckUnlock();
+    }
+
+    protected virtual void CheckUnlock()
+    {
     }
 
     protected virtual void Update()

@@ -1,5 +1,5 @@
 {
-    "currency": 300,
+    "currency": 0,
     "skillTree": {
         "keys": [
             "Sword Throw",
@@ -29,6 +29,12 @@
         ],
         "values": [
             true,
+            true,
+            false,
+            false,
+            false,
+            true,
+            true,
             false,
             false,
             false,
@@ -40,13 +46,7 @@
             false,
             false,
             false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
+            true,
             false,
             false,
             false,
@@ -59,7 +59,7 @@
             "528310befcc077044bbffc6374d5a0c0",
             "e12192ff3c7e0f741a1bba2aa56e1d83",
             "55c9bdaa7ee547a4b8374416b154857f",
-            "fef05e3656c7cab458f862505090572c",
+            "d7431eef806898945aa54a4e5236849e",
             "9b9906a1f022b3d4cab29cdbf900e634",
             "21069544a721d1f41aec18c0eaa6b093",
             "edbb161e8050587409122310a806247d",
@@ -67,51 +67,35 @@
             "4fcdedbb628670c48b752a919e67a4be",
             "7be52bb28722cda45b5563cf6d6349ab",
             "2e2824c0065710443be6ed9fe044c2c1",
-            "64d122e4a7d1a714e8bbb28bfbbabc96",
-            "44dd28e2085c18f4eb97af835d4ec141",
-            "cb068e2ef1e7f2f40854a4c1c7e770c4",
-            "9a7bd225765b28342ad4d1ec7bd84360",
-            "477c02553d0d3d84892008a05a3e20a7"
+            "64d122e4a7d1a714e8bbb28bfbbabc96"
         ],
         "values": [
             1,
             1,
             1,
-            3,
             1,
             1,
             1,
             1,
             1,
             1,
-            5,
+            1,
             2,
-            3,
-            1,
-            1,
             2
         ]
     },
     "checkpoints": {
         "keys": [
-            "991e7115-c94c-410d-b171-8c048ca0c417",
-            "13d057c6-140d-4ad0-956a-f3a3d8f27066",
-            "57a89d4a-03a1-4b4e-a607-bcf67914f5a6",
-            "22e2885e-c2b0-4ebe-a845-7610d78a3290"
+            "13d057c6-140d-4ad0-956a-f3a3d8f27066"
         ],
         "values": [
-            true,
-            true,
-            true,
-            true
+            false
         ]
     },
-    "closestCheckPointId": "991e7115-c94c-410d-b171-8c048ca0c417",
-    "equipmentId": [
-        "d7431eef806898945aa54a4e5236849e"
-    ],
-    "lostCurrencyX": -23.353126525878908,
-    "lostCurrencyY": -1.9618537425994874,
+    "closestCheckPointId": "",
+    "equipmentId": [],
+    "lostCurrencyX": -33.49866485595703,
+    "lostCurrencyY": -1.9648017883300782,
     "lostCurrencyAmount": 0,
     "volumeSettings": {
         "keys": [
