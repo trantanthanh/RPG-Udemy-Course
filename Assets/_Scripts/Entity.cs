@@ -180,6 +180,8 @@ public class Entity : MonoBehaviour
         jumpForce = defaultJumpForce;
     }
 
+    public virtual void KillEntity() => Die();
+
     public virtual void Die()
     {
     }

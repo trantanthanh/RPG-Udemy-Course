@@ -68,6 +68,8 @@ public class EnemyStats : CharacterStats
         enemy.Die();
         enemy.GetComponent<ItemDrop>()?.GenerateDrop();//Drop item if can
         PlayerManager.Instance.UpdateCurrency(this.soulsDropAmout.GetValue());
+
+        Destroy(gameObject, 5f);//Destroy after 5s
     }
 
     //public override void DoDamage(CharacterStats _targetStats, float amplifierDamagePercent = 0)
