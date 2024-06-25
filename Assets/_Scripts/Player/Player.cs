@@ -122,6 +122,7 @@ public class Player : Entity
     protected override void Update()
     {
         base.Update();
+        if (GameManager.Instance.isPaused) return;
         stateMachine.currentState.Update();
         //Debug.Log($"IsGrounded {IsGroundDetected()}");
         //Debug.Log($"IsFaceWall {IsFaceWallDetected()}");

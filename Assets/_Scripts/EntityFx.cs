@@ -16,6 +16,11 @@ public class EntityFx : MonoBehaviour
     [SerializeField] private Color[] igniteColor;
     [SerializeField] private Color[] shockColor;
 
+    [Header("Ailment Fx")]
+    [SerializeField] ParticleSystem igniteFx;
+    [SerializeField] ParticleSystem chillFx;
+    [SerializeField] ParticleSystem shockFx;
+
     private void Start()
     {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
@@ -53,6 +58,7 @@ public class EntityFx : MonoBehaviour
 
     public void ChillFxFor(float _second)
     {
+        chillFx.Play();
         InvokeRepeating(nameof(ChillColorFx), 0f, 0.3f);
         Invoke(nameof(CancelColorChange), _second);
     }
@@ -65,6 +71,7 @@ public class EntityFx : MonoBehaviour
 
     public void IgniteFxFor(float _second, float _interval)
     {
+        igniteFx.Play();
         InvokeRepeating(nameof(IgniteColorFx), 0f, _interval);
         Invoke(nameof(CancelColorChange), _second);
     }
@@ -84,6 +91,7 @@ public class EntityFx : MonoBehaviour
 
     public void ShockFxFor(float _second)
     {
+        shockFx.Play();
         InvokeRepeating(nameof(ShockColorFx), 0f, 0.3f);
         Invoke(nameof(CancelColorChange), _second);
     }
@@ -115,6 +123,9 @@ public class EntityFx : MonoBehaviour
 
     public void CancelColorChange()
     {
+        igniteFx.Stop();
+        chillFx.Stop();
+        shockFx.Stop();
         CancelInvoke();
         spriteRenderer.color = Color.white;
     }

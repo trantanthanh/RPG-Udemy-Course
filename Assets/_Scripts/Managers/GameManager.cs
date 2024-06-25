@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour, ISaveManager
     [SerializeField] private Checkpoint[] checkpoints;
 
     private Player player;
+    public bool isPaused { get; private set; } = false;
 
     [Header("Lost currency")]
     [SerializeField] private GameObject lostCurrencyPrefab;
@@ -147,6 +148,15 @@ public class GameManager : MonoBehaviour, ISaveManager
 
     public void PauseGame(bool _isPause)
     {
-        Time.timeScale = _isPause ?  0 : 1;
+        if (_isPause)
+        {
+            isPaused = true;
+            Time.timeScale = 0;
+        }
+        else
+        {
+            isPaused = false;
+            Time.timeScale = 1;
+        }
     }
 }

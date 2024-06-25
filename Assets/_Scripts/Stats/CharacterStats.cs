@@ -168,7 +168,7 @@ public class CharacterStats : MonoBehaviour
             //evaded or damage is reduce to 0
         }
 
-        //DoMagicDamage(_targetStats);
+        DoMagicDamage(_targetStats);
     }
 
     public virtual void DoMagicDamage(CharacterStats _targetStats)
