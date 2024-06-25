@@ -26,6 +26,7 @@ public class Entity : MonoBehaviour
     [SerializeField] Vector2 knockBackPower;
     [SerializeField] float knockBackDuration = 0.07f;
     protected bool isKnocked = false;
+    protected bool isAlive = true;
     public int knockBackDir { get; private set; }
 
     public int facingDir { get; private set; } = 1;//-1 left, 1 right
@@ -78,6 +79,7 @@ public class Entity : MonoBehaviour
     // Start is called before the first frame update
     protected virtual void Start()
     {
+        isAlive = true;
         animator = GetComponentInChildren<Animator>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
@@ -180,9 +182,16 @@ public class Entity : MonoBehaviour
         jumpForce = defaultJumpForce;
     }
 
-    public virtual void KillEntity() => Die();
+    public virtual void KillEntity()
+    {
+        if (isAlive)
+        {
+            Die();
+        }
+    }
 
     public virtual void Die()
     {
+        isAlive = false;
     }
 }
