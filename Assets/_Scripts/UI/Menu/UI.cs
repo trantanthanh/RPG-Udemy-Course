@@ -122,6 +122,8 @@ namespace Menu
                 {
                     isMenuShow = false;
                 }
+
+                GameManager.Instance.PauseGame(isMenuShow);
                 _menu.SetActive(true);
             }
         }

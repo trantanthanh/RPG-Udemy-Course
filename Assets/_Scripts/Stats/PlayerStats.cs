@@ -45,6 +45,7 @@ public class PlayerStats : CharacterStats
     protected override void TakeDamageWithoutEffect(int damage)
     {
         base.TakeDamageWithoutEffect(damage);
+        if (!isAlive) return;
         SoundManager.Instance.PlaySFX(damageSFX[Random.Range(0, damageSFX.Length)]);
 
         ItemData_Equipment_SO currentArmor = InventoryManager.Instance.GetEquipment(EquipmentType.Armor);

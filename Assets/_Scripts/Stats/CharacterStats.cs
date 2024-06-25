@@ -80,7 +80,7 @@ public class CharacterStats : MonoBehaviour
     public int CurrentHealth { get => currentHealth; }
     public System.Action onHealthChanged;
 
-    private bool isAlive = true;
+    protected bool isAlive = true;
 
     // Start is called before the first frame update
     protected virtual void Start()
