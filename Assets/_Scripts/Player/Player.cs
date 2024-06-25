@@ -18,6 +18,7 @@ public class Player : Entity
     [Header("Counter attack info")]
     [SerializeField] float counterAttackDuration = 0.2f;
     [SerializeField] private LayerMask enemyMask;
+
     #region Property
     public float CounterAttackDuration
     {

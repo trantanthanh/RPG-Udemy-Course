@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerStats : CharacterStats
 {
     private Player player;
+
+    //Damaged sound
+    private SFXDefine[] damageSFX = { SFXDefine.sfx_woman_sigh, SFXDefine.sfx_woman_sigh_2, SFXDefine.sfx_woman_sigh_3 };
     protected override void Start()
     {
         base.Start();
@@ -42,6 +45,7 @@ public class PlayerStats : CharacterStats
     protected override void TakeDamageWithoutEffect(int damage)
     {
         base.TakeDamageWithoutEffect(damage);
+        SoundManager.Instance.PlaySFX(damageSFX[Random.Range(0, damageSFX.Length)]);
 
         ItemData_Equipment_SO currentArmor = InventoryManager.Instance.GetEquipment(EquipmentType.Armor);
         if (currentArmor != null)

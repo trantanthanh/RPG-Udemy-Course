@@ -1,5 +1,5 @@
 {
-    "currency": 800,
+    "currency": 200,
     "skillTree": {
         "keys": [
             "Sword Throw",
@@ -72,7 +72,8 @@
             "477c02553d0d3d84892008a05a3e20a7",
             "9a7bd225765b28342ad4d1ec7bd84360",
             "44dd28e2085c18f4eb97af835d4ec141",
-            "31a6d83020582d14d9005e9e99a8fd94"
+            "31a6d83020582d14d9005e9e99a8fd94",
+            "b9e1ffba39f1489488947ac8ccdb75c0"
         ],
         "values": [
             1,
@@ -85,13 +86,14 @@
             1,
             1,
             1,
-            6,
+            5,
             5,
             3,
+            4,
+            2,
             5,
-            3,
-            5,
-            2
+            1,
+            1
         ]
     },
     "checkpoints": {
@@ -104,8 +106,8 @@
     },
     "closestCheckPointId": "",
     "equipmentId": [],
-    "lostCurrencyX": -6.671741485595703,
-    "lostCurrencyY": -1.9599049091339112,
+    "lostCurrencyX": -26.683879852294923,
+    "lostCurrencyY": -1.9648010730743409,
     "lostCurrencyAmount": 0,
     "volumeSettings": {
         "keys": [
