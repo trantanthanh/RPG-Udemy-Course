@@ -1549,7 +1549,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2571,7 +2571,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2823,3 +2823,5 @@ MonoBehaviour:
   imageSwordCooldown: {fileID: 6807053853211263418}
   imageFlaskCooldown: {fileID: 2945492145862170772}
   currentSouls: {fileID: 6436487519657341318}
+  soulsAmount: 0
+  soulsIncreaseRate: 9999
