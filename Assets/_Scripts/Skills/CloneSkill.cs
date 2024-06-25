@@ -34,6 +34,7 @@ public class CloneSkill : Skill
 
     protected override void Start()
     {
+        base.Start();
         CallBackUnlock();
     }
     protected override void CheckUnlock()
