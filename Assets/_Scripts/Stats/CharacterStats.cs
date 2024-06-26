@@ -162,6 +162,7 @@ public class CharacterStats : MonoBehaviour
         if (totalDamage > 0)
         {
             _targetStats.TakeDamage(totalDamage);//Apply damage to target
+            fx.CreateHitFx(_targetStats.transform);
         }
         else
         {

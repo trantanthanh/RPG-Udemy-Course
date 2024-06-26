@@ -27,6 +27,7 @@ public class Entity : MonoBehaviour
     [SerializeField] float knockBackDuration = 0.07f;
     protected bool isKnocked = false;
     protected bool isAlive = true;
+
     public int knockBackDir { get; private set; }
 
     public int facingDir { get; private set; } = 1;//-1 left, 1 right

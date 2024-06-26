@@ -623,6 +623,7 @@ MonoBehaviour:
   igniteFx: {fileID: 3237923264273095482}
   chillFx: {fileID: 5368256008610709609}
   shockFx: {fileID: 3793408127768542705}
+  hitFxPrefab: {fileID: 267597563835583020, guid: 2bde3f91cf8600a4eab0d0a86346d774, type: 3}
 --- !u!50 &3089077683226289135
 Rigidbody2D:
   serializedVersion: 4

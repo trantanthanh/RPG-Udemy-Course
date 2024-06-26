@@ -21,6 +21,9 @@ public class EntityFx : MonoBehaviour
     [SerializeField] ParticleSystem chillFx;
     [SerializeField] ParticleSystem shockFx;
 
+    [Header("Hit fx")]
+    [SerializeField] GameObject hitFxPrefab;
+
     private void Start()
     {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
@@ -128,5 +131,16 @@ public class EntityFx : MonoBehaviour
         shockFx.Stop();
         CancelInvoke();
         spriteRenderer.color = Color.white;
+    }
+
+    public void CreateHitFx(Transform _target)
+    {
+        float zRotation = Random.Range(-90, 90);
+        float xPosition = Random.Range(-0.5f, 0.5f);
+        float yPosition = Random.Range(-0.5f, 0.5f);
+        Vector3 newPosition = _target.position + (new Vector3(xPosition, yPosition));
+        GameObject newHitFx = Instantiate(hitFxPrefab, newPosition, Quaternion.identity);
+        newHitFx.transform.Rotate(new Vector3(0, 0, zRotation));
+        Destroy(newHitFx, 0.5f);
     }
 }
