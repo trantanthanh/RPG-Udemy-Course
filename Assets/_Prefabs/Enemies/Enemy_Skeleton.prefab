@@ -695,6 +695,7 @@ MonoBehaviour:
   chillFx: {fileID: 4570043848944011573}
   shockFx: {fileID: 8470391216643554140}
   hitFxPrefab: {fileID: 267597563835583020, guid: 2bde3f91cf8600a4eab0d0a86346d774, type: 3}
+  hitCritFxPrefab: {fileID: 7832606117183127362, guid: d4bb217715f8f8741a757076cf162cbd, type: 3}
 --- !u!114 &4431665946197419970
 MonoBehaviour:
   m_ObjectHideFlags: 0

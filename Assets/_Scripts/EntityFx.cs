@@ -23,6 +23,7 @@ public class EntityFx : MonoBehaviour
 
     [Header("Hit fx")]
     [SerializeField] GameObject hitFxPrefab;
+    [SerializeField] GameObject hitCritFxPrefab;
 
     private void Start()
     {
@@ -133,14 +134,24 @@ public class EntityFx : MonoBehaviour
         spriteRenderer.color = Color.white;
     }
 
-    public void CreateHitFx(Transform _target)
+    public void CreateHitFx(Transform _target, bool _isCritical = false)
     {
         float zRotation = Random.Range(-90, 90);
         float xPosition = Random.Range(-0.5f, 0.5f);
         float yPosition = Random.Range(-0.5f, 0.5f);
         Vector3 newPosition = _target.position + (new Vector3(xPosition, yPosition));
-        GameObject newHitFx = Instantiate(hitFxPrefab, newPosition, Quaternion.identity);
-        newHitFx.transform.Rotate(new Vector3(0, 0, zRotation));
+        GameObject newHitFx = Instantiate(_isCritical ? hitCritFxPrefab : hitFxPrefab, newPosition, Quaternion.identity);
+
+        if (_isCritical)
+        {
+            newHitFx.transform.localScale = new Vector3(GetComponent<Entity>().facingDir, 1, 1);
+        }
+        else
+        {
+            newHitFx.transform.Rotate(new Vector3(0, 0, zRotation));
+        }
+
+
         Destroy(newHitFx, 0.5f);
     }
 }

@@ -140,7 +140,7 @@ public class CharacterStats : MonoBehaviour
 
     public virtual void DoDamage(CharacterStats _targetStats, float multiplierDamage = 1)
     {
-
+        bool isCrit = false;
         if (CheckTargetCanAvoidAttack(_targetStats)) return;
 
         //int totalDamage = damage.GetValue() + strength.GetValue();
@@ -156,13 +156,14 @@ public class CharacterStats : MonoBehaviour
         if (CanCrit())
         {
             totalDamage = CalculateCritDamage(totalDamage);
+            isCrit = true;
         }
         totalDamage = CheckTargetArmor(_targetStats, totalDamage);
 
         if (totalDamage > 0)
         {
             _targetStats.TakeDamage(totalDamage);//Apply damage to target
-            fx.CreateHitFx(_targetStats.transform);
+            fx.CreateHitFx(_targetStats.transform, isCrit);
         }
         else
         {
