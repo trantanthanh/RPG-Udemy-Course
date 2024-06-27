@@ -5,6 +5,13 @@ using UnityEngine;
 public class EntityFx : MonoBehaviour
 {
     SpriteRenderer spriteRenderer;
+    [Header("Trail image fx")]
+    [SerializeField] GameObject afterImagePrefab;
+    [SerializeField] float colorLoseRate;
+    [Tooltip("Time interval between 2 images")]
+    [SerializeField] float afterImageCooldow;
+    private float afterImageCooldownTimer;
+
     [Header("Flash Fx")]
     [SerializeField] Material hitMat;
     [SerializeField] float flashDuration = 0.2f;
@@ -31,6 +38,21 @@ public class EntityFx : MonoBehaviour
     {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         originalMat = spriteRenderer.material;
+    }
+
+    private void Update()
+    {
+        afterImageCooldownTimer -= Time.deltaTime;
+    }
+
+    public void CreateAfterImage()
+    {
+        if (afterImageCooldownTimer <= 0)
+        {
+            afterImageCooldownTimer = afterImageCooldow;
+            GameObject newAfterImage = Instantiate(afterImagePrefab, transform.position, transform.rotation);
+            newAfterImage.GetComponent<AfterImageFx>().SetupAfterImageFx(colorLoseRate, spriteRenderer.sprite);
+        }
     }
 
     public IEnumerator FlashFx()

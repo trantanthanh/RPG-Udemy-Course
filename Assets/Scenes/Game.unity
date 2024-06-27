@@ -55576,6 +55576,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6519339761462540847, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
+      propertyPath: colorLoseRate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6519339761462540847, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
+      propertyPath: afterImagePrefab
+      value: 
+      objectReference: {fileID: 5167966901818571195, guid: baae62d5b897fd04b8f4d46c1229ed82, type: 3}
+    - target: {fileID: 6519339761462540847, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
+      propertyPath: afterImageCooldow
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 8142144263277088619, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
       propertyPath: m_Name
       value: Player

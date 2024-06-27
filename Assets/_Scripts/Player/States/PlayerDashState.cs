@@ -36,6 +36,7 @@ public class PlayerDashState : PlayerState
             if (xInput != 0)
             {
                 player.SetVelocity(xInput * player.DashSpeed, 0);
+                player.fx.CreateAfterImage();
             }
             else
             {

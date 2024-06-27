@@ -46,7 +46,7 @@
             false,
             false,
             false,
-            false,
+            true,
             false,
             false,
             false,
@@ -94,8 +94,8 @@
     },
     "closestCheckPointId": "",
     "equipmentId": [],
-    "lostCurrencyX": -28.803211212158204,
-    "lostCurrencyY": -1.9601263999938965,
+    "lostCurrencyX": -18.37483024597168,
+    "lostCurrencyY": -1.9645962715148926,
     "lostCurrencyAmount": 0,
     "volumeSettings": {
         "keys": [
