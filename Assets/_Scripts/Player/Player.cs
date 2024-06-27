@@ -19,51 +19,19 @@ public class Player : Entity
     [SerializeField] float counterAttackDuration = 0.2f;
     [SerializeField] private LayerMask enemyMask;
 
+    [Header("Sword return")]
+    [SerializeField] float swordReturnImpact = 5f;
+
     #region Property
-    public float CounterAttackDuration
-    {
-        get
-        {
-            return counterAttackDuration;
-        }
-    }
-    public float X_JumpForceWall
-    {
-        get
-        {
-            return xJumpForceWall;
-        }
-    }
+    public float SwordReturnImpact => swordReturnImpact;
+    public float CounterAttackDuration => counterAttackDuration;
+    public float X_JumpForceWall => xJumpForceWall;
 
-    public float TimeWallJump
-    {
-        get
-        {
-            return timeWallJump;
-        }
-    }
-    public float VelocitySlideMulti
-    {
-        get
-        {
-            return yVelocitySlideMulti;
-        }
-    }
+    public float TimeWallJump => timeWallJump;
+    public float VelocitySlideMulti => yVelocitySlideMulti;
 
-    public float DashSpeed
-    {
-        get
-        {
-            return dashSpeed;
-        }
-    }
-    public float TimeDash
-    {
-        get
-        {
-            return timeDash;
-        }
-    }
+    public float DashSpeed => dashSpeed;
+    public float TimeDash => timeDash;
     #endregion
 
     #region Components

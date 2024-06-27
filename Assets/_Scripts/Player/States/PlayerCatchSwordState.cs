@@ -19,6 +19,12 @@ public class PlayerCatchSwordState : PlayerState
         {
             player.Flip();
         }
+
+        rb.velocity = new Vector2(player.SwordReturnImpact * -player.facingDir, rb.velocity.y);
+        if (player.IsGroundDetected())
+        {
+            player.fx.PlayDustFx();
+        }
     }
 
     public override void Exit()
