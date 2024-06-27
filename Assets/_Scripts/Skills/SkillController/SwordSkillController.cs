@@ -292,7 +292,7 @@ public class SwordSkillController : MonoBehaviour
             canRotate = false;
             transform.parent = collision.transform;
         }
-
+        GetComponentInChildren<ParticleSystem>().Play();
     }
 
     public void ReturnSword()
