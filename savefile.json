@@ -67,7 +67,11 @@
             "4fcdedbb628670c48b752a919e67a4be",
             "7be52bb28722cda45b5563cf6d6349ab",
             "2e2824c0065710443be6ed9fe044c2c1",
-            "64d122e4a7d1a714e8bbb28bfbbabc96"
+            "64d122e4a7d1a714e8bbb28bfbbabc96",
+            "477c02553d0d3d84892008a05a3e20a7",
+            "9a7bd225765b28342ad4d1ec7bd84360",
+            "cb068e2ef1e7f2f40854a4c1c7e770c4",
+            "b9e1ffba39f1489488947ac8ccdb75c0"
         ],
         "values": [
             1,
@@ -80,8 +84,12 @@
             1,
             1,
             1,
-            3,
-            2
+            5,
+            2,
+            1,
+            2,
+            2,
+            1
         ]
     },
     "checkpoints": {
@@ -94,8 +102,8 @@
     },
     "closestCheckPointId": "",
     "equipmentId": [],
-    "lostCurrencyX": -18.37483024597168,
-    "lostCurrencyY": -1.9645962715148926,
+    "lostCurrencyX": -26.35053253173828,
+    "lostCurrencyY": -1.9615472555160523,
     "lostCurrencyAmount": 0,
     "volumeSettings": {
         "keys": [

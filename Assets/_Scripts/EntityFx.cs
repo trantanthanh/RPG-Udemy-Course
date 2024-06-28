@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,15 @@ using UnityEngine;
 public class EntityFx : MonoBehaviour
 {
     SpriteRenderer spriteRenderer;
+    Player player;
+
+    [Header("Screen shake fx")]
+    CinemachineImpulseSource screenShake;
+    [SerializeField] private float shakePower;
+    [SerializeField] private Vector3 shakeDirection;
+
+
+
     [Header("Trail image fx")]
     [SerializeField] GameObject afterImagePrefab;
     [SerializeField] float colorLoseRate;
@@ -36,6 +46,8 @@ public class EntityFx : MonoBehaviour
 
     private void Start()
     {
+        player = GetComponent<Player>();
+        screenShake = GetComponent<CinemachineImpulseSource>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         originalMat = spriteRenderer.material;
     }
@@ -43,6 +55,12 @@ public class EntityFx : MonoBehaviour
     private void Update()
     {
         afterImageCooldownTimer -= Time.deltaTime;
+    }
+
+    public void ShakeScreen()
+    {
+        screenShake.m_DefaultVelocity = new Vector3(shakeDirection.x * player.facingDir, shakeDirection.y) * shakePower;
+        screenShake.GenerateImpulse();
     }
 
     public void CreateAfterImage()

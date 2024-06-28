@@ -25,6 +25,8 @@ public class PlayerCatchSwordState : PlayerState
         {
             player.fx.PlayDustFx();
         }
+
+        player.fx.ShakeScreen();
     }
 
     public override void Exit()

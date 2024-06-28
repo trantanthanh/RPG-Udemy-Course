@@ -28,6 +28,7 @@ public class PlayerMoveState : PlayerGroundedState
         if (xInput != 0)
         {
             player.SetVelocity(xInput * player.MoveSpeed, rb.velocity.y);
+            //player.fx.CreateAfterImage();
         }
 
         if (xInput == 0 || player.IsFaceWallDetected())
