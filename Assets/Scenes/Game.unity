@@ -934,11 +934,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &166449340 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8142144263277088619, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
-  m_PrefabInstance: {fileID: 6466156414483814562}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &171691397 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2207535734485954210, guid: 35940430bb111e94293ae57e7fa82b24, type: 3}
@@ -55638,18 +55633,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6519339761462540847, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
-      propertyPath: shakePower
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6519339761462540847, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
-      propertyPath: shakeDirection.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6519339761462540847, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
-      propertyPath: shakeDirection.y
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 8142144263277088619, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
       propertyPath: m_Name
       value: Player
@@ -55657,17 +55640,14 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8142144263277088619, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6466156414483814570}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
 --- !u!114 &6466156414483814563 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1800476403858977052, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
   m_PrefabInstance: {fileID: 6466156414483814562}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 166449340}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec3fe8cd763d84946835a91ca99a3e16, type: 3}
@@ -55678,65 +55658,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 703596861239897970, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
   m_PrefabInstance: {fileID: 6466156414483814562}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 166449340}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3de77013afe5ce949876877dd2c2b397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6466156414483814570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 166449340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ImpulseDefinition:
-    m_ImpulseChannel: 1
-    m_ImpulseShape: 2
-    m_CustomImpulseShape:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_ImpulseDuration: 0.2
-    m_ImpulseType: 0
-    m_DissipationRate: 0.25
-    m_RawSignal: {fileID: 0}
-    m_AmplitudeGain: 1
-    m_FrequencyGain: 1
-    m_RepeatMode: 0
-    m_Randomize: 1
-    m_TimeEnvelope:
-      m_AttackShape:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      m_DecayShape:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      m_AttackTime: 0
-      m_SustainTime: 0.2
-      m_DecayTime: 0.7
-      m_ScaleWithImpact: 1
-      m_HoldForever: 0
-    m_ImpactRadius: 100
-    m_DirectionMode: 0
-    m_DissipationMode: 2
-    m_DissipationDistance: 100
-    m_PropagationSpeed: 343
-  m_DefaultVelocity: {x: 0.2, y: 0.1, z: 0}
 --- !u!1001 &7081835675840578736
 PrefabInstance:
   m_ObjectHideFlags: 0

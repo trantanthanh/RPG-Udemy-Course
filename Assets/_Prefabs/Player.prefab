@@ -529,6 +529,7 @@ GameObject:
   - component: {fileID: 3771518612867154933}
   - component: {fileID: 703596861239897970}
   - component: {fileID: 2497727057847598925}
+  - component: {fileID: 2218222922576820347}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -613,6 +614,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 819230ae03af74a40b60d9e4f050d81c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  popupTextPrefab: {fileID: 8024508621887834991, guid: 1d61d87e64edb044ba92d708d6280804, type: 3}
+  shakePower: 0.2
+  shakeDirection: {x: 1, y: 0.5, z: 0}
   afterImagePrefab: {fileID: 5167966901818571195, guid: baae62d5b897fd04b8f4d46c1229ed82, type: 3}
   colorLoseRate: 2
   afterImageCooldow: 0.05
@@ -718,13 +722,13 @@ MonoBehaviour:
     baseValue: 4
     modifers: 
   fireDamage:
-    baseValue: 5
+    baseValue: 1
     modifers: 
   iceDamage:
-    baseValue: 6
+    baseValue: 0
     modifers: 
   lightningDamage:
-    baseValue: 7
+    baseValue: 0
     modifers: 
   isIgnited: 0
   isChilled: 0
@@ -769,6 +773,59 @@ MonoBehaviour:
   dropPrefab: {fileID: 4148545283387419536, guid: e473808a9b8017c45ac76b36a64d4a89, type: 3}
   chanceToLostItemsEquipped: 20
   chanceToLostMaterials: 60
+--- !u!114 &2218222922576820347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8142144263277088619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ImpulseDefinition:
+    m_ImpulseChannel: 1
+    m_ImpulseShape: 2
+    m_CustomImpulseShape:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_ImpulseDuration: 0.2
+    m_ImpulseType: 0
+    m_DissipationRate: 0.25
+    m_RawSignal: {fileID: 0}
+    m_AmplitudeGain: 1
+    m_FrequencyGain: 1
+    m_RepeatMode: 0
+    m_Randomize: 1
+    m_TimeEnvelope:
+      m_AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_AttackTime: 0
+      m_SustainTime: 0.2
+      m_DecayTime: 0.7
+      m_ScaleWithImpact: 1
+      m_HoldForever: 0
+    m_ImpactRadius: 100
+    m_DirectionMode: 0
+    m_DissipationMode: 2
+    m_DissipationDistance: 100
+    m_PropagationSpeed: 343
+  m_DefaultVelocity: {x: 0.2, y: 0.1, z: 0}
 --- !u!1 &8171312139373004160
 GameObject:
   m_ObjectHideFlags: 0

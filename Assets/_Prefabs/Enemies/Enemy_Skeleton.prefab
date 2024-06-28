@@ -683,6 +683,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 819230ae03af74a40b60d9e4f050d81c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  popupTextPrefab: {fileID: 8024508621887834991, guid: 1d61d87e64edb044ba92d708d6280804, type: 3}
+  shakePower: 0
+  shakeDirection: {x: 0, y: 0, z: 0}
+  afterImagePrefab: {fileID: 0}
+  colorLoseRate: 0
+  afterImageCooldow: 0
   hitMat: {fileID: 2100000, guid: 2f36bd2f6603aa3469de3bf9bf30d091, type: 2}
   flashDuration: 0.2
   chillColor: {r: 0, g: 0.78125304, b: 0.94509804, a: 1}

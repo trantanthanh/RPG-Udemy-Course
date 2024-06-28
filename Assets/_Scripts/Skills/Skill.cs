@@ -34,6 +34,7 @@ public class Skill : MonoBehaviour
         {
             return true;
         }
+        player.fx.CreatePopupText("Cooldown");
         return false;
     }
 
