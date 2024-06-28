@@ -524,7 +524,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3471302627653843766}
   - component: {fileID: 1800476403858977052}
-  - component: {fileID: 6519339761462540847}
+  - component: {fileID: 3465770718182743945}
   - component: {fileID: 3089077683226289135}
   - component: {fileID: 3771518612867154933}
   - component: {fileID: 703596861239897970}
@@ -602,7 +602,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   swordReturnImpact: 7
---- !u!114 &6519339761462540847
+--- !u!114 &3465770718182743945
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -611,29 +611,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 8142144263277088619}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 819230ae03af74a40b60d9e4f050d81c, type: 3}
+  m_Script: {fileID: 11500000, guid: 37845c91adcc37449af0c39eb121c030, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   popupTextPrefab: {fileID: 8024508621887834991, guid: 1d61d87e64edb044ba92d708d6280804, type: 3}
-  shakePower: 0.2
-  shakeDirection: {x: 1, y: 0.5, z: 0}
-  afterImagePrefab: {fileID: 5167966901818571195, guid: baae62d5b897fd04b8f4d46c1229ed82, type: 3}
-  colorLoseRate: 2
-  afterImageCooldow: 0.05
   hitMat: {fileID: 2100000, guid: 2f36bd2f6603aa3469de3bf9bf30d091, type: 2}
   flashDuration: 0.15
   chillColor: {r: 0, g: 0.8745098, b: 0.94509804, a: 1}
   igniteColor:
-  - {r: 0.98039216, g: 0.36004913, b: 0.031372555, a: 1}
+  - {r: 0.98039216, g: 0.36078432, b: 0.03137255, a: 1}
   - {r: 0.94509804, g: 0.6745098, b: 0.5647059, a: 0}
   shockColor:
   - {r: 1, g: 0.9529412, b: 0.38039216, a: 1}
-  - {r: 1, g: 0.96889085, b: 0.60784316, a: 1}
+  - {r: 1, g: 0.96862745, b: 0.60784316, a: 1}
   igniteFx: {fileID: 3237923264273095482}
   chillFx: {fileID: 5368256008610709609}
   shockFx: {fileID: 3793408127768542705}
   hitFxPrefab: {fileID: 267597563835583020, guid: 2bde3f91cf8600a4eab0d0a86346d774, type: 3}
   hitCritFxPrefab: {fileID: 7832606117183127362, guid: d4bb217715f8f8741a757076cf162cbd, type: 3}
+  shakePower: 0.2
+  shakeDirection: {x: 1, y: 0.5, z: 0}
+  afterImagePrefab: {fileID: 5167966901818571195, guid: baae62d5b897fd04b8f4d46c1229ed82, type: 3}
+  colorLoseRate: 50
+  afterImageCooldow: 0.4
   dustFx: {fileID: 3044329340116303850}
 --- !u!50 &3089077683226289135
 Rigidbody2D:

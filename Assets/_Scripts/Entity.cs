@@ -64,7 +64,6 @@ public class Entity : MonoBehaviour
     public Animator animator;
     public SpriteRenderer spriteRenderer { get; private set; }
     public Rigidbody2D rb { get; private set; }
-    public EntityFx fx { get; private set; }
     public CharacterStats stats { get; private set; }
     public CapsuleCollider2D capsuleCollider { get; private set; }
     #endregion
@@ -84,7 +83,6 @@ public class Entity : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
-        fx = GetComponent<EntityFx>();
         stats = GetComponent<CharacterStats>();
         capsuleCollider = GetComponent<CapsuleCollider2D>();
     }
@@ -110,7 +108,10 @@ public class Entity : MonoBehaviour
 
     public virtual void DamageImpact() => StartCoroutine(KnockBackHit());
 
-    public virtual void DamageEffect() => fx.StartCoroutine(fx.FlashFx());
+    public virtual void DamageEffect()
+    {
+
+    }
 
     protected virtual IEnumerator KnockBackHit()
     {

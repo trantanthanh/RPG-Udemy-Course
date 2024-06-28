@@ -36,6 +36,7 @@ public class Player : Entity
 
     #region Components
     public SkillManager skills { get; private set; }
+    public PlayerFx fx { get; private set; }
     #endregion
     public GameObject sword { get; private set; }
 
@@ -75,6 +76,7 @@ public class Player : Entity
         deadState = new PlayerDeadState(this, stateMachine, "Die");
 
         skills = SkillManager.Instance;
+        fx = GetComponent<PlayerFx>();
     }
 
     // Start is called before the first frame update
@@ -253,6 +255,12 @@ public class Player : Entity
         base.ReturnDefaultSpeed();
 
         dashSpeed = defaultDashSpeed;
+    }
+
+    public override void DamageEffect()
+    {
+        base.DamageEffect();
+        fx.StartCoroutine(fx.FlashFx());
     }
     #endregion
 }

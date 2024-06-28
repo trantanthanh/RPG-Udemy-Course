@@ -6,25 +6,11 @@ using UnityEngine;
 
 public class EntityFx : MonoBehaviour
 {
-    SpriteRenderer spriteRenderer;
-    Player player;
+    protected SpriteRenderer spriteRenderer;
+    protected Player player;
 
     [Header("Pop up text")]
     [SerializeField] GameObject popupTextPrefab;
-
-    [Header("Screen shake fx")]
-    CinemachineImpulseSource screenShake;
-    [SerializeField] private float shakePower;
-    [SerializeField] private Vector3 shakeDirection;
-
-
-
-    [Header("Trail image fx")]
-    [SerializeField] GameObject afterImagePrefab;
-    [SerializeField] float colorLoseRate;
-    [Tooltip("Time interval between 2 images")]
-    [SerializeField] float afterImageCooldow;
-    private float afterImageCooldownTimer;
 
     [Header("Flash Fx")]
     [SerializeField] Material hitMat;
@@ -45,20 +31,16 @@ public class EntityFx : MonoBehaviour
     [Header("Hit fx")]
     [SerializeField] GameObject hitFxPrefab;
     [SerializeField] GameObject hitCritFxPrefab;
-    [Space]
-    [SerializeField] ParticleSystem dustFx;
 
-    private void Start()
+    protected virtual void Start()
     {
         player = GetComponent<Player>();
-        screenShake = GetComponent<CinemachineImpulseSource>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         originalMat = spriteRenderer.material;
     }
 
-    private void Update()
+    protected virtual void Update()
     {
-        afterImageCooldownTimer -= Time.deltaTime;
     }
 
     public void CreatePopupText(string _text)
@@ -68,22 +50,6 @@ public class EntityFx : MonoBehaviour
         Vector3 offset = new Vector2(randomX, randomY);
         GameObject newPopupText = Instantiate(popupTextPrefab, transform.position + offset, Quaternion.identity);
         newPopupText.GetComponent<TextMeshPro>().text = _text;
-    }
-
-    public void ShakeScreen()
-    {
-        screenShake.m_DefaultVelocity = new Vector3(shakeDirection.x * player.facingDir, shakeDirection.y) * shakePower;
-        screenShake.GenerateImpulse();
-    }
-
-    public void CreateAfterImage()
-    {
-        if (afterImageCooldownTimer <= 0)
-        {
-            afterImageCooldownTimer = afterImageCooldow;
-            GameObject newAfterImage = Instantiate(afterImagePrefab, transform.position, transform.rotation);
-            newAfterImage.GetComponent<AfterImageFx>().SetupAfterImageFx(colorLoseRate, spriteRenderer.sprite);
-        }
     }
 
     public IEnumerator FlashFx()
@@ -122,7 +88,7 @@ public class EntityFx : MonoBehaviour
         Invoke(nameof(CancelColorChange), _second);
     }
 
-    private void ChillColorFx()
+    protected void ChillColorFx()
     {
         if (isFlashing) return;
         spriteRenderer.color = chillColor;
@@ -135,7 +101,7 @@ public class EntityFx : MonoBehaviour
         Invoke(nameof(CancelColorChange), _second);
     }
 
-    private void IgniteColorFx()
+    protected void IgniteColorFx()
     {
         if (isFlashing) return;
         if (spriteRenderer.color != igniteColor[0])
@@ -155,7 +121,7 @@ public class EntityFx : MonoBehaviour
         Invoke(nameof(CancelColorChange), _second);
     }
 
-    private void ShockColorFx()
+    protected void ShockColorFx()
     {
         if (isFlashing) return;
         if (spriteRenderer.color != shockColor[0])
@@ -210,13 +176,5 @@ public class EntityFx : MonoBehaviour
         newHitFx.transform.Rotate(hitFxRotation);
 
         Destroy(newHitFx, 0.5f);
-    }
-
-    public void PlayDustFx()
-    {
-        if (dustFx != null)
-        {
-            dustFx.Play();
-        }
     }
 }

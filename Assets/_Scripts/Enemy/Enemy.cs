@@ -29,6 +29,8 @@ public class Enemy : Entity, IAnimationDoneTrigger
     public string lastAnimBoolName { get; private set; }
 
     public EnemyStateMachine stateMachine { get; private set; }
+
+    public EntityFx fx { get; private set; }
     protected override void Awake()
     {
         base.Awake();
@@ -39,6 +41,7 @@ public class Enemy : Entity, IAnimationDoneTrigger
     protected override void Start()
     {
         base.Start();
+        fx = GetComponent<EntityFx>();
     }
 
     // Update is called once per frame
@@ -136,6 +139,12 @@ public class Enemy : Entity, IAnimationDoneTrigger
                 //player.stats.TakeDamage(stats.damage.GetValue());
             }
         }
+    }
+
+    public override void DamageEffect()
+    {
+        base.DamageEffect();
+        fx.StartCoroutine(fx.FlashFx());
     }
 
     #endregion
