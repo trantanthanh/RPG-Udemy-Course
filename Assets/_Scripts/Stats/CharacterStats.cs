@@ -168,7 +168,7 @@ public class CharacterStats : MonoBehaviour
         }
         else
         {
-            //_targetStats.fx.CreatePopupText("Missed");
+            _targetStats.fx.CreatePopupText("Missed");
             //evaded or damage is reduce to 0
         }
 
@@ -364,7 +364,7 @@ public class CharacterStats : MonoBehaviour
     protected virtual void TakeDamageWithoutEffect(int damage)
     {
         if (!isAlive) return;
-        //fx.CreatePopupText(damage.ToString());
+        fx.CreatePopupText(damage.ToString());
         currentHealth -= damage;
         if (currentHealth <= 0)
         {

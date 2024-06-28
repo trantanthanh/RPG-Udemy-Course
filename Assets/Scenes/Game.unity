@@ -55585,6 +55585,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 703596861239897970, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
+      propertyPath: iceDamage.baseValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 703596861239897970, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
+      propertyPath: fireDamage.baseValue
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3471302627653843766, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.11

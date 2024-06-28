@@ -722,10 +722,10 @@ MonoBehaviour:
     baseValue: 4
     modifers: 
   fireDamage:
-    baseValue: 1
+    baseValue: 0
     modifers: 
   iceDamage:
-    baseValue: 0
+    baseValue: 1
     modifers: 
   lightningDamage:
     baseValue: 0
