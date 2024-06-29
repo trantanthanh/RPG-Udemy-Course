@@ -7,6 +7,7 @@ public class SaveManager : MonoBehaviour
 {
     public static SaveManager Instance;
     [SerializeField] string fileSaveName;
+    [SerializeField] string filePath = "idbfs/thanhdev123987465/rpg-course-game";
     [SerializeField] bool encryptData;
 
     [Header("Skill Tree")]
@@ -50,6 +51,8 @@ public class SaveManager : MonoBehaviour
     {
 #if UNITY_EDITOR
         fileDataHandler = new FileDataHandler("D:\\Unity\\RPG-Udemy-Course", fileSaveName, encryptData);
+#elif PLATFORM_WEBGL
+        fileDataHandler = new FileDataHandler(filePath, fileSaveName, encryptData);
 #else
         fileDataHandler = new FileDataHandler(Application.persistentDataPath, fileSaveName, encryptData);
 #endif

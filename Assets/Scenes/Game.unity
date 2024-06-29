@@ -55623,7 +55623,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2218222922576820347, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
       propertyPath: m_DefaultVelocity.x
-      value: 0.2
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 3465770718182743945, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
       propertyPath: colorLoseRate
