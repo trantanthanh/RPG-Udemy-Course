@@ -16,6 +16,9 @@ public class SaveManager : MonoBehaviour
     List<ISaveManager> saveManagers;
     private FileDataHandler fileDataHandler;
 
+    private bool isLoaded = false;
+    public bool IsLoaded => isLoaded;
+
     [ContextMenu("Delete save file")]
     public void DeleteSavedData()
     {
@@ -25,6 +28,7 @@ public class SaveManager : MonoBehaviour
 
     private void Awake()
     {
+        isLoaded = false;
         if (Instance == null)
         {
             Instance = this;
@@ -71,6 +75,7 @@ public class SaveManager : MonoBehaviour
         }
 
         Debug.Log("Load currency " + gameData.currency);
+        isLoaded = true;
     }
 
     public void SaveGame()

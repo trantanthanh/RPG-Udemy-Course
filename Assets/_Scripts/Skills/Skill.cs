@@ -16,6 +16,15 @@ public class Skill : MonoBehaviour
 
     protected virtual void Start()
     {
+        StartCoroutine(WaitSaveLoadCheckUnlock());
+    }
+
+    IEnumerator WaitSaveLoadCheckUnlock()
+    {
+        while (!SaveManager.Instance.IsLoaded)
+        {
+            yield return null;
+        }
         CheckUnlock();
     }
 

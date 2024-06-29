@@ -29,6 +29,7 @@ public class DashSkill : Skill
         dashUnlocked = dashUnlockButton.unlocked;
         cloneOnDashUnlocked = cloneOnDashUnlockButton.unlocked;
         cloneOnArrivalUnlocked = cloneOnArrivalButton.unlocked;
+        Debug.Log("dash Unlock " + dashUnlocked);
     }
 
     private void CallBackUnlock()

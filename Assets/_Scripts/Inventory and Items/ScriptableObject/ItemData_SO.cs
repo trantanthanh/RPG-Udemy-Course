@@ -28,11 +28,11 @@ public class ItemData_SO : ScriptableObject
         return "";
     }
 
+#if UNITY_EDITOR
     private void OnValidate()
     {
-#if UNITY_EDITOR
         string path = AssetDatabase.GetAssetPath(this);
         itemId = AssetDatabase.AssetPathToGUID(path);
-#endif
     }
+#endif
 }

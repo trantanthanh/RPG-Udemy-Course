@@ -51,7 +51,7 @@ namespace Menu
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.C) && PlayerManager.Instance.player.stats.IsAlive())
+            if (Input.GetKeyDown(KeyCode.Escape) && PlayerManager.Instance.player.stats.IsAlive())
             {
                 if (!isMenuShow)
                 {
