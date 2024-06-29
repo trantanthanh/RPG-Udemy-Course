@@ -25,7 +25,6 @@ public class UI_SkillTreeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     private void OnValidate()
     {
-        ui = GetComponentInParent<UI>();
         gameObject.name = "SkillTreeSlot_UI - " + skillName;
 
         //Temporary
@@ -36,6 +35,7 @@ public class UI_SkillTreeSlot : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     private void Awake()
     {
+        ui = GetComponentInParent<UI>();
         skillImage = GetComponent<Image>();
         GetComponent<Button>().onClick.AddListener(() => UnlockSkillSlot());
     }

@@ -114,6 +114,7 @@ public class SaveManager : MonoBehaviour
 
     public bool HasSaveData()
     {
+        ConstructFileDataHandler();
         if (fileDataHandler.Load() != null)
         {
             return true;
