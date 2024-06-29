@@ -1,14 +1,12 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class PlayerItemDrop : ItemDrop
 {
     [Header("Player's Item drop")]
     [Range(0, 100)]
     [SerializeField] private int chanceToLostItemsEquipped;
-    
+
     [Range(0, 100)]
     [SerializeField] private int chanceToLostMaterials;
 

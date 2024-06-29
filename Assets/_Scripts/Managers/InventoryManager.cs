@@ -1,10 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 using UnityEngine;
-using static UnityEditor.Progress;
 
 //for manager collect item and remove item in out inventory
 public class InventoryManager : MonoBehaviour, ISaveManager
@@ -44,6 +42,7 @@ public class InventoryManager : MonoBehaviour, ISaveManager
 
 
     [Header("Data base")]
+    public List<ItemData_SO> listDataBase;
     public List<InventoryItem> loadedItems;
     public List<ItemData_Equipment_SO> loadedEquipment;
     // Start is called before the first frame update
@@ -409,7 +408,8 @@ public class InventoryManager : MonoBehaviour, ISaveManager
         Debug.Log("Item loaded");
         foreach (KeyValuePair<string, int> pair in _data.inventory)
         {
-            foreach (ItemData_SO item in GetItemDataBase())
+            //foreach (ItemData_SO item in GetItemDataBase())
+            foreach (ItemData_SO item in listDataBase)
             {
                 if (item != null && item.itemId == pair.Key)
                 {
@@ -423,7 +423,8 @@ public class InventoryManager : MonoBehaviour, ISaveManager
 
         foreach (string loadedItemId in _data.equipmentId)
         {
-            foreach (var item in GetItemDataBase())
+            //foreach (var item in GetItemDataBase())
+            foreach (var item in listDataBase)
             {
                 if (item != null && loadedItemId == item.itemId)
                 {
@@ -455,13 +456,13 @@ public class InventoryManager : MonoBehaviour, ISaveManager
             _data.equipmentId.Add(pair.Key.itemId);
         }
     }
-
+#if UNITY_EDITOR
+    [ContextMenu("Fill up items database")]
+    private void FillupItemDatabase() => listDataBase = new List<ItemData_SO>(GetItemDataBase());
     private List<ItemData_SO> GetItemDataBase()
     {
         List<ItemData_SO> itemDataBase = new List<ItemData_SO>();
-#if UNITY_EDITOR
         string[] assetNames = AssetDatabase.FindAssets("", new[] { "Assets/_Data" });
-#endif
 
         foreach (string SOName in assetNames)
         {
@@ -469,7 +470,7 @@ public class InventoryManager : MonoBehaviour, ISaveManager
             var itemData = AssetDatabase.LoadAssetAtPath<ItemData_SO>(SOpath);
             itemDataBase.Add(itemData);
         }
-
         return itemDataBase;
     }
+#endif
 }

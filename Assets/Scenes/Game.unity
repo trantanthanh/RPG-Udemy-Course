@@ -2712,6 +2712,42 @@ MonoBehaviour:
   stashSlotParent: {fileID: 1946857827}
   equipmentSlotParent: {fileID: 1637394735}
   statSlotParent: {fileID: 18462093}
+  listDataBase:
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 528310befcc077044bbffc6374d5a0c0, type: 2}
+  - {fileID: 11400000, guid: e12192ff3c7e0f741a1bba2aa56e1d83, type: 2}
+  - {fileID: 11400000, guid: 55c9bdaa7ee547a4b8374416b154857f, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 2e2824c0065710443be6ed9fe044c2c1, type: 2}
+  - {fileID: 11400000, guid: 31a6d83020582d14d9005e9e99a8fd94, type: 2}
+  - {fileID: 11400000, guid: 44dd28e2085c18f4eb97af835d4ec141, type: 2}
+  - {fileID: 11400000, guid: b9e1ffba39f1489488947ac8ccdb75c0, type: 2}
+  - {fileID: 11400000, guid: 9a7bd225765b28342ad4d1ec7bd84360, type: 2}
+  - {fileID: 11400000, guid: 64d122e4a7d1a714e8bbb28bfbbabc96, type: 2}
+  - {fileID: 11400000, guid: cb068e2ef1e7f2f40854a4c1c7e770c4, type: 2}
+  - {fileID: 11400000, guid: 477c02553d0d3d84892008a05a3e20a7, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 21069544a721d1f41aec18c0eaa6b093, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: fef05e3656c7cab458f862505090572c, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 7be52bb28722cda45b5563cf6d6349ab, type: 2}
+  - {fileID: 11400000, guid: 4fcdedbb628670c48b752a919e67a4be, type: 2}
+  - {fileID: 11400000, guid: 4811b8b999a0de342a526d4147df0adf, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: edbb161e8050587409122310a806247d, type: 2}
+  - {fileID: 11400000, guid: 9b9906a1f022b3d4cab29cdbf900e634, type: 2}
+  - {fileID: 11400000, guid: d7431eef806898945aa54a4e5236849e, type: 2}
   loadedItems: []
   loadedEquipment: []
 --- !u!224 &599424447 stripped
@@ -55585,6 +55621,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2218222922576820347, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
+      propertyPath: m_DefaultVelocity.x
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3465770718182743945, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
       propertyPath: colorLoseRate
       value: 2

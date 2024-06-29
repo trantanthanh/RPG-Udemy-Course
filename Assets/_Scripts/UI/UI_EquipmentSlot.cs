@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using static UnityEditor.Progress;
 
 //4 Slots equipment on hero
 public class UI_EquipmentSlot : UI_ItemSlot
