@@ -28,7 +28,6 @@
             "Parry - Mirrage attack"
         ],
         "values": [
-            true,
             false,
             false,
             false,
@@ -46,7 +45,8 @@
             false,
             false,
             false,
-            true,
+            false,
+            false,
             false,
             false,
             false,
@@ -94,8 +94,8 @@
     },
     "closestCheckPointId": "",
     "equipmentId": [],
-    "lostCurrencyX": -35.31392288208008,
-    "lostCurrencyY": -1.9648010730743409,
+    "lostCurrencyX": -29.14679718017578,
+    "lostCurrencyY": -1.9648016691207886,
     "lostCurrencyAmount": 0,
     "volumeSettings": {
         "keys": [

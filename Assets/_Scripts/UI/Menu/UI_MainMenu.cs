@@ -34,7 +34,6 @@ public class UI_MainMenu : MonoBehaviour
     public void NewGame()
     {
         SaveManager.Instance.DeleteSavedData();
-        SceneManager.LoadScene(sceneName);
         StartCoroutine(LoadSceneWithFadeEffect(1.5f));
     }
 
