@@ -98,6 +98,7 @@ namespace Menu
                 }
                 else
                 {
+                    transform.GetChild(i).gameObject.SetActive(true);
                     fakeScreen.FadeIn(false);//play once
                 }
             }
