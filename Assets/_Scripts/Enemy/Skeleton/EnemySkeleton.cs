@@ -11,6 +11,7 @@ public class EnemySkeleton : Enemy
     public SkeletonAttackState attackState { get; private set; }
     public SkeletonStunnedState stunnedState { get; private set; }
     public SkeletonDeadState deadState { get; private set; }
+    #endregion
 
     public override bool CanBeStunned()
     {
@@ -27,7 +28,6 @@ public class EnemySkeleton : Enemy
         base.DamageImpact();
         //Debug.Log("Skeleton has damaged");
     }
-    #endregion
 
     // Start is called before the first frame update
     protected override void Start()

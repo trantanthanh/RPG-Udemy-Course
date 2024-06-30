@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(CapsuleCollider2D))]
+[RequireComponent(typeof(EntityFx))]
+[RequireComponent(typeof(EnemyStats))]
+[RequireComponent(typeof(ItemDrop))]
 public class Enemy : Entity, IAnimationDoneTrigger
 {
     [Header("Stunned info")]
