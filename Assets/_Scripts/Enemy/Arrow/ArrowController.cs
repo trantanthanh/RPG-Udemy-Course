@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public class ArrowController : MonoBehaviour
 {
     [SerializeField] private string targetLayerName = "Player";
     [SerializeField] private int damage;
     [SerializeField] private float xVelocity;
+    ParticleSystem particle;
     Rigidbody2D rb;
     bool isFlipped;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        particle = GetComponentInChildren<ParticleSystem>();
         Invoke(nameof(DestroyArrow), 15f);
     }
 
@@ -37,6 +40,7 @@ public class ArrowController : MonoBehaviour
 
     private void StuckInto(Collider2D collision)
     {
+        particle.Stop();
         Invoke(nameof(DestroyArrow), 3f);
         transform.parent = collision.transform;
         rb.isKinematic = true;
