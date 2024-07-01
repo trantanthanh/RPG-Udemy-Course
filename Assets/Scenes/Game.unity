@@ -55928,10 +55928,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1004707878858182247, guid: dddd1991546b49049b746ddffd0d082a, type: 3}
-      propertyPath: slimesToCreate
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 2316243653279808482, guid: dddd1991546b49049b746ddffd0d082a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.97
@@ -55970,6 +55966,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2316243653279808482, guid: dddd1991546b49049b746ddffd0d082a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6516463102814617872, guid: dddd1991546b49049b746ddffd0d082a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6516463102814617872, guid: dddd1991546b49049b746ddffd0d082a, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8460321242613157492, guid: dddd1991546b49049b746ddffd0d082a, type: 3}

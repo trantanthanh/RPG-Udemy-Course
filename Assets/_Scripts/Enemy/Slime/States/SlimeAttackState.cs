@@ -19,7 +19,7 @@ public class SlimeAttackState : EnemyState
     public override void Exit()
     {
         base.Exit();
-        enemy.LastTimeAttack = Time.time;
+        enemy.UpdateNextAttack();
     }
 
     public override void Update()

@@ -668,7 +668,8 @@ MonoBehaviour:
   playerCheckStartPoint: {fileID: 2126391129520453864}
   distancePlayerCheck: 3
   distanceAttack: 1.5
-  attackCoolDown: 0.4
+  minAttackCoolDown: 0.7
+  maxAttackCoolDown: 0.1
   battleTime: 3
 --- !u!114 &6135700358029923230
 MonoBehaviour:

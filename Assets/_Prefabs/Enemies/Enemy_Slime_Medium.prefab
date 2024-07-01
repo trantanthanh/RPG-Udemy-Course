@@ -5138,7 +5138,8 @@ MonoBehaviour:
   playerCheckStartPoint: {fileID: 5519604769983732221}
   distancePlayerCheck: 3.61
   distanceAttack: 0.37
-  attackCoolDown: 0.7
+  minAttackCoolDown: 0.5
+  maxAttackCoolDown: 0.7
   battleTime: 3
   slimeType: 1
   slimesToCreate: 4

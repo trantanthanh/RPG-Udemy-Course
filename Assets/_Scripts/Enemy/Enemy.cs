@@ -21,11 +21,11 @@ public class Enemy : Entity, IAnimationDoneTrigger
     [SerializeField] protected GameObject playerCheckStartPoint;
     [SerializeField] protected float distancePlayerCheck;
     [SerializeField] protected float distanceAttack;
-    [SerializeField] protected float attackCoolDown = 0.4f;
+    [SerializeField] protected float minAttackCoolDown = 0.4f;
+    [SerializeField] protected float maxAttackCoolDown = 0.8f;
     [SerializeField] protected float battleTime = 1f;
+    private float attackCooldown = 0f;
     protected float lastTimeAttack = 0.0f;
-    public float LastTimeAttack { get { return lastTimeAttack; } set { lastTimeAttack = value; } }
-    public float AttackCoolDown { get { return attackCoolDown; } }
     public float BattleTime { get { return battleTime; } }
 
     public float DistanceAttack { get { return distanceAttack; } }
@@ -117,8 +117,14 @@ public class Enemy : Entity, IAnimationDoneTrigger
         FreezeTimer(false);
     }
 
+    public void UpdateNextAttack()
+    {
+        lastTimeAttack = Time.time;
+        attackCooldown = Random.Range(minAttackCoolDown, maxAttackCoolDown);
+    }
+
     public void AnimationDoneTrigger() => stateMachine.currentState.AnimationDoneTrigger();
-    public bool CanAttack() => Time.time > lastTimeAttack + attackCoolDown;
+    public bool CanAttack() => Time.time > lastTimeAttack + attackCooldown;
     public RaycastHit2D IsPlayerDetected() => Physics2D.Raycast(playerCheckStartPoint.transform.position, Vector2.right * facingDir, distancePlayerCheck, playerMask);
 
     protected override void OnDrawGizmos()
