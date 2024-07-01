@@ -40,13 +40,19 @@ public class PlayerCounterAttackState : PlayerState
 
         foreach (Collider2D collider in colliders)
         {
+            ArrowController arrow = collider.GetComponent<ArrowController>();
+            if (arrow != null)
+            {
+                arrow.FlipArrow();
+                SuccessfulCounterAttack();
+            }
+
             Enemy enemy = collider.GetComponent<Enemy>();
             if (enemy != null)
             {
                 if (enemy.CanBeStunned())
                 {
-                    timerState = 10f;//make sure animation SuccessfulCounterAttack can be done
-                    player.animator.SetBool("SuccessfulCounterAttack", true);
+                    SuccessfulCounterAttack();
                     if (canCreateClone)
                     {
                         canCreateClone = false;
@@ -56,5 +62,11 @@ public class PlayerCounterAttackState : PlayerState
                 }
             }
         }
+    }
+
+    private void SuccessfulCounterAttack()
+    {
+        timerState = 10f;//make sure animation SuccessfulCounterAttack can be done
+        player.animator.SetBool("SuccessfulCounterAttack", true);
     }
 }
