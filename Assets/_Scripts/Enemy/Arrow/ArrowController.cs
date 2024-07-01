@@ -27,13 +27,21 @@ public class ArrowController : MonoBehaviour
         {
             Debug.Log("arrow damage player");
             collision.GetComponent<CharacterStats>()?.TakeDamage(damage);
-
-            Invoke(nameof(DestroyArrow), 3f);
-            transform.parent = collision.transform;
-            rb.isKinematic = true;
-            rb.constraints = RigidbodyConstraints2D.FreezeAll;
-            GetComponent<CapsuleCollider2D>().enabled = false;
+            StuckInto(collision);
         }
+        else if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            StuckInto(collision);
+        }
+    }
+
+    private void StuckInto(Collider2D collision)
+    {
+        Invoke(nameof(DestroyArrow), 3f);
+        transform.parent = collision.transform;
+        rb.isKinematic = true;
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        GetComponent<CapsuleCollider2D>().enabled = false;
     }
 
     public void FlipArrow()
