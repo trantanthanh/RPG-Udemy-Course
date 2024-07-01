@@ -5120,7 +5120,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
-  moveSpeed: 3
+  moveSpeed: 2.3
   jumpForce: 12
   attackMovements: []
   attackCheck: {fileID: 6890574776746557249}
