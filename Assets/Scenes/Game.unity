@@ -55981,12 +55981,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2589322171878835423, guid: 411b61a7082eab546909c58ce9e825b6, type: 3}
-      propertyPath: maxAttackCoolDown
-      value: 3
+      propertyPath: jumpCooldown
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2589322171878835423, guid: 411b61a7082eab546909c58ce9e825b6, type: 3}
-      propertyPath: minAttackCoolDown
-      value: 2
+      propertyPath: jumpVelocity.x
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2589322171878835423, guid: 411b61a7082eab546909c58ce9e825b6, type: 3}
+      propertyPath: jumpVelocity.y
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7031703227475513312, guid: 411b61a7082eab546909c58ce9e825b6, type: 3}
       propertyPath: m_Name

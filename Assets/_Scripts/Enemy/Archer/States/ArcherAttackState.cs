@@ -36,6 +36,7 @@ public class ArcherAttackState : EnemyState
 
         if (triggerCalled)
         {
+            if (enemy.UpdateCheckToJumpState()) return;
             if (enemy.transform.position.x < player.position.x)
             {
                 moveDir = 1;

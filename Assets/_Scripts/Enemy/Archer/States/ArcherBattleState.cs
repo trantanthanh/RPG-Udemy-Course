@@ -25,6 +25,7 @@ public class ArcherBattleState : EnemyState
     public override void Update()
     {
         base.Update();
+        if (enemy.UpdateCheckToJumpState()) return;
         if (enemy.transform.position.x < player.position.x)
         {
             moveDir = 1;

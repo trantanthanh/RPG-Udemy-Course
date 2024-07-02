@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyAnimationsTrigger : MonoBehaviour
 {
     Enemy enemy => GetComponentInParent<Enemy>();
+    EnemyArcher archer =>GetComponentInParent<EnemyArcher>();
     IAnimationDoneTrigger enemyAnimTrigger => GetComponentInParent<IAnimationDoneTrigger>();
     private void AnimationDoneTrigger() => enemyAnimTrigger.AnimationDoneTrigger();
 
@@ -18,6 +19,9 @@ public class EnemyAnimationsTrigger : MonoBehaviour
 
     private void SpawnArrow()
     {
-
+        if (archer != null)
+        {
+            archer.SpawnArrow();
+        }
     }
 }

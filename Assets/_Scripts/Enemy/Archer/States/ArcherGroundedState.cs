@@ -22,7 +22,7 @@ public class ArcherGroundedState : EnemyState
     public override void Update()
     {
         base.Update();
-        if (enemy.IsPlayerDetected())
+        if (enemy.IsPlayerDetected() && enemy.CanAttack())
         {
             stateMachine.ChangeState(enemy.battleState);
         }

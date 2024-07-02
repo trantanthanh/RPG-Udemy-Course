@@ -3,6 +3,18 @@ using UnityEngine;
 
 public class EnemyArcher : Enemy
 {
+    [Header("Archer Specific info")]
+    public Vector2 jumpVelocity;
+    [SerializeField] private float jumpCooldown = 1f;
+    [SerializeField] GameObject arrowPrefab;
+    [SerializeField] Transform arrowPosSpawn;
+    [SerializeField] Transform behindGroundCheckStartpoint;
+    [SerializeField] Transform behindWallCheckStartpoint;
+    [SerializeField] Transform jumpCheckStartpoint;
+    [SerializeField] float distancePlayerJump;
+
+    private float nextTimeCanjump = 0f;
+
     #region States
     public ArcherIdleState idleState { get; private set; }
     public ArcherMoveState moveState { get; private set; }
@@ -10,6 +22,7 @@ public class EnemyArcher : Enemy
     public ArcherAttackState attackState { get; private set; }
     public ArcherStunnedState stunnedState { get; private set; }
     public ArcherDeadState deadState { get; private set; }
+    public ArcherJumpState jumpState { get; private set; }
     #endregion
 
     public override bool CanBeStunned()
@@ -37,8 +50,29 @@ public class EnemyArcher : Enemy
         attackState = new ArcherAttackState(this, stateMachine, "Attack", this);
         stunnedState = new ArcherStunnedState(this, stateMachine, "Stunned", this);
         deadState = new ArcherDeadState(this, stateMachine, "Dead", this);
+        jumpState = new ArcherJumpState(this, stateMachine, "Jump", this);
         stateMachine.Initialize(idleState);
     }
+
+    public bool UpdateCheckToJumpState()
+    {
+        if (CanJump() && IsPlayerNear() && IsGroundBehindDetected() && !IsBehindFaceWallDetected())
+        {
+            stateMachine.ChangeState(jumpState);
+            return true;
+        }
+        return false;
+    }
+    public void SpawnArrow()
+    {
+        GameObject newArrow = Instantiate(arrowPrefab, arrowPosSpawn.position, transform.rotation);
+        newArrow.GetComponent<ArrowController>().Direction = facingDir;
+    }
+    public bool CanJump() => Time.time > nextTimeCanjump;
+    public void UpdateTimeNextJump() => nextTimeCanjump = Time.time + jumpCooldown;
+    public RaycastHit2D IsPlayerNear() => Physics2D.Raycast(jumpCheckStartpoint.position, Vector2.right * facingDir, distancePlayerJump, playerMask);
+    public bool IsGroundBehindDetected() => Physics2D.Raycast(behindGroundCheckStartpoint.position, Vector2.down, distanceGroundCheck, groundMask);
+    public bool IsBehindFaceWallDetected() => Physics2D.Raycast(behindWallCheckStartpoint.position, Vector2.left * facingDir, distanceWallCheck, groundMask);
 
     // Update is called once per frame
     protected override void Update()
@@ -55,5 +89,19 @@ public class EnemyArcher : Enemy
     {
         base.Die();
         stateMachine.ChangeState(deadState);
+    }
+
+    protected override void OnDrawGizmos()
+    {
+        base.OnDrawGizmos();
+
+        Gizmos.color = Gizmos.color = Color.white;
+        Gizmos.DrawLine(jumpCheckStartpoint.position, new Vector2(jumpCheckStartpoint.position.x + facingDir * distancePlayerJump, jumpCheckStartpoint.position.y));
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(behindGroundCheckStartpoint.position, new Vector2(behindGroundCheckStartpoint.position.x, behindGroundCheckStartpoint.position.y - distanceGroundCheck));
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(behindWallCheckStartpoint.position, new Vector2(behindWallCheckStartpoint.position.x + -facingDir * distanceWallCheck, behindWallCheckStartpoint.position.y));
     }
 }

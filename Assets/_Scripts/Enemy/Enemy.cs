@@ -17,7 +17,7 @@ public class Enemy : Entity, IAnimationDoneTrigger
 
     [Header("Collision info")]
     [SerializeField] public float idleTime = 1.0f;
-    [SerializeField] LayerMask playerMask;
+    [SerializeField] protected LayerMask playerMask;
     [SerializeField] protected GameObject playerCheckStartPoint;
     [SerializeField] protected float distancePlayerCheck;
     [SerializeField] protected float distanceAttack;

@@ -8,6 +8,7 @@ public class ArrowController : MonoBehaviour
     [SerializeField] private string targetLayerName = "Player";
     [SerializeField] private int damage;
     [SerializeField] private float xVelocity;
+    public int Direction;
     //ParticleSystem particle;
     Rigidbody2D rb;
     bool isFlipped;
@@ -21,7 +22,7 @@ public class ArrowController : MonoBehaviour
 
     private void Update()
     {
-        rb.velocity = new Vector2(xVelocity, rb.velocity.y);
+        rb.velocity = new Vector2(xVelocity * Direction, rb.velocity.y);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

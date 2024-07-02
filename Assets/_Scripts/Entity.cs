@@ -103,7 +103,7 @@ public class Entity : MonoBehaviour
             knockBackDir = -1;
         }
 
-        Debug.Log("knockBackDir " + knockBackDir);
+        //Debug.Log("knockBackDir " + knockBackDir);
     }
 
     public virtual void DamageImpact() => StartCoroutine(KnockBackHit());
