@@ -7,6 +7,7 @@ public class EnemyArcher : Enemy
     public Vector2 jumpVelocity;
     [SerializeField] private float jumpCooldown = 1f;
     [SerializeField] GameObject arrowPrefab;
+    [SerializeField] float arrowSpeed = 5f;
     [SerializeField] Transform behindGroundCheckStartpoint;
     [SerializeField] Transform behindWallCheckStartpoint;
     [SerializeField] Transform jumpCheckStartpoint;
@@ -28,6 +29,7 @@ public class EnemyArcher : Enemy
     protected override void Reset()
     {
         base.Reset();
+        arrowSpeed = 5f;
         jumpVelocity = new Vector2(15f, 15f);
         jumpCooldown = 1.5f;
         distanceSafe = 2.56f;
@@ -73,7 +75,7 @@ public class EnemyArcher : Enemy
     public void SpawnArrow()
     {
         GameObject newArrow = Instantiate(arrowPrefab, attackCheck.position, transform.rotation);
-        newArrow.GetComponent<ArrowController>().Direction = facingDir;
+        newArrow.GetComponent<ArrowController>().SetupArrow(arrowSpeed, stats.damage.GetValue(),facingDir);
     }
     public bool CanJump() => Time.time > nextTimeCanjump;
     public void UpdateTimeNextJump() => nextTimeCanjump = Time.time + jumpCooldown;

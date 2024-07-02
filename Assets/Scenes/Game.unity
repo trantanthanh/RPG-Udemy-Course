@@ -55980,6 +55980,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2589322171878835423, guid: 411b61a7082eab546909c58ce9e825b6, type: 3}
+      propertyPath: arrowSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3779823770451578012, guid: 411b61a7082eab546909c58ce9e825b6, type: 3}
+      propertyPath: damage.baseValue
+      value: 22
+      objectReference: {fileID: 0}
     - target: {fileID: 7031703227475513312, guid: 411b61a7082eab546909c58ce9e825b6, type: 3}
       propertyPath: m_Name
       value: Enemy_Archer

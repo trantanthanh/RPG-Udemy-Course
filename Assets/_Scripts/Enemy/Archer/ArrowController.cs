@@ -6,9 +6,9 @@ using static UnityEngine.ParticleSystem;
 public class ArrowController : MonoBehaviour
 {
     [SerializeField] private string targetLayerName = "Player";
-    [SerializeField] private int damage;
     [SerializeField] private float xVelocity;
-    public int Direction;
+    private int damage;
+    public int direction;
     //ParticleSystem particle;
     Rigidbody2D rb;
     bool isFlipped;
@@ -22,7 +22,14 @@ public class ArrowController : MonoBehaviour
 
     private void Update()
     {
-        rb.velocity = new Vector2(xVelocity * Direction, rb.velocity.y);
+        rb.velocity = new Vector2(xVelocity * direction, rb.velocity.y);
+    }
+
+    public void SetupArrow(float _speed,int _damage, int _direction)
+    {
+        this.xVelocity = _speed;
+        this.damage = _damage;
+        this.direction = _direction;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
