@@ -5414,7 +5414,7 @@ Transform:
   m_GameObject: {fileID: 4543929612691935173}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.05, y: -0.25, z: 0}
+  m_LocalPosition: {x: 0.66, y: 0.69, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10315,37 +10315,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 87085560865203021}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6724090798050665438
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3232619631331692735}
-  m_Layer: 8
-  m_Name: ArrowPosSpawn
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3232619631331692735
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6724090798050665438}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.66, y: 0.69, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 87085560865203021}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7031703227475513312
 GameObject:
   m_ObjectHideFlags: 0
@@ -10384,7 +10353,6 @@ Transform:
   - {fileID: 409989955585897174}
   - {fileID: 6277068844050090017}
   - {fileID: 1605711265899615847}
-  - {fileID: 3232619631331692735}
   - {fileID: 8101497637240849665}
   - {fileID: 6646110287246222855}
   - {fileID: 1299603046785487629}
@@ -10482,7 +10450,7 @@ MonoBehaviour:
   jumpForce: 12
   attackMovements: []
   attackCheck: {fileID: 1503525770188117476}
-  attackCheckRadius: 0.88
+  attackCheckRadius: 0.38
   knockBackPower: {x: 5, y: 9}
   knockBackDuration: 0.07
   animator: {fileID: 0}
@@ -10502,7 +10470,6 @@ MonoBehaviour:
   jumpVelocity: {x: 15, y: 15}
   jumpCooldown: 1.5
   arrowPrefab: {fileID: 1347741334131808856, guid: 44afadb2e52424941ae4ba0c0cde3c2d, type: 3}
-  arrowPosSpawn: {fileID: 3232619631331692735}
   behindGroundCheckStartpoint: {fileID: 1605711265899615847}
   behindWallCheckStartpoint: {fileID: 6646110287246222855}
   jumpCheckStartpoint: {fileID: 1299603046785487629}

@@ -8,7 +8,7 @@ public class LostCurrencyController : MonoBehaviour
     {
         if (collision.GetComponent<Player>() != null)
         {
-            Debug.Log("Picked up currency");
+            //Debug.Log("Picked up currency");
             PlayerManager.Instance.currentCurrency += currency;
             Destroy(this.gameObject);
         }

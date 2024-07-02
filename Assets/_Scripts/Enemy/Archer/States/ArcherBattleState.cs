@@ -47,6 +47,10 @@ public class ArcherBattleState : EnemyState
                 {
                     stateMachine.ChangeState(enemy.attackState);
                 }
+                else
+                {
+                    stateMachine.ChangeState(enemy.idleState);
+                }
             }
         }
         else

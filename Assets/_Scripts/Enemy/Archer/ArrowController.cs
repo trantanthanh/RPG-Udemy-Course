@@ -29,7 +29,6 @@ public class ArrowController : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer(targetLayerName))
         {
-            Debug.Log("arrow damage player");
             collision.GetComponent<CharacterStats>()?.TakeDamage(damage);
             StuckInto(collision);
         }

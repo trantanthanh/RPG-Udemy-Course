@@ -30,7 +30,7 @@ public class ItemObject : MonoBehaviour
 
     public void PickupItem()
     {
-        Debug.Log("Pickup item - " + itemData.itemName);
+        //Debug.Log("Pickup item - " + itemData.itemName);
         if (!InventoryManager.Instance.CanAddItem(itemData))
         {
             myRigidBody.velocity = new Vector2(0, 7);
