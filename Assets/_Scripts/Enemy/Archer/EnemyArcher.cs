@@ -10,7 +10,7 @@ public class EnemyArcher : Enemy
     [SerializeField] Transform behindGroundCheckStartpoint;
     [SerializeField] Transform behindWallCheckStartpoint;
     [SerializeField] Transform jumpCheckStartpoint;
-    [SerializeField] float distancePlayerJump;
+    [SerializeField] float distanceSafe;
 
     private float nextTimeCanjump = 0f;
 
@@ -24,6 +24,14 @@ public class EnemyArcher : Enemy
     public ArcherJumpState jumpState { get; private set; }
     #endregion
 
+
+    protected override void Reset()
+    {
+        base.Reset();
+        jumpVelocity = new Vector2(15f, 15f);
+        jumpCooldown = 1.5f;
+        distanceSafe = 2.56f;
+    }
     public override bool CanBeStunned()
     {
         if (base.CanBeStunned())
@@ -69,7 +77,7 @@ public class EnemyArcher : Enemy
     }
     public bool CanJump() => Time.time > nextTimeCanjump;
     public void UpdateTimeNextJump() => nextTimeCanjump = Time.time + jumpCooldown;
-    public RaycastHit2D IsPlayerNear() => Physics2D.Raycast(jumpCheckStartpoint.position, Vector2.right * facingDir, distancePlayerJump, playerMask);
+    public RaycastHit2D IsPlayerNear() => Physics2D.Raycast(jumpCheckStartpoint.position, Vector2.right * facingDir, distanceSafe, playerMask);
     public bool IsGroundBehindDetected() => Physics2D.Raycast(behindGroundCheckStartpoint.position, Vector2.down, distanceGroundCheck, groundMask);
     public bool IsBehindFaceWallDetected() => Physics2D.Raycast(behindWallCheckStartpoint.position, Vector2.left * facingDir, distanceWallCheck, groundMask);
 
@@ -95,7 +103,7 @@ public class EnemyArcher : Enemy
         base.OnDrawGizmos();
 
         Gizmos.color = Gizmos.color = Color.white;
-        Gizmos.DrawLine(jumpCheckStartpoint.position, new Vector2(jumpCheckStartpoint.position.x + facingDir * distancePlayerJump, jumpCheckStartpoint.position.y));
+        Gizmos.DrawLine(jumpCheckStartpoint.position, new Vector2(jumpCheckStartpoint.position.x + facingDir * distanceSafe, jumpCheckStartpoint.position.y));
 
         Gizmos.color = Color.green;
         Gizmos.DrawLine(behindGroundCheckStartpoint.position, new Vector2(behindGroundCheckStartpoint.position.x, behindGroundCheckStartpoint.position.y - distanceGroundCheck));

@@ -7,7 +7,9 @@ public class SaveManager : MonoBehaviour
 {
     public static SaveManager Instance;
     [SerializeField] string fileSaveName;
+#if PLATFORM_WEBGL
     [SerializeField] string filePath = "idbfs/thanhdev123987465/rpg-course-game";
+#endif
     [SerializeField] bool encryptData;
 
     [Header("Skill Tree")]

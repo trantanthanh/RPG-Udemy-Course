@@ -70,6 +70,21 @@ public class Entity : MonoBehaviour
 
     public System.Action onFlipped;
 
+    protected virtual void Reset()
+    {
+        //reset to default value
+        distanceGroundCheck = 0.19f;
+        distanceWallCheck = 0.77f;
+
+        moveSpeed = 8f;
+        jumpForce = 12f;
+
+        attackCheckRadius = 0.8f;
+
+        knockBackPower = new Vector2(5, 9);
+        knockBackDuration = 0.07f;
+    }
+
     protected virtual void Awake()
     {
         defaultMoveSpeed = moveSpeed;

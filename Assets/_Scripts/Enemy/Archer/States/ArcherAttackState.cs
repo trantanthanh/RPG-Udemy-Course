@@ -37,6 +37,7 @@ public class ArcherAttackState : EnemyState
         if (triggerCalled)
         {
             if (enemy.UpdateCheckToJumpState()) return;
+
             if (enemy.transform.position.x < player.position.x)
             {
                 moveDir = 1;
@@ -46,11 +47,13 @@ public class ArcherAttackState : EnemyState
                 moveDir = -1;
             }
 
+            enemy.SetVelocity(enemy.MoveSpeed * moveDir, rb.velocity.y);
             RaycastHit2D hit = enemy.IsPlayerDetected();
             if (hit)//saw player
             {
                 if (hit.distance < enemy.DistanceAttack)
                 {
+                    enemy.SetZeroVelocity();
                     if (enemy.CanAttack())
                     {
                         triggerCalled = false;

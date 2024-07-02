@@ -55980,25 +55980,12 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1503525770188117476, guid: 411b61a7082eab546909c58ce9e825b6, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.66
-      objectReference: {fileID: 0}
-    - target: {fileID: 1503525770188117476, guid: 411b61a7082eab546909c58ce9e825b6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.69
-      objectReference: {fileID: 0}
-    - target: {fileID: 2589322171878835423, guid: 411b61a7082eab546909c58ce9e825b6, type: 3}
-      propertyPath: attackCheckRadius
-      value: 0.38
-      objectReference: {fileID: 0}
     - target: {fileID: 7031703227475513312, guid: 411b61a7082eab546909c58ce9e825b6, type: 3}
       propertyPath: m_Name
       value: Enemy_Archer
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 6724090798050665438, guid: 411b61a7082eab546909c58ce9e825b6, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 411b61a7082eab546909c58ce9e825b6, type: 3}

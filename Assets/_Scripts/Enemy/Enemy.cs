@@ -36,6 +36,21 @@ public class Enemy : Entity, IAnimationDoneTrigger
     public EnemyStateMachine stateMachine { get; private set; }
 
     public EntityFx fx { get; private set; }
+
+    protected override void Reset()
+    {
+        base.Reset();
+        stunDuration = 1.0f;
+        stunDirection = new Vector2(8, 12);
+        idleTime = 1.0f;
+
+        distancePlayerCheck = 3f;//11f for acher
+        distanceAttack = 1.5f;//11f for archer
+        minAttackCoolDown = 0.4f;
+        maxAttackCoolDown = 0.8f;
+        battleTime = 3f;
+    }
+
     protected override void Awake()
     {
         base.Awake();
