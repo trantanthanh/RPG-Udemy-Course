@@ -10381,7 +10381,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
-  moveSpeed: 2
+  moveSpeed: 5
   jumpForce: 12
   attackMovements: []
   attackCheck: {fileID: 1503525770188117476}
@@ -10399,8 +10399,8 @@ MonoBehaviour:
   playerCheckStartPoint: {fileID: 2296697309818551970}
   distancePlayerCheck: 11.09
   distanceAttack: 11.08
-  minAttackCoolDown: 0.4
-  maxAttackCoolDown: 0.8
+  minAttackCoolDown: 2
+  maxAttackCoolDown: 3
   battleTime: 3
 --- !u!114 &392396666532459466
 MonoBehaviour:

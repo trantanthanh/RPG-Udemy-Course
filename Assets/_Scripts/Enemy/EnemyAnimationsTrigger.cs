@@ -15,4 +15,9 @@ public class EnemyAnimationsTrigger : MonoBehaviour
 
     private void OpenCounterAttack() => enemy.OpenCounterAttack();
     private void CloseCounterAttack() => enemy.CloseCounterAttack();
+
+    private void SpawnArrow()
+    {
+
+    }
 }

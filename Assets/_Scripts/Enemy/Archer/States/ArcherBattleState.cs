@@ -1,13 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 
-public class SlimeBattleState : EnemyState
+public class ArcherBattleState : EnemyState
 {
-    EnemySlime enemy;
+    EnemyArcher enemy;
     Transform player;
     int moveDir = 1;//1 : move right, -1 move left
-    public SlimeBattleState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animName, EnemySlime _enemy) : base(_enemyBase, _stateMachine, _animName)
+    public ArcherBattleState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animName, EnemyArcher _enemy) : base(_enemyBase, _stateMachine, _animName)
     {
         this.enemy = _enemy;
     }
@@ -26,7 +25,6 @@ public class SlimeBattleState : EnemyState
     public override void Update()
     {
         base.Update();
-
         if (enemy.transform.position.x < player.position.x)
         {
             moveDir = 1;

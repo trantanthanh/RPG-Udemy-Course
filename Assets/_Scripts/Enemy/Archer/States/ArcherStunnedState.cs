@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 
-public class SlimeStunnedState : EnemyState
+public class ArcherStunnedState : EnemyState
 {
-    EnemySlime enemy;
-    public SlimeStunnedState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animName, EnemySlime _enemy) : base(_enemyBase, _stateMachine, _animName)
+    protected EnemyArcher enemy;
+    public ArcherStunnedState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animName, EnemyArcher _enemy) : base(_enemyBase, _stateMachine, _animName)
     {
         this.enemy = _enemy;
     }

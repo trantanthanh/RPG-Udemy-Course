@@ -1,13 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 
-public class SkeletonDeadState : EnemyState
+public class ArcherDeadState : EnemyState
 {
-    private EnemySkeleton enemy;
-    public SkeletonDeadState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animName, EnemySkeleton enemy) : base(_enemyBase, _stateMachine, _animName)
+    EnemyArcher enemy;
+    public ArcherDeadState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animName, EnemyArcher _enemy) : base(_enemyBase, _stateMachine, _animName)
     {
-        this.enemy = enemy;
+        this.enemy = _enemy;
     }
 
     public override void Enter()
