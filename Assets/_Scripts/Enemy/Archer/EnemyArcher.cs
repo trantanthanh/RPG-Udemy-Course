@@ -9,6 +9,7 @@ public class EnemyArcher : Enemy
     [SerializeField] GameObject arrowPrefab;
     [SerializeField] float arrowSpeed = 5f;
     [SerializeField] Transform behindGroundCheckStartpoint;
+    //[SerializeField] Vector2 groundBehindChecksize;
     [SerializeField] Transform behindWallCheckStartpoint;
     [SerializeField] Transform jumpCheckStartpoint;
     [SerializeField] float distanceSafe;
@@ -33,6 +34,8 @@ public class EnemyArcher : Enemy
         jumpVelocity = new Vector2(15f, 15f);
         jumpCooldown = 1.5f;
         distanceSafe = 2.56f;
+
+        //groundBehindChecksize = new Vector2(1.5f, 1.08f);
     }
     public override bool CanBeStunned()
     {
@@ -81,6 +84,7 @@ public class EnemyArcher : Enemy
     public void UpdateTimeNextJump() => nextTimeCanjump = Time.time + jumpCooldown;
     public RaycastHit2D IsPlayerNear() => Physics2D.Raycast(jumpCheckStartpoint.position, Vector2.right * facingDir, distanceSafe, playerMask);
     public bool IsGroundBehindDetected() => Physics2D.Raycast(behindGroundCheckStartpoint.position, Vector2.down, distanceGroundCheck, groundMask);
+    //public bool GroundBehindCheck() => Physics2D.BoxCast(behindGroundCheckStartpoint.position, groundBehindChecksize, 0, Vector2.zero, 0, groundMask);
     public bool IsBehindFaceWallDetected() => Physics2D.Raycast(behindWallCheckStartpoint.position, Vector2.left * facingDir, distanceWallCheck, groundMask);
 
     // Update is called once per frame
@@ -104,7 +108,7 @@ public class EnemyArcher : Enemy
     {
         base.OnDrawGizmos();
 
-        Gizmos.color = Gizmos.color = Color.white;
+        Gizmos.color = Color.white;
         Gizmos.DrawLine(jumpCheckStartpoint.position, new Vector2(jumpCheckStartpoint.position.x + facingDir * distanceSafe, jumpCheckStartpoint.position.y));
 
         Gizmos.color = Color.green;
@@ -112,5 +116,8 @@ public class EnemyArcher : Enemy
 
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(behindWallCheckStartpoint.position, new Vector2(behindWallCheckStartpoint.position.x + -facingDir * distanceWallCheck, behindWallCheckStartpoint.position.y));
+
+        //Gizmos.color = Color.yellow;
+        //Gizmos.DrawWireCube(behindGroundCheckStartpoint.position, groundBehindChecksize);
     }
 }
