@@ -24,12 +24,19 @@ public class Enemy : Entity, IAnimationDoneTrigger
     [SerializeField] protected float minAttackCoolDown = 0.4f;
     [SerializeField] protected float maxAttackCoolDown = 0.8f;
     [SerializeField] protected float battleTime = 1f;
+
+    [Header("Dead info")]
+    [SerializeField] protected float deadTimeFlyUp = 0.1f;
+    [SerializeField] protected Vector2 deadVelocityFallDown = new Vector2(0, 10);
+    public float DeadTimeFlyUp => deadTimeFlyUp;
+    public Vector2 DeadVelocityFallDown => deadVelocityFallDown;
+
     private float attackCooldown = 0f;
     protected float lastTimeAttack = 0.0f;
-    public float BattleTime { get { return battleTime; } }
+    public float BattleTime => battleTime;
 
-    public float DistanceAttack { get { return distanceAttack; } }
-    public float DistancePlayerCheck { get { return distanceAttack; } }
+    public float DistanceAttack => distanceAttack;
+    public float DistancePlayerCheck => distanceAttack;
 
     public string lastAnimBoolName { get; private set; }
 
@@ -49,6 +56,9 @@ public class Enemy : Entity, IAnimationDoneTrigger
         minAttackCoolDown = 0.4f;
         maxAttackCoolDown = 0.8f;
         battleTime = 3f;
+
+        deadTimeFlyUp = 0.1f;
+        deadVelocityFallDown = new Vector2(0, 10);
     }
 
     protected override void Awake()
@@ -171,6 +181,13 @@ public class Enemy : Entity, IAnimationDoneTrigger
     {
         base.DamageEffect();
         fx.StartCoroutine(fx.FlashFx());
+    }
+
+    public void SetupForDead()
+    {
+        animator.SetBool(lastAnimBoolName, true);
+        animator.speed = 0;
+        capsuleCollider.enabled = false;
     }
 
     #endregion

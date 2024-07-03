@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class ArcherDeadState : EnemyState
+public class ShadyDeadState : EnemyState
 {
-    EnemyArcher enemy;
-    public ArcherDeadState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animName, EnemyArcher _enemy) : base(_enemyBase, _stateMachine, _animName)
+    EnemyShady enemy;
+    public ShadyDeadState(Enemy _enemyBase, EnemyStateMachine _stateMachine, string _animName, EnemyShady _enemy) : base(_enemyBase, _stateMachine, _animName)
     {
         this.enemy = _enemy;
     }
@@ -14,6 +14,11 @@ public class ArcherDeadState : EnemyState
         base.Enter();
         enemy.SetupForDead();
         stateTimer = enemy.DeadTimeFlyUp;
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
     }
 
     public override void Update()

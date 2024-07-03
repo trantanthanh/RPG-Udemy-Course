@@ -13,15 +13,8 @@ public class SkeletonDeadState : EnemyState
     public override void Enter()
     {
         base.Enter();
-        enemy.animator.SetBool(enemy.lastAnimBoolName, true);
-        enemy.animator.speed = 0;
-        enemy.capsuleCollider.enabled = false;
-        stateTimer = 0.1f;
-    }
-
-    public override void Exit()
-    {
-        base.Exit();
+        enemy.SetupForDead();
+        stateTimer = enemy.DeadTimeFlyUp;
     }
 
     public override void Update()
@@ -29,7 +22,7 @@ public class SkeletonDeadState : EnemyState
         base.Update();
         if (stateTimer > 0)
         {
-            rb.velocity = new Vector2(0, 10);
+            rb.velocity = enemy.DeadVelocityFallDown;
         }
     }
 }
