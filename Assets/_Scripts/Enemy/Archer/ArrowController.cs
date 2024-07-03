@@ -7,7 +7,6 @@ public class ArrowController : MonoBehaviour
 {
     [SerializeField] private string targetLayerName = "Player";
     [SerializeField] private float xVelocity;
-    private int damage;
     public int direction;
     CharacterStats myStats;
     //ParticleSystem particle;
@@ -26,10 +25,9 @@ public class ArrowController : MonoBehaviour
         rb.velocity = new Vector2(xVelocity * direction, rb.velocity.y);
     }
 
-    public void SetupArrow(float _speed, int _damage, int _direction, CharacterStats _myStats)
+    public void SetupArrow(float _speed, int _direction, CharacterStats _myStats)
     {
         this.xVelocity = _speed;
-        this.damage = _damage;
         this.direction = _direction;
         this.myStats = _myStats;
     }

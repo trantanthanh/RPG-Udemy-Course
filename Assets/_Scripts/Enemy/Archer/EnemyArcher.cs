@@ -75,7 +75,7 @@ public class EnemyArcher : Enemy
     public void SpawnArrow()
     {
         GameObject newArrow = Instantiate(arrowPrefab, attackCheck.position, transform.rotation);
-        newArrow.GetComponent<ArrowController>().SetupArrow(arrowSpeed, stats.damage.GetValue(),facingDir, stats);
+        newArrow.GetComponent<ArrowController>().SetupArrow(arrowSpeed, facingDir, stats);
     }
     public bool CanJump() => Time.time > nextTimeCanjump;
     public void UpdateTimeNextJump() => nextTimeCanjump = Time.time + jumpCooldown;
