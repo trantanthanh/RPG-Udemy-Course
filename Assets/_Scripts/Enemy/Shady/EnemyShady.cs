@@ -29,7 +29,7 @@ public class EnemyShady : Enemy
         base.Start();
         idleState = new ShadyIdleState(this, stateMachine, "Idle", this);
         moveState = new ShadyMoveState(this, stateMachine, "Move", this);
-        battleState = new ShadyBattleState(this, stateMachine, "Move", this);
+        battleState = new ShadyBattleState(this, stateMachine, "MoveFast", this);
         attackState = new ShadyAttackState(this, stateMachine, "Attack", this);
         stunnedState = new ShadyStunnedState(this, stateMachine, "Stunned", this);
         deadState = new ShadyDeadState(this, stateMachine, "Dead", this);
