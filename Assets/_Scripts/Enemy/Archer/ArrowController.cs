@@ -9,6 +9,7 @@ public class ArrowController : MonoBehaviour
     [SerializeField] private float xVelocity;
     private int damage;
     public int direction;
+    CharacterStats myStats;
     //ParticleSystem particle;
     Rigidbody2D rb;
     bool isFlipped;
@@ -25,18 +26,23 @@ public class ArrowController : MonoBehaviour
         rb.velocity = new Vector2(xVelocity * direction, rb.velocity.y);
     }
 
-    public void SetupArrow(float _speed,int _damage, int _direction)
+    public void SetupArrow(float _speed, int _damage, int _direction, CharacterStats _myStats)
     {
         this.xVelocity = _speed;
         this.damage = _damage;
         this.direction = _direction;
+        this.myStats = _myStats;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer(targetLayerName))
         {
-            collision.GetComponent<CharacterStats>()?.TakeDamage(damage);
+            CharacterStats targetStats = collision.GetComponent<CharacterStats>();
+            if (targetStats != null)
+            {
+                myStats.DoDamage(targetStats);
+            }
             StuckInto(collision);
         }
         else if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))

@@ -10533,7 +10533,7 @@ MonoBehaviour:
     baseValue: 0
     modifers: 
   lightningDamage:
-    baseValue: 1
+    baseValue: 0
     modifers: 
   isIgnited: 0
   isChilled: 0
