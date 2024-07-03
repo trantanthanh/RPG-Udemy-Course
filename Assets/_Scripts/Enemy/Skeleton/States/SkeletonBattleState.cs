@@ -36,7 +36,7 @@ public class SkeletonBattleState : EnemyState
             moveDir = -1;
         }
 
-        enemy.SetVelocity(enemy.MoveSpeed * moveDir, rb.velocity.y);
+        enemy.SetVelocity(enemy.CurrentMoveSpeed * moveDir, rb.velocity.y);
         RaycastHit2D hit = enemy.IsPlayerDetected();
         if (hit)//saw player
         {

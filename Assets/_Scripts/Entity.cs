@@ -13,7 +13,9 @@ public class Entity : MonoBehaviour
 
     [Header("Move info")]
     [SerializeField] protected float moveSpeed = 8f;
+    [SerializeField] protected float moveSpeedFast = 12f;
     [SerializeField] protected float jumpForce = 12f;
+    protected float currentMoveSpeed = 0f;
     protected float defaultMoveSpeed = 0f;
     protected float defaultJumpForce = 0f;
 
@@ -33,31 +35,26 @@ public class Entity : MonoBehaviour
     public int facingDir { get; private set; } = 1;//-1 left, 1 right
     protected bool isFacingRight = true;
 
-    public bool IsFacingRight
-    {
-        get
-        {
-            return isFacingRight;
-        }
-    }
+    public bool IsFacingRight => isFacingRight;
 
     public bool isBusy { get; private set; } // for delay to skip block code in frame after
 
-    public float MoveSpeed
+    public float CurrentMoveSpeed
     {
         get
         {
-            return moveSpeed;
+            return currentMoveSpeed;
+        }
+        set
+        {
+            currentMoveSpeed = value;
         }
     }
 
-    public float JumpForce
-    {
-        get
-        {
-            return jumpForce;
-        }
-    }
+    public float NormalSpeed => moveSpeed;
+    public float FastSpeed => moveSpeedFast;
+
+    public float JumpForce => jumpForce;
 
     #region Components
     [HideInInspector]
@@ -77,6 +74,7 @@ public class Entity : MonoBehaviour
         distanceWallCheck = 0.77f;
 
         moveSpeed = 8f;
+        moveSpeedFast = 12f;
         jumpForce = 12f;
 
         attackCheckRadius = 0.8f;
@@ -87,7 +85,13 @@ public class Entity : MonoBehaviour
 
     protected virtual void Awake()
     {
-        defaultMoveSpeed = moveSpeed;
+        currentMoveSpeed = moveSpeed;//normal speed
+        BackupMoveSpeedAndJump();
+    }
+
+    private void BackupMoveSpeedAndJump()
+    {
+        defaultMoveSpeed = currentMoveSpeed;
         defaultJumpForce = jumpForce;
     }
 
@@ -186,8 +190,9 @@ public class Entity : MonoBehaviour
 
     public virtual void SlowEntityBy(float _slowPercentage, float _duration)
     {
+        BackupMoveSpeedAndJump();
         animator.speed *= (1 - _slowPercentage);
-        moveSpeed *= (1 - _slowPercentage);
+        currentMoveSpeed *= (1 - _slowPercentage);
         jumpForce *= (1 - _slowPercentage);
         Invoke(nameof(ReturnDefaultSpeed), _duration);
     }
@@ -195,7 +200,7 @@ public class Entity : MonoBehaviour
     public virtual void ReturnDefaultSpeed()
     {
         animator.speed = 1;
-        moveSpeed = defaultMoveSpeed;
+        currentMoveSpeed = defaultMoveSpeed;
         jumpForce = defaultJumpForce;
     }
 

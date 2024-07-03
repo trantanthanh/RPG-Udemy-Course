@@ -673,6 +673,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   moveSpeed: 3
+  moveSpeedFast: 5
   jumpForce: 12
   attackMovements: []
   attackCheck: {fileID: 7520835815744752132}
@@ -688,7 +689,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   playerCheckStartPoint: {fileID: 4047721737692736179}
-  distancePlayerCheck: 3
+  distancePlayerCheck: 8.84
   distanceAttack: 1.5
   minAttackCoolDown: 0.4
   maxAttackCoolDown: 0.8
@@ -721,8 +722,8 @@ Transform:
   m_GameObject: {fileID: 6254269110667596382}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.037, y: 0.566, z: 0}
-  m_LocalScale: {x: 0.82145387, y: 0.82145387, z: 0.82145387}
+  m_LocalPosition: {x: -0.053, y: 0.378, z: 0}
+  m_LocalScale: {x: 1.0612363, y: 1.0612363, z: 1.0612363}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5798558386115653514}
@@ -768,7 +769,7 @@ SpriteRenderer:
   m_SortingLayerID: 1225981665
   m_SortingLayer: 6
   m_SortingOrder: -10
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 0.5411765}
   m_FlipX: 0
   m_FlipY: 0

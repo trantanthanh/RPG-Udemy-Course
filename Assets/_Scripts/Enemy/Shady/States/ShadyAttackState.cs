@@ -12,7 +12,6 @@ public class ShadyAttackState : EnemyState
     public override void Enter()
     {
         base.Enter();
-        enemy.SetZeroVelocity();
     }
 
     public override void Exit()

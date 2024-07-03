@@ -17,6 +17,6 @@ public class ShadyMoveState : ShadyGroundedState
             return;
         }
 
-        enemy.SetVelocity(enemy.facingDir * enemy.MoveSpeed, rb.velocity.y);
+        enemy.SetVelocity(enemy.facingDir * enemy.CurrentMoveSpeed, rb.velocity.y);
     }
 }

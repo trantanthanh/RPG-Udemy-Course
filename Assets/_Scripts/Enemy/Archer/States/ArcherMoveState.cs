@@ -28,6 +28,6 @@ public class ArcherMoveState : ArcherGroundedState
             return;
         }
 
-        enemy.SetVelocity(enemy.facingDir * enemy.MoveSpeed, rb.velocity.y);
+        enemy.SetVelocity(enemy.facingDir * enemy.CurrentMoveSpeed, rb.velocity.y);
     }
 }

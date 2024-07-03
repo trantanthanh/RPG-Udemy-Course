@@ -15,7 +15,14 @@ public class ShadyBattleState : EnemyState
     public override void Enter()
     {
         base.Enter();
+        enemy.CurrentMoveSpeed = enemy.FastSpeed;
         player = PlayerManager.Instance.player.transform;
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+        enemy.CurrentMoveSpeed = enemy.NormalSpeed;
     }
 
     public override void Update()
@@ -31,18 +38,17 @@ public class ShadyBattleState : EnemyState
             moveDir = -1;
         }
 
-        enemy.SetVelocity(enemy.MoveSpeed * moveDir, rb.velocity.y);
+        enemy.SetVelocity(enemy.CurrentMoveSpeed * moveDir, rb.velocity.y);
         RaycastHit2D hit = enemy.IsPlayerDetected();
         if (hit)//saw player
         {
             stateTimer = enemy.BattleTime;
             if (hit.distance < enemy.DistanceAttack)
             {
-                enemy.SetZeroVelocity();//stop moving when in attack range
-                if (enemy.CanAttack())
-                {
-                    stateMachine.ChangeState(enemy.attackState);
-                }
+                //if (enemy.CanAttack())
+                //{
+                //    stateMachine.ChangeState(enemy.attackState);
+                //}
             }
         }
         else

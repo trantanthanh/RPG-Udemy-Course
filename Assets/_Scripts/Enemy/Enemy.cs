@@ -124,7 +124,7 @@ public class Enemy : Entity, IAnimationDoneTrigger
     {
         if (isFrozen)
         {
-            moveSpeed = 0;
+            currentMoveSpeed = 0;
             animator.speed = 0;
         }
         else
