@@ -620,7 +620,7 @@ MonoBehaviour:
   chillColor: {r: 0, g: 0.8745098, b: 0.94509804, a: 1}
   igniteColor:
   - {r: 0.98039216, g: 0.36078432, b: 0.03137255, a: 1}
-  - {r: 0.94509804, g: 0.6745098, b: 0.5647059, a: 0}
+  - {r: 0.94509804, g: 0.6745098, b: 0.5647059, a: 1}
   shockColor:
   - {r: 1, g: 0.9529412, b: 0.38039216, a: 1}
   - {r: 1, g: 0.96862745, b: 0.60784316, a: 1}
@@ -722,10 +722,10 @@ MonoBehaviour:
     baseValue: 4
     modifers: 
   fireDamage:
-    baseValue: 0
+    baseValue: 1
     modifers: 
   iceDamage:
-    baseValue: 1
+    baseValue: 0
     modifers: 
   lightningDamage:
     baseValue: 0

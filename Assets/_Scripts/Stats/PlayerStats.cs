@@ -46,7 +46,7 @@ public class PlayerStats : CharacterStats
     {
         base.TakeDamageWithoutEffect(damage);
         if (!isAlive) return;
-        SoundManager.Instance.PlaySFX(damageSFX[Random.Range(0, damageSFX.Length)]);
+        SoundManager.Instance.PlaySFX(damageSFX[Random.Range(0, damageSFX.Length)], null, false, true);
 
         ItemData_Equipment_SO currentArmor = InventoryManager.Instance.GetEquipment(EquipmentType.Armor);
         if (currentArmor != null)
