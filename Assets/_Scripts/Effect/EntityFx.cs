@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Utilities;
 
 public class EntityFx : MonoBehaviour
 {
@@ -58,7 +59,7 @@ public class EntityFx : MonoBehaviour
         Color currentColor = spriteRenderer.color;
         spriteRenderer.color = Color.white;
         spriteRenderer.material = hitMat;
-        yield return new WaitForSeconds(flashDuration);
+        yield return flashDuration.WaitForSeconds();
         isFlashing = false;
         spriteRenderer.color = currentColor;
         spriteRenderer.material = originalMat;

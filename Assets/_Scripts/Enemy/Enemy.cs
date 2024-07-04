@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utilities;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(CapsuleCollider2D))]
@@ -138,7 +139,7 @@ public class Enemy : Entity, IAnimationDoneTrigger
     protected virtual IEnumerator FreezeTimerForCoroutine(float _seconds)
     {
         FreezeTimer(true);
-        yield return new WaitForSeconds(_seconds);
+        yield return _seconds.WaitForSeconds();
         FreezeTimer(false);
     }
 

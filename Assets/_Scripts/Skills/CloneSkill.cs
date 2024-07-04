@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utilities;
 
 public class CloneSkill : Skill
 {
@@ -94,7 +95,7 @@ public class CloneSkill : Skill
 
     IEnumerator CreateCloneWithDelay(float _seconds, Transform _enemyTransform, bool _canDuplicateClone = false, int _percentToDuplicateClone = 0)
     {
-        yield return new WaitForSeconds(_seconds);
+        yield return _seconds.WaitForSeconds();
         cloneDuplicateFacingDir = -cloneDuplicateFacingDir;
         CreateClone(_enemyTransform, new Vector3(offSetCloneCounterAttack * (canDuplicateClone ? cloneDuplicateFacingDir : player.facingDir), 0, 0), _enemyTransform, _canDuplicateClone, _percentToDuplicateClone);
     }

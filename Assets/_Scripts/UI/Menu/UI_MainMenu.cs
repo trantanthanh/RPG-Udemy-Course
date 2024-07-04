@@ -5,6 +5,7 @@ using UnityEditor;
 #endif
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Utilities;
 
 public class UI_MainMenu : MonoBehaviour
 {
@@ -40,7 +41,7 @@ public class UI_MainMenu : MonoBehaviour
     IEnumerator LoadSceneWithFadeEffect(float _delay)
     {
         fadeScreen.FadeOut();
-        yield return new WaitForSeconds(_delay);
+        yield return _delay.WaitForSeconds();
         SceneManager.LoadScene(sceneName);
     }
 

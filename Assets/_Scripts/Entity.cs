@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utilities;
 
 public class Entity : MonoBehaviour
 {
@@ -137,7 +138,7 @@ public class Entity : MonoBehaviour
         isKnocked = true;
         //rb.velocity = new Vector2(knockBackPower.x * (-facingDir), knockBackPower.y);
         rb.velocity = new Vector2(knockBackPower.x * (-knockBackDir), knockBackPower.y);
-        yield return new WaitForSeconds(knockBackDuration);
+        yield return knockBackDuration.WaitForSeconds();
         isKnocked = false;
     }
 
@@ -184,7 +185,7 @@ public class Entity : MonoBehaviour
     IEnumerator CoroutineBusyFor(float _seconds)
     {
         isBusy = true;
-        yield return new WaitForSeconds(_seconds);
+        yield return _seconds.WaitForSeconds();
         isBusy = false;
     }
 
@@ -216,4 +217,6 @@ public class Entity : MonoBehaviour
     {
         isAlive = false;
     }
+
+    
 }

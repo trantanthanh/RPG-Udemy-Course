@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utilities;
 
 public enum StatType
 {
@@ -134,7 +135,7 @@ public class CharacterStats : MonoBehaviour
     IEnumerator VulnerabilityForCoroutine(float _seconds)
     {
         isVulnerability = true;
-        yield return new WaitForSeconds(_seconds);
+        yield return _seconds.WaitForSeconds();
         isVulnerability = false;
     }
 
@@ -407,7 +408,7 @@ public class CharacterStats : MonoBehaviour
     IEnumerator StatModIncrease(int _modifier, float _duration, Stat _statToModify)
     {
         _statToModify.AddModifier(_modifier);
-        yield return new WaitForSeconds(_duration);
+        yield return _duration.WaitForSeconds();
         _statToModify.RemoveModifier(_modifier);
     }
 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Utilities;
 
 public class GameManager : MonoBehaviour, ISaveManager
 {
@@ -103,7 +104,7 @@ public class GameManager : MonoBehaviour, ISaveManager
 
     IEnumerator LoadWithDelay(GameData _data)
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return 0.1f.WaitForSeconds();
         LoadCheckpoints(_data);
         LoadLostCurrency(_data);
     }
