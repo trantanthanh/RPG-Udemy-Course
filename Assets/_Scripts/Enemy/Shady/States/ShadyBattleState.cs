@@ -38,17 +38,21 @@ public class ShadyBattleState : EnemyState
             moveDir = -1;
         }
 
+        if (enemy.IsFaceWallDetected() || !enemy.IsGroundDetected())
+        {
+            stateMachine.ChangeState(enemy.idleState);
+            //enemy.Flip();
+            return;
+        }
+
         enemy.SetVelocity(enemy.CurrentMoveSpeed * moveDir, rb.velocity.y);
         RaycastHit2D hit = enemy.IsPlayerDetected();
         if (hit)//saw player
         {
             stateTimer = enemy.BattleTime;
-            if (hit.distance < enemy.DistanceAttack)
+            if (hit.distance < enemy.ShadyDistanceExplode)
             {
-                //if (enemy.CanAttack())
-                //{
-                //    stateMachine.ChangeState(enemy.attackState);
-                //}
+                stateMachine.ChangeState(enemy.attackState);
             }
         }
         else

@@ -5,7 +5,8 @@ using UnityEngine;
 public class EnemyAnimationsTrigger : MonoBehaviour
 {
     Enemy enemy => GetComponentInParent<Enemy>();
-    EnemyArcher archer =>GetComponentInParent<EnemyArcher>();
+    EnemyArcher archer => GetComponentInParent<EnemyArcher>();
+    EnemyShady shady => GetComponentInParent<EnemyShady>();
     IAnimationDoneTrigger enemyAnimTrigger => GetComponentInParent<IAnimationDoneTrigger>();
     private void AnimationDoneTrigger() => enemyAnimTrigger.AnimationDoneTrigger();
 
@@ -23,5 +24,18 @@ public class EnemyAnimationsTrigger : MonoBehaviour
         {
             archer.SpawnArrow();
         }
+    }
+
+    private void ShadySpecificAttack()
+    {
+        if (shady != null)
+        {
+            shady.SpecificAttackTrigger();
+        }
+    }
+
+    private void ShadySelfDestroy()
+    {
+        Destroy(shady.gameObject);
     }
 }

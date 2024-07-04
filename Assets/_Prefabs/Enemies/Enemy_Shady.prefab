@@ -343,6 +343,7 @@ GameObject:
   - component: {fileID: 9022714692580011036}
   - component: {fileID: 1246112998147302151}
   - component: {fileID: 2997804261050991412}
+  - component: {fileID: 568362081966017289}
   m_Layer: 8
   m_Name: Animator
   m_TagString: Untagged
@@ -438,6 +439,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &568362081966017289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5388383268435075990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 299555c67eecd344faa01c3afd0badb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5727400106789662980
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,10 +462,10 @@ GameObject:
   - component: {fileID: 5798558386115653514}
   - component: {fileID: 6675290700304096327}
   - component: {fileID: 4613103786137017222}
+  - component: {fileID: 2377677719297760180}
   - component: {fileID: 287132804097165279}
   - component: {fileID: 9165963026270946884}
   - component: {fileID: 9146729625345473052}
-  - component: {fileID: 2377677719297760180}
   m_Layer: 8
   m_Name: Enemy_Shady
   m_TagString: Untagged
@@ -547,6 +560,53 @@ CapsuleCollider2D:
   m_Offset: {x: -0.03989029, y: -0.113025606}
   m_Size: {x: 0.97869873, y: 1.7978278}
   m_Direction: 0
+--- !u!114 &2377677719297760180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5727400106789662980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b3aaf8238b5a7f4c8e4de6e6f165f8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundCheckStartPoint: {fileID: 8048909523389249403}
+  wallCheckStartPoint: {fileID: 7342225163048817930}
+  distanceGroundCheck: 0.19
+  distanceWallCheck: 0.77
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 64
+  moveSpeed: 3
+  moveSpeedFast: 5
+  jumpForce: 12
+  attackMovements: []
+  attackCheck: {fileID: 7520835815744752132}
+  attackCheckRadius: 1.56
+  knockBackPower: {x: 5, y: 9}
+  knockBackDuration: 0.07
+  animator: {fileID: 0}
+  stunDuration: 1
+  stunDirection: {x: 8, y: 12}
+  counterImage: {fileID: 6254269110667596382}
+  idleTime: 3
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  playerCheckStartPoint: {fileID: 4047721737692736179}
+  distancePlayerCheck: 8.84
+  distanceAttack: 1.5
+  minAttackCoolDown: 0.4
+  maxAttackCoolDown: 0.8
+  battleTime: 3
+  deadTimeFlyUp: 0.1
+  deadVelocityFallDown: {x: 0, y: 10}
+  explosionFxPrefab: {fileID: 2283894254985380041, guid: 1206e9b5c770cf34cb4438482e06da85, type: 3}
+  shadyDistanceExplode: 0.5
+  growSpeed: 16
+  growMaxSize: 6
 --- !u!114 &287132804097165279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -599,7 +659,7 @@ MonoBehaviour:
     baseValue: 0
     modifers: 
   fireDamage:
-    baseValue: 50
+    baseValue: 0
     modifers: 
   iceDamage:
     baseValue: 0
@@ -613,7 +673,7 @@ MonoBehaviour:
   shockStrikePrefab: {fileID: 2380127737446067199, guid: 7041e59a3e0a47348bce425d2c8aaf13, type: 3}
   shockDamage: 0
   damage:
-    baseValue: 0
+    baseValue: 50
     modifers: 
   critChance:
     baseValue: 0
@@ -653,49 +713,6 @@ MonoBehaviour:
   possibleItemsDrop: 0
   possibleDrop: []
   dropPrefab: {fileID: 4148545283387419536, guid: e473808a9b8017c45ac76b36a64d4a89, type: 3}
---- !u!114 &2377677719297760180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5727400106789662980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b3aaf8238b5a7f4c8e4de6e6f165f8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  groundCheckStartPoint: {fileID: 8048909523389249403}
-  wallCheckStartPoint: {fileID: 7342225163048817930}
-  distanceGroundCheck: 0.19
-  distanceWallCheck: 0.77
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 64
-  moveSpeed: 3
-  moveSpeedFast: 5
-  jumpForce: 12
-  attackMovements: []
-  attackCheck: {fileID: 7520835815744752132}
-  attackCheckRadius: 0.8
-  knockBackPower: {x: 5, y: 9}
-  knockBackDuration: 0.07
-  animator: {fileID: 0}
-  stunDuration: 1
-  stunDirection: {x: 8, y: 12}
-  counterImage: {fileID: 6254269110667596382}
-  idleTime: 1
-  playerMask:
-    serializedVersion: 2
-    m_Bits: 128
-  playerCheckStartPoint: {fileID: 4047721737692736179}
-  distancePlayerCheck: 8.84
-  distanceAttack: 1.5
-  minAttackCoolDown: 0.4
-  maxAttackCoolDown: 0.8
-  battleTime: 3
-  deadTimeFlyUp: 0.1
-  deadVelocityFallDown: {x: 0, y: 10}
 --- !u!1 &6254269110667596382
 GameObject:
   m_ObjectHideFlags: 0
@@ -956,7 +973,7 @@ Transform:
   m_GameObject: {fileID: 8916244694007785593}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.05, y: -0.25, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

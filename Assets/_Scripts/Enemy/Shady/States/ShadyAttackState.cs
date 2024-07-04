@@ -17,7 +17,6 @@ public class ShadyAttackState : EnemyState
     public override void Exit()
     {
         base.Exit();
-        enemy.UpdateNextAttack();
     }
 
     public override void Update()
