@@ -79,12 +79,12 @@
             1,
             1,
             1,
-            11,
+            12,
             6,
-            6,
-            3,
-            1,
-            1,
+            7,
+            4,
+            2,
+            2,
             2
         ]
     },
@@ -97,9 +97,9 @@
         "21069544a721d1f41aec18c0eaa6b093",
         "528310befcc077044bbffc6374d5a0c0"
     ],
-    "lostCurrencyX": -11.973712921142579,
-    "lostCurrencyY": -106.47979736328125,
-    "lostCurrencyAmount": 1600,
+    "lostCurrencyX": -16.4765567779541,
+    "lostCurrencyY": -42.257389068603519,
+    "lostCurrencyAmount": 100,
     "volumeSettings": {
         "keys": [
             "sfx",
