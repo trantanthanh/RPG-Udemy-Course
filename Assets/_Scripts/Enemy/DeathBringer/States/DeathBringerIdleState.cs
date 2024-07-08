@@ -19,8 +19,7 @@ public class DeathBringerIdleState : DeathBringerGroundedState
         base.Update();
         if (stateTimer < 0)
         {
-            //stateMachine.ChangeState(enemy.moveState);
-            enemy.Flip();
+            stateMachine.ChangeState(enemy.moveState);
         }
     }
 }

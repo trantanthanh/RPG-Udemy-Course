@@ -12,7 +12,7 @@ public class DeathBringerGroundedState : EnemyState
     public override void Update()
     {
         base.Update();
-        if (enemy.IsPlayerDetected() && enemy.CanAttack() && !enemy.IsFaceWallDetected())
+        if (enemy.IsPlayerDetected() && enemy.CanAttack() && !(enemy.IsFaceWallDetected() || !enemy.IsGroundDetected()))
         {
             stateMachine.ChangeState(enemy.battleState);
         }
