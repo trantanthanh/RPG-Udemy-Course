@@ -13,7 +13,7 @@ public class EnemyDeathBringer : Enemy
 
     #region States
     public DeathBringerIdleState idleState { get; private set; }
-    public DeathBringerMoveState moveState { get; private set; }
+    //public DeathBringerMoveState moveState { get; private set; }
     public DeathBringerBattleState battleState { get; private set; }
     public DeathBringerAttackState attackState { get; private set; }
     public DeathBringerDeadState deadState { get; private set; }
@@ -25,8 +25,8 @@ public class EnemyDeathBringer : Enemy
     {
         base.Start();
         idleState = new DeathBringerIdleState(this, stateMachine, "Idle", this);
-        moveState = new DeathBringerMoveState(this, stateMachine, "Move", this);
-        battleState = new DeathBringerBattleState(this, stateMachine, "Move", this);
+        //moveState = new DeathBringerMoveState(this, stateMachine, "Move", this);
+        battleState = new DeathBringerBattleState(this, stateMachine, "Idle", this);
         attackState = new DeathBringerAttackState(this, stateMachine, "Attack", this);
         deadState = new DeathBringerDeadState(this, stateMachine, "Dead", this);
         teleportState = new DeathBringerTeleportState(this, stateMachine, "Teleport", this);
@@ -51,6 +51,8 @@ public class EnemyDeathBringer : Enemy
         numOfRecursive++;
         if (numOfRecursive > 3)
         {
+            //can't find new position
+            Appear();
             transform.position = lastPosition;
             return;
         }
@@ -64,6 +66,17 @@ public class EnemyDeathBringer : Enemy
             Debug.Log("Looking for new position");
             FindPosition();
         }
+        else
+        {
+            //found new position
+            Appear();
+        }
+    }
+
+    private void Appear()
+    {
+        fx.MakeTransparent(false);
+        teleportState.Appear();
     }
 
     private RaycastHit2D GroundBelow() => Physics2D.Raycast(transform.position, Vector2.down, 100, groundMask);

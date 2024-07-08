@@ -54422,6 +54422,10 @@ PrefabInstance:
       propertyPath: arena
       value: 
       objectReference: {fileID: 137791654}
+    - target: {fileID: 7769490822255050858, guid: 01fb145390615b74b852ee8cfc138eee, type: 3}
+      propertyPath: idleTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9133642415360956083, guid: 01fb145390615b74b852ee8cfc138eee, type: 3}
       propertyPath: m_Name
       value: EnemyDeathBringer

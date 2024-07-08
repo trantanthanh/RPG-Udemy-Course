@@ -857,7 +857,7 @@ MonoBehaviour:
   stunDuration: 1
   stunDirection: {x: 1, y: 1}
   counterImage: {fileID: 5832438640414657808}
-  idleTime: 3
+  idleTime: 1
   playerMask:
     serializedVersion: 2
     m_Bits: 128

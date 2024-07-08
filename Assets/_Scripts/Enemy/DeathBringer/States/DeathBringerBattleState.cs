@@ -30,25 +30,21 @@ public class DeathBringerBattleState : EnemyState
             moveDir = -1;
         }
 
-        if (enemy.IsFaceWallDetected() || !enemy.IsGroundDetected())
-        {
-            enemy.SetZeroVelocity();
-            stateMachine.ChangeState(enemy.idleState);
-            return;
-        }
-
-        enemy.SetVelocity(enemy.CurrentMoveSpeed * moveDir, rb.velocity.y);
+        enemy.FlipController(moveDir);
         RaycastHit2D hit = enemy.IsPlayerDetected();
         if (hit)//saw player
         {
             stateTimer = enemy.BattleTime;
             if (hit.distance < enemy.DistanceAttack)
             {
-                enemy.SetZeroVelocity();//stop moving when in attack range
                 if (enemy.CanAttack())
                 {
                     stateMachine.ChangeState(enemy.attackState);
                 }
+            }
+            else
+            {
+                stateMachine.ChangeState(enemy.teleportState);
             }
         }
         else

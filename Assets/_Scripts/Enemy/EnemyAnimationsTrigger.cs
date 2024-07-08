@@ -7,6 +7,7 @@ public class EnemyAnimationsTrigger : MonoBehaviour
     Enemy enemy => GetComponentInParent<Enemy>();
     EnemyArcher archer => GetComponentInParent<EnemyArcher>();
     EnemyShady shady => GetComponentInParent<EnemyShady>();
+
     IAnimationDoneTrigger enemyAnimTrigger => GetComponentInParent<IAnimationDoneTrigger>();
     private void AnimationDoneTrigger() => enemyAnimTrigger.AnimationDoneTrigger();
 
@@ -18,6 +19,7 @@ public class EnemyAnimationsTrigger : MonoBehaviour
     private void OpenCounterAttack() => enemy.OpenCounterAttack();
     private void CloseCounterAttack() => enemy.CloseCounterAttack();
 
+    #region enemy archer
     private void SpawnArrow()
     {
         if (archer != null)
@@ -25,7 +27,9 @@ public class EnemyAnimationsTrigger : MonoBehaviour
             archer.SpawnArrow();
         }
     }
+    #endregion
 
+    #region enemy shady
     private void ShadySpecificAttack()
     {
         if (shady != null)
@@ -38,4 +42,5 @@ public class EnemyAnimationsTrigger : MonoBehaviour
     {
         Destroy(shady.gameObject);
     }
+    #endregion
 }

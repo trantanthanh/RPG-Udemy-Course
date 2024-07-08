@@ -20,11 +20,7 @@ public class DeathBringerIdleState : DeathBringerGroundedState
         if (stateTimer < 0)
         {
             //stateMachine.ChangeState(enemy.moveState);
-        }
-
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            stateMachine.ChangeState(enemy.teleportState);
+            enemy.Flip();
         }
     }
 }
