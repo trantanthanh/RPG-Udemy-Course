@@ -33,11 +33,15 @@ public class EntityFx : MonoBehaviour
     [SerializeField] GameObject hitFxPrefab;
     [SerializeField] GameObject hitCritFxPrefab;
 
+    private GameObject myHealthBar;
+
     protected virtual void Start()
     {
         player = GetComponent<Player>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         originalMat = spriteRenderer.material;
+
+        myHealthBar = GetComponentInChildren<UI_HealthBar>().gameObject;
     }
 
     protected virtual void Update()
@@ -140,10 +144,12 @@ public class EntityFx : MonoBehaviour
         if (_isTransparent)
         {
             spriteRenderer.color = Color.clear;
+            myHealthBar.SetActive(false);
         }
         else
         {
             spriteRenderer.color = Color.white;
+            myHealthBar.SetActive(true);
         }
     }
 
