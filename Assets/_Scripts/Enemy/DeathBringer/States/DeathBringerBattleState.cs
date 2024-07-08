@@ -17,6 +17,11 @@ public class DeathBringerBattleState : EnemyState
         player = PlayerManager.Instance.player.transform;
     }
 
+    public void InitStateTimer()
+    {
+        stateTimer = enemy.BattleTime;
+    }
+
     public override void Update()
     {
         base.Update();

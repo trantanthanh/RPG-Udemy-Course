@@ -7,6 +7,12 @@ public class EnemyDeathBringer : Enemy
     [Header("Teleport detail")]
     [SerializeField] BoxCollider2D arena;
     [SerializeField] Vector2 surroundingCheckSize;
+    [Range(0,100)]
+    [SerializeField] float defaultChanceToTeleport;
+    [Range(0, 100)]
+    [SerializeField] float percentChanceTeleportIncrease;
+    [HideInInspector]
+    public float chanceToTeleport;
 
     Vector3 lastPosition = Vector3.zero;
     private int numOfRecursive = 0;
@@ -20,6 +26,13 @@ public class EnemyDeathBringer : Enemy
     public DeathBringerTeleportState teleportState { get; private set; }
     #endregion
 
+    protected override void Reset()
+    {
+        base.Reset();
+        defaultChanceToTeleport = 20;
+        percentChanceTeleportIncrease = 20;
+    }
+
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -31,6 +44,17 @@ public class EnemyDeathBringer : Enemy
         deadState = new DeathBringerDeadState(this, stateMachine, "Dead", this);
         teleportState = new DeathBringerTeleportState(this, stateMachine, "Teleport", this);
         stateMachine.Initialize(idleState);
+    }
+
+    public override void DamageImpact()
+    {
+        base.DamageImpact();
+        if (stateMachine.IsState(moveState))
+        {
+            Debug.Log("check change to battle");
+            battleState.InitStateTimer();
+            stateMachine.ChangeState(battleState);
+        }
     }
 
     public override void Die()
@@ -77,6 +101,17 @@ public class EnemyDeathBringer : Enemy
     {
         fx.MakeTransparent(false);
         teleportState.Appear();
+    }
+
+    public bool CanTeleport()
+    {
+        if (Random.Range(0, 100) <= chanceToTeleport)
+        {
+            chanceToTeleport = defaultChanceToTeleport;
+            return true;
+        }
+        chanceToTeleport += percentChanceTeleportIncrease;
+        return false;
     }
 
     private RaycastHit2D GroundBelow() => Physics2D.Raycast(transform.position, Vector2.down, 100, groundMask);

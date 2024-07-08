@@ -206,7 +206,7 @@ public class SwordSkillController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (isReturning) return;//don't trigger collision while returning to player
-
+        //Debug.Log("Sword collider with " + collision.gameObject.name);
         CheckBounceList(collision);
         StuckInto(collision);
     }

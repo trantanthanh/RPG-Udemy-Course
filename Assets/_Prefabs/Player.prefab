@@ -582,6 +582,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   moveSpeed: 8
+  moveSpeedFast: 12
   jumpForce: 12
   attackMovements:
   - {x: 1, y: 1}
@@ -745,7 +746,7 @@ MonoBehaviour:
     baseValue: 33
     modifers: 
   maxHealth:
-    baseValue: 100
+    baseValue: 200
     modifers: 
   evasion:
     baseValue: 5

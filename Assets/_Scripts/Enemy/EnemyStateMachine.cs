@@ -17,4 +17,9 @@ public class EnemyStateMachine
         currentState = _newState;
         currentState.Enter();
     }
+
+    public bool IsState(EnemyState _state)
+    {
+        return currentState == _state;
+    }
 }
