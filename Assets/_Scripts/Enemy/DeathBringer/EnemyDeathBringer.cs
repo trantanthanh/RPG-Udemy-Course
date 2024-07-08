@@ -8,6 +8,9 @@ public class EnemyDeathBringer : Enemy
     [SerializeField] BoxCollider2D arena;
     [SerializeField] Vector2 surroundingCheckSize;
 
+    Vector3 lastPosition = Vector3.zero;
+    private int numOfRecursive = 0;
+
     #region States
     public DeathBringerIdleState idleState { get; private set; }
     public DeathBringerMoveState moveState { get; private set; }
@@ -36,8 +39,21 @@ public class EnemyDeathBringer : Enemy
         stateMachine.ChangeState(deadState);
     }
 
-    public void FindPosition()
+    public void StartFindNewPos()
     {
+        numOfRecursive = 0;
+        lastPosition = transform.position;
+        FindPosition();
+    }
+
+    private void FindPosition()
+    {
+        numOfRecursive++;
+        if (numOfRecursive > 3)
+        {
+            transform.position = lastPosition;
+            return;
+        }
         float x = Random.Range(arena.bounds.min.x + 3, arena.bounds.max.x - 3);
         float y = Random.Range(arena.bounds.min.y + 3, arena.bounds.max.y - 3);
         transform.position = new Vector2(x, y);

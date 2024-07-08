@@ -92,7 +92,7 @@ Transform:
   m_GameObject: {fileID: 1111518008880336602}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.23, y: 0.4, z: 0}
+  m_LocalPosition: {x: 3.22, y: 0.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -850,7 +850,7 @@ MonoBehaviour:
   jumpForce: 12
   attackMovements: []
   attackCheck: {fileID: 2616079596143617457}
-  attackCheckRadius: 2.22
+  attackCheckRadius: 2.89
   knockBackPower: {x: 0, y: 0}
   knockBackDuration: 0
   animator: {fileID: 0}
@@ -870,7 +870,7 @@ MonoBehaviour:
   deadTimeFlyUp: 0.1
   deadVelocityFallDown: {x: 0, y: 10}
   arena: {fileID: 0}
-  surroundingCheckSize: {x: 2.44, y: 3.62}
+  surroundingCheckSize: {x: 2.41, y: 3.3}
 --- !u!114 &2562443667517115528
 MonoBehaviour:
   m_ObjectHideFlags: 0

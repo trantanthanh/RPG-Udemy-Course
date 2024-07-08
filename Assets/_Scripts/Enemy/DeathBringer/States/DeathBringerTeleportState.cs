@@ -14,7 +14,7 @@ public class DeathBringerTeleportState : EnemyState
         base.Enter();
 
         stateTimer = 1f;
-        enemy.FindPosition();
+        enemy.StartFindNewPos();
     }
 
     public override void Update()
