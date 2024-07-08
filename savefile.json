@@ -1,5 +1,5 @@
 {
-    "currency": 0,
+    "currency": 1400,
     "skillTree": {
         "keys": [
             "Sword Throw",
@@ -79,7 +79,7 @@
             1,
             1,
             1,
-            4,
+            8,
             6,
             6,
             3,
@@ -97,9 +97,9 @@
         "21069544a721d1f41aec18c0eaa6b093",
         "528310befcc077044bbffc6374d5a0c0"
     ],
-    "lostCurrencyX": -15.811897277832032,
+    "lostCurrencyX": -30.208637237548829,
     "lostCurrencyY": -1.9648010730743409,
-    "lostCurrencyAmount": 900,
+    "lostCurrencyAmount": 0,
     "volumeSettings": {
         "keys": [
             "sfx",

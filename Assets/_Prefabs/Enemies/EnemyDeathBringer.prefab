@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 493654646701757462}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.07, y: -1.83, z: 0}
+  m_LocalPosition: {x: 1.07, y: -1.778, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -463,6 +463,7 @@ GameObject:
   - component: {fileID: 5967809531630586167}
   - component: {fileID: 8974625286219544796}
   - component: {fileID: 3175025686028615693}
+  - component: {fileID: 8669238774394071497}
   m_Layer: 8
   m_Name: Animator
   m_TagString: Untagged
@@ -558,6 +559,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8669238774394071497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4136060785489984194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 299555c67eecd344faa01c3afd0badb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5832438640414657808
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,7 +587,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7909111439104903895
 Transform:
   m_ObjectHideFlags: 0
@@ -698,7 +711,7 @@ Transform:
   m_GameObject: {fileID: 8193413690823782867}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.31, y: -0.81, z: 0}
+  m_LocalPosition: {x: 0.43, y: -1.57, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -774,7 +787,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
@@ -827,12 +840,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundCheckStartPoint: {fileID: 493654646701757462}
   wallCheckStartPoint: {fileID: 8193413690823782867}
-  distanceGroundCheck: 0.19
-  distanceWallCheck: 0.77
+  distanceGroundCheck: 0.33
+  distanceWallCheck: 1.56
   groundMask:
     serializedVersion: 2
-    m_Bits: 0
-  moveSpeed: 8
+    m_Bits: 64
+  moveSpeed: 5
   moveSpeedFast: 12
   jumpForce: 12
   attackMovements: []
@@ -844,10 +857,10 @@ MonoBehaviour:
   stunDuration: 1
   stunDirection: {x: 1, y: 1}
   counterImage: {fileID: 5832438640414657808}
-  idleTime: 1
+  idleTime: 3
   playerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   playerCheckStartPoint: {fileID: 6117676393855825954}
   distancePlayerCheck: 13.41
   distanceAttack: 5.84
@@ -856,6 +869,8 @@ MonoBehaviour:
   battleTime: 3
   deadTimeFlyUp: 0.1
   deadVelocityFallDown: {x: 0, y: 10}
+  arena: {fileID: 0}
+  surroundingCheckSize: {x: 2.44, y: 3.62}
 --- !u!114 &2562443667517115528
 MonoBehaviour:
   m_ObjectHideFlags: 0
