@@ -871,9 +871,12 @@ MonoBehaviour:
   deadVelocityFallDown: {x: 0, y: 10}
   arena: {fileID: 0}
   surroundingCheckSize: {x: 2.41, y: 3.3}
-  defaultChanceToTeleport: 0
-  percentChanceTeleportIncrease: 0
+  defaultChanceToTeleport: 25
+  percentChanceTeleportIncrease: 10
   chanceToTeleport: 0
+  spellPrefab: {fileID: 4175688858853584374, guid: dcccc3b0ce1fdc645b032dfc9abea8a5, type: 3}
+  spellCastCooldown: 10
+  timeCastSpellDuration: 5
 --- !u!114 &2562443667517115528
 MonoBehaviour:
   m_ObjectHideFlags: 0

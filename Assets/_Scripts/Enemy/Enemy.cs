@@ -165,8 +165,8 @@ public class Enemy : Entity, IAnimationDoneTrigger
     #region Utilities
     public void DoDamagePlayerInCircle(Vector3 _position, float _radius)
     {
-        Collider2D[] collders = Physics2D.OverlapCircleAll(_position, _radius);
-        foreach (Collider2D collider in collders)
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(_position, _radius);
+        foreach (Collider2D collider in colliders)
         {
             Player player = collider.GetComponent<Player>();
             if (player != null && player.CanDamage())
@@ -174,6 +174,19 @@ public class Enemy : Entity, IAnimationDoneTrigger
                 //player.Damage();
                 stats.DoDamage(player.stats);
                 //player.stats.TakeDamage(stats.damage.GetValue());
+            }
+        }
+    }
+
+    public void DoDamagePlayerInBox(Vector3 _position, Vector2 _boxSize)
+    {
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(_position, _boxSize, 0);
+        foreach (Collider2D collider in colliders)
+        {
+            Player player = collider.GetComponent<Player>();
+            if (player != null && player.CanDamage())
+            {
+                stats.DoDamage(player.stats);
             }
         }
     }

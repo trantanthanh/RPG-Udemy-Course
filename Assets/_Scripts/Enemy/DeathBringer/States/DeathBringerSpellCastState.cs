@@ -8,4 +8,19 @@ public class DeathBringerSpellCastState : EnemyState
     {
         this.enemy = _enemy;
     }
+
+    public override void Enter()
+    {
+        base.Enter();
+        stateTimer = enemy.TimeCastSpellDuration;
+    }
+
+    public override void Update()
+    {
+        base.Update();
+        if (stateTimer < 0)
+        {
+            stateMachine.ChangeState(enemy.teleportState);
+        }
+    }
 }

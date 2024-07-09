@@ -8,6 +8,8 @@ public class EnemyAnimationsTrigger : MonoBehaviour
     EnemyArcher archer => GetComponentInParent<EnemyArcher>();
     EnemyShady shady => GetComponentInParent<EnemyShady>();
 
+    EnemyDeathBringer deathBringer => GetComponentInParent<EnemyDeathBringer>();
+
     IAnimationDoneTrigger enemyAnimTrigger => GetComponentInParent<IAnimationDoneTrigger>();
     private void AnimationDoneTrigger() => enemyAnimTrigger.AnimationDoneTrigger();
 
@@ -41,6 +43,13 @@ public class EnemyAnimationsTrigger : MonoBehaviour
     private void ShadySelfDestroy()
     {
         Destroy(shady.gameObject);
+    }
+    #endregion
+
+    #region enemy death bringer
+    private void DeathBringerCastSpell()
+    {
+        deathBringer.CastSpell();
     }
     #endregion
 }

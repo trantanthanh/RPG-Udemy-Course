@@ -8,11 +8,19 @@ public class EnemyDeathBringer : Enemy
     [SerializeField] BoxCollider2D arena;
     [SerializeField] Vector2 surroundingCheckSize;
     [Range(0,100)]
-    [SerializeField] float defaultChanceToTeleport;
+    [SerializeField] float defaultChanceToTeleport = 25f;
     [Range(0, 100)]
-    [SerializeField] float percentChanceTeleportIncrease;
+    [SerializeField] float percentChanceTeleportIncrease = 20f;
     [HideInInspector]
     public float chanceToTeleport;
+
+    [Header("Spell cast info")]
+    [SerializeField] GameObject spellPrefab;
+    [SerializeField] float spellCastCooldown = 5f;
+    [SerializeField] float timeCastSpellDuration = 5f;
+    float lastDoSpellCast;
+
+    public float TimeCastSpellDuration => timeCastSpellDuration;
 
     Vector3 lastPosition = Vector3.zero;
     private int numOfRecursive = 0;
@@ -24,13 +32,15 @@ public class EnemyDeathBringer : Enemy
     public DeathBringerAttackState attackState { get; private set; }
     public DeathBringerDeadState deadState { get; private set; }
     public DeathBringerTeleportState teleportState { get; private set; }
+    public DeathBringerSpellCastState spellCastState { get; private set; }
     #endregion
 
     protected override void Reset()
     {
         base.Reset();
-        defaultChanceToTeleport = 20;
+        defaultChanceToTeleport = 25;
         percentChanceTeleportIncrease = 20;
+        spellCastCooldown = 5f;
     }
 
     // Start is called before the first frame update
@@ -43,6 +53,7 @@ public class EnemyDeathBringer : Enemy
         attackState = new DeathBringerAttackState(this, stateMachine, "Attack", this);
         deadState = new DeathBringerDeadState(this, stateMachine, "Dead", this);
         teleportState = new DeathBringerTeleportState(this, stateMachine, "Teleport", this);
+        spellCastState = new DeathBringerSpellCastState(this, stateMachine, "SpellCast", this);
         stateMachine.Initialize(idleState);
     }
 
@@ -61,6 +72,12 @@ public class EnemyDeathBringer : Enemy
     {
         base.Die();
         stateMachine.ChangeState(deadState);
+    }
+
+    public void CastSpell()
+    {
+        GameObject newSpell = Instantiate(spellPrefab, PlayerManager.Instance.player.transform.position, Quaternion.identity);
+        newSpell.GetComponentInChildren<DeathBringerSpellController>().SetupSpell(this, timeCastSpellDuration);
     }
 
     public void StartFindNewPos()
@@ -111,6 +128,16 @@ public class EnemyDeathBringer : Enemy
             return true;
         }
         chanceToTeleport += percentChanceTeleportIncrease;
+        return false;
+    }
+
+    public bool CanDoSpellCast()
+    {
+        if (Time.time > lastDoSpellCast + spellCastCooldown)
+        {
+            lastDoSpellCast = Time.time;
+            return true;
+        }
         return false;
     }
 
