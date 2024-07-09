@@ -38,6 +38,7 @@ public class DeathBringerSpellCastState : EnemyState
     {
         if (amountOfSpell > 0 && spellCooldown <= 0)
         {
+            --amountOfSpell;
             spellCooldown = enemy.SpellCastInterval;
             return true;
         }

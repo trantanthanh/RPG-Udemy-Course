@@ -22,7 +22,7 @@ public class DeathBringerSpellController : MonoBehaviour
 
     private void SelfDestroy()
     {
-        Destroy(gameObject);
+        Destroy(transform.parent.gameObject);
     }
 
     private void OnDrawGizmos()
