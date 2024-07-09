@@ -15,6 +15,7 @@ public class DeathBringerTeleportState : EnemyState
     public override void Enter()
     {
         base.Enter();
+        enemy.idleState.ResetFreeTime();
         state = EXIT_STATE;
     }
 

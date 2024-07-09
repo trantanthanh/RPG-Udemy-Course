@@ -11,16 +11,22 @@ public class EnemyDeathBringer : Enemy
     [SerializeField] float defaultChanceToTeleport = 25f;
     [Range(0, 100)]
     [SerializeField] float percentChanceTeleportIncrease = 20f;
+    [SerializeField] float timeCannotAttackLong = 8f;
     [HideInInspector]
     public float chanceToTeleport;
 
     [Header("Spell cast info")]
     [SerializeField] GameObject spellPrefab;
-    [SerializeField] float spellCastCooldown = 5f;
+    [SerializeField] int amountOfSpell = 3;
+    [SerializeField] float spellCastCooldown = 10f;
+    [SerializeField] float spellCastInterval = 0.9f;
     [SerializeField] float timeCastSpellDuration = 5f;
     float lastDoSpellCast;
 
+    public float TimeCannotAttackLong => timeCastSpellDuration;
     public float TimeCastSpellDuration => timeCastSpellDuration;
+    public int AmountOfSpell => amountOfSpell;
+    public float SpellCastInterval => spellCastInterval;
 
     Vector3 lastPosition = Vector3.zero;
     private int numOfRecursive = 0;
@@ -38,9 +44,14 @@ public class EnemyDeathBringer : Enemy
     protected override void Reset()
     {
         base.Reset();
+        timeCannotAttackLong = 8f;
         defaultChanceToTeleport = 25;
         percentChanceTeleportIncrease = 20;
-        spellCastCooldown = 5f;
+
+        amountOfSpell = 3;
+        spellCastCooldown = 10f;
+        spellCastInterval = 0.9f;
+        timeCastSpellDuration = 5f;
     }
 
     // Start is called before the first frame update
@@ -77,7 +88,7 @@ public class EnemyDeathBringer : Enemy
     public void CastSpell()
     {
         GameObject newSpell = Instantiate(spellPrefab, PlayerManager.Instance.player.transform.position, Quaternion.identity);
-        newSpell.GetComponentInChildren<DeathBringerSpellController>().SetupSpell(this, timeCastSpellDuration);
+        newSpell.GetComponentInChildren<DeathBringerSpellController>().SetupSpell(this);
     }
 
     public void StartFindNewPos()

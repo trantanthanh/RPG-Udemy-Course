@@ -13,6 +13,7 @@ public class DeathBringerAttackState : EnemyState
     {
         base.Enter();
         enemy.SetZeroVelocity();
+        enemy.idleState.ResetFreeTime();
     }
 
     public override void Exit()

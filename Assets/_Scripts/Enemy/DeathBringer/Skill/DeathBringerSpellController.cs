@@ -10,10 +10,9 @@ public class DeathBringerSpellController : MonoBehaviour
 
     private Enemy enemy;
 
-    public void SetupSpell(Enemy _enemy, float _time)
+    public void SetupSpell(Enemy _enemy)
     {
         this.enemy = _enemy;
-        Destroy(gameObject, _time);
     }
 
     private void AnimationTrigger()
@@ -21,10 +20,10 @@ public class DeathBringerSpellController : MonoBehaviour
         enemy.DoDamagePlayerInBox(check.position, boxSize);
     }
 
-    //private void SelfDestroy()
-    //{
-    //    Destroy(gameObject);
-    //}
+    private void SelfDestroy()
+    {
+        Destroy(gameObject);
+    }
 
     private void OnDrawGizmos()
     {
