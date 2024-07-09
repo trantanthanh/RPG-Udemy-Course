@@ -18,7 +18,10 @@ public class DeathBringerGroundedState : EnemyState
 
     public override void Update()
     {
-        freeTime += Time.deltaTime;
+        if (enemy.bossFightBegun)
+        {
+            freeTime += Time.deltaTime;
+        }
         if (freeTime >= enemy.TimeCannotAttackLong)
         {
             ResetFreeTime();

@@ -105,6 +105,19 @@ public class Entity : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         stats = GetComponent<CharacterStats>();
         capsuleCollider = GetComponent<CapsuleCollider2D>();
+
+        if (transform.rotation.eulerAngles.y == 180)
+        {
+            //Debug.Log("facing left");
+            isFacingRight = false;
+            facingDir = -1;
+        }
+        else
+        {
+            //Debug.Log("facing right");
+            isFacingRight = true;
+            facingDir = 1;
+        }
     }
 
     // Update is called once per frame

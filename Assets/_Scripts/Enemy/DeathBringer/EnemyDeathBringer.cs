@@ -23,6 +23,9 @@ public class EnemyDeathBringer : Enemy
     [SerializeField] float timeCastSpellDuration = 5f;
     float lastDoSpellCast;
 
+    [HideInInspector]
+    public bool bossFightBegun = false;
+
     public float TimeCannotAttackLong => timeCastSpellDuration;
     public float TimeCastSpellDuration => timeCastSpellDuration;
     public int AmountOfSpell => amountOfSpell;

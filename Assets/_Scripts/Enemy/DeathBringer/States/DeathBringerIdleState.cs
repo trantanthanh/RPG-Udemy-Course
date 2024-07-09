@@ -17,7 +17,13 @@ public class DeathBringerIdleState : DeathBringerGroundedState
     public override void Update()
     {
         base.Update();
-        if (stateTimer < 0)
+        if (!enemy.bossFightBegun && Vector2.Distance(enemy.transform.position, PlayerManager.Instance.player.transform.position) < 7)
+        {
+            enemy.bossFightBegun = true;
+            stateMachine.ChangeState(enemy.battleState);
+            return;
+        }
+        if (stateTimer < 0 && enemy.bossFightBegun)
         {
             stateMachine.ChangeState(enemy.moveState);
         }
