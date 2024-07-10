@@ -98,9 +98,9 @@
     },
     "closestCheckPointId": "",
     "equipmentId": [],
-    "lostCurrencyX": -12.940061569213868,
-    "lostCurrencyY": -133.31031799316407,
-    "lostCurrencyAmount": 100,
+    "lostCurrencyX": -33.42611312866211,
+    "lostCurrencyY": 0.03753338009119034,
+    "lostCurrencyAmount": 0,
     "volumeSettings": {
         "keys": [
             "sfx",
