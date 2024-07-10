@@ -61,7 +61,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] float sfxMininumDistance;
 
     public bool isPlayingBGM;
-    [SerializeField] BGMDefine bgmIndex;
+    [SerializeField] BGMDefine playingBgmIndex;
 
     private void Start()
     {
@@ -96,9 +96,9 @@ public class SoundManager : MonoBehaviour
         }
         else
         {
-            if (!bgm[(int)bgmIndex].isPlaying)
+            if (!bgm[(int)playingBgmIndex].isPlaying)
             {
-                PlayBGM(bgmIndex);
+                PlayBGM(playingBgmIndex);
             }
         }
     }
@@ -153,6 +153,7 @@ public class SoundManager : MonoBehaviour
 
     public void PlayBGM(BGMDefine bgmIndex, bool _isLoop = false)
     {
+        playingBgmIndex = bgmIndex;
         int _bgmIndex = (int)bgmIndex;
         StopAllBGM();
 

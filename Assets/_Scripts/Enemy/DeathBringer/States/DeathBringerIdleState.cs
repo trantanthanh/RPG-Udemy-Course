@@ -19,6 +19,7 @@ public class DeathBringerIdleState : DeathBringerGroundedState
         base.Update();
         if (!enemy.bossFightBegun && Vector2.Distance(enemy.transform.position, PlayerManager.Instance.player.transform.position) < 7)
         {
+            SoundManager.Instance.PlayBGM(BGMDefine.BGM_nemesis);
             enemy.bossFightBegun = true;
             stateMachine.ChangeState(enemy.battleState);
             return;
