@@ -28,28 +28,28 @@
             "Parry - Mirrage attack"
         ],
         "values": [
+            true,
             false,
             false,
             false,
             false,
             false,
+            true,
+            true,
+            false,
+            false,
+            false,
+            true,
+            true,
             false,
             false,
             false,
             false,
             false,
+            true,
             false,
             false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
-            false,
+            true,
             false,
             false
         ]
@@ -90,14 +90,14 @@
             "9eb98628-c49f-4818-8256-6d8d874a2418"
         ],
         "values": [
-            false,
-            false
+            true,
+            true
         ]
     },
-    "closestCheckPointId": "",
+    "closestCheckPointId": "b801e958-4ef1-4db8-94a4-0ecf8dbbe2f8",
     "equipmentId": [],
-    "lostCurrencyX": -3.2100000381469728,
-    "lostCurrencyY": -0.9648017287254334,
+    "lostCurrencyX": 146.83099365234376,
+    "lostCurrencyY": -5.964804172515869,
     "lostCurrencyAmount": 0,
     "volumeSettings": {
         "keys": [

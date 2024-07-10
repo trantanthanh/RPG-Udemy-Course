@@ -104039,7 +104039,7 @@ MonoBehaviour:
   - {fileID: 177458949}
   sfxMininumDistance: 10
   isPlayingBGM: 1
-  bgmIndex: 0
+  playingBgmIndex: 0
 --- !u!1001 &2113461223
 PrefabInstance:
   m_ObjectHideFlags: 0
