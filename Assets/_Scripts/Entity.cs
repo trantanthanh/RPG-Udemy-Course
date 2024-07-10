@@ -111,6 +111,7 @@ public class Entity : MonoBehaviour
             //Debug.Log("facing left");
             isFacingRight = false;
             facingDir = -1;
+            onFlipped?.Invoke();
         }
         else
         {

@@ -3130,7 +3130,7 @@ Transform:
   m_GameObject: {fileID: 477843564}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.4516313, y: 2.38584, z: -10}
+  m_LocalPosition: {x: -0.45074296, y: 2.2848098, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5178,7 +5178,7 @@ Transform:
   m_GameObject: {fileID: 1054879347}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.21, y: 3.246, z: -10}
+  m_LocalPosition: {x: -2.84, y: 3.146, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -103815,7 +103815,7 @@ Transform:
   m_GameObject: {fileID: 2028271758}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.21, y: 2.3781598, z: -10}
+  m_LocalPosition: {x: -2.84, y: 2.2781596, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -104882,6 +104882,10 @@ PrefabInstance:
     - target: {fileID: 1678292248727639103, guid: 01fb145390615b74b852ee8cfc138eee, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3926987642698589098, guid: 01fb145390615b74b852ee8cfc138eee, type: 3}
+      propertyPath: m_Value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7320392895380508741, guid: 01fb145390615b74b852ee8cfc138eee, type: 3}
       propertyPath: m_AnchorMax.x
@@ -106105,11 +106109,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3471302627653843766, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.21
+      value: -2.84
       objectReference: {fileID: 0}
     - target: {fileID: 3471302627653843766, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.75
+      value: -0.85
       objectReference: {fileID: 0}
     - target: {fileID: 3471302627653843766, guid: 2fa55ae71ac145b4097ca5880c0cf5a4, type: 3}
       propertyPath: m_LocalPosition.z

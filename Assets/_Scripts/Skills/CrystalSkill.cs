@@ -39,6 +39,7 @@ public class CrystalSkill : Skill
 
     protected override void Start()
     {
+        base.Start();
         CallBackUnlock();
     }
 
