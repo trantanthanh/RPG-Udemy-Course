@@ -10,6 +10,9 @@ public class PlayerWallJumpState : PlayerState
 
     public override void Enter()
     {
+#if DEBUG
+        PrintCallingClass();
+#endif
         base.Enter();
         timerState = player.TimeWallJump;
         player.SetVelocity(-player.facingDir * player.X_JumpForceWall, player.JumpForce);

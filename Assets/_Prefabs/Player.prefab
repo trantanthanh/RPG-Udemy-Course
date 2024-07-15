@@ -826,7 +826,7 @@ MonoBehaviour:
     m_DissipationMode: 2
     m_DissipationDistance: 100
     m_PropagationSpeed: 343
-  m_DefaultVelocity: {x: 0.2, y: 0.1, z: 0}
+  m_DefaultVelocity: {x: -0.2, y: 0.1, z: 0}
 --- !u!1 &8171312139373004160
 GameObject:
   m_ObjectHideFlags: 0

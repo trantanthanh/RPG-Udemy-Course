@@ -10,6 +10,9 @@ public class PlayerWallSlideState : PlayerState
 
     public override void Enter()
     {
+#if DEBUG
+        PrintCallingClass();
+#endif
         base.Enter();
     }
 
@@ -22,7 +25,9 @@ public class PlayerWallSlideState : PlayerState
     {
         base.Update();
 
-        if (player.IsGroundDetected() || !player.IsFaceWallDetected() || xInput != player.facingDir)
+        if (player.IsGroundDetected() || !player.IsFaceWallDetected()
+            //|| xInput != player.facingDir
+            )
         {
             stateMachine.ChangeState(player.idleState);
             return;

@@ -10,6 +10,9 @@ public class PlayerIdleState : PlayerGroundedState
 
     public override void Enter()
     {
+#if DEBUG
+        PrintCallingClass();
+#endif
         base.Enter();
         player.SetZeroVelocity();
     }

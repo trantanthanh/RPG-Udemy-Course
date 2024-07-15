@@ -21,22 +21,6 @@ public class PlayerAirState : PlayerState
     public override void Update()
     {
         base.Update();
-
-        if (player.IsFaceWallDetected() && xInput == player.facingDir)
-        {
-            stateMachine.ChangeState(player.wallSlideState);
-            return;
-        }
-
-        if (rb.velocity.y == 0)//grounded or stand on something
-        {
-            stateMachine.ChangeState(player.idleState);
-            return;
-        }
-
-        if (xInput != 0)
-        {
-            player.SetVelocity(xInput * 0.8f * player.CurrentMoveSpeed, rb.velocity.y);
-        }
+        CanWallSlide();
     }
 }

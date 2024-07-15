@@ -10,6 +10,9 @@ public class PlayerJumpState : PlayerState
 
     public override void Enter()
     {
+#if DEBUG
+        PrintCallingClass();
+#endif
         base.Enter();
         player.Jump();
     }
@@ -22,7 +25,9 @@ public class PlayerJumpState : PlayerState
     public override void Update()
     {
         base.Update();
-        
+
+        if (CanWallSlide()) return;
+
         if (rb.velocity.y <= 0)//falling
         { 
             stateMachine.ChangeState(player.airState);
