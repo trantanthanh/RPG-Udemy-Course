@@ -33,6 +33,12 @@ public class PlayerWallSlideState : PlayerState
             return;
         }
 
+        if (xInput != 0 && xInput != player.facingDir)
+        {
+            stateMachine.ChangeState(player.airState);
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             stateMachine.ChangeState(player.wallJumpState);

@@ -26,7 +26,7 @@ public class PlayerJumpState : PlayerState
     {
         base.Update();
 
-        if (CanWallSlide()) return;
+        //if (CanWallSlide()) return;
 
         if (rb.velocity.y <= 0)//falling
         { 
